@@ -1,0 +1,5 @@
+##store data
+dbpath=D:\MongoStore\data
+ 
+##all output go here
+logpath=D:\MongoStore\log\mongo.log
