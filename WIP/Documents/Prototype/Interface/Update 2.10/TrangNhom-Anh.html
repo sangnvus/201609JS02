@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Trang ảnh nhóm</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Trangnhom.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/capstone-rename-later-v1.0.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Logo</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-left" style="padding-left: 15%;">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right" style="padding-right: 15%;">
+                    <li><a href="#"><i class="glyphicon glyphicon-user"></i> </a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-home"></i> </a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-comment"></i> </a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-bell"></i> </a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-cog"></i><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Tạo nhóm</a></li>
+                            <li><a href="#">Cài đặt chung</a></li>
+                            <li><a href="#">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-------------------Dưới thanh bar-------------------------->
+    <!-------------------Cover & avatar------------------------->
+
+    <div class="col-md-12 avatar-cover" style="padding:0; height: 410px;">
+        <img class="cover-img" src="AnhCoverSach/coversach2.jpg" alt="Trolltunga Norway">
+        <div class="change-cover">
+            <button class="change-cover-button"><i class="glyphicon glyphicon-camera"></i><span> Thay đổi ảnh bìa</span></button>
+        </div>
+        <div class="row">
+            <div class="avatar col-md-2">
+                <img class="avatar-img" src="Anhtacgia/Jeff%20Kinney_tacgia.jpg" alt="Trolltunga Norway">
+                <div class="change-avatar">
+                    <button class="change-avatar-button"><i class="glyphicon glyphicon-camera"></i><span> Thay đổi ảnh cá nhân</span></button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="cover-interaction">
+                <button class="button buttonRe">Cài đặt</button>
+                <button class="button buttonRe">Tham gia</button>
+                <button class="button buttonRe">Báo cáo</button>
+            </div>
+
+        </div>
+    </div>
+    <!-------------------Dưới Covers & Avatar------------------------->
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a href="TrangNhom-Thaoluan.html">Thảo luận</a></li>
+        <li role="presentation"><a href="TrangNhom-Thanhvien.html">Thành viên</a></li>
+        <li role="presentation" class="active"><a href="TrangNhom-Anh.html">Ảnh</a></li>
+    </ul>
+    <div class="container pills">
+        <ul class="nav nav-pills">
+            <li class="active"><a data-toggle="pill" href="#avatar">Ảnh đại diện</a></li>
+            <li><a data-toggle="pill" href="#cover">Ảnh bìa</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="avatar" class="tab-pane fade in active">
+                <div class="col-md-12 listavatar">
+                    <div class="col-md-2 avatargroup">
+                        <img src="Anhtacgia/James%20Patterson_tacgia.jpg" alt="username">
+                    </div>
+                    <div class="col-md-2 avatargroup">
+                        <img src="Anhtacgia/James%20Patterson_tacgia.jpg" alt="username">
+                    </div>
+                    <div class="col-md-2 avatargroup">
+                        <img src="Anhtacgia/JKRowling_tacgia.jpg" alt="username">
+                    </div>
+                    <div class="col-md-2 avatargroup">
+                        <img src="Anhtacgia/nguy%E1%BB%85n%20nh%E1%BA%ADt%20%C3%A1nh_tacgia.jpg" alt="username">
+                    </div>
+                    <div class="col-md-2 avatargroup">
+                        <img src="Anhtacgia/Junot%20D%C3%ADaz_tacgia.jpg" alt="username">
+                    </div>
+                    <div class="col-md-2 avatargroup">
+                        <img src="Anhtacgia/James%20Patterson_tacgia.jpg" alt="username">
+                    </div>
+                    <div class="col-md-3 avatargroup">
+                        <img src="Anhtacgia/nguy%E1%BB%85n%20nh%E1%BA%ADt%20%C3%A1nh_tacgia.jpg" alt="username">
+                    </div>
+                    <div class="col-md-3 avatargroup">
+                        <img src="Anhtacgia/Junot%20D%C3%ADaz_tacgia.jpg" alt="username">
+                    </div>
+                    <div class="col-md-3 avatargroup">
+                        <img src="Anhtacgia/James%20Patterson_tacgia.jpg" alt="username">
+                    </div>
+                </div>
+            </div>
+            <div id="cover" class="tab-pane fade">
+                <div class="col-md-12 listcover">
+                    <div class="col-md-4 cover">
+                        <img src="Anhtacgia/Jeff%20Kinney_tacgia.jpg" alt="username">
+                    </div>
+                    <div class="col-md-4 cover">
+                        <img src="Anhtacgia/JKRowling_tacgia.jpg" alt="username">
+                    </div>
+                    <div class="col-md-4 cover">
+                        <img src="Anhtacgia/nguy%E1%BB%85n%20nh%E1%BA%ADt%20%C3%A1nh_tacgia.jpg" alt="username">
+                    </div>
+                    <div class="col-md-4 cover">
+                        <img src="Anhtacgia/Junot%20D%C3%ADaz_tacgia.jpg" alt="username">
+                    </div>
+                    <div class="col-md-4 cover">
+                        <img src="Anhtacgia/nguy%E1%BB%85n%20nh%E1%BA%ADt%20%C3%A1nh_tacgia.jpg" alt="username">
+                    </div>
+                    <div class="col-md-4 cover">
+                        <img src="Anhtacgia/James%20Patterson_tacgia.jpg" alt="username">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------------------------Tên nhóm----------------------------->
+<div class="tennhom"><a href="#"><b>Ten Nhom</b></a></div>
+    <!-----------------------List thành viên--------------------------------->
+
+    <!-----------------------Hết List thành viên--------------------------------->
+
+</body>
+
+</html>
