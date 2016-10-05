@@ -1,0 +1,34 @@
+.container {
+    background-color: whitesmoke;
+    position: absolute;
+    left: 15%;
+    top: 8%;
+    height: 100%;
+    width: 60%;
+}
+
+.divider-horizontal {
+    height: 1px;
+    width: 98%;
+    float: bottom;
+    opacity: 0.2;
+    border-bottom: 1px solid gray;
+    margin: 5px 0px;
+    margin-left: 1%;
+}
+
+.form-horizontal {
+    width: 100%;
+    position: relative;
+    left: 0%;
+}
+
+.form-group {
+    width: 100%;
+    position: relative;
+    left: 10%;
+}
+
+.form-control {
+    width: 40%;
+}
