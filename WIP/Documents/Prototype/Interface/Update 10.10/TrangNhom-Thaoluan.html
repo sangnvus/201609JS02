@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Trang thảo luận nhóm</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Trangnhom.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/capstone-rename-later-v1.0.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Logo</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-left" style="padding-left: 15%;">
+                    <div class="nav-space"></div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right" style="padding-right: 15%;">
+                    <li><a href="#"><i class="glyphicon glyphicon-user"></i> </a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-home"></i> </a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-comment"></i> </a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-bell"></i> </a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-cog"></i><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Yêu cầu thêm sách</a></li>
+                            <li><a href="#">Cài đặt chung</a></li>
+                            <li><a href="#">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-------------------Dưới thanh bar-------------------------->
+    <!-------------------Cover & avatar------------------------->
+
+    <div class="col-md-12 avatar-cover" style="padding:0; height: 410px;">
+        <img class="cover-img" src="AnhCoverSach/coversach2.jpg" alt="Trolltunga Norway">
+        <div class="change-cover">
+            <button class="change-cover-button"><i class="glyphicon glyphicon-camera"></i><span> Thay đổi ảnh bìa</span></button>
+        </div>
+        <div class="row">
+            <div class="avatar col-md-4">
+                <img class="avatar-img" src="Anhtacgia/Jeff%20Kinney_tacgia.jpg" alt="Trolltunga Norway">
+                <div class="change-avatar">
+                    <button class="change-avatar-button"><i class="glyphicon glyphicon-camera"></i><span> Thay đổi ảnh cá nhân</span></button>
+                </div>
+            </div>
+            <ul class="nav nav-tabs" style="bottom:3%;">
+                <li role="presentation" class="active"><a href="TrangNhom-Thaoluan.html">Thảo luận</a></li>
+                <li role="presentation"><a href="TrangNhom-Thanhvien.html">Thành viên</a></li>
+                <li role="presentation"><a href="TrangNhom-Anh.html">Ảnh</a></li>
+            </ul>
+
+            <div class="cover-interaction">
+                <button class="button buttonRe">Cài đặt</button>
+                <button class="button buttonRe">Tham gia </button>
+                <button class="button buttonRe">Báo cáo</button>
+            </div>
+        </div>
+    </div>
+    <!-----------------------Dưới cover & ava--------------------------------->
+    <div class="tennhom"><a href="#"><b>Ten Nhom</b></a></div>
+    <!-------------------------------------------------------->
+    <div class="container-fluid text-left">
+        <div class="row content">
+            <!-----------------------Phần bên trái--------------------------------->
+            <div class="col-md-2 col-sm-4 col-xs-12 sidenav">
+
+                <!--------------------------->
+                <div id="nhom" class="text-center" class="panel-heading"><b>MÔ TẢ</b></div>
+                <br>
+                <textarea disabled style="width:100%;height:100px;">Phần mô tả của nhóm</textarea>
+                <p>Thành viên : 33 thành viên</p>
+
+                <div id="nhom" class="text-center" class="panel-heading"><b>NHÓM</b></div>
+                <ul class="list-group">
+                    <li>
+                        <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
+                            <i class="glyphicon glyphicon-book"></i>
+                            <span>Hội yêu thích truyện Harry Potter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="tooltip" title=" Hội hâm mộ Nguyễn Nhật Ánh ">
+                            <i class="glyphicon glyphicon-heart"></i>
+                            <span>Hội yêu thích truyện Harry Potter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="tooltip" title=" Hội hâm mộ J. K. Rowling ">
+                            <i class="glyphicon glyphicon-heart"></i>
+                            <span>Hội yêu thích truyện Harry Potter</span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="text-right">
+                    <button type="button" class="btn btn-link">Xem thêm</button>
+                </p>
+            </div>
+            <!-----------------------Phần ở giữa ----------------------------------->
+            <div class="col-md-6 col-sm-8 col-xs-12 text-left">
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="post-card" style="padding-top: 2px;">
+                            <textarea class="write-post" placeholder="Write a recomendation..."></textarea>
+                            <div class="divider-horizontal"></div>
+                            <div class="row" style="padding: 5px 15px;">
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="tag-area">
+                                        <ul class="list-book-tag">
+                                            <li>
+                                                <span>Thẻ sách</span>
+                                                <i class="glyphicon glyphicon-remove"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
+                                    <button id="choose-book-tag" class="btn btn-default">Gắn thẻ sách</button>
+                                    <button class="btn btn-default">Đăng</button>
+                                    <!-- 2 cái btn-default ni sau tự custom lại nhá. OK -->
+                                </div>
+                                <div id="book-tag-select" style="display: none">
+                                    <div class="head">Tìm kiếm</div>
+                                    <div class="content">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Từ khóa tìm kiếm">
+                                        </div>
+                                        <!-- custom cay form cua mi trong ni 
+                                        <button type="submit" class="btn btn-default btn-block">
+                                            Submit
+                                        </button>-->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Post 1 -->
+                    <div class="col-md-1" style="margin-top: 5px;">
+                        <img src="Harry_Potter_and_the_Sorcerer's_Stone.jpg" style="width:50px;height:50px" />
+                    </div>
+                    <div class="col-md-11" style="margin-top: 5px;">
+                        <div class="post-card" style="padding: 5px 15px;">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!-- Post Content -->
+                                    <div class="row">
+                                        <!-- Post Owner -->
+                                        <div class="col-md-12">
+                                            <div class="owner-info">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <a class="owner-name" href="">Người dùng</a>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>11:59 PM</span></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="post-content">Đây là nội dung bài post</p>
+                                    <!-- Post Interaction -->
+                                    <div class="divider-horizontal"></div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <ul class="book-tag-list-in-post">
+                                                <li>
+                                                    Thẻ sách
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12" style="text-align: right;">
+                                            <ul class="interaction-list">
+                                                <li>
+                                                    <button class="post-interaction-btn"><i class="glyphicon glyphicon-thumbs-up"></i><span>Thích</span></button>
+                                                </li>
+                                                <li>
+                                                    <button class="post-interaction-btn"><i class="glyphicon glyphicon-comment"></i><span>Bình luận</span></button>
+                                                </li>
+                                                <li>
+                                                    <button class="post-interaction-btn"><i class="glyphicon glyphicon-share"></i><span>Chia sẻ</span></button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="divider-horizontal"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post 2 -->
+                    <div class="col-md-1" style="margin-top: 5px;">
+                        <img src="Harry_Potter_and_the_Sorcerer's_Stone.jpg" style="width:50px;height:50px" />
+                    </div>
+                    <div class="col-md-11" style="margin-top: 5px;">
+                        <div class="post-card" style="padding: 5px 15px;">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!-- Post Content -->
+                                    <div class="row">
+                                        <!-- Post Owner -->
+                                        <div class="col-md-12">
+                                            <div class="owner-info">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <a class="owner-name" href="">Người dùng</a>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>11:59 PM</span></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="post-content">Đây là nội dung bài post</p>
+                                    <!-- Post Interaction -->
+                                    <div class="divider-horizontal"></div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <ul class="book-tag-list-in-post">
+                                                <li>
+                                                    Thẻ sách
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12" style="text-align: right;">
+                                            <ul class="interaction-list">
+                                                <li>
+                                                    <button class="post-interaction-btn"><i class="glyphicon glyphicon-thumbs-up"></i><span>Thích</span></button>
+                                                </li>
+                                                <li>
+                                                    <button class="post-interaction-btn"><i class="glyphicon glyphicon-comment"></i><span>Bình luận</span></button>
+                                                </li>
+                                                <li>
+                                                    <button class="post-interaction-btn"><i class="glyphicon glyphicon-share"></i><span>Chia sẻ</span></button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="divider-horizontal"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!------------------------Phần bên phải -------------------------------->
+            <div class="col-md-4 sidenav">
+                <div id="nhom" class="text-center" class="panel-heading"><b>ĐÁNH GIÁ VÀ ĐỌC GẦN ĐÂY</b></div>
+                <br>
+                <!--  Bắt đầu phần trending now -->
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="nhagiakim.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+                    </div>
+                    <div class="col-md-3">
+                        <br>
+                        <div class="rating">
+                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        </div>
+                        <p>345 đánh giá</p>
+                        <br>
+                        <button class="button buttonRe">Nhận xét</button>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="ngayxuacomotchuyentinh.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+                    </div>
+                    <div class="col-md-3">
+                        <br>
+                        <div class="rating">
+                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        </div>
+                        <p>345 đánh giá</p>
+                        <br>
+                        <button class="button buttonRe">Nhận xét</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <ul class="list-group">
+                                <li>
+                                    <span>
+                        <strong id="tensach">NHÀ GIẢ KIM</strong>
+                        <br><i id="tacgia"><strong>Paulo Coelho </strong> </i>
+                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <ul class="list-group">
+                                <li>
+                                    <span>
+                        <strong id="tensach">NGÀY XƯA CÓ MỘT CHUYỆN TÌNH</strong>
+                        <br><i id="tacgia"><strong>Nguyễn Nhật Ánh </strong> </i>
+                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="trenduongbang.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+                    </div>
+                    <div class="col-md-3">
+                        <br>
+                        <div class="rating">
+                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        </div>
+                        <p>345 đánh giá</p>
+                        <br>
+                        <button class="button buttonRe">Nhận xét</button>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="tottochanbencuaso.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+                    </div>
+                    <div class="col-md-3">
+                        <br>
+                        <div class="rating">
+                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        </div>
+                        <p>345 đánh giá</p>
+                        <br>
+                        <button class="button buttonRe">Nhận xét</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <ul class="list-group">
+                                <li>
+                                    <span>
+                                        <strong id="tensach">TRÊN ĐƯỜNG BĂNG</strong>
+                                        <br><i id="tacgia"><strong>Tony Buổi Sáng</strong> </i>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <ul class="list-group">
+                                <li>
+                                    <span>
+                                        <strong id="tensach">Totto chan bên cửa sổ</strong>
+                                        <br><i id="tacgia"><strong>Kuroyanagi Tetsuko</strong> </i>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
