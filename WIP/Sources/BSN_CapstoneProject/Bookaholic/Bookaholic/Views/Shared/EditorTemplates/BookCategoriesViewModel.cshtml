@@ -1,0 +1,5 @@
+﻿@model Bookaholic.ViewModels.BookCategoriesViewModel
+
+@Html.HiddenFor(x => x.CategoryId)
+@Html.LabelFor(x => x.IsSelected, Model.CategoryName)
+@Html.CheckBoxFor(x => x.IsSelected)
