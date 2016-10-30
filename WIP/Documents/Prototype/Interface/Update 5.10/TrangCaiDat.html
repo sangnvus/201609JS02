@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Trang chủ</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Trangcaidat.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/capstone-rename-later-v1.0.js"></script>
+
+</head>
+
+<body>
+    <!--------------------------------Thanh Bar------------------------------------->
+    <nav class="navbar navbar-default" style="background-color: #2f2f2f">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="logo.png" alt="Bookaholic.com" style="width:180px; height:40px;margin-top:2%" onclick="window.location='../Interface_v1.1/DangKy.html'">
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-left" style="padding-left: 15%;">
+                    <div class="nav-space"></div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right" style="padding-right: 15%;">
+                    <li><a href="TrangCaNhan.html"><i class="glyphicon glyphicon-user"></i> </a></li>
+                    <li><a href="TrangChu.html"><i class="glyphicon glyphicon-home"></i> </a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-comment"></i> </a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-bell"></i> </a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-cog"></i><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Yêu cầu thêm sách</a></li>
+                            <li><a href="TrangCaiDat.html">Cài đặt chung</a></li>
+                            <li><a href="#">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="col-md-2 col-sm-4 col-xs-12 sidenav">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div id="nhom" class="text-center panel-heading">NHÓM</div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <ul class="list-group">
+                    <li>
+                        <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
+                            <i class="glyphicon glyphicon-book"></i>
+                            <span>Hội yêu thích truyện Harry Potter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="tooltip" title=" Hội hâm mộ Nguyễn Nhật Ánh ">
+                            <i class="glyphicon glyphicon-heart"></i>
+                            <span>Hội yêu thích truyện Harry Potter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="tooltip" title=" Hội hâm mộ J. K. Rowling ">
+                            <i class="glyphicon glyphicon-heart"></i>
+                            <span>Hội yêu thích truyện Harry Potter</span>
+                        </a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="#" data-toggle="tooltip" title=" See more ">
+                            <span style="text-align:right">See more</span>
+                        </a>
+                    </li>
+                    <br>
+                    <li class="text-center">
+                        <button style="width:75%; border-radius: 8px; background-color: #0D00A8; color: white;" class="text-center panel-heading; btn btn-default btn-md">Tạo nhóm</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--------------------------->
+        <br>
+        <div id="nhom" class="text-center" class="panel-heading">MỚI XUẤT BẢN</div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="cuatiemcuanhunglathu.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+            </div>
+            <div class="col-md-6">
+                <br>
+                <div class="rating">
+                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                </div>
+                <p>345 đánh giá</p>
+                <br>
+                <button class="button buttonRe">Nhận xét</button>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <ul class="list-group">
+                    <li>
+                        <span>
+                                <strong id="tensach">CỬA TIỆM CỦA NHỮNG LÁ THƯ</strong>
+                                <br><i id="tacgia"><strong>Yasushi Kitagawa  </strong> </i>
+                                </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="sucmanhcuahientai.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+            </div>
+            <div class="col-md-6">
+                <br>
+                <div class="rating">
+                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                </div>
+                <p>345 đánh giá</p>
+                <br>
+                <button class="button buttonRe">Nhận xét</button>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <ul class="list-group">
+                    <li>
+                        <span>
+                        <strong id="tensach">SỨC MẠNH CỦA HIỆN TẠI</strong>
+                        <br><i id="tacgia"><strong>Eckhart Tolle  </strong> </i>
+                    </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="phutnhinlaiminh.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+            </div>
+            <div class="col-md-6">
+                <br>
+                <div class="rating">
+                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                </div>
+                <p>345 đánh giá</p>
+                <br>
+                <button class="button buttonRe">Nhận xét</button>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <ul class="list-group">
+                    <li>
+                        <span>
+                        <strong id="tensach">PHÚT NHÌN LẠI MÌNH</strong>
+                        <br><i id="tacgia"><strong>Spencer Johnson</strong> </i>
+                    </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <p class="text-right">
+            <button type="button" class="btn btn-link">Xem thêm</button>
+        </p>
+    </div>
+    <div class="container col-md-10">
+        <div class="userInfor">
+            <h2>Thông tin cá nhân</h2>
+            <div class="divider-horizontal"></div>
+            <br>
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="thumbnail">
+                            <img src="Anhtacgia/nguy%E1%BB%85n%20nh%E1%BA%ADt%20%C3%A1nh_tacgia.jpg" alt="">
+                            <div class="caption">
+                                <a href="#">Nguyễn Nhật Ánh</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Tên tài khoản</label>
+                            <input type="text" class="col-sm-3 form-control" id="lastName" placeholder="Họ" style="width:20%; margin-right:5px">
+                            <input type="text" class="col-sm-3 form-control" id="firstName" placeholder="Tên" style="width:20%;">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Giới tính</label>
+                            <label class="radio-inline" style="margin-left:0px;">
+                                <input type="radio" name="gender" id="male" value="1"> Nam
+                            </label>
+                            <label class="radio-inline" style="margin-left:30px;">
+                                <input type="radio" name="gender" id="female" value="2"> Nữ
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Ngày sinh</label>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-3 control-label">Mật khẩu</label>
+                            <input type="password" class="form-control" id="password" placeholder="Mật khẩu">
+                        </div>
+                        <div class="form-inline" style="position:relative;left:35%;margin-top:15px;">
+                            <button type="submit" class="btn btn-default">Sửa</button>
+                            <button type="submit" class="btn btn-default">Lưu</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

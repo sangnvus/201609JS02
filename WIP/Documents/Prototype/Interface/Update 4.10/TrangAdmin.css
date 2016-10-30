@@ -1,0 +1,48 @@
+body {
+    background-color: darkseagreen
+}
+
+.thumbnail {
+    margin-top: 20px;
+}
+
+.thumbnail img {
+    margin-top: 5px;
+    width: 180px;
+    height: 240px;
+}
+
+.thumbnail h4 {
+    text-align: center;
+}
+
+.btn-group-vertical {
+    width: 100%;
+}
+
+.slide-tab {
+    background-color: whitesmoke;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 2px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table {
+    margin-top: 10px;
+    padding: 0px 10px;
+}
+
+.table th {
+    text-align: center;
+}
+
+.form-group {
+    position: relative;
+    top: 30%;
+}
+.pagination {
+    position: relative;
+    left: 75%;
+}
