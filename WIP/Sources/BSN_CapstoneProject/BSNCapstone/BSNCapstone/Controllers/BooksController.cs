@@ -16,7 +16,7 @@ namespace BSNCapstone.Controllers
         private readonly ApplicationIdentityContext Context = ApplicationIdentityContext.Create();
         //
         // GET: /Books/
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             ViewBag.allCategories = BooksControllerHelper.ListAllCategory();
             var books = Context.Books.Find(_ => true).ToEnumerable();
