@@ -28,20 +28,37 @@ namespace BSNCapstone.App_Start
 
             var books = database.GetCollection<Book>("books");
 
-            return new ApplicationIdentityContext(users, roles, categories, books);
+            //HuyenPT. Create. Start
+            var photos = database.GetCollection<MongoPhoto>("photos");
+            //HuyenPT. Create. End
+
+            //HuyenPT. Update. Start
+            //return new ApplicationIdentityContext(users, roles, categories, books);
+            return new ApplicationIdentityContext(users, roles, categories, books, photos);
+            //HuyenPT. Update. End
 
         }
 
         // Khai báo Context cho từng Object 
+        //HuyenPT. Update. Start
+        /* private ApplicationIdentityContext(IMongoCollection<ApplicationUser> users,
+            IMongoCollection<IdentityRole> roles,
+            IMongoCollection<Category> categories,
+            IMongoCollection<Book> books) */
         private ApplicationIdentityContext(IMongoCollection<ApplicationUser> users,
             IMongoCollection<IdentityRole> roles,
             IMongoCollection<Category> categories,
-            IMongoCollection<Book> books)
+            IMongoCollection<Book> books,
+            IMongoCollection<MongoPhoto> photos)
+        //HuyenPT. Update. End
         {
             Users = users;
             Roles = roles;
             Categories = categories;
             Books = books;
+            //HuyenPT. Create. Start
+            Photos = photos;
+            //HuyenPT. Create. End
         }
 
         // Bổ sung IMongoCollection cho 1 Object mới
@@ -49,6 +66,9 @@ namespace BSNCapstone.App_Start
         public IMongoCollection<ApplicationUser> Users { get; set; }
         public IMongoCollection<Category> Categories { get; set; }
         public IMongoCollection<Book> Books { get; set; }
+        //HuyenPT. Create. Start
+        public IMongoCollection<MongoPhoto> Photos { get; set; }
+        //HuyenPT. Create. End
 
         public Task<List<IdentityRole>> AllRolesAsync()
         {
