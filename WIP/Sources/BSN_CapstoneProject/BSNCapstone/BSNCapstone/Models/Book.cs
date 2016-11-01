@@ -35,6 +35,10 @@ namespace BSNCapstone.Models
         [Display(Name = "Description")]
         public string Description { get; set; }
 
+        //DangVH. Create. Start (01/11/2016)
+        public string ImgPublicId { get; set; }
+        //DangVH. Create. End (01/11/2016)
+
         public List<BookCategoriesViewModel> Categories { get; set; }
 
         public Book()

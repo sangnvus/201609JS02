@@ -58,13 +58,18 @@ namespace BSNCapstone.Controllers
             {
                 // TODO: Add insert logic here
                 var selectedCategories = book.Categories.Where(x => x.IsSelected).Select(x => x.CategoryId).ToList();
+                //DangVH. Create. Start (01/11/2016)
+                var file = Request.Files[0];
+                var uploadResult = ImageUploadHelper.GetUploadResult(file);
+                //DangVH. Create. End (01/11/2016)
                 var addBook = new Book()
                 {
                     BookName = book.BookName,
                     Authors = book.Authors,
                     Publishers = book.Publishers,
                     ReleaseDay = book.ReleaseDay.ToLocalTime(),
-                    Description = book.Description
+                    Description = book.Description,
+                    ImgPublicId = uploadResult.PublicId
                 };
 
                 foreach (var categoryId in selectedCategories)

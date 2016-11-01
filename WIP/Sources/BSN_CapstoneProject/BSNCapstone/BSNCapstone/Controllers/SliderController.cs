@@ -52,12 +52,15 @@ namespace BSNCapstone.Controllers
                     return Json(new { result = false });
                 }
                 //Upload Image
-                var uploadParam = new ImageUploadParams()
-                {
-                    File = new FileDescription(file.FileName, file.InputStream),
-                };
+                //DangVH. Update. Start (01/11/2016)
+                    //var uploadParam = new ImageUploadParams()
+                    //{
+                    //    File = new FileDescription(file.FileName, file.InputStream),
+                    //};
 
-                var uploadResult = cloudinary.Upload(uploadParam);
+                    //var uploadResult = cloudinary.Upload(uploadParam);
+                var uploadResult = ImageUploadHelper.GetUploadResult(file);
+                //DangVH. Update. End (01/11/2016)
 
                 //Save photo (publicID) to MongoDB
                 MongoPhoto mongoPhoto = new MongoPhoto()
