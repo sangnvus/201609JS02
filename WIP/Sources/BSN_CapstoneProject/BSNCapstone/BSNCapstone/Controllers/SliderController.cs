@@ -12,6 +12,7 @@ using MongoDB.Bson;
 using System.IO;
 using MongoDB.Driver.Builders;
 using BSNCapstone.App_Start;
+using BSNCapstone.ControllerHelpers;
 
 namespace BSNCapstone.Controllers
 {
@@ -23,9 +24,11 @@ namespace BSNCapstone.Controllers
         public ActionResult Index()
         {
             //Configuration
-            Account account = new Account("dsddvwiqz", "677568653855233", "_RCoQNjMqr8Nt7-FAgs5T_guiWM");
-            var cloudinary = new Cloudinary(account);
-
+            //DangVH. Update. Start (01/11/2016)
+            //Account account = new Account("dsddvwiqz", "677568653855233", "_RCoQNjMqr8Nt7-FAgs5T_guiWM");
+            //var cloudinary = new Cloudinary(account);
+            var cloudinary = ImageUploadHelper.GetCloudinaryAccount();
+            //DangVH. Update. End (01/11/2016)
             //List of photos from MongoDB
             List<MongoPhoto> listMgPhoto = Context.Photos.Find(_ => true).ToList();
             return View(new MongoPhotoModel(cloudinary, listMgPhoto));
@@ -37,8 +40,11 @@ namespace BSNCapstone.Controllers
             try
             {
                 //Configuration
-                Account account = new Account("dsddvwiqz", "677568653855233", "_RCoQNjMqr8Nt7-FAgs5T_guiWM");
-                var cloudinary = new Cloudinary(account);
+                //DangVH. Update. Start (01/11/2016)
+                //Account account = new Account("dsddvwiqz", "677568653855233", "_RCoQNjMqr8Nt7-FAgs5T_guiWM");
+                //var cloudinary = new Cloudinary(account);
+                var cloudinary = ImageUploadHelper.GetCloudinaryAccount();
+                //DangVH. Update. End (01/11/2016)
                 var file = Request.Files[0];
 
                 if (file == null)
