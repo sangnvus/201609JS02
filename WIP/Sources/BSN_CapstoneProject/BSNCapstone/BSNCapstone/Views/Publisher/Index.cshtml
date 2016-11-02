@@ -1,21 +1,16 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-@{
-    Layout = "";
-}
 
 <head>
-    <title>Admin-Slider</title>
+    <title>Admin-Nhà xuất bản</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/TrangAdmin.css">
-    <script src="~/Scripts/jquery.min.js"></script>
-    <script src="~/Scripts/filter.js"></script>
-    <script src="~/Content/bootstrap.js"></script>
-    <script src="~/Content/bootstrap.min.js"></script>
+    <script src="~/Script/jquery.min.js"></script>
+    <script src="~/Script/filter.js"></script>
+    <script src="~/Script/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
 </head>
 
 <body>
@@ -49,13 +44,13 @@
                         Quản lý sách <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Thống kê sách", "Index", "Books")</li>
+                        <li><a href="TrangAdmin-Book.html">Thống kê sách</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="TrangAdmin-Requestbook.html">Yêu cầu thêm sách</a></li>
                     </ul>
                 </div>
                 <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Slider.html'">Quản lý Slider</button>
-                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-NXB.html'">Quản lý Nhà xuất bản</button>
+                <button type="button" class="btn btn-default active" onclick="window.location.href='TrangAdmin-NXB.html'">Quản lý Nhà xuất bản</button>
                 <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Report.html'">Quản lý Phản hồi</button>
             </div>
         </div>
@@ -63,9 +58,10 @@
         <div class="col-md-10">
             <div class="slide-tab">
                 <div class="form-inline">
-                    <label>Danh sách slides</label>
+                    <label>Danh sách Nhà Xuất Bản</label>
+
                     <div class="form-group add">
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Thêm slide</button>
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Thêm NXB</button>
                         <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Tìm kiếm..." />
                     </div>
                     <div class="modal fade" id="myModal" role="dialog">
@@ -74,80 +70,88 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Thêm slide</h4>
+                                    <h4 class="modal-title">Thêm Nhà xuất bản</h4>
 
                                 </div>
                                 <div class="midle-modal">
                                     <div class="row content" style="margin-top:10px;">
-                                        <div class="col-sm-12" style="margin-top:1%; ">
-                                            <label class="col-sm-2 control-label" style="text-align:right;">Slide: </label>
-                                            @*HuyenPT. Update. Start. 30-10-2016*@
-                                            @*<input type="file" id="CMND" style="color:black">*@
-                                            <input type="file" id="slide" name="slide" style="color:black">
-                                            @*HuyenPT. Update. End. 30-10-2016*@
-                                            <p class="help-block" style="color:black;margin-left:100px">1378x768</p>
+                                        <div class="col-sm-6 form-group" style="margin-top:1%">
+                                            <label class="col-sm-2 control-label" style="text-align:right;width:35%">Tên NXB: </label>
+                                            <input type="text" class="col-sm-4 form-control" id="pubName" placeholder="Tên NXB" style="width:65%;margin-top:-2%">
                                         </div>
                                         <div class="col-sm-12 form-group" style="margin-top:1%">
-                                            <label class="col-sm-2 control-label" style="text-align:right;width:16.5%">Miêu tả: </label>
-                                            @*HuyenPT. Update. Start. 30-10-2016*@
+                                            <label class="col-sm-2 control-label" style="text-align:right;width:16.5%">Địa Chỉ: </label>
+                                            @*HuyenPT. Update. Start. 02-11-2016*@
                                             @*<textarea style="width:70%;"></textarea>*@
-                                            <textarea style="width:70%;" id="description" name="txtDesc"></textarea>
-                                            @*HuyenPT. Update. End. 30-10-2016*@
+                                            <textarea style="width:70%;" id="pubAddress"></textarea>
+                                            @*HuyenPT. Update. End. 02-11-2016*@
                                         </div>
-
+                                        @*HuyenPT. Create. Start. 02-11-2016*@
+                                        <label>Số điện thoại:</label>
+                                        <input type="text" id="pubPhoneNo" style="width:70%;">
+                                        @*HuyenPT. Create. End. 02-11-2016*@
+                                        <div class="col-sm-6" style="margin-top:1%; margin-left:100px">
+                                            @*HuyenPT. Update. Start. 02-11-2016*@
+                                            @*<input type="file" id="CMND" style="color:black">*@
+                                            <input type="file" id="pubImage" style="color:black">
+                                            @*HuyenPT. Update. End. 02-11-2016*@
+                                            <p class="help-block" style="color:black">Thêm Logo NXB</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    @*HuyenPT. Update. Start. 30-10-2016*@
+                                    @*HuyenPT. Update. Start. 02-11-2016*@
                                     @*<button type="button" class="btn btn-default" data-dismiss="modal">Thêm</button>*@
-                                    <button type="button" class="btn btn-default" data-dismiss="modal" id="Upload">Thêm</button>
-                                    @*HuyenPT. Update. End. 30-10-2016*@
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" id="UploadPublisher">Thêm</button>
+                                    @*HuyenPT. Update. End. 02-11-2016*@
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Hùy</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-----Vạch phân chia----->
                 <div class="divider-horizontal"></div>
+                <!--                Bảng-->
                 <div class="table">
                     <table class="table table-striped table-bordered table-hover" id="dev-table">
                         <thead>
                             <tr>
                                 <th style="width:1px">#</th>
-                                <th style="width:200px">Ảnh</th>
-                                <th>Miêu tả</th>
-                                <th style="width:130px">Chế độ</th>
-                                <th style="width:130px">Hành động</th>
+                                <th>Ảnh</th>
+                                <th style="width:400px">Nhà Xuất Bản</th>
+                                <th style="width:300px">Địa chỉ</th>
+                                @*HuyenPT. Create. Start. 02-11-2016*@
+                                <th style="width:300px">Số điện thoại</th>
+                                @*HuyenPT. Create. End. 02-11-2016*@
                             </tr>
                         </thead>
                         <tbody>
-                            @*HuyenPT. Create. Start. 30-10-2016*@
+                            @*HuyenPT. Create. Start. 02-11-2016*@
                             @{int i = 1;}
-                            @foreach (BSNCapstone.Models.Slider img in @Model.Sliders)
+                            @foreach (BSNCapstone.Models.Publisher publisher in @Model.Publishers)
                             {
                                 <tr id=@i>
                                     <td>@i</td>
                                     <td>
                                         @Model.Cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
-                                        .Height(130).Width(130).Crop("fill")).BuildImageTag(img.PublicId,
+                                        .Height(130).Width(130).Crop("fill")).BuildImageTag(publisher.ImagePublicId,
                                         new CloudinaryDotNet.StringDictionary("class=thumbnail inline"))
                                     </td>
-                                    <td>@img.Desc</td>
+                                    <td>@publisher.Name</td>
+                                    <td>@publisher.Address</td>
+                                    <td>@publisher.PhoneNumber</td>
                                     <td>
-                                        <button type="submit" class="btn btn-default">Bật</button>
-                                        <button type="submit" class="btn btn-default">Tắt</button>
-                                    </td>
-                                    <td>
-                                        <button type="submit" class="btn btn-default">Sửa</button>
-                                        <button type="submit" class="btn btn-default" onclick="Delete('@img.Id', @i)" id="Delete">Xóa</button>
+                                        <button type="submit" class="btn btn-default" onclick="DeletePublisher('@publisher.Id', @i)" id="DeletePublisher">Xóa</button>
                                     </td>
                                 </tr>
                                 i++;
                             }
-                            @*HuyenPT. Create. End*@
+                            @*HuyenPT. Create. End. 02-11-2016*@
                         </tbody>
                     </table>
                 </div>
+
                 <!-------NÚT SANG TRANG------->
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
@@ -175,21 +179,23 @@
 
 </html>
 
-@*HuyenPT. Create. Start. 30-10-2016*@
+@*HuyenPT. Create. Start. 02-11-2016*@
 <script>
-    // UPLOAD IMAGE
+    //UPLOAD PUBLISHER
     $(document).ready(function () {
-        $("#Upload").click(function () {
+        $("#UploadPublisher").click(function () {
             var formData = new FormData();
-            var totalFiles = document.getElementById("slide").files.length;
+            var totalFiles = document.getElementById("pubImage").files.length;
             for (var i = 0; i < totalFiles; i++) {
-                var file = document.getElementById("slide").files[i];
-                formData.append("slide", file);
+                var pubImage = document.getElementById("pubImage").files[i];
+                formData.append("pubImage", pubImage);
             }
-            formData.append("desc", $("#description").val());
+            formData.append("pubName", $("#pubName").val());
+            formData.append("pubAddress", $("#pubAddress").val());
+            formData.append("pubPhoneNo", $("#pubPhoneNo").val());
             $.ajax({
                 type: "POST",
-                url: '@Url.Action("Upload", "Slider")',
+                url: '@Url.Action("Upload", "Publisher")',
                 data: formData,
                 dataType: 'json',
                 contentType: false,
@@ -203,18 +209,17 @@
                     alert(err.statusText);
                 }
             });
-        });
+        })
     });
 
-    // DELETE IMAGE
-    function Delete(id, i) {
+    function DeletePublisher(id, i) {
         var deleteConfirm = confirm("Do you really want to delete this slider? ");
         if (deleteConfirm) {
             var formData = new FormData();
             formData.append("id", id);
             $.ajax({
                 type: "POST",
-                url: "@Url.Action("DeleteConfirmed", "Slider")",
+                url: "@Url.Action("Delete", "Publisher")",
                 data: formData,
                 dataType: 'json',
                 contentType: false,
@@ -229,6 +234,6 @@
                 }
             });
         }
-    };
+    }
 </script>
-@*HuyenPT. Create. End. 30-10-2016*@
+@*HuyenPT. Create. End. 02-11-2016*@

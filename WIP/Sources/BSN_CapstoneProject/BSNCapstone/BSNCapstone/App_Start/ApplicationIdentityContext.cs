@@ -28,37 +28,56 @@ namespace BSNCapstone.App_Start
 
             var books = database.GetCollection<Book>("books");
 
-            //HuyenPT. Create. Start
-            var photos = database.GetCollection<MongoPhoto>("photos");
-            //HuyenPT. Create. End
+            //HuyenPT. Create. Start. 30-10-2016
+            var sliders = database.GetCollection<Slider>("slides");
+            //HuyenPT. Create. End. 30-10-2016
 
-            //HuyenPT. Update. Start
+            //HuyenPT. Create. Start. 02-11-2016
+            var publishers = database.GetCollection<Publisher>("publishers");
+            //HuyenPT. Create. End. 02-11-2016
+
+            //HuyenPT. Update. Start. 30-10-2016
             //return new ApplicationIdentityContext(users, roles, categories, books);
-            return new ApplicationIdentityContext(users, roles, categories, books, photos);
-            //HuyenPT. Update. End
+            //HuyenPT. Update. Start. 02-11-2016
+            //return new ApplicationIdentityContext(users, roles, categories, books, sliders);
+            return new ApplicationIdentityContext(users, roles, categories, books, sliders, publishers);
+            //HuyenPT. Update. End. 02-11-2016
+            //HuyenPT. Update. End. 30-10-2016
 
         }
 
         // Khai báo Context cho từng Object 
-        //HuyenPT. Update. Start
+        //HuyenPT. Update. Start. 30-10-2016
         /* private ApplicationIdentityContext(IMongoCollection<ApplicationUser> users,
             IMongoCollection<IdentityRole> roles,
             IMongoCollection<Category> categories,
             IMongoCollection<Book> books) */
-        private ApplicationIdentityContext(IMongoCollection<ApplicationUser> users,
+        //HuyenPT. Update. Start. 02-11-2016
+        /*private ApplicationIdentityContext(IMongoCollection<ApplicationUser> users,
             IMongoCollection<IdentityRole> roles,
             IMongoCollection<Category> categories,
             IMongoCollection<Book> books,
-            IMongoCollection<MongoPhoto> photos)
-        //HuyenPT. Update. End
+            IMongoCollection<Slider> sliders)*/
+        private ApplicationIdentityContext(IMongoCollection<ApplicationUser> users,
+           IMongoCollection<IdentityRole> roles,
+           IMongoCollection<Category> categories,
+           IMongoCollection<Book> books,
+           IMongoCollection<Slider> sliders,
+           IMongoCollection<Publisher> publishers
+           )
+        //HuyenPT. Update. End. 02-11-2016
+        //HuyenPT. Update. End. 30-10-2016
         {
             Users = users;
             Roles = roles;
             Categories = categories;
             Books = books;
-            //HuyenPT. Create. Start
-            Photos = photos;
-            //HuyenPT. Create. End
+            //HuyenPT. Create. Start. 30-10-2016
+            Sliders = sliders;
+            //HuyenPT. Create. End. 30-10-2016
+            //HuyenPT. Create. Start02-11-2016
+            Publishers = publishers;
+            //HuyenPT. Create. End. 02-11-2016
         }
 
         // Bổ sung IMongoCollection cho 1 Object mới
@@ -66,9 +85,12 @@ namespace BSNCapstone.App_Start
         public IMongoCollection<ApplicationUser> Users { get; set; }
         public IMongoCollection<Category> Categories { get; set; }
         public IMongoCollection<Book> Books { get; set; }
-        //HuyenPT. Create. Start
-        public IMongoCollection<MongoPhoto> Photos { get; set; }
-        //HuyenPT. Create. End
+        //HuyenPT. Create. Start. 30-10-2016
+        public IMongoCollection<Slider> Sliders { get; set; }
+        //HuyenPT. Create. End. 30-10-2016
+        //HuyenPT. Create. Start. 02-11-2016
+        public IMongoCollection<Publisher> Publishers { get; set; }
+        //HuyenPT. Create. End. 02-11-2016
 
         public Task<List<IdentityRole>> AllRolesAsync()
         {

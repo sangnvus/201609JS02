@@ -34,8 +34,8 @@ namespace BSNCapstone.Controllers
             //DangVH. Delete. End (02/11/2016)
 
             //List of photos from MongoDB
-            List<MongoPhoto> listMgPhoto = Context.Photos.Find(_ => true).ToList();
-            return View(new MongoPhotoModel(cloudinary, listMgPhoto));
+            List<Slider> sliders = Context.Sliders.Find(_ => true).ToList();
+            return View(new SliderPhotoModel(cloudinary, sliders));
         }
 
         [HttpPost]
@@ -67,12 +67,12 @@ namespace BSNCapstone.Controllers
                 //DangVH. Update. End (01/11/2016)
 
                 //Save photo (publicID) to MongoDB
-                MongoPhoto mongoPhoto = new MongoPhoto()
+                Slider mongoPhoto = new Slider()
                 {
                     PublicId = uploadResult.PublicId,
                     Desc = desc
                 };
-                Context.Photos.InsertOneAsync(mongoPhoto);
+                Context.Sliders.InsertOneAsync(mongoPhoto);
 
                 return Json("File Uploaded Successfully!");
             }
@@ -85,7 +85,7 @@ namespace BSNCapstone.Controllers
         [HttpPost]
         public ActionResult DeleteConfirmed(string id)
         {
-            Context.Photos.DeleteOneAsync(x => x.Id.Equals(new ObjectId(id)));
+            Context.Sliders.DeleteOneAsync(x => x.Id.Equals(new ObjectId(id)));
             return Json("File Delete Successfully!");
         }
 	}

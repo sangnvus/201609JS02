@@ -8,7 +8,7 @@ using System.Web;
 
 namespace BSNCapstone.Models
 {
-    public class MongoPhoto
+    public class Slider
     {
         [BsonRepresentation(BsonType.ObjectId)]
         public String Id { get; set; }

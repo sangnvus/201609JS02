@@ -17,14 +17,26 @@ namespace BSNCapstone.Models
         }
     }
 
-    public class MongoPhotoModel : PhotoModel
+    public class SliderPhotoModel : PhotoModel
     {
-        public List<MongoPhoto> MongoPhotos { get; set; }
+        public List<Slider> Sliders { get; set; }
 
-        public MongoPhotoModel(Cloudinary cloudinary, List<MongoPhoto> mongoPhotos)
+        public SliderPhotoModel(Cloudinary cloudinary, List<Slider> sliders)
             : base(cloudinary)
         {
-            MongoPhotos = mongoPhotos;
+            Sliders = sliders;
         }
     }
+    // HuyenPT. Create. Start. 02-11-2016
+    public class PublisherPhotoModel : PhotoModel
+    {
+        public List<Publisher> Publishers { get; set; }
+
+        public PublisherPhotoModel(Cloudinary cloudinary, List<Publisher> publishers)
+            : base(cloudinary)
+        {
+            Publishers = publishers;
+        }
+    }
+    // HuyenPT. Create. End. 02-11-2016
 }
