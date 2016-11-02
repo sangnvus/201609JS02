@@ -3,12 +3,14 @@
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    <!--DangVH. Create. Start (02/11/2016)-->
+    var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
+    <!--DangVH. Create. End (02/11/2016)-->
 }
 
 <h2>Edit</h2>
 
-
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Books", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -25,6 +27,18 @@
                 @Html.ValidationMessageFor(model => model.BookName)
             </div>
         </div>
+
+        <!--DangVH. Create. Start (02/11/2016)-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImgPublicId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                .Height(130).Width(130).Crop("fill")).BuildImageTag(Model.ImgPublicId,
+                new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
+                <input type="file" id="ImgPublicId" name="img" style="color:black">
+            </div>
+        </div>
+        <!--DangVH. Create. End (02/11/2016)-->
 
         <div class="form-group">
             @Html.LabelFor(model => model.Authors, new { @class = "control-label col-md-2" })

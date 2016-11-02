@@ -19,16 +19,20 @@ namespace BSNCapstone.Controllers
     public class SliderController : Controller
     {
         private readonly ApplicationIdentityContext Context = ApplicationIdentityContext.Create();
+        //DangVH. Create. Start (02/11/2016)
+        private readonly CloudinaryDotNet.Cloudinary cloudinary = ImageUploadHelper.GetCloudinaryAccount();
+        //DangVH. Create. End (02/11/2016)
         //
         // GET: /Slider/
         public ActionResult Index()
         {
             //Configuration
-            //DangVH. Update. Start (01/11/2016)
+            //DangVH. Delete. Start (02/11/2016)
             //Account account = new Account("dsddvwiqz", "677568653855233", "_RCoQNjMqr8Nt7-FAgs5T_guiWM");
             //var cloudinary = new Cloudinary(account);
-            var cloudinary = ImageUploadHelper.GetCloudinaryAccount();
-            //DangVH. Update. End (01/11/2016)
+            //var cloudinary = ImageUploadHelper.GetCloudinaryAccount();
+            //DangVH. Delete. End (02/11/2016)
+
             //List of photos from MongoDB
             List<MongoPhoto> listMgPhoto = Context.Photos.Find(_ => true).ToList();
             return View(new MongoPhotoModel(cloudinary, listMgPhoto));
@@ -40,11 +44,11 @@ namespace BSNCapstone.Controllers
             try
             {
                 //Configuration
-                //DangVH. Update. Start (01/11/2016)
+                //DangVH. Delete. Start (02/11/2016)
                 //Account account = new Account("dsddvwiqz", "677568653855233", "_RCoQNjMqr8Nt7-FAgs5T_guiWM");
                 //var cloudinary = new Cloudinary(account);
-                var cloudinary = ImageUploadHelper.GetCloudinaryAccount();
-                //DangVH. Update. End (01/11/2016)
+                //var cloudinary = ImageUploadHelper.GetCloudinaryAccount();
+                //DangVH. Delete. End (02/11/2016)
                 var file = Request.Files[0];
 
                 if (file == null)
