@@ -7,6 +7,7 @@ using BSNCapstone.ControllerHelpers;
 using BSNCapstone.ViewModels;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using Microsoft.AspNet.Identity;
 
 namespace BSNCapstone.Controllers
 {
@@ -14,12 +15,25 @@ namespace BSNCapstone.Controllers
     public class BooksController : Controller
     {
         private readonly ApplicationIdentityContext Context = ApplicationIdentityContext.Create();
+        //DangVH. Create. Start (02/11/2016)
+        private readonly CloudinaryDotNet.Cloudinary cloudinary = ImageUploadHelper.GetCloudinaryAccount();
+        //DangVH. Create. End (02/11/2016)
         //
         // GET: /Books/
         public ActionResult Index(string searchString)
         {
+            //DangVH. Create. Start (02/11/2016)
+            ViewBag.currentUser = User.Identity.GetUserName();
+            ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
+            //DangVH. Create. End (02/11/2016)
             ViewBag.allCategories = BooksControllerHelper.ListAllCategory();
             var books = Context.Books.Find(_ => true).ToEnumerable();
+            //DangVH. Create. Start (02/11/2016)
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                books = books.Where(x => x.BookName.Contains(searchString) || x.Authors.Contains(searchString));
+            }
+            //DangVH. Create. End (02/11/2016)
             return View(books);
         }
 
@@ -27,6 +41,9 @@ namespace BSNCapstone.Controllers
         // GET: /Books/Details/5
         public ActionResult Details(string id)
         {
+            //DangVH. Create. Start (02/11/2016)
+            ViewBag.cloudinary = cloudinary;
+            //DangVH. Create. End (02/11/2016)
             var book = Context.Books.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
             var allCategory = Context.Categories.Find(_ => true).ToEnumerable();
             List<Category> listCategory = new List<Category>();
@@ -90,6 +107,9 @@ namespace BSNCapstone.Controllers
         // GET: /Books/Edit/5
         public ActionResult Edit(string id)
         {
+            //DangVH. Create. Start (02/11/2016)
+            ViewBag.cloudinary = cloudinary;
+            //DangVH. Create. End (02/11/2016)
             var book = Context.Books.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
             var allCategory = Context.Categories.Find(_ => true).ToEnumerable();
             var bookCategoriesViewModel = new List<BookCategoriesViewModel>();
@@ -114,6 +134,10 @@ namespace BSNCapstone.Controllers
             if (ModelState.IsValid)
             {
                 // TODO: Add update logic here
+                //DangVH. Create. Start (02/11/2016)
+                var file = Request.Files[0];
+                var uploadResult = ImageUploadHelper.GetUploadResult(file);
+                //DangVH. Create. End (02/11/2016)
                 var selectedCategories = book.Categories.Where(x => x.IsSelected).Select(x => x.CategoryId).ToList();
                 var editBook = Context.Books.Find(x => x.Id.Equals(new ObjectId(book.Id))).FirstOrDefault();
                 editBook.BookName = book.BookName;
@@ -121,6 +145,7 @@ namespace BSNCapstone.Controllers
                 editBook.Publishers = book.Publishers;
                 editBook.ReleaseDay = book.ReleaseDay.ToLocalTime();
                 editBook.Description = book.Description;
+                editBook.ImgPublicId = uploadResult.PublicId;
                 editBook.Categories.Clear();
                 foreach (var categoryId in selectedCategories)
                 {

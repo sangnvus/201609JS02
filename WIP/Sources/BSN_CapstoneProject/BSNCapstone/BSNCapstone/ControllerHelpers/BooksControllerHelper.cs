@@ -13,6 +13,14 @@ namespace BSNCapstone.ControllerHelpers
 {
     public class BooksControllerHelper
     {
+        //DangVH. Create. Start (02/11/2016)
+        public static int GetBookNumber()
+        {
+            ApplicationIdentityContext Context = ApplicationIdentityContext.Create();
+            return (int)Context.Books.Find(_ => true).Count();
+        }
+        //DangVH. Create. End (02/11/2016)
+
         public static List<Category> ListAllCategory()
         {
             ApplicationIdentityContext Context = ApplicationIdentityContext.Create();

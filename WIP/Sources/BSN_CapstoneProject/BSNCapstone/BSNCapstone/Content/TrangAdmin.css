@@ -156,6 +156,11 @@
     margin-top: 140px;
 }
 
+/*search form*/
+.searchForm {
+    display: inline-block;
+}
+
 
 /****************GROUP*********************/
 
