@@ -1,5 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+@{
+    Layout = "";
+}
 
 <head>
     <title>Admin-Slider</title>
@@ -12,6 +15,7 @@
     <script src="~/Content/bootstrap.js"></script>
     <script src="~/Content/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
 </head>
 
 <body>
@@ -45,12 +49,12 @@
                         Quản lý sách <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="TrangAdmin-Book.html">Thống kê sách</a></li>
+                        <li>@Html.ActionLink("Thống kê sách", "Index", "Books")</li>
                         <li role="separator" class="divider"></li>
                         <li><a href="TrangAdmin-Requestbook.html">Yêu cầu thêm sách</a></li>
                     </ul>
                 </div>
-                <button type="button" class="btn btn-default active" onclick="window.location.href='TrangAdmin-Slider.html'">Quản lý Slider</button>
+                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Slider.html'">Quản lý Slider</button>
                 <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-NXB.html'">Quản lý Nhà xuất bản</button>
                 <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Report.html'">Quản lý Phản hồi</button>
             </div>

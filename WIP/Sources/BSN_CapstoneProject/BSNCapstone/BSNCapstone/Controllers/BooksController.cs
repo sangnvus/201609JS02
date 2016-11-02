@@ -63,7 +63,7 @@ namespace BSNCapstone.Controllers
         public ActionResult Create()
         {
             Book book = BooksControllerHelper.GetCheckBoxValues();
-            return View(book);
+            return PartialView("_Create", book);
         }
 
         //
