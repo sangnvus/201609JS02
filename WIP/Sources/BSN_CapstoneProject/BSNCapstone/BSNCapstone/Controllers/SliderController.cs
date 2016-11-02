@@ -34,7 +34,7 @@ namespace BSNCapstone.Controllers
             //DangVH. Delete. End (02/11/2016)
 
             //List of photos from MongoDB
-            List<MongoPhoto> listMgPhoto = Context.Photos.Find(_ => true).ToList();
+            List<Slider> listMgPhoto = Context.Photos.Find(_ => true).ToList();
             return View(new MongoPhotoModel(cloudinary, listMgPhoto));
         }
 
@@ -67,7 +67,7 @@ namespace BSNCapstone.Controllers
                 //DangVH. Update. End (01/11/2016)
 
                 //Save photo (publicID) to MongoDB
-                MongoPhoto mongoPhoto = new MongoPhoto()
+                Slider mongoPhoto = new Slider()
                 {
                     PublicId = uploadResult.PublicId,
                     Desc = desc

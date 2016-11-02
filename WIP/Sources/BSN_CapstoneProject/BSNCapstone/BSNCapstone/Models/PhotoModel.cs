@@ -19,12 +19,12 @@ namespace BSNCapstone.Models
 
     public class MongoPhotoModel : PhotoModel
     {
-        public List<MongoPhoto> MongoPhotos { get; set; }
+        public List<Slider> Sliders { get; set; }
 
-        public MongoPhotoModel(Cloudinary cloudinary, List<MongoPhoto> mongoPhotos)
+        public MongoPhotoModel(Cloudinary cloudinary, List<Slider> sliders)
             : base(cloudinary)
         {
-            MongoPhotos = mongoPhotos;
+            Sliders = sliders;
         }
     }
 }
