@@ -9,81 +9,579 @@
     <!--DangVH. Create. End (02/11/2016)-->
 }
 
-<h2>Details</h2>
+@*<div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.BookName)
+            </dt>
 
-<div>
-    <h4>Book</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.BookName)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BookName)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.BookName)
-        </dd>
+            <!--DangVH. Create. Start (02/11/2016)-->
+            <dt>
+                @Html.DisplayNameFor(model => model.ImgPublicId)
+            </dt>
 
-        <!--DangVH. Create. Start (02/11/2016)-->
-        <dt>
-            @Html.DisplayNameFor(model => model.ImgPublicId)
-        </dt>
+            <dd>
+                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                    .Height(130).Width(130).Crop("fill")).BuildImageTag(Model.ImgPublicId,
+                    new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
+            </dd>
+            <!--DangVH. Create. End (02/11/2016)-->
 
-        <dd>
-            @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+            <dt>
+                @Html.DisplayNameFor(model => model.Authors)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Authors)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Publishers)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Publishers)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ReleaseDay)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ReleaseDay)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Categories)
+            </dt>
+
+            <dd>
+                @{
+                    foreach (var item in allCategory)
+                    {
+                        <p>@Html.DisplayFor(categoryItem => item.CategoryName)</p>
+                    }
+                }
+            </dd>
+
+        </dl>
+    </div>*@
+<link rel="stylesheet" href="~/Content/Sach.css">
+<div class="container-fluid">
+    <div class="col-md-8 gioithieusach">
+        <div class="row content" class="contentbook">
+            <div class="col-md-7 pull-right book">
+                @*<h4 style="color:#4693B8"><strong>CỬA TIỆM CỦA NHỮNG LÁ THƯ</strong></h4>*@
+                <dl class="dl-horizontal">
+                    @*<dt>
+                            @Html.DisplayNameFor(model => model.BookName)
+                        </dt>*@
+
+                    <dd>
+                        <h4><strong>@Html.DisplayFor(model => model.BookName)</strong></h4>
+                    </dd>
+
+                    @*<p>Tác giả:<strong><i></i></strong></p>*@
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Authors)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Authors)
+                    </dd>
+
+                    @*<p>Nhà xuất bản:<strong><i>Kim Đồng </i></strong></p>*@
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Publishers)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Publishers)
+                    </dd>
+                    @*<p>Thể loại: <strong><i>Tình cảm</i> </strong></p>*@
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Categories)
+                    </dt>
+
+                    <dd>
+                        @{
+                            foreach (var item in allCategory)
+                            {
+                                <p>@Html.DisplayFor(categoryItem => item.CategoryName)</p>
+                            }
+                        }
+                    </dd>
+
+                </dl>
+                <p>Đánh giá:<strong><i>4</i></strong> <i style="color:yellow" class="glyphicon glyphicon-star"></i></p>
+                @*<p2>
+                        <strong>Cửa tiệm của những lá thư</strong> – Nơi gửi gắm ước mơ và niềm tin vào tương lai. Tiếp nối thành công từ hai cuốn tiểu thuyết trước là "Cuộc hẹn bình min"” và "Nếu ngày mai không bao giờ đến", ngòi bút của nhà văn Yasushi Kitagawa đã để lại một dấu ấn rất lớn trong lòng bạn đọc khi viết về những điều gần gũi, chân thực nhưng không kém phần sâu sắc của xã hội Nhật Bản đầy bất ổn với những khuôn phép gò bó. Với lần trở lại này, tác giả Yasushi đồng thời cũng là một thầy giáo được yêu mến tiếp tục chinh phục độc giả qua cuốn sách thứ ba "Cửa tiệm của những lá thư" – tác phẩm đạt doanh thu vượt 1 triệu bản in gây sốt tại xứ sở mặt trời mọc. Bước đi đầu tiên, ai cũng cần có dũng khí. Nhưng nếu, bạn có hứng thú muốn làm những điều tuyệt vời trong đời mình, mời hãy thử sử dụng dịch vụ của Thư quán một lần xem. Những bước chân vô thức đưa cậu chàng Nishiyama Ryouta lạc vào một tiệm cà phê cách ga tàu điện 5 phút đi bộ, một nơi chốn có rất ít người qua lại. Nhìn bên ngoài tưởng chừng như đây chỉ là một tiệm cà phê bình thường, nhưng bên trong quán còn sở hữu một không gian sách kì vĩ với những dịch vụ kì lạ khiến bất kì ai cũng cảm thấy hứng thú. Cũng trong giây phút ấy, cậu có dịp được gặp gỡ và tiếp xúc với rất nhiều người lạ mà một trong số họ có người về sau đã khiến cuộc đời cậu bước sang một trang mới. Con người không hề sống và cho rằng bản thân thế đã là hoàn hảo. Mọi người đều mang theo nhiều nỗi lo lắng và vấn đề riêng, va chạm với những người khác, tổn thương và làm kẻ khác bị tổn thương rồi mới trở nên trưởng thành hơn. Ngay khi từ khi còn ngồi trên ghế nhà trường, chúng ta luôn mơ ước về viễn cảnh tìm được một công việc phù hợp với sở thích và năng lực của bản thân. Nhưng theo thời gian, những ước mơ và khát khao ngày ấy dần phai nhạt, bị hiện thực xâm chiếm khiến con người ta đôi lúc cảm thấy hoang mang, không biết phải đi hướng nào cho đúng, làm thế nào để đạt được điều mình mong muốn. Những tháng ngày trượt dài trong lo lắng, chênh vênh về thứ gọi là tương lai an ổn. Cần lắm một người đi trước có kinh nghiệm để định hướng và dìu dắt ta bước qua những khó khăn trước mắt. Và như sự sắp đặt tình cờ của số phận, Ryouta đã gặp được Quán chủ của tiệm Thư lạc – một người vô cùng bí ẩn như một dấu chấm hỏi cần lời giải, luôn xuất hiện qua câu chữ tràn đầy năng lượng trong những lá thư trao đổi giữa hai người , nhưng đem lại cho Ryouta bước ngoặt lớn trong việc nhận thức được giá trị của bản thân và giải đáp những khúc mắc trong lòng cậu về quá trình tìm kiếm việc làm. Những người không bao giờ ngã không có nghĩa là họ mạnh, những người ngã nhưng vẫn đứng lên mới thực sự mạnh mẽ. Bây giờ, điều diễn ra với mình là may mắn hay bất hạnh, ta không thể phán đoán ngay lập tức. Có thể lúc đó ta coi là điều may mắn, nó lại có thể trở thành xiềng xích ràng lại cuộc đời mình. Nhưng có thể điều ta xem là không may lại giúp rất nhiều người nắm được thành công cũng là sự thật. Mặt khác, biến "khủng hoảng " thành "cơ hội" là điều cần thiết đối với rất nhiều người thành công. Như được truyền lửa, Ryouta đã có những bước tiến mới khả quan trong công cuộc tìm kiếm việc làm, không còn cảm thấy bỡ ngỡ hoặc thất vọng khi nhận được thư từ chối từ nhà tuyển dụng nữa. Cậu trở nên dạn dĩ, nỗ lực hơn cho giấc mơ đời mình. Mười lá thư được trao đi như gửi gắm tất cả hoài bão của cậu và quán chủ bí ẩn là người chắp cho nó thêm đôi cánh để tự tin bay vút lên bầu trời cao rộng. Qua những bài học bổ ích được lĩnh hội từ những bức thư tay của Quán chủ, dần dần Ryouta khao khát muốn có một cuộc gặp gỡ ngoài đời thực với người mà cậu tôn sùng và quý mến. Nhưng đúng là cuộc đời vốn không ai biết trước được điều gì, luôn có những bất ngờ xảy đến khiến chúng ta vỡ òa trong bất ngờ. Tất cả mọi người đều nhờ một cơ hội nào đó mà bắt đầu bước trên con đường thành công. Cuốn sách này không chỉ dừng lại ở những câu chuyện đời thường, ẩn chứa bên trong là một nội lực to lớn thúc đẩy con người sống hết mình hơn, có trách nhiệm hơn với bản thân và nhất là phải đặt niềm tin tuyệt đối vào những điều mình đang theo đuổi. Rồi một ngày bạn sẽ trở thành một người tốt đẹp như trong chính những giấc mơ của mình và giúp những người khác có một cuộc đời tốt đẹp hơn.
+                    </p2>*@
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <p class="text-right">
+                    <a data-toggle="modal" data-target="#myModal">Xem thêm </a>
+                </p>
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-lg">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+
+                            <div class="modal-header clearfix">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body clearfix">
+                                <div class="content">
+                                    <h3 class="modal-title"><a href="http://127.0.0.1:7211/Sach.html" class="modal-title on-story-details">Cửa tiệm của những lá thư</a></h3>
+                                    <p class="description">
+                                        Cửa tiệm của những lá thư – Nơi gửi gắm ước mơ và niềm tin vào tương lai. Tiếp nối thành công từ hai cuốn tiểu thuyết trước là "Cuộc hẹn bình min"” và "Nếu ngày mai không bao giờ đến", ngòi bút của nhà văn Yasushi Kitagawa đã để lại một dấu ấn rất lớn trong lòng bạn đọc khi viết về những điều gần gũi, chân thực nhưng không kém phần sâu sắc của xã hội Nhật Bản đầy bất ổn với những khuôn phép gò bó. Với lần trở lại này, tác giả Yasushi đồng thời cũng là một thầy giáo được yêu mến tiếp tục chinh phục độc giả qua cuốn sách thứ ba "Cửa tiệm của những lá thư" – tác phẩm đạt doanh thu vượt 1 triệu bản in gây sốt tại xứ sở mặt trời mọc. Bước đi đầu tiên, ai cũng cần có dũng khí. Nhưng nếu, bạn có hứng thú muốn làm những điều tuyệt vời trong đời mình, mời hãy thử sử dụng dịch vụ của Thư quán một lần xem. Những bước chân vô thức đưa cậu chàng Nishiyama Ryouta lạc vào một tiệm cà phê cách ga tàu điện 5 phút đi bộ, một nơi chốn có rất ít người qua lại. Nhìn bên ngoài tưởng chừng như đây chỉ là một tiệm cà phê bình thường, nhưng bên trong quán còn sở hữu một không gian sách kì vĩ với những dịch vụ kì lạ khiến bất kì ai cũng cảm thấy hứng thú. Cũng trong giây phút ấy, cậu có dịp được gặp gỡ và tiếp xúc với rất nhiều người lạ mà một trong số họ có người về sau đã khiến cuộc đời cậu bước sang một trang mới. Con người không hề sống và cho rằng bản thân thế đã là hoàn hảo. Mọi người đều mang theo nhiều nỗi lo lắng và vấn đề riêng, va chạm với những người khác, tổn thương và làm kẻ khác bị tổn thương rồi mới trở nên trưởng thành hơn. Ngay khi từ khi còn ngồi trên ghế nhà trường, chúng ta luôn mơ ước về viễn cảnh tìm được một công việc phù hợp với sở thích và năng lực của bản thân. Nhưng theo thời gian, những ước mơ và khát khao ngày ấy dần phai nhạt, bị hiện thực xâm chiếm khiến con người ta đôi lúc cảm thấy hoang mang, không biết phải đi hướng nào cho đúng, làm thế nào để đạt được điều mình mong muốn. Những tháng ngày trượt dài trong lo lắng, chênh vênh về thứ gọi là tương lai an ổn. Cần lắm một người đi trước có kinh nghiệm để định hướng và dìu dắt ta bước qua những khó khăn trước mắt. Và như sự sắp đặt tình cờ của số phận, Ryouta đã gặp được Quán chủ của tiệm Thư lạc – một người vô cùng bí ẩn như một dấu chấm hỏi cần lời giải, luôn xuất hiện qua câu chữ tràn đầy năng lượng trong những lá thư trao đổi giữa hai người , nhưng đem lại cho Ryouta bước ngoặt lớn trong việc nhận thức được giá trị của bản thân và giải đáp những khúc mắc trong lòng cậu về quá trình tìm kiếm việc làm. Những người không bao giờ ngã không có nghĩa là họ mạnh, những người ngã nhưng vẫn đứng lên mới thực sự mạnh mẽ. Bây giờ, điều diễn ra với mình là may mắn hay bất hạnh, ta không thể phán đoán ngay lập tức. Có thể lúc đó ta coi là điều may mắn, nó lại có thể trở thành xiềng xích ràng lại cuộc đời mình. Nhưng có thể điều ta xem là không may lại giúp rất nhiều người nắm được thành công cũng là sự thật. Mặt khác, biến "khủng hoảng " thành "cơ hội" là điều cần thiết đối với rất nhiều người thành công. Như được truyền lửa, Ryouta đã có những bước tiến mới khả quan trong công cuộc tìm kiếm việc làm, không còn cảm thấy bỡ ngỡ hoặc thất vọng khi nhận được thư từ chối từ nhà tuyển dụng nữa. Cậu trở nên dạn dĩ, nỗ lực hơn cho giấc mơ đời mình. Mười lá thư được trao đi như gửi gắm tất cả hoài bão của cậu và quán chủ bí ẩn là người chắp cho nó thêm đôi cánh để tự tin bay vút lên bầu trời cao rộng. Qua những bài học bổ ích được lĩnh hội từ những bức thư tay của Quán chủ, dần dần Ryouta khao khát muốn có một cuộc gặp gỡ ngoài đời thực với người mà cậu tôn sùng và quý mến. Nhưng đúng là cuộc đời vốn không ai biết trước được điều gì, luôn có những bất ngờ xảy đến khiến chúng ta vỡ òa trong bất ngờ. Tất cả mọi người đều nhờ một cơ hội nào đó mà bắt đầu bước trên con đường thành công. Cuốn sách này không chỉ dừng lại ở những câu chuyện đời thường, ẩn chứa bên trong là một nội lực to lớn thúc đẩy con người sống hết mình hơn, có trách nhiệm hơn với bản thân và nhất là phải đặt niềm tin tuyệt đối vào những điều mình đang theo đuổi. Rồi một ngày bạn sẽ trở thành một người tốt đẹp như trong chính những giấc mơ của mình và giúp những người khác có một cuộc đời tốt đẹp hơn.
+
+                                    </p>
+
+                                    <div class="info">
+                                        <div class="taglist">
+                                            <span class="tag"><a href="/tags/nonfiction">#Tinhcam</a> </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="cover cover-reading-list col-md-5 pull-left">
+                @*<img src="Anhsach/cuatiemcuanhunglathu.jpg" id="coverbook" alt="Teen Queens">*@
+                <dl class="dl-horizontal">
+                    @*<dt>
+                            @Html.DisplayNameFor(model => model.ImgPublicId)
+                        </dt>*@
+
+                    <dd>
+                        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                 .Height(130).Width(130).Crop("fill")).BuildImageTag(Model.ImgPublicId,
                 new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
-        </dd>
-        <!--DangVH. Create. End (02/11/2016)-->
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <!---------------HIỂN THỊ RATING ----------------->
+        <div class="row" class="danhgia">
+            <div class="col-md-10">
+                <fieldset class="rating" id="ratingbook">
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label class="full" for="star3" title="Meh - 3 stars"></label>
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                </fieldset>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Authors)
-        </dt>
+        <!------------------COMMENT--------------->
+        <br>
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-1" style="margin-top: 5px;">
+                    <img src="/AnhAvaNguoiDung/avaHai.jpg" style="width:50px;height:50px" />
+                </div>
+                <div class="col-md-11" style="margin-top: 5px;">
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" id="comment" placeholder="Nhận xét"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--------------------------------COMMENT CỦA NG KHÁC -------------------------->
+            <br>
+            <div class="row">
+                <div class="col-md-1" style="margin-top: 5px;">
+                    <img src="/AnhAvaNguoiDung/avaHuyen.jpg" style="width:50px;height:50px" />
+                </div>
+                <div class="col-md-11" style="margin-top: 5px;">
+                    <div class="post-card" style="padding: 5px 15px;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- Post Content -->
+                                <div class="row">
+                                    <!-- Post Owner -->
+                                    <div class="col-md-12">
+                                        <div class="owner-info">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <a class="owner-name" href="">Huyền</a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>11:59 PM</span></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="post-content">Hay quá </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-1" style="margin-top: 5px;">
+                    <img src="/AnhAvaNguoiDung/avaVan.jpg" style="width:50px;height:50px" />
+                </div>
+                <div class="col-md-11" style="margin-top: 5px;">
+                    <div class="post-card" style="padding: 5px 15px;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- Post Content -->
+                                <div class="row">
+                                    <!-- Post Owner -->
+                                    <div class="col-md-12">
+                                        <div class="owner-info">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <a class="owner-name" href="">Vân</a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>11:59 PM</span></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="post-content">Tuyệt quá </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Authors)
-        </dd>
+            <br>
+            <div class="row">
+                <div class="col-md-1" style="margin-top: 5px;">
+                    <img src="/AnhAvaNguoiDung/avaDang.JPG" style="width:50px;height:50px" />
+                </div>
+                <div class="col-md-11" style="margin-top: 5px;">
+                    <div class="post-card" style="padding: 5px 15px;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- Post Content -->
+                                <div class="row">
+                                    <!-- Post Owner -->
+                                    <div class="col-md-12">
+                                        <div class="owner-info">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <a class="owner-name" href="">Đăng</a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>11:59 PM</span></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="post-content"> Thích quá </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Publishers)
-        </dt>
+            <br>
+            <div class="row">
+                <div class="col-md-1" style="margin-top: 5px;">
+                    <img src="/Anhtacgia/JKRowling_tacgia.jpg" style="width:50px;height:50px" />
+                </div>
+                <div class="col-md-11" style="margin-top: 5px;">
+                    <div class="post-card" style="padding: 5px 15px;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- Post Content -->
+                                <div class="row">
+                                    <!-- Post Owner -->
+                                    <div class="col-md-12">
+                                        <div class="owner-info">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <a class="owner-name" href="">Thang Owner</a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>11:59 PM</span></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="post-content">Hay quá </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  Bắt đầu phần bên phải -->
+    <div class="col-md-4 sidenav">
+        <!--phần sách tương tự -->
+        <div class="text-center" class="panel-heading">
+            <h4><strong>SÁCH TƯƠNG TỰ</strong></h4>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="/Anhsach/nhagiakim.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
 
-        <dd>
-            @Html.DisplayFor(model => model.Publishers)
-        </dd>
+            </div>
+            <div class="col-md-3">
+                <fieldset class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label class="full" for="star3" title="Meh - 3 stars"></label>
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                </fieldset>
+                <p>345 đánh giá</p>
+                <br>
+                <br>
+                <button class="button buttonRe">Nhận xét</button>
+            </div>
+            <div class="col-md-3">
+                <img src="/Anhsach/ngayxuacomotchuyentinh.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+            </div>
+            <div class="col-md-3">
+                <fieldset class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label class="full" for="star3" title="Meh - 3 stars"></label>
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                </fieldset>
+                <p>345 đánh giá</p>
+                <br>
+                <br>
+                <button class="button buttonRe">Nhận xét</button>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ReleaseDay)
-        </dt>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <ul class="list-group">
+                        <li>
+                            <span>
+                                <strong data-toggle="tooltip" title="NHÀ GIẢ KIM">NHÀ GIẢ KIM</strong>
+                                <br><i data-toggle="tooltip" title="Paulo Coelho" class="authorname"><strong>Paulo Coelho </strong> </i>
+                            </span>
+                        </li>
+                    </ul>
 
-        <dd>
-            @Html.DisplayFor(model => model.ReleaseDay)
-        </dd>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <ul class="list-group">
+                        <li>
+                            <span>
+                                <strong data-toggle="tooltip" title="NGÀY XƯA CÓ MỘT CHUYỆN TÌNH">NGÀY XƯA CÓ MỘT CHUYỆN TÌNH</strong>
+                                <br><i data-toggle="tooltip" title="Nguyễn Nhật Ánh" class="authorname"><strong>Nguyễn Nhật Ánh </strong> </i>
+                            </span>
+                        </li>
+                    </ul>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <ul class="list-group">
+                        <li>
+                            <span>
+                                <strong id="tensach">TRÊN ĐƯỜNG BĂNG</strong>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Categories)
-        </dt>
+                            </span>
+                        </li>
+                    </ul>
 
-        <dd>
-            @{
-                foreach (var item in allCategory)
-                {
-                    <p>@Html.DisplayFor(categoryItem => item.CategoryName)</p>
-                }
-            }
-        </dd>
+                </div>
 
-    </dl>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <ul class="list-group">
+                        <li>
+                            <span>
+                                <strong id="tensach">Totto chan bên cửa sổ</strong>
+
+                            </span>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <p class="text-right">
+            <button type="button" class="btn btn-link">Xem thêm </button>
+        </p>
+
+        <br>
+        <br>
+        <div class="text-center" class="panel-heading">
+            <h4><strong>DANH SÁCH NHÓM</strong></h4>
+        </div>
+        <br>
+        <!--  Bắt đầu phần group list của tác giả  -->
+        <div class="row">
+            <div class="col-md-3">
+                <img src="nhagiakim.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+            </div>
+            <div class="col-md-3">
+                <br>
+                <button class="button buttonJoin">Tham gia</button>
+                <button class="button buttonFoll">+Theo dõi</button>
+            </div>
+            <div class="col-md-3">
+                <img src="ngayxuacomotchuyentinh.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+
+            </div>
+            <div class="col-md-3">
+                <br>
+                <button class="button buttonJoin">Tham gia</button>
+                <button class="button buttonFoll">+Theo dõi</button>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <ul class="list-group">
+                        <li>
+                            <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
+                                <span>Hội yêu thích truyện Harry Potter</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <ul class="list-group">
+                        <li>
+                            <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
+                                <span>Hội yêu thích truyện Harry Potter</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+
+        <br>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="trenduongbang.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+
+            </div>
+            <div class="col-md-3">
+                <br>
+                <button class="button buttonJoin">Tham gia</button>
+                <button class="button buttonFoll">+Theo dõi</button>
+            </div>
+            <div class="col-md-3">
+                <img src="tottochanbencuaso.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+
+            </div>
+            <div class="col-md-3">
+                <br>
+                <button class="button buttonJoin">Tham gia</button>
+                <button class="button buttonFoll">+Theo dõi</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <ul class="list-group">
+                        <li>
+                            <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
+                                <span>Hội yêu thích truyện Harry Potter</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <ul class="list-group">
+                        <li>
+                            <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
+                                <span>Hội yêu thích truyện Harry Potter</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <p class="text-right">
+            <button type="button" class="btn btn-link">Xem thêm </button>
+        </p>
+
+        <br>
+    </div>
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
 
