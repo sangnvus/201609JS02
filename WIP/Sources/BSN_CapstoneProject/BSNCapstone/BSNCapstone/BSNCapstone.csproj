@@ -202,7 +202,6 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\demo.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\PhotoModel.cs" />
     <Compile Include="Models\Publisher.cs" />
