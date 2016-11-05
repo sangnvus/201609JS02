@@ -79,22 +79,37 @@
                                 </div>
                                 <div class="midle-modal">
                                     <div class="row content" style="margin-top:10px;">
-                                        <div class="col-sm-6 form-group" style="margin-top:1%">
-                                            <label class="col-sm-2 control-label" style="text-align:right;width:35%">Tên NXB: </label>
-                                            <input type="text" class="col-sm-4 form-control" id="pubName" placeholder="Tên NXB" style="width:65%;margin-top:-2%">
-                                        </div>
+                                        @*HaiCM. Update. Start. 05-11-2016*@
+                                        @*<div class="col-sm-6 form-group" style="margin-top:1%">
+                                                <label class="col-sm-2 control-label" style="text-align:right;width:35%">Tên NXB: </label>
+                                                <input type="text" class="col-sm-4 form-control" id="pubName" placeholder="Tên NXB" style="width:65%;margin-top:-2%">
+                                            </div>*@
                                         <div class="col-sm-12 form-group" style="margin-top:1%">
-                                            <label class="col-sm-2 control-label" style="text-align:right;width:16.5%">Địa Chỉ: </label>
+                                            <label class="col-sm-2 control-label" style="text-align:right;width:26%">Tên NXB: </label>
+                                            <input type="text" class="col-sm-4 form-control" id="pubName" placeholder="Tên NXB" style="width:50%;margin-top:-1%">
+                                        </div>
+                                        @*HaiCM. Update. End. 05-11-2016*@
+                                        <div class="col-sm-12 form-group" style="margin-top:1%">
+                                            <label class="col-sm-2 control-label" style="text-align:right;width:26%">Địa Chỉ: </label>
                                             @*HuyenPT. Update. Start. 02-11-2016*@
                                             @*<textarea style="width:70%;"></textarea>*@
-                                            <textarea style="width:70%;" id="pubAddress"></textarea>
+                                            @*HaiCM. Update. Start. 05-11-2016*@
+                                            @*<textarea style="width:70%;" id="pubAddress"></textarea>*@
+                                            <input type="text" class="col-sm-4 form-control" id="pubAddress" placeholder="Địa chỉ" style="width:50%;">
+                                            @*HaiCM. Update. End. 05-11-2016*@
                                             @*HuyenPT. Update. End. 02-11-2016*@
                                         </div>
                                         @*HuyenPT. Create. Start. 02-11-2016*@
-                                        <label>Số điện thoại:</label>
-                                        <input type="text" id="pubPhoneNo" style="width:70%;">
+                                        @*HaiCM. Update. Start. 05-11-2016*@
+                                        @*<label>Số điện thoại:</label>
+                                            <input type="text" id="pubPhoneNo" style="width:70%;">*@
+                                        <div class="col-sm-12 form-group" style="margin-top:1%">
+                                            <label class="col-sm-2 control-label" style="text-align:right;width:26%">Số điện thoại: </label>
+                                            <input type="text" class="col-sm-4 form-control" id="pubPhoneNo" placeholder="Số điện thoại" style="width:50%;">
+                                        </div>
+                                        @*HaiCM. Update. End. 05-11-2016*@
                                         @*HuyenPT. Create. End. 02-11-2016*@
-                                        <div class="col-sm-6" style="margin-top:1%; margin-left:100px">
+                                        <div class="col-sm-6" style="margin-top:1%; margin-left:180px">
                                             @*HuyenPT. Update. Start. 02-11-2016*@
                                             @*<input type="file" id="CMND" style="color:black">*@
                                             <input type="file" id="pubImage" style="color:black">
@@ -106,9 +121,9 @@
                                 <div class="modal-footer">
                                     @*HuyenPT. Update. Start. 02-11-2016*@
                                     @*<button type="button" class="btn btn-default" data-dismiss="modal">Thêm</button>*@
-                                    <button type="button" class="btn btn-default" data-dismiss="modal" id="UploadPublisher">Thêm</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" id="UploadPublisher" style="margin-top:10px">Thêm</button>
                                     @*HuyenPT. Update. End. 02-11-2016*@
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Hùy</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin-top:10px;">Hủy</button>
                                 </div>
                             </div>
                         </div>
@@ -128,6 +143,9 @@
                                 @*HuyenPT. Create. Start. 02-11-2016*@
                                 <th style="width:300px">Số điện thoại</th>
                                 @*HuyenPT. Create. End. 02-11-2016*@
+                                @*HaiCM. Create. Start. 05-11-2016*@
+                                <th style="width:170px">Hành động</th>
+                                @*HaiCM. Create. End. 05-11-2016*@
                             </tr>
                         </thead>
                         <tbody>
@@ -136,17 +154,20 @@
                             @foreach (BSNCapstone.Models.Publisher publisher in @Model.Publishers)
                             {
                                 <tr id=@i>
-                                    <td>@i</td>
+                                    <td style="vertical-align: middle">@i</td>
                                     <td>
                                         @Model.Cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                         .Height(130).Width(130).Crop("fill")).BuildImageTag(publisher.ImagePublicId,
                                         new CloudinaryDotNet.StringDictionary("class=thumbnail inline"))
                                     </td>
-                                    <td>@publisher.Name</td>
-                                    <td>@publisher.Address</td>
-                                    <td>@publisher.PhoneNumber</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-default" onclick="DeletePublisher('@publisher.Id', @i)" id="DeletePublisher">Xóa</button>
+                                    <td style="vertical-align: middle">@publisher.Name</td>
+                                    <td style="vertical-align: middle">@publisher.Address</td>
+                                    <td style="vertical-align: middle; text-align:center">@publisher.PhoneNumber</td>
+                                    <td style="vertical-align: middle; text-align: center">
+                                        @*HaiCM. Create. Start. 05-11-2016*@
+                                        <button type="submit" class="btn btn-default fa fa-pencil-square-o" data-toggle="modal" data-target="#myModal_2">Sửa</button>
+                                        @*HaiCM. Create. End. 05-11-2016*@
+                                        <button type="submit" class="btn btn-danger fa fa-close"  onclick="DeletePublisher('@publisher.Id', @i)" id="DeletePublisher">Xóa</button>
                                     </td>
                                 </tr>
                                 i++;
@@ -155,7 +176,45 @@
                         </tbody>
                     </table>
                 </div>
+                @*HaiCM. Create. Start. 05-11-2016*@
+                <div class="modal fade" id="myModal_2" role="dialog">
+                    <div class="modal-dialog">
+                        <!---Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Chỉnh sửa thông tin NXB</h4>
 
+                            </div>
+                            <div class="midle-modal">
+                                <div class="row content" style="margin-top:10px;">
+                                    <div class="col-sm-12 form-group" style="margin-top:1%">
+                                        <label class="col-sm-2 control-label" style="text-align:right;width:26%">Tên NXB: </label>
+                                        <input type="text" class="col-sm-4 form-control" id="name" placeholder="Tên NXB" style="width:50%;margin-top:-1%">
+                                    </div>
+                                    <div class="col-sm-12 form-group" style="margin-top:1%">
+                                        <label class="col-sm-2 control-label" style="text-align:right;width:26%">Địa Chỉ: </label>
+                                        <input type="text" class="col-sm-4 form-control" id="address" placeholder="Địa chỉ" style="width:50%;">
+
+                                    </div>
+                                    <div class="col-sm-12 form-group" style="margin-top:1%">
+                                        <label class="col-sm-2 control-label" style="text-align:right;width:26%">Số điện thoại: </label>
+                                        <input type="text" class="col-sm-4 form-control" id="pubPhoneNo" placeholder="Số điện thoại" style="width:50%;">
+                                    </div>
+                                    <div class="col-sm-6" style="margin-top:1%; margin-left:180px">
+                                        <input type="file" id="CMND" style="color:black">
+                                        <p class="help-block" style="color:black">Sửa Logo NXB</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-top:10px;">Sửa</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin-top:10px;">Hủy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*HaiCM. Create. End. 05-11-2016*@
                 <!-------NÚT SANG TRANG------->
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
