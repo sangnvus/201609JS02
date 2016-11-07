@@ -27,7 +27,8 @@
 }
 
 .btn-group-vertical {
-    width: 100%;
+    width: 116.5%;
+    left: -8%;
 }
 
 .btn-group-vertical button {
@@ -49,6 +50,7 @@
     padding-bottom: 10px;
     padding-right: 2px;
     width: 100%;
+    min-height: 400px;
     margin-top: 20px;
 }
 
@@ -85,6 +87,7 @@
 .control-label1 {
     margin-left: -80px;
 }
+
 
 /******************BOOK***********************/
 
@@ -132,11 +135,9 @@
 }
 
 .form-area {
-    background-color: #FAFAFA;
-    width: 44%;
-    padding: 10px 20px 20px;
-    margin: 10px 3% 0px;
-    border: 1px solid GREY;
+    width: 40%;
+    margin-left: 5%;
+    padding-bottom: 5px;
 }
 
 .form-area .form-group {
@@ -151,13 +152,15 @@
     margin-top: 20px;
 }
 
-.modal-footer .btn {
-    margin-top: 140px;
+.form-area-addbook {
+    position: relative;
+    width: 50%;
+    left: 25%;
+    border: none;
 }
 
-/*search form*/
-.searchForm {
-    display: inline-block;
+.modal-footer .btn {
+    margin-top: 30px;
 }
 
 
