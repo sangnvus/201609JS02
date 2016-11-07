@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admin-User</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/TrangAdmin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="thanhbar" style="height:11%; background: #2f2f2f">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="logo.png" alt="Bookaholic.com" style="width:160px; height:35px;margin-top:5%" onclick="window.location='../Interface_v1.1/DangKy.html'">
+            </div>
+        </div>
+    </nav>
+    <!--------------DƯỚI NAV----------------->
+    <div class="col-md-12">
+        <!------BÊN TRÁI------>
+        <div class="col-md-2">
+            <div class="row">
+                <div class="thumbnail">
+                    <img src="Anhtacgia/nguy%E1%BB%85n%20nh%E1%BA%ADt%20%C3%A1nh_tacgia.jpg" alt="Quản trị viên">
+                    <div class="caption">
+                        <h4>HảiCM (Admin)</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group-vertical" role="group" aria-label="group">
+                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Dashboard.html'">Tổng quan</button>
+                <button type="button" class="btn btn-default active" onclick="window.location.href='TrangAdmin-User.html'">Quản lý người dùng</button>  <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Author.html'">Quản lý tác giả</button>
+                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Group.html'">Quản lý nhóm</button>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Quản lý sách <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="TrangAdmin-Book.html">Thống kê sách</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="TrangAdmin-Requestbook.html">Yêu cầu thêm sách</a></li>
+                    </ul>
+                </div>
+                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Slider.html'">Quản lý Slider</button>
+                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-NXB.html'">Quản lý Nhà xuất bản</button>
+                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Report.html'">Quản lý Phản hồi</button>
+            </div>
+        </div>
+        <!------BÊN PHẢI------>
+        <div class="col-md-10">
+
+            <div class="box1">
+                <div class="box1-icon">
+                    <span class="fa fa-user"></span>
+                </div>
+                <div class="info">
+                    <h4 class="text-center">Tổng số Người dùng</h4>
+                    <p>1234</p>
+                </div>
+            </div>
+            <div class="box1">
+                <div class="box1-icon">
+                    <span class="fa fa-user-plus"></span>
+                </div>
+                <div class="info">
+                    <h4 class="text-center">Người dùng mới</h4>
+                    <p>1234</p>
+                </div>
+            </div>
+
+            <div class="slide-tab">
+                <div class="form-inline">
+                    <label>Danh sách Người dùng</label>
+                    <div class="form-group add">
+                        <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Tìm kiếm..." />
+                    </div>
+                </div>
+                <div class="divider-horizontal"></div>
+                <div class="table">
+                    <table class="table table-striped table-bordered table-hover" id="dev-table">
+                        <thead>
+                            <tr>
+                                <th style="width:1px">#</th>
+                                <th>Tên người dùng</th>
+                                <th>Email</th>
+                                <th style="width:150px">Kiểu đăng nhập</th>
+                                <th style="width:170px">Trạng thái</th>
+                                <th style="width:100px">Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="tab-content">
+                                <th>1</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>
+                                    <button type="submit" class="btn btn-default">Khóa</button>
+                                    <button type="submit" class="btn btn-default">Mở khóa</button>
+                                </th>
+                                <th>
+                                    <button type="submit" class="btn btn-default">Xem</button>
+                                </th>
+                            </tr>
+                            <tr class="tab-content">
+                                <th>2</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>
+                                    <button type="submit" class="btn btn-default">Khóa</button>
+                                    <button type="submit" class="btn btn-default">Mở khóa</button>
+                                </th>
+                                <th>
+                                    <button type="submit" class="btn btn-default">Xem</button>
+                                </th>
+                            </tr>
+                            <tr class="tab-content">
+                                <th>3</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>
+                                    <button type="submit" class="btn btn-default">Khóa</button>
+                                    <button type="submit" class="btn btn-default">Mở khóa</button>
+                                </th>
+                                <th>
+                                    <button type="submit" class="btn btn-default">Xem</button>
+                                </th>
+                            </tr>
+                            <tr class="tab-content">
+                                <th>4</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>
+                                    <button type="submit" class="btn btn-default">Khóa</button>
+                                    <button type="submit" class="btn btn-default">Mở khóa</button>
+                                </th>
+                                <th>
+                                    <button type="submit" class="btn btn-default">Xem</button>
+                                </th>
+                            </tr>
+                            <tr class="tab-content">
+                                <th>5</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>
+                                    <button type="submit" class="btn btn-default">Khóa</button>
+                                    <button type="submit" class="btn btn-default">Mở khóa</button>
+                                </th>
+                                <th>
+                                    <button type="submit" class="btn btn-default">Xem</button>
+                                </th>
+                            </tr>
+                            <tr class="tab-content">
+                                <th>6</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>
+                                    <button type="submit" class="btn btn-default">Khóa</button>
+                                    <button type="submit" class="btn btn-default">Mở khóa</button>
+                                </th>
+                                <th>
+                                    <button type="submit" class="btn btn-default">Xem</button>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-------NÚT SANG TRANG------->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
