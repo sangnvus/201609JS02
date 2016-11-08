@@ -193,6 +193,7 @@
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewFeedController.cs" />
     <Compile Include="Controllers\PublisherController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Global.asax.cs">
@@ -203,6 +204,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\PhotoModel.cs" />
+    <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Publisher.cs" />
     <Compile Include="Models\Slider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -279,6 +281,7 @@
     <Content Include="Views\Slider\Index.cshtml" />
     <Content Include="Views\Books\_Create.cshtml" />
     <Content Include="Views\Publisher\Index.cshtml" />
+    <Content Include="Views\NewFeed\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -36,11 +36,18 @@ namespace BSNCapstone.App_Start
             var publishers = database.GetCollection<Publisher>("publishers");
             //HuyenPT. Create. End. 02-11-2016
 
+            //HuyenPT. Create. Start. 08-11-2016
+            var posts = database.GetCollection<Post>("posts");
+            //HuyenPT. Create. End. 08-11-2016
+
             //HuyenPT. Update. Start. 30-10-2016
             //return new ApplicationIdentityContext(users, roles, categories, books);
             //HuyenPT. Update. Start. 02-11-2016
             //return new ApplicationIdentityContext(users, roles, categories, books, sliders);
-            return new ApplicationIdentityContext(users, roles, categories, books, sliders, publishers);
+            //HuyenPT. Update. Start. 08-11-2016
+            //return new ApplicationIdentityContext(users, roles, categories, books, sliders, publishers);
+            return new ApplicationIdentityContext(users, roles, categories, books, sliders, publishers, posts);
+            //HuyenPT. Update. End. 08-11-2016
             //HuyenPT. Update. End. 02-11-2016
             //HuyenPT. Update. End. 30-10-2016
 
@@ -58,13 +65,23 @@ namespace BSNCapstone.App_Start
             IMongoCollection<Category> categories,
             IMongoCollection<Book> books,
             IMongoCollection<Slider> sliders)*/
-        private ApplicationIdentityContext(IMongoCollection<ApplicationUser> users,
+        //HuyenPT. Update. Start. 08-11-2016
+        /*private ApplicationIdentityContext(IMongoCollection<ApplicationUser> users,
            IMongoCollection<IdentityRole> roles,
            IMongoCollection<Category> categories,
            IMongoCollection<Book> books,
            IMongoCollection<Slider> sliders,
            IMongoCollection<Publisher> publishers
+           )*/
+        private ApplicationIdentityContext(IMongoCollection<ApplicationUser> users,
+           IMongoCollection<IdentityRole> roles,
+           IMongoCollection<Category> categories,
+           IMongoCollection<Book> books,
+           IMongoCollection<Slider> sliders,
+           IMongoCollection<Publisher> publishers,
+           IMongoCollection<Post> posts
            )
+        //HuyenPT. Update. End. 08-11-2016
         //HuyenPT. Update. End. 02-11-2016
         //HuyenPT. Update. End. 30-10-2016
         {
@@ -78,6 +95,9 @@ namespace BSNCapstone.App_Start
             //HuyenPT. Create. Start02-11-2016
             Publishers = publishers;
             //HuyenPT. Create. End. 02-11-2016
+            //HuyenPT. Create. Start. 08-11-2016
+            Posts = posts;
+            //HuyenPT. Create. End. 08-11-2016
         }
 
         // Bổ sung IMongoCollection cho 1 Object mới
@@ -91,6 +111,9 @@ namespace BSNCapstone.App_Start
         //HuyenPT. Create. Start. 02-11-2016
         public IMongoCollection<Publisher> Publishers { get; set; }
         //HuyenPT. Create. End. 02-11-2016
+        //HuyenPT. Create. Start. 08-11-2016
+        public IMongoCollection<Post> Posts { get; set; }
+        //HuyenPT. Create. End. 08-11-2016
 
         public Task<List<IdentityRole>> AllRolesAsync()
         {
