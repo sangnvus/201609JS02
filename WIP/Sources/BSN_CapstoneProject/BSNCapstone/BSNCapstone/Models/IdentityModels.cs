@@ -23,7 +23,7 @@ namespace BSNCapstone.Models
         }
 
 
-        public int Gender { get; set; }
+       public string SSNImgId { get; set; }
     }
 
 }

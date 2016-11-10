@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BSNCapstone.Models;
 using BSNCapstone.App_Start;
+using BSNCapstone.ControllerHelpers;
 
 namespace BSNCapstone.Controllers
 {
@@ -39,7 +40,6 @@ namespace BSNCapstone.Controllers
         }
 
 
-        //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -50,7 +50,6 @@ namespace BSNCapstone.Controllers
 
 
         private IdentityConfig.SignInHelper _helper;
-
         private IdentityConfig.SignInHelper SignInHelper
         {
             get
@@ -64,7 +63,6 @@ namespace BSNCapstone.Controllers
         }
 
 
-        //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
@@ -74,6 +72,17 @@ namespace BSNCapstone.Controllers
             if (!ModelState.IsValid)
             {
                 return View(model);
+            }
+
+            // Require the user to have a confirmed email before they can log on.
+            var user = await UserManager.FindByEmailAsync(model.Email);
+            if (user != null)
+            {
+                if (!await UserManager.IsEmailConfirmedAsync(user.Id))
+                {
+                    ViewBag.errorMessage = "Vui lòng xác nhận email của bạn trước khi đăng nhập";
+                    return View("Error");
+                }
             }
 
             // This doen't count login failures towards lockout only two factor authentication
@@ -94,6 +103,7 @@ namespace BSNCapstone.Controllers
             }
         }
 
+
         //
         // GET: /Account/Register
         [AllowAnonymous]
@@ -101,6 +111,16 @@ namespace BSNCapstone.Controllers
         {
             return View();
         }
+
+
+        //
+        //GET: /Account/Authorregister
+        [AllowAnonymous]
+        public ActionResult AuthorRegister()
+        {
+            return View();
+        }
+
 
         //
         // POST: /Account/Register
@@ -111,22 +131,60 @@ namespace BSNCapstone.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                /*if (result.Succeeded)
+                if (result.Succeeded)
                  {
                      var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                      var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
+                     await UserManager.SendEmailAsync(user.Id, "[BookAholic]Xác Nhận Tài Khoản", "Chào mừng bạn đã đến với mạng xã hội sách BookAholic <p> Xin vui lòng click vào link để xác nhận tài khoản của bạn: <a href=\"" + callbackUrl + "\">Xác nhận tài khoản</a>");
                      ViewBag.Link = callbackUrl;
+
+                     ViewBag.Message = "Kiểm tra Email để xác nhận tài khoản của bạn,bạn phải xác nhận tài khoản trước khi Đăng Nhập";
+
                      return View("DisplayEmail");
-                 }*/
+                 }
                 AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+
+        //
+        //POST:Account/Login/Authorregister
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> AuthorRegister(AuthorRegisterViewModel model)
+        {
+            
+            if (ModelState.IsValid)
+            {
+                var file = Request.Files[0];
+            
+                var uploadResult = ImageUploadHelper.GetUploadResult(file);
+                
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email,SSNImgId = uploadResult.PublicId};
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    await UserManager.SendEmailAsync(user.Id, "[BookAholic]Xác Nhận Tài Khoản", "Chào mừng bạn đã đến với mạng xã hội sách BookAholic <p> Xin vui lòng click vào link để xác nhận tài khoản của bạn</p>: <a href=\"" + callbackUrl + "\">Xác Nhận tài khoản</a>");
+                    ViewBag.Link = callbackUrl;
+
+                    ViewBag.Message = "Kiểm tra Email để xác nhận tài khoản của bạn,bạn phải xác nhận tài khoản trước khi Đăng Nhập";
+                    return View("DisplayEmail");
+                }
+                AddErrors(result);
+            }
+
+
+            return View(model);
+        }
+
 
         //
         // GET: /Account/ConfirmEmail
@@ -146,6 +204,92 @@ namespace BSNCapstone.Controllers
             return View();
         }
 
+        //
+        //
+        [AllowAnonymous]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+
+        //
+        // POST: /Account/ForgotPassword
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await UserManager.FindByEmailAsync(model.Email);
+                if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                {
+                    // Don't reveal that the user does not exist or is not confirmed
+                    return View("ForgotPasswordConfirmation");                                                                                          
+                }
+
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                await UserManager.SendEmailAsync(user.Id, "[BookAholic]Xác nhận đặt lại mật khẩu", "Vui lòng click vào link để đặt lại mật khẩu <a href=\"" + callbackUrl + "\">Đặt lại mật khẩu</a>");
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+
+        // 
+        // GET: /Account/ForgotPasswordConfirmation 
+        [AllowAnonymous]
+        public ActionResult ForgotPasswordConfirmation()
+        {
+            return View();
+        } 
+
+
+        [AllowAnonymous]
+        public ActionResult ResetPassword(string code)
+        {
+            return code == null ? View("Error") : View();
+        }
+
+
+        //
+        //POST: /Account/ResetPassword
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var user = await UserManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                // Don't reveal that the user does not exist
+                return RedirectToAction("ResetPasswordConfirmation", "Account");
+            }
+            var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("ResetPasswordConfirmation", "Account");
+            }
+            AddErrors(result);
+            return View();
+        }
+
+
+        // 
+        // GET: /Account/ResetPasswordConfirmation 
+        [AllowAnonymous]
+        public ActionResult ResetPasswordConfirmation()
+        {
+            return View();
+        } 
 
 
         //
@@ -167,6 +311,7 @@ namespace BSNCapstone.Controllers
             return RedirectToAction("Manage", new { Message = message });
         }
 
+
         //
         // GET: /Account/Manage
         public ActionResult Manage(ManageMessageId? message)
@@ -181,6 +326,7 @@ namespace BSNCapstone.Controllers
             ViewBag.ReturnUrl = Url.Action("Manage");
             return View();
         }
+
 
         //
         // POST: /Account/Manage
@@ -233,6 +379,7 @@ namespace BSNCapstone.Controllers
             return View(model);
         }
 
+
         //
         // POST: /Account/ExternalLogin
         [HttpPost]
@@ -243,6 +390,7 @@ namespace BSNCapstone.Controllers
             // Request a redirect to the external login provider
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
+
 
         //
         // GET: /Account/ExternalLoginCallback
@@ -267,9 +415,10 @@ namespace BSNCapstone.Controllers
                 // If the user does not have an account, then prompt the user to create an account
                 ViewBag.ReturnUrl = returnUrl;
                 ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { UserName = loginInfo.DefaultUserName });
+                return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { UserName = loginInfo.DefaultUserName,});
             }
         }
+
 
         //
         // POST: /Account/LinkLogin
@@ -280,6 +429,7 @@ namespace BSNCapstone.Controllers
             // Request a redirect to the external login provider to link a login for the current user
             return new ChallengeResult(provider, Url.Action("LinkLoginCallback", "Account"), User.Identity.GetUserId());
         }
+
 
         //
         // GET: /Account/LinkLoginCallback
@@ -297,6 +447,7 @@ namespace BSNCapstone.Controllers
             }
             return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
         }
+
 
         //
         // POST: /Account/ExternalLoginConfirmation
@@ -318,7 +469,7 @@ namespace BSNCapstone.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser() { UserName = model.UserName };
+                var user = new ApplicationUser() { UserName = model.UserName ,Email = model.Email};
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -336,6 +487,7 @@ namespace BSNCapstone.Controllers
             return View(model);
         }
 
+
         //
         // POST: /Account/LogOff
         [HttpPost]
@@ -346,6 +498,7 @@ namespace BSNCapstone.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+
         //
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
@@ -353,9 +506,6 @@ namespace BSNCapstone.Controllers
         {
             return View();
         }
-
-
-
 
 
         [ChildActionOnly]
