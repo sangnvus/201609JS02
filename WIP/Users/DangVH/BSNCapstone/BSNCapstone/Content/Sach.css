@@ -1,0 +1,223 @@
+﻿@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+.nav-space {
+    width: 20%;
+}
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+
+/* Set chiều cao của trang */
+
+.row.content {
+    height: 100%;
+    width: 100%;
+}
+
+
+/* Set gray background color and 100% height */
+
+.sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: 100%;
+        padding: 15px;
+    }
+    .row.content {
+        height: 100%;
+    }
+}
+
+#nhom {
+    background-color: #F15F66;
+    color: white;
+    width: 100%;
+}
+
+#tensach {
+    color: black;
+}
+
+.button {
+    border-radius: 8px;
+    color: black;
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 2px 1px;
+    cursor: pointer;
+}
+
+.buttonRe {
+    border-radius: 8px;
+}
+
+.list-group {}
+
+.list-group li {
+    list-style: none;
+}
+
+.list-group li span {
+    width: calc(100% - 20px);
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    height: 30%;
+}
+
+.list-group span {
+    width: calc(100% - 20px);
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+
+/***********************************POST*************************************************/
+
+.post-card {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.write-post {
+    width: calc(100% - 2px);
+    padding: 10px;
+    margin: 2px;
+    border: none;
+    resize: none;
+    outline: none;
+}
+
+
+/**************************** ẨN GIỚI THIỆU SÁCH *******************************/
+
+p2 {
+    display: block;
+    /* Fallback for non-webkit */
+    display: -webkit-box;
+    height: 220px;
+    max-width: 450px;
+    margin: 0 auto;
+    font-size: 100%;
+    line-height: line-height;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/*****************************SÁCH VÀ MIÊU TẢ VỀ SÁCH *************************/
+
+.book {
+    background-color: #ECEAE0;
+    position: relative;
+    height: 404px;
+}
+
+.gioithieusach {
+    padding-top: 2%;
+}
+
+.jumbotron {
+    height: auto;
+}
+
+p1 {
+    margin-right: 80px;
+}
+
+
+/*****************************RATING************************************************/
+
+
+/*******************************RATING STAR *************************************************/
+
+fieldset,
+label {
+    margin: 0;
+    padding: 0;
+}
+
+.rating {
+    border: none;
+    float: left;
+}
+
+.rating > input {
+    display: none;
+}
+
+.rating > label:before {
+    margin: 2px;
+    font-size: 1em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+}
+
+.rating > label {
+    color: #ddd;
+    float: right;
+}
+
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label,
+
+/* show gold star when clicked */
+
+.rating:not(:checked) > label:hover,
+
+/* hover current star */
+
+.rating:not(:checked) > label:hover ~ label {
+    color: #FFD700;
+}
+
+
+/* hover previous stars in list */
+
+.rating > input:checked + label:hover,
+
+/* hover current star when changing rating */
+
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+
+/* lighten current selection */
+
+.rating > input:checked ~ label:hover ~ label {
+    color: #FFED85;
+}
+
+#ratingbook {
+    font-size: 300%;
+    padding-left: 3%;
+}
+
+#coverbook {
+    height: 80%;
+    width: 79%;
+}
+
+.danhgia {
+    padding-left: 10%;
+}

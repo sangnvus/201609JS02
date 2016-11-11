@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Sach</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/capstone-rename-later-v1.0.js"></script>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-default" style="background-color: black">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><img id="logo" src="logo.png" class="img-rounded" alt="Trolltunga Norway" style="width:180px; height:40px;margin-top:-5%"> </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-left" style="padding-left: 10%;">
+                    <div class="nav-space"></div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" style="width:150%;" placeholder="Tìm kiếm">
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right" style="padding-right: 15%;">
+                    <li><a href="#"><i class="glyphicon glyphicon-user"></i> </a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-home"></i> </a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-comment"></i> </a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-bell"></i> </a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-cog"></i><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            @*<li><a href="#">Tạo nhóm</a></li>*@
+                            <li><a data-toggle="modal" data-target="#myModal">Tạo nhóm</a></li>
+                            <li><a href="#">Cài đặt</a></li>
+                            <li><a href="#">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                @*<div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header clearfix">
+                                <div class="col-md-6">
+                                    <h4><b>Tạo nhóm mới</b></h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                            </div>
+                            <div class="modal-body">
+
+                                <form role="form">
+                                    <h4><b>Đặt tên nhóm</b></h4>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="groupname" name="groupname" placeholder="Tên nhóm" required>
+                                    </div>
+                                    <h4><b>Miêu tả về nhóm</b></h4>
+                                    <div class="form-group">
+                                        <textarea rows="4" cols="80%"></textarea>
+                                    </div>
+                                    <h4><b>Chọn quyền riêng tư</b></h4>
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            <input type="radio" value="Public"> Nhóm công khai
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" value="Private"> Nhóm kín
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+    </nav>
+    @RenderBody()
+    <hr />
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
