@@ -1,13 +1,15 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Sach</title>
+    <title></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/capstone-rename-later-v1.0.js"></script>
+    <link rel="stylesheet" href="~Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~Content/Trangchu_canhan_tacgia.css">
+    <script src="~Scripts/jquery.min.js"></script>
+    <script src="~Scripts/bootstrap.min.js"></script>
+    <script src="~Scripts/capstone-rename-later-v1.0.js"></script>
+    <script src="~Scripts/messenger.js"></script>
 
 </head>
 <body>
@@ -27,7 +29,25 @@
                 <ul class="nav navbar-nav navbar-right" style="padding-right: 15%;">
                     <li><a href="#"><i class="glyphicon glyphicon-user"></i> </a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-home"></i> </a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-comment"></i> </a></li>
+                    @*HaiCM. Update. Start. 11-11-2016*@
+                    @*<li><a href="#"><i class="glyphicon glyphicon-comment"></i> </a></li>*@
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class=" glyphicon glyphicon-comment "></i> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="chat-sidebar">
+                                    <div class="sidebar-name">
+                                        <!-- Pass username and display name to register popup -->
+                                        <a href="javascript:register_popup('hai', 'Hải');">    <!-------hai là id, Hải là username-->
+                                            <img width="30" height="30" src="AnhAvaNguoiDung/avaHai.jpg" />
+                                            <span>Hải</span>
+                                        </a>
+                                    </div>                                                           
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    @*HaiCN. Update. End. 11-11-2016*@
                     <li><a href="#"><i class="glyphicon glyphicon-bell"></i> </a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-cog"></i><span class="caret"></span></a>
