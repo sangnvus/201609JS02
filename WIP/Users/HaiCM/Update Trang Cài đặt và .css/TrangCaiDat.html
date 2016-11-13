@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Trang chủ</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/Trangcaidat.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="js/capstone-rename-later-v1.0.js"></script>
+
+</head>
+
+<body>
+	<!--------------------------------Thanh Bar------------------------------------->
+	<nav class="navbar navbar-default" style="background-color: #2f2f2f">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<img src="logo.png" alt="Bookaholic.com" style="width:180px; height:40px;margin-top:2%" onclick="window.location='../Interface_v1.1/DangKy.html'">
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<form class="navbar-form navbar-left" style="padding-left: 15%;">
+					<div class="nav-space"></div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+				</form>
+				<ul class="nav navbar-nav navbar-right" style="padding-right: 15%;">
+					<li><a href="TrangCaNhan.html"><i class="glyphicon glyphicon-user"></i> </a></li>
+					<li><a href="TrangChu.html"><i class="glyphicon glyphicon-home"></i> </a></li>
+					<li><a href="#"><i class="glyphicon glyphicon-comment"></i> </a></li>
+					<li><a href="#"><i class="glyphicon glyphicon-bell"></i> </a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-cog"></i><span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Yêu cầu thêm sách</a></li>
+							<li><a href="TrangCaiDat.html">Cài đặt chung</a></li>
+							<li><a href="#">Đăng xuất</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="col-ms-12">
+		<!------------LEFT SIDE--------------->
+		<div class="col-md-2 col-sm-4 col-xs-12 sidenav">
+			<div class="text-center" class="panel-heading">
+				<h4><strong >THEO DÕI</strong></h4></div>
+			<br>
+			<div class="row">
+				<div class="col-md-6 " style="padding-left:5px;">
+					<img src="/Anhtacgia/James%20Patterson_tacgia.jpg" class="img-rounded" alt="" width="90" height="117">
+					<ul class="list-group">
+						<li>
+							<span>
+                                    <i data-toggle="tooltip" title="James Patterson " id="tacgia"><strong>James Patterson </strong> </i>
+                               </span>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-6" style="padding-left:5px;">
+					<img src="/Anhtacgia/Jeff%20Kinney_tacgia.jpg" class="img-rounded" alt="" width="90" height="117">
+					<ul class="list-group">
+						<li>
+							<span>
+                                    <i data-toggle="tooltip" title="Jeff Kinney" id="tacgia"><strong>Jeff Kinney </strong> </i>
+                               </span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<br>
+			<p class="text-right">
+				<button type="button" class="btn btn-link">Xem thêm </button>
+			</p>
+		</div>
+		<!--CENTER-->
+		<div class="container col-md-6">
+			<div class="userInfor">
+				<h2>Thông tin cá nhân</h2>
+				<div class="divider-horizontal"></div>
+				<br>
+				<div class="col-md-12">
+					<div class="col-md-4">
+						<div class="row">
+							<div class="thumbnail">
+								<img src="Anhtacgia/nguy%E1%BB%85n%20nh%E1%BA%ADt%20%C3%A1nh_tacgia.jpg" alt="">
+								<div class="caption">
+									<a href="#">Nguyễn Nhật Ánh</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-8">
+						<form class="form-horizontal">
+							<div class="form-group">
+								<label class="col-sm-5 control-label">Tên tài khoản</label>
+								<input type="text" class="form-control" id="name" placeholder="Họ tên" style="width:50%;">
+							</div>
+							<div class="form-group">
+								<label class="col-sm-5 control-label">Giới tính</label>
+								<label class="radio-inline" style="margin-left:0px;">
+									<input type="radio" name="gender" id="male" value="1"> Nam
+								</label>
+								<label class="radio-inline" style="margin-left:30px;">
+									<input type="radio" name="gender" id="female" value="2"> Nữ
+								</label>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-5 control-label">Ngày sinh</label>
+								<input type="date" class="form-control" style="width:50%;">
+
+							</div>
+							<!--
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Email</label>
+							<input type="email" class="form-control" id="email" placeholder="Email">
+						</div> XÓA PHẦN NÀY 13.11.2016
+-->
+							<!--
+						<div class="form-group ">
+							<label class="col-sm-3 control-label">Mật khẩu</label>
+							<input type="password" class="form-control" id="password" placeholder="Mật khẩu">
+						</div> TÁCH PHẦN NÀY RA RIÊNG (CHƯA TÁCH)
+-->
+							<div class="form-inline" style="position:relative;left:35%;margin-top:15px;">
+								<button type="submit" class="btn btn-default">Sửa</button>
+								<button type="submit" class="btn btn-info">Lưu</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--  RIGHT SIDE -->
+		<div class="col-md-4 col-sm-4 col-xs-12 sidenav">
+			<div class="text-center" class="panel-heading">
+				<h4><strong >ĐÁNH GIÁ VÀ ĐỌC GẦN ĐÂY</strong></h4></div>
+			<br>
+			<br>
+			<!--  Bắt đầu phần ĐÁNH GIÁ VÀ ĐỌC GẦN ĐÂY -->
+			<div class="row">
+				<div class="col-md-6" style="padding-left:5px;">
+					<div class="col-md-6" style="padding-left:0px;">
+						<img src="/Anhsach/nhagiakim.jpg" class="img-rounded" width="100" height="130">
+					</div>
+					<fieldset class="rating">
+						<input type="radio" id="star5" name="rating" value="5" />
+						<label class="full" for="star5" title="Awesome - 5 stars"></label>
+						<input type="radio" id="star4" name="rating" value="4" />
+						<label class="full" for="star4" title="Pretty good - 4 stars"></label>
+						<input type="radio" id="star3" name="rating" value="3" />
+						<label class="full" for="star3" title="Meh - 3 stars"></label>
+						<input type="radio" id="star2" name="rating" value="2" />
+						<label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+						<input type="radio" id="star1" name="rating" value="1" />
+						<label class="full" for="star1" title="Sucks big time - 1 star"></label>
+					</fieldset>
+					<h5 style="float:right;">345 đánh giá</h5>
+					<br>
+					<br>
+					<button class="button buttonRe" style="margin-left:15px;">Nhận xét</button>
+					<div class="col-md-12 list-group">
+						<span>
+								<strong data-toggle="tooltip" title="NHÀ GIẢ KIM">NHÀ GIẢ KIM</strong>
+								<br><i data-toggle="tooltip" title="Paulo Coelho" class="authorname"><strong>Paulo Coelho </strong> </i>
+							</span>
+					</div>
+				</div>
+				<div class="col-md-6" style="padding-left:5px;">
+					<div class="col-md-6" style="padding-left:0px;">
+						<img src="/Anhsach/ngayxuacomotchuyentinh.jpg" class="img-rounded" width="100" height="130">
+					</div>
+					<fieldset class="rating">
+						<input type="radio" id="star5" name="rating" value="5" />
+						<label class="full" for="star5" title="Awesome - 5 stars"></label>
+						<input type="radio" id="star4" name="rating" value="4" />
+						<label class="full" for="star4" title="Pretty good - 4 stars"></label>
+						<input type="radio" id="star3" name="rating" value="3" />
+						<label class="full" for="star3" title="Meh - 3 stars"></label>
+						<input type="radio" id="star2" name="rating" value="2" />
+						<label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+						<input type="radio" id="star1" name="rating" value="1" />
+						<label class="full" for="star1" title="Sucks big time - 1 star"></label>
+					</fieldset>
+					<h5 style="float:right;">345 đánh giá</h5>
+					<br>
+					<br>
+					<button class="button buttonRe" style="margin-left:15px;">Nhận xét</button>
+					<div class="col-md-12 list-group">
+						<span>
+								<strong data-toggle="tooltip" title="NGÀY XƯA CÓ MỘT CHUYỆN TÌNH">NGÀY XƯA CÓ MỘT CHUYỆN TÌNH</strong>
+								<br><i data-toggle="tooltip" title="Nguyễn Nhật Ánh" class="authorname"><strong>Nguyễn Nhật Ánh </strong> </i>
+							</span>
+					</div>
+				</div>
+			</div>
+			<br>
+		</div>
+	</div>
+	<!-- Kết thúc ------------- -->
+</body>
+
+</html>
