@@ -1,5 +1,10 @@
-﻿@*@*HuyenPT. Create. Start. 08-11-2016*@
-@model IEnumerable<BSNCapstone.Models.Post>
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@*@*HuyenPT. Create. Start. 08-11-2016*@
+@*@model IEnumerable<BSNCapstone.Models.Post>*@
 @*HuyenPT. Create. End. 08-11-2016*@
 
 <!DOCTYPE html>
@@ -24,7 +29,7 @@
     <link href="rateit/src/rateit.css" rel="stylesheet" type="text/css">
     <script src="~/Script/jquery.min.js"></script>
     <script src="~/Script/bootstrap.min.js"></script>
-    <script src="js/capstone-rename-later-v1.0.js"></script>
+    <script src="~/Script/capstone-rename-later-v1.0.js"></script>
     @*HuyenPT. Update. Start. 08-11-2016*@
 </head>
 
@@ -368,8 +373,10 @@
 
                         @*HuyenPT. Create. Start. 08-11-2016*@
                         @*Show post*@
-                        @foreach (var item in Model)
-                        {
+                        @*HuyenPT. Delete. Start. 14-11-2016*@
+                        @*@foreach (var item in Model)
+                        {*@
+                        @*HuyenPT. Delete. End. 14-11-2016*@
                             <div class="col-md-12" style="margin-top: 5px; padding-top: 5%">
                                 <div class="post-card" style="padding: 5px 15px;">
                                     <div class="row">
@@ -388,7 +395,9 @@
                                                             <div class="col-md-12">
                                                                 @*HuyenPT. Update. Start. 06-11-2016*@
                                                                 @*<a class="owner-name" href="">Huyền</a>*@
-                                                                <a class="owner-name" href="">@item.UserID</a>
+                                                                @*HuyenPT. Delete. Start. 14-11-2016*@
+                                                                @*<a class="owner-name" href="">@item.UserID</a>*@
+                                                                @*HuyenPT. Delete. End. 14-11-2016*@
                                                                 @*HuyenPT. Update. End. 06-11-2016*@
                                                             </div>
                                                         </div>
@@ -397,7 +406,9 @@
                                                                 @*HuyenPT. Update. Start. 06-11-2016*@
                                                                 @*Time of post*@
                                                                 @*<label class="post-time"><i class="glyphicon glyphicon-time"></i><span>11:59 PM</span></label>*@
-                                                                <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>@item.Time</span></label>
+                                                                @*HuyenPT. Delete. Start. 14-11-2016*@
+                                                                @*<label class="post-time"><i class="glyphicon glyphicon-time"></i><span>@item.Time</span></label>*@
+                                                                @*HuyenPT. Delete. End. 14-11-2016*@
                                                                 @*HuyenPT. Update. End. 06-11-2016*@
                                                             </div>
                                                         </div>
@@ -407,7 +418,9 @@
                                             @*HuyenPT. Update. Start. 06-11-2016*@
                                             @*Content of post*@
                                             @*<p class="post-content">Đây là nội dung bài post</p>*@
-                                            <p class="post-content">@Html.DisplayFor(modelItem => item.Content)</p>
+                                            @*HuyenPT. Delete. Start. 14-11-2016*@
+                                            @*<p class="post-content">@Html.DisplayFor(modelItem => item.Content)</p>*@
+                                            @*HuyenPT. Delete. End. 14-11-2016*@
                                             @*HuyenPT. Update. End. 06-11-2016*@
                                             <!-- Post Interaction -->
                                             <div class="divider-horizontal"></div>
@@ -447,7 +460,9 @@
                                 </div>
 
                             </div>
-                        }
+                        @*HuyenPT. Delete. Start. 14-11-2016*@
+                        @*}*@
+                        @*HuyenPT. Delete. End. 14-11-2016*@
                         @*HuyenPT. Create. End. 08-11-2016*@
                         <!--------------------------------------------PHẦN CHIA SẺ----------------------------------------------------->
                         <div id="ModalShare" class="modal fade" role="dialog">
@@ -1132,3 +1147,4 @@
     })
 </script>
 @*HuyenPT. Create. End. 08-11-2016*@
+
