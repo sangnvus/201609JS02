@@ -9,19 +9,21 @@ namespace BSNCapstone.Models
 {
     public class Post
     {
+        public Post()
+        {
+            this.PostComments = new HashSet<Comment>();
+        }
+
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        public String Id { get; set; }
 
-        public string UserID { get; set; }
+        public string Message { get; set; }
 
-        public string GroupId { get; set; }
+        public int PostedBy { get; set; }
 
-        public DateTime Time { get; set; }
+        public System.DateTime PostedDate { get; set; }
 
-        public string BookId { get; set; }
-
-        public string Content { get; set; }
-
-        public List<Post> Posts { get; set; }
+        public virtual ICollection<Comment> PostComments { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
     }
 }
