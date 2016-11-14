@@ -1,13 +1,24 @@
 ﻿@model BSNCapstone.Models.Book
 
 @{
-    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var allCategory = ((List<BSNCapstone.Models.Category>)ViewBag.ListCategory);
+    var allCategories = ((List<BSNCapstone.Models.Category>)ViewBag.allCategories);
+    var allPublishers = ((List<BSNCapstone.Models.Publisher>)ViewBag.allPublishers);
     <!--DangVH. Create. Start (02/11/2016)-->
     var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
     <!--DangVH. Create. End (02/11/2016)-->
 }
+
+<head>
+    <title>Sach</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/Sach.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/capstone-rename-later-v1.0.js"></script>
+</head>
 
 @*<div>
         <hr />
@@ -104,26 +115,38 @@
                         @Html.DisplayFor(model => model.Authors)
                     </dd>
 
-                    @*<p>Nhà xuất bản:<strong><i>Kim Đồng </i></strong></p>*@
-
                     <dt>
                         @Html.DisplayNameFor(model => model.Publishers)
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.Publishers)
+                        @{
+                            foreach (var item in allPublishers)
+                            {
+                                foreach (var publisher in Model.Publishers)
+                                {
+                                    if (item.Id == publisher)
+                                    {
+                                        <p>@Html.DisplayFor(publisherItem => item.Name)</p>
+                                    }
+                                }
+                            }
+                        }
                     </dd>
-                    @*<p>Thể loại: <strong><i>Tình cảm</i> </strong></p>*@
 
                     <dt>
                         @Html.DisplayNameFor(model => model.Categories)
                     </dt>
 
                     <dd>
-                        @{
-                            foreach (var item in allCategory)
+                        @foreach (var item in allCategories)
+                        {
+                            foreach (var category in Model.Categories)
                             {
-                                <p>@Html.DisplayFor(categoryItem => item.CategoryName)</p>
+                                if (item.Id == category)
+                                {
+                                    <p>@Html.DisplayFor(categoryItem => item.CategoryName)</p>
+                                }
                             }
                         }
                     </dd>
@@ -182,8 +205,8 @@
 
                     <dd>
                         @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
-                .Height(130).Width(130).Crop("fill")).BuildImageTag(Model.ImgPublicId,
-                new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
+                        .Height(130).Width(130).Crop("fill")).BuildImageTag(Model.ImgPublicId,
+                        new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
                     </dd>
                 </dl>
             </div>

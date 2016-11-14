@@ -28,23 +28,23 @@ namespace BSNCapstone.ControllerHelpers
             return categories;
         }
 
-        public static Models.Book GetCheckBoxValues()
-        {
-            ApplicationIdentityContext Context = ApplicationIdentityContext.Create();
-            Book book = new Book();
-            var allCategory = Context.Categories.Find(_ => true).ToEnumerable();
-            var bookCategoriesViewModel = new List<BookCategoriesViewModel>();
-            foreach (var category in allCategory)
-            {
-                bookCategoriesViewModel.Add(new BookCategoriesViewModel()
-                {
-                    CategoryId = category.Id,
-                    CategoryName = category.CategoryName,
-                    IsSelected = false
-                });
-            }
-            book.Categories = bookCategoriesViewModel;
-            return book;
-        }
+        //public static Models.Book GetCheckBoxValues()
+        //{
+        //    ApplicationIdentityContext Context = ApplicationIdentityContext.Create();
+        //    Book book = new Book();
+        //    var allCategory = Context.Categories.Find(_ => true).ToEnumerable();
+        //    var bookCategoriesViewModel = new List<BookCategoriesViewModel>();
+        //    foreach (var category in allCategory)
+        //    {
+        //        bookCategoriesViewModel.Add(new BookCategoriesViewModel()
+        //        {
+        //            CategoryId = category.Id,
+        //            CategoryName = category.CategoryName,
+        //            IsSelected = false
+        //        });
+        //    }
+        //    book.Categories = bookCategoriesViewModel;
+        //    return book;
+        //}
     }
 }

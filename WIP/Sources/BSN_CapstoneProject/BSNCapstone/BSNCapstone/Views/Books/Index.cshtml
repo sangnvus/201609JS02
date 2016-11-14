@@ -3,7 +3,8 @@
     int bookNumber = ViewBag.bookNumber;
     string userName = ViewBag.currentUser;
     var allCategories = ((List<BSNCapstone.Models.Category>)ViewBag.allCategories);
-    Layout = "";
+    var allPublishers = ((List<BSNCapstone.Models.Publisher>)ViewBag.allPublishers);
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +65,7 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="TrangAdmin-Requestbook.html">Yêu cầu thêm sách</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="TrangAdmin-Addbook.html">Thêm sách</a></li>
+                        <li><a href="@Url.Action("Create", "Books")">Thêm sách</a></li>
                     </ul>
                 </div>
                 <button type="button" class="btn btn-default" onclick="window.location.href = '@Url.Action("Index", "Slider")'">Quản lý Slider</button>
@@ -94,7 +95,6 @@
                     <div class="form-inline">
                         <label>Danh sách Sách</label>
                         <div class="form-group add">
-                            @Html.ActionLink("Thêm sách", "Create", "Books", null, new { @class = "modal-link btn btn-default" })
                             @using (Html.BeginForm("Index", "Books", FormMethod.Get, new { @class = "searchForm" }))
                             {
                                 @Html.TextBox("searchString")
@@ -138,10 +138,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @{int i = 1;}
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <td></td>
+                                        <tr id="@i">
+                                            <td>@i</td>
                                             <td style="vertical-align: middle">
                                                 @Html.DisplayFor(modelItem => item.BookName)
                                             </td>
@@ -154,7 +155,7 @@
                                                     <p>
                                                         @{foreach (var cat in allCategories)
                                                         {
-                                                            if (category.CategoryId == cat.Id)
+                                                            if (category == cat.Id)
                                                             {
                                                                 @Html.DisplayFor(categoryItem => cat.CategoryName)
                                                             }
@@ -167,18 +168,28 @@
                                                 @Html.DisplayFor(modelItem => item.ReleaseDay)
                                             </td>
                                             <td style="vertical-align: middle">
-                                                @Html.DisplayFor(modelItem => item.Publishers)
+                                                @foreach (var publisher in item.Publishers)
+                                                {
+                                                    <p>
+                                                        @foreach (var pub in allPublishers)
+                                                        {
+                                                            if (publisher == pub.Id)
+                                                            {
+                                                                @Html.DisplayFor(modelItem => pub.Name)
+                                                            }
+                                                        }
+                                                    </p>
+                                                }
                                             </td>
                                             <td style="vertical-align: middle">
                                                 @Html.DisplayFor(modelItem => item.Description)
                                             </td>
                                             <td style="vertical-align: middle">
-                                                <!--<input type="submit" value="Edit" id="@item.Id" class="btn btn-default" /> -->      @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                                                <!--
-                                                                    l.ActionLink("Details", "Details", new { id=item.Id }) |-->
-                                                @Html.ActionLink("Delte", "Delete", new { id = item.Id })
+                                                <button type="button" class="btn btn-info fa fa-pencil-square-o" onclick="location.href='@Url.Action("Edit", "Books", new { id = item.Id })'">Sửa</button>
+                                                <button type="submit" class="btn btn-danger fa fa-close" onclick="DeleteConfirm('@item.Id', '@i')">Xóa</button>
                                             </td>
                                         </tr>
+                                        i++;
                                     }
                                 </tbody>
                             </table>
@@ -213,24 +224,29 @@
 </html>
 <!--Modal popup-->
 <script type="text/javascript">
-    $(function () {
-        $('body').on('click', '.modal-link', function (e) {
-            e.preventDefault();
-            $(this).attr('data-target', '#myModal');
-            $(this).attr('data-toggle', 'modal');
-        });
+    // DELETE IMAGE
+    function DeleteConfirm(id, i) {
+        var deleteConfirm = confirm("Bạn có chắc muốn xóa quyển sách này ko?");
+        if (deleteConfirm) {
+            var formData = new FormData();
+            formData.append("id", id);
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("DeleteConfirm", "Books")",
+                data: formData,
+            dataType: 'json',
+            contentType: false,
+            processData: false,
 
-        $('body').on('click', '.modal-close-btn', function () {
-            $('#myModal').modal('hide');
-        });
-
-        $('#myModal').on('hidden.bs.modal', function () {
-            $(this).removeData('bs.modal');
-        });
-
-        $('#CancelModal').on('click', function () {
-            return false;
-        });
-    });
+                success: function (result) {
+                    alert(result);
+                    $('table tbody tr#' + i).fadeOut('slow', function () { $(this).remove(); })
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        }
+    };
 </script>
 

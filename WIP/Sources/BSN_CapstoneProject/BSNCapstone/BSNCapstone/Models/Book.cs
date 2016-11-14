@@ -15,36 +15,64 @@ namespace BSNCapstone.Models
         public string Id { get; set; }
 
         [Required]
-        [Display(Name = "Book Name")]
+        //DangVH. Update. Start (14/11/2016)
+        //[Display(Name = "Book Name")]
+        [Display(Name = "Tên sách")]
         public string BookName { get; set; }
+        //DangVH. Update. End (14/11/2016)
 
         [Required]
-        [Display(Name = "Authors")]
+        //DangVH. Update. Start (14/11/2016)
+        //[Display(Name = "Authors")]
+        [Display(Name = "Tác giả")]
         public string Authors { get; set; }
+        //DangVH. Update. End (14/11/2016)
 
         [Required]
-        [Display(Name = "Publishers")]
-        public string Publishers { get; set; }
+        //DangVH. Update. Start (14/11/2016)
+        //[Display(Name = "Publisher")]
+        //public string Publishers { get; set; }
+        [Display(Name = "Nhà xuất bản")]
+        public List<string> Publishers { get; set; }
+        //DangVH. Update. End (14/11/2016)
 
         [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:dd/MM/yyyy}")]
-        [Display(Name = "Release Day")]
+        //DangVH. Update. Start (14/11/2016)
+        //[Display(Name = "Release Day")]
+        [Display(Name = "Ngày ra mắt")]
+        //DangVH. Update. End (14/11/2016)
         public DateTime ReleaseDay { get; set; }
 
-        [Display(Name = "Description")]
+        //DangVH. Update. Start (14/11/2016)
+        //[Display(Name = "Description")]
+        [Display(Name = "Miêu tả")]
+        //DangVH. Update. End (14/11/2016)
         public string Description { get; set; }
 
         //DangVH. Create. Start (02/11/2016)
-        [Display(Name = "Book Image")]
+        //DangVH. Update. Start (14/11/2016)
+        //[Display(Name = "Book Image")]
+        [Display(Name = "Ảnh")]
+        //DangVH. Update. End (14/11/2016)
         //DangVH. Create. End (02/11/2016)
         public string ImgPublicId { get; set; }
 
-        public List<BookCategoriesViewModel> Categories { get; set; }
+        //DangVH. Update. Start (14/11/2016)
+        [Required]
+        [Display(Name = "Thể loại")]
+        //public List<BookCategoriesViewModel> Categories { get; set; }
+        public List<string> Categories { get; set; }
+        //DangVH. Update. End (14/11/2016)
 
         public Book()
         {
-            Categories = new List<BookCategoriesViewModel>();
+            //DangVH. Update. Start (14/11/2016)
+            //Categories = new List<BookCategoriesViewModel>();
+            Publishers = new List<string>();
+            Categories = new List<string>();
+            //DangVH. Update. End (14/11/2016)
         }
     }
 }
