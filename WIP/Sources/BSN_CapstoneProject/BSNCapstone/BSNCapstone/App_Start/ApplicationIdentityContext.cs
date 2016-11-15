@@ -29,7 +29,7 @@ namespace BSNCapstone.App_Start
             var books = database.GetCollection<Book>("books");
 
             //HuyenPT. Create. Start. 30-10-2016
-            var sliders = database.GetCollection<Slider>("slides");
+            var sliders = database.GetCollection<Slider>("sliders");
             //HuyenPT. Create. End. 30-10-2016
 
             //HuyenPT. Create. Start. 02-11-2016
