@@ -79,6 +79,8 @@ namespace BSNCapstone.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(AccountViewModel model, string returnUrl)
         {
+            ViewBag.sliders = Context.Sliders.Find(_ => true).ToList();
+            ViewBag.cloudinary = cloudinary;
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -160,6 +162,8 @@ namespace BSNCapstone.Controllers
             }
 
             // If we got this far, something failed, redisplay form
+            ViewBag.sliders = Context.Sliders.Find(_ => true).ToList();
+            ViewBag.cloudinary = cloudinary;
             return View("Login", new AccountViewModel() { Register = model.Register });
         }
 
@@ -192,6 +196,8 @@ namespace BSNCapstone.Controllers
                 }
                 AddErrors(result);
             }
+            ViewBag.sliders = Context.Sliders.Find(_ => true).ToList();
+            ViewBag.cloudinary = cloudinary;
             return View(model);
         }
 

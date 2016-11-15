@@ -99,11 +99,14 @@
             }
         </div>
         <div class="dangnhap container-fluid text-left" style="margin-top: 10%;">
+            <!--DangVH. Create. Start (16/11/2016)-->
+            <span style="color:whitesmoke; font-size:200%;position:absolute;top:-27%;right:42%">TÁC GIẢ ĐĂNG KÝ</span>
+            <!--DangVH. Create. End (16/11/2016)-->
             <div class="row content">
                 @using (Html.BeginForm("AuthorRegister", "Account", FormMethod.Post, new { @class = "form-horizontal", @style = "padding-left:30%;position:relative;right:10%;", enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
-                    @Html.ValidationSummary()
+                    @Html.ValidationSummary(true)
                     <div class="form-group">
                         @Html.TextBoxFor(model => model.AuthorRegister.UserName, new { @class = "form-control", @placeholder = "Tên tài khoản" })
                     </div>
