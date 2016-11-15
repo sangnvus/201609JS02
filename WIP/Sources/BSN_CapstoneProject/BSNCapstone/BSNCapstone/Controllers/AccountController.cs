@@ -11,6 +11,8 @@ using Microsoft.Owin.Security;
 using BSNCapstone.Models;
 using BSNCapstone.App_Start;
 using BSNCapstone.ControllerHelpers;
+using BSNCapstone.ViewModels;
+using MongoDB.Driver;
 
 namespace BSNCapstone.Controllers
 {
@@ -39,11 +41,19 @@ namespace BSNCapstone.Controllers
             }
         }
 
+        //DangVH. Create. Start (15/11/2016)
+        private readonly ApplicationIdentityContext Context = ApplicationIdentityContext.Create();
+        private readonly CloudinaryDotNet.Cloudinary cloudinary = ImageUploadHelper.GetCloudinaryAccount();
+        //DangVH. Create. End (15/11/2016)
 
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            //DangVH. Create. Start (15/11/2016)
+            ViewBag.sliders = Context.Sliders.Find(_ => true).ToList();
+            ViewBag.cloudinary = cloudinary;
+            //DangVH. Create. End (15/11/2016)
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -67,7 +77,7 @@ namespace BSNCapstone.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(AccountViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
@@ -75,7 +85,7 @@ namespace BSNCapstone.Controllers
             }
 
             // Require the user to have a confirmed email before they can log on.
-            var user = await UserManager.FindByEmailAsync(model.Email);
+            var user = await UserManager.FindByEmailAsync(model.Login.Email);
             if (user != null)
             {
                 if (!await UserManager.IsEmailConfirmedAsync(user.Id))
@@ -87,7 +97,7 @@ namespace BSNCapstone.Controllers
 
             // This doen't count login failures towards lockout only two factor authentication
             // To enable password failures to trigger lockout, change to shouldLockout: true
-            var result = await SignInHelper.PasswordSignIn(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInHelper.PasswordSignIn(model.Login.Email, model.Login.Password, model.Login.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case IdentityConfig.SignInStatus.Success:
@@ -118,6 +128,8 @@ namespace BSNCapstone.Controllers
         [AllowAnonymous]
         public ActionResult AuthorRegister()
         {
+            ViewBag.sliders = Context.Sliders.Find(_ => true).ToList();
+            ViewBag.cloudinary = cloudinary;
             return View();
         }
 
@@ -127,12 +139,12 @@ namespace BSNCapstone.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(AccountViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var user = new ApplicationUser { UserName = model.Register.UserName, Email = model.Register.Email };
+                var result = await UserManager.CreateAsync(user, model.Register.Password);
                 if (result.Succeeded)
                  {
                      var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -140,7 +152,7 @@ namespace BSNCapstone.Controllers
                      await UserManager.SendEmailAsync(user.Id, "[BookAholic]Xác Nhận Tài Khoản", "Chào mừng bạn đã đến với mạng xã hội sách BookAholic <p> Xin vui lòng click vào link để xác nhận tài khoản của bạn: <a href=\"" + callbackUrl + "\">Xác nhận tài khoản</a>");
                      ViewBag.Link = callbackUrl;
 
-                     ViewBag.Message = "Kiểm tra Email để xác nhận tài khoản của bạn,bạn phải xác nhận tài khoản trước khi Đăng Nhập";
+                     ViewBag.Message = "Kiểm tra Email để xác nhận tài khoản của bạn, bạn phải xác nhận tài khoản trước khi Đăng Nhập";
 
                      return View("DisplayEmail");
                  }
@@ -148,7 +160,7 @@ namespace BSNCapstone.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View("Login", new AccountViewModel() { Register = model.Register });
         }
 
 
@@ -157,7 +169,7 @@ namespace BSNCapstone.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> AuthorRegister(AuthorRegisterViewModel model)
+        public async Task<ActionResult> AuthorRegister(AccountViewModel model)
         {
             
             if (ModelState.IsValid)
@@ -166,8 +178,8 @@ namespace BSNCapstone.Controllers
             
                 var uploadResult = ImageUploadHelper.GetUploadResult(file);
                 
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email,SSNImgId = uploadResult.PublicId};
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var user = new ApplicationUser { UserName = model.AuthorRegister.UserName, Email = model.AuthorRegister.Email,SSNImgId = uploadResult.PublicId};
+                var result = await UserManager.CreateAsync(user, model.AuthorRegister.Password);
                 if (result.Succeeded)
                 {
                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -175,13 +187,11 @@ namespace BSNCapstone.Controllers
                     await UserManager.SendEmailAsync(user.Id, "[BookAholic]Xác Nhận Tài Khoản", "Chào mừng bạn đã đến với mạng xã hội sách BookAholic <p> Xin vui lòng click vào link để xác nhận tài khoản của bạn</p>: <a href=\"" + callbackUrl + "\">Xác Nhận tài khoản</a>");
                     ViewBag.Link = callbackUrl;
 
-                    ViewBag.Message = "Kiểm tra Email để xác nhận tài khoản của bạn,bạn phải xác nhận tài khoản trước khi Đăng Nhập";
+                    ViewBag.Message = "Kiểm tra Email để xác nhận tài khoản của bạn, bạn phải xác nhận tài khoản trước khi Đăng Nhập";
                     return View("DisplayEmail");
                 }
                 AddErrors(result);
             }
-
-
             return View(model);
         }
 
@@ -218,11 +228,11 @@ namespace BSNCapstone.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        public async Task<ActionResult> ForgotPassword(AccountViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindByEmailAsync(model.Email);
+                var user = await UserManager.FindByEmailAsync(model.ForgotPassword.Email);
                 if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
                 {
                     // Don't reveal that the user does not exist or is not confirmed
