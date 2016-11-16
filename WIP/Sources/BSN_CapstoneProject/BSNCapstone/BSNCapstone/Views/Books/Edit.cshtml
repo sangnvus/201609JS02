@@ -98,7 +98,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" id="submit" name="submit" class="btn btn-primary">Thêm</button>
+                                    <button type="button" id="createCategory" name="submit" class="btn btn-primary">Thêm</button>
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>
                                 </div>
                             </div>
@@ -115,8 +115,8 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.BookName, new { @class = "control-label col-md-2" })
                             <div>
-                                @Html.EditorFor(model => model.BookName, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.BookName)
+                                @Html.TextBoxFor(model => model.BookName, new { @class = "form-control", @style = "width: 40%;" })
+                                @Html.ValidationMessageFor(model => model.BookName, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <!--DangVH. Create. Start (02/11/2016)-->
@@ -127,44 +127,44 @@
                                 @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                 .Height(130).Width(130).Crop("fill")).BuildImageTag(Model.ImgPublicId,
                                 new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
-                                <input type="file" id="ImgPublicId" name="img" style="color: black; float: right; margin-bottom: 20px;">
+                                <input type="file" id="ImgPublicId" name="img" style="color: black; float: left; margin-bottom: 20px; margin-left: 26.3%;">
                             </div>
                         </div>
                         <!--DangVH. Create. End (02/11/2016)-->
                         <div class="form-group" style="clear:both;">
                             @Html.LabelFor(model => model.Authors, new { @class = "control-label col-md-2" })
                             <div>
-                                @Html.EditorFor(model => model.Authors, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Authors)
+                                @Html.TextBoxFor(model => model.Authors, new { @class = "form-control", @style = "width: 40%;"})
+                                @Html.ValidationMessageFor(model => model.Authors, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.ReleaseDay, new { @class = "control-label col-md-2" })
                             <div>
                                 @Html.EditorFor(model => model.ReleaseDay, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ReleaseDay)
+                                @Html.ValidationMessageFor(model => model.ReleaseDay, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Publishers, new { @class = "control-label col-md-2" })
                             <div>
-                                @Html.ListBox("Publishers", ViewBag.publisherId as MultiSelectList, new { @class = "chzn-select", @data_placeholder = "Chọn NXB...", @style = "width: 100%;" })
-                                @Html.ValidationMessageFor(model => model.Publishers)
+                                @Html.ListBox("Publishers", ViewBag.publisherId as MultiSelectList, new { @class = "chzn-select", @data_placeholder = "Chọn NXB...", @style = "width: 40%;" })
+                                @Html.ValidationMessageFor(model => model.Publishers, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Categories, new { @class = "control-label col-md-2" })
                             <div>
                                 @*@Html.EditorFor(model => model.Categories, new { @class = "form-control" })*@
-                                @Html.ListBox("Categories", ViewBag.categoryId as MultiSelectList, new { @class = "chzn-select", @data_placeholder = "Chọn thể loại...", @style = "width: 100%;" })
-                                @Html.ValidationMessageFor(model => model.Categories)
+                                @Html.ListBox("Categories", ViewBag.categoryId as MultiSelectList, new { @class = "chzn-select", @data_placeholder = "Chọn thể loại...", @style = "width: 40%;" })
+                                @Html.ValidationMessageFor(model => model.Categories, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
                             <div>
-                                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @style = "resize: none;" })
-                                @Html.ValidationMessageFor(model => model.Description)
+                                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @style = "resize: none; width: 40%;" })
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group" style="margin-top: 10px; text-align: center;">
@@ -184,3 +184,33 @@
 <link href="@Url.Content("~/Content/Chosen/chosen.css")" rel="stylesheet" type="text/css" />
 
 <script>    $(".chzn-select").chosen(); </script> @*Hookup Chosen Plugin*@
+
+<script>
+    $(document).ready(function () {
+        $("#createCategory").click(function () {
+            var formData = new FormData();
+            formData.append("categoryName", $("#categoryname").val());
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("Create", "Categories")',
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+
+                success: function (result) {
+                    if (result == "Error") {
+                        $('#errormessage').toggle();
+                    }
+                    else {
+                        alert(result);
+                        window.location.reload();
+                    }
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        });
+    });
+</script>

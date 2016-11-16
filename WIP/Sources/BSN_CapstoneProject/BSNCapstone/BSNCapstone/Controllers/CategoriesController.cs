@@ -24,32 +24,54 @@ namespace BSNCapstone.Controllers
             return View(categories);
         }
 
+        //DangVH. Delete. Start (16/11/2016)
         //
         // GET: /Categories/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        //public ActionResult Details(int id)
+        //{
+        //    return View();
+        //}
 
         //
         // GET: /Categories/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
+        //DangVH. Delete. End (16/11/2016)
 
         //
         // POST: /Categories/Create
         [HttpPost]
-        public ActionResult Create(Category category)
+        public ActionResult Create(string categoryName)
         {
-            if (ModelState.IsValid)
+            //DangVH. Update. Start (16/11/2016)
+            //if (ModelState.IsValid)
+            //{
+            //    // TODO: Add insert logic here
+            //    Context.Categories.InsertOne(category);
+            //    return RedirectToAction("Index");
+            //}
+            //return View();
+            try
             {
+                if (categoryName == "")
+                {
+                    return Json("Tên thể loại bắt buộc");
+                }
+                Category category = new Category()
+                {
+                    CategoryName = categoryName
+                };
                 // TODO: Add insert logic here
                 Context.Categories.InsertOne(category);
-                return RedirectToAction("Index");
+                return Json("Thêm thành công");
             }
-            return View();
+            catch (Exception ex)
+            {
+                return Json(ex.Message);
+            }
+            //DangVH. Update. End (16/11/2016)
         }
 
         //

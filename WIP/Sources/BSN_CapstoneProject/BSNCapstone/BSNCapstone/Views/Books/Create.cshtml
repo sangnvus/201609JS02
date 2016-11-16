@@ -112,33 +112,34 @@
                         @Html.ValidationSummary(true)
                         <div class="form-group">
                             @Html.TextBoxFor(model => model.BookName, new { @class = "form-control", @placeholder = "Tựa sách" })
-                            @Html.ValidationMessageFor(model => model.BookName)
+                            @Html.ValidationMessageFor(model => model.BookName, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.TextBoxFor(model => model.Authors, new { @class = "form-control", @placeholder = "Tác giả" })
-                            @Html.ValidationMessageFor(model => model.Authors)
+                            @Html.ValidationMessageFor(model => model.Authors, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             <strong>@Html.DisplayNameFor(model => model.ReleaseDay)</strong>
                             @Html.EditorFor(model => model.ReleaseDay, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.ReleaseDay)
+                            @Html.ValidationMessageFor(model => model.ReleaseDay, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.ListBox("Publishers", ViewBag.PublisherId as MultiSelectList, new { @class = "chzn-select", @style = "width: 100%;", @data_placeholder = "Chọn NXB..." })
-                            @Html.ValidationMessageFor(model => model.Publishers)
+                            @Html.ValidationMessageFor(model => model.Publishers, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.ListBox("Categories", ViewBag.CategoryId as MultiSelectList, new { @class = "chzn-select", @style = "width: 100%;", @data_placeholder = "Chọn thể loại..." })
-                            @Html.ValidationMessageFor(model => model.Categories)
+                            @Html.ValidationMessageFor(model => model.Categories, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @placeholder = "Miêu tả" })
-                            @Html.ValidationMessageFor(model => model.Description)
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group" style="margin-top:1%; margin-left:0px">
                             <div>
                                 <input type="file" id="ImgPublicId" name="img" style="color:black">
                                 <p class="help-block" style="color:black">Đổi ảnh bìa</p>
+                                @Html.ValidationMessageFor(model => model.ImgPublicId, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group" style="margin-top: 10px; text-align: center;">

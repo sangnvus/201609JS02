@@ -14,21 +14,21 @@ namespace BSNCapstone.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Tên sách bắt buộc")]
         //DangVH. Update. Start (14/11/2016)
         //[Display(Name = "Book Name")]
         [Display(Name = "Tên sách")]
         public string BookName { get; set; }
         //DangVH. Update. End (14/11/2016)
 
-        [Required]
+        [Required(ErrorMessage = "Tác giả bắt buộc")]
         //DangVH. Update. Start (14/11/2016)
         //[Display(Name = "Authors")]
         [Display(Name = "Tác giả")]
         public string Authors { get; set; }
         //DangVH. Update. End (14/11/2016)
 
-        [Required]
+        [Required(ErrorMessage = "Nhà xuất bản bắt buộc")]
         //DangVH. Update. Start (14/11/2016)
         //[Display(Name = "Publisher")]
         //public string Publishers { get; set; }
@@ -36,12 +36,12 @@ namespace BSNCapstone.Models
         public List<string> Publishers { get; set; }
         //DangVH. Update. End (14/11/2016)
 
-        [Required]
+        [Required(ErrorMessage = "Ngày xuất bản bắt buộc")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:dd/MM/yyyy}")]
         //DangVH. Update. Start (14/11/2016)
         //[Display(Name = "Release Day")]
-        [Display(Name = "Ngày ra mắt")]
+        [Display(Name = "Ngày xuất bản")]
         //DangVH. Update. End (14/11/2016)
         public DateTime ReleaseDay { get; set; }
 

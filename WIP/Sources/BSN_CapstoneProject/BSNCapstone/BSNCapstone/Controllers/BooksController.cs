@@ -103,6 +103,11 @@ namespace BSNCapstone.Controllers
         [HttpPost]
         public ActionResult Create(Book book)
         {
+            var file = Request.Files[0];
+            if (file.ContentLength == 0)
+            {
+                ModelState.AddModelError("ImgPublicId", "Ảnh sách bắt buộc");
+            }
             if (ModelState.IsValid)
             {
                 // TODO: Add insert logic here
@@ -110,7 +115,7 @@ namespace BSNCapstone.Controllers
                 //var selectedCategories = book.Categories.Where(x => x.IsSelected).Select(x => x.CategoryId).ToList();
                 //DangVH. Delete. End (14/11/2016)
                 //DangVH. Create. Start (01/11/2016)
-                var file = Request.Files[0];
+                //var file = Request.Files[0];
                 var uploadResult = ImageUploadHelper.GetUploadResult(file);
                 //DangVH. Create. End (01/11/2016)
                 var addBook = new Book()
@@ -150,8 +155,12 @@ namespace BSNCapstone.Controllers
             //DangVH. Update. Start (14/11/2016)
             //Book newbook = BooksControllerHelper.GetCheckBoxValues();
             ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
+            var selectedPublisherValue = book.Publishers.ToString();
+            var selectedCategoryValue = book.Categories.ToString();
+            ViewBag.publisherId = GetPubsCats(selectedPublisherValue.Split(','), 1);
+            ViewBag.categoryId = GetPubsCats(selectedCategoryValue.Split(','), 2);
             //DangVH. Update. End (14/11/2016)
-            return View();
+            return View(book);
         }
 
         //
@@ -203,7 +212,14 @@ namespace BSNCapstone.Controllers
                 editBook.Authors = book.Authors;
                 editBook.ReleaseDay = book.ReleaseDay.ToLocalTime();
                 editBook.Description = book.Description;
-                editBook.ImgPublicId = uploadResult.PublicId;
+                if (file.ContentLength == 0)
+                {
+                    editBook.ImgPublicId = book.ImgPublicId;
+                }
+                else
+                {
+                    editBook.ImgPublicId = uploadResult.PublicId;
+                }
                 editBook.Categories.Clear();
                 //DangVH. Create. Start (14/11/2016)
                 editBook.Publishers.Clear();
@@ -220,8 +236,13 @@ namespace BSNCapstone.Controllers
                 Context.Books.ReplaceOneAsync(x => x.Id.Equals(new ObjectId(book.Id)), editBook);
                 return RedirectToAction("Index");
             }
-            ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
-            return View();
+            ViewBag.bookNumber = BooksControllerHelper.GetBookNumber(); 
+            var selectedPublisherValue = book.Publishers.ToString();
+            var selectedCategoryValue = book.Categories.ToString();
+            ViewBag.publisherId = GetPubsCats(selectedPublisherValue.Split(','), 1);
+            ViewBag.categoryId = GetPubsCats(selectedCategoryValue.Split(','), 2);
+            ViewBag.cloudinary = cloudinary;
+            return View(book);
         }
 
         //DangVH. Delete. Start (14/11/2016)
@@ -246,7 +267,7 @@ namespace BSNCapstone.Controllers
 
         //
         // POST: /Books/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         public ActionResult DeleteConfirm(string id)
         {
             Context.Books.DeleteOneAsync(x => x.Id.Equals(new ObjectId(id)));
