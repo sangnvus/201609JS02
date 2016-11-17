@@ -52,6 +52,8 @@ namespace BSNCapstone.Controllers
         // GET: /Groups/id/MainPage/
         public ActionResult MainPage(string id)
         {
+            ViewBag.cloudinary = cloudinary;
+            ViewBag.currentUser = User.Identity.GetUserId();
             var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
             return View(group);
         }
@@ -190,12 +192,14 @@ namespace BSNCapstone.Controllers
                 GroupType = group.GroupType
             };
             ViewBag.currentUser = User.Identity.GetUserId();
-            var listMember = new List<GroupMembersViewModel>();
-            listMember = group.GroupMembers;
-            var listRequest = new List<string>();
-            listRequest = group.ListJoinRequest;
-            ViewBag.listMember = listMember;
-            ViewBag.listRequest = listRequest;
+            ViewBag.cloudinary = cloudinary;
+            //var listMember = new List<GroupMembersViewModel>();
+            //listMember = group.GroupMembers;
+            //var listRequest = new List<string>();
+            //listRequest = group.ListJoinRequest;
+            //ViewBag.listMember = listMember;
+            //ViewBag.listRequest = listRequest;
+            ViewBag.group = group;
             var allUser = Context.Users.Find(_ => true).ToList();
             ViewBag.allUser = allUser;
             //var groupMembersViewModel = new List<GroupMembersViewModel>();
@@ -230,6 +234,7 @@ namespace BSNCapstone.Controllers
                 var editGroup = Context.Groups.Find(x => x.Id.Equals(new ObjectId(groupSetting.Id))).FirstOrDefault();
                 return RedirectToAction("Setting", "Groups", editGroup.Id);
             }
+            ViewBag.cloudinary = cloudinary;
             return View(groupSetting);
         }
 
@@ -321,5 +326,32 @@ namespace BSNCapstone.Controllers
                 return View();
             }
         }
+
+        //DangVH. Create. Start (17/11/2016)
+        [HttpPost]
+        public ActionResult ChangeImage(string id, HttpPostedFileBase file, int option)
+        {
+            try
+            {
+                var uploadResult = ImageUploadHelper.GetUploadResult(file);
+                switch (option)
+                {
+                    case 1:
+                        var update1 = new BsonDocument("$set", new BsonDocument("AvaImg", uploadResult.PublicId));
+                        Context.Groups.UpdateOneAsync(x => x.Id.Equals(new ObjectId(id)), update1);
+                        break;
+                    case 2:
+                        var update2 = new BsonDocument("$set", new BsonDocument("CoverImg", uploadResult.PublicId));
+                        Context.Groups.UpdateOneAsync(x => x.Id.Equals(new ObjectId(id)), update2);
+                        break;
+                }
+                return Json("Đổi ảnh hoàn tất");
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message);
+            }
+        }
+        //DangVH. Create. End (17/11/2016)
     }
 }

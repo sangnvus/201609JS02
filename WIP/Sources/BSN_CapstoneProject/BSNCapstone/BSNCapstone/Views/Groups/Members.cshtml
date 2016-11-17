@@ -1,7 +1,7 @@
 ﻿@model BSNCapstone.Models.Group
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
     var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
     var allUser = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUser;
     string currentUserId = ViewBag.currentUser;
@@ -22,54 +22,49 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default" style="background-color: black">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#"><img id="logo" src="logo.png" class="img-rounded" alt="Trolltunga Norway" style="width:180px; height:40px;margin-top:-5%"> </a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <form class="navbar-form navbar-left" style="padding-left: 10%;">
-                    <div class="nav-space"></div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" style="width:150%;" placeholder="Tìm kiếm">
-                    </div>
-                </form>
-                <ul class="nav navbar-nav navbar-right" style="padding-right: 15%;">
-                    <li><a href="#"><i class="glyphicon glyphicon-user"></i> </a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-home"></i> </a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-comment"></i> </a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-bell"></i> </a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-cog"></i><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Tạo nhóm</a></li>
-                            <li><a href="@Url.Action("Setting", "Groups", new { id = Model.Id })">Cài đặt</a></li>
-                            <li><a href="#">Đăng xuất</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <!-------------------Dưới thanh bar-------------------------->
     <!-------------------Cover & avatar------------------------->
 
     <div class="col-md-12 avatar-cover" style="padding:0; height: 410px;">
-        <img class="cover-img" src="AnhCoverSach/coversach2.jpg" alt="Trolltunga Norway">
-        <div class="change-cover">
-            <button class="change-cover-button"><i class="glyphicon glyphicon-camera"></i><span> Thay đổi ảnh bìa</span></button>
-        </div>
-        <div class="row">
-            <div class="avatar col-md-2">
-                <img class="avatar-img" src="Anhtacgia/Jeff%20Kinney_tacgia.jpg" alt="Trolltunga Norway">
-                <div class="change-avatar">
-                    <button class="change-avatar-button"><i class="glyphicon glyphicon-camera"></i><span> Thay đổi ảnh cá nhân</span></button>
+        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+            .Height(350).Width(1349).Crop("fill")).BuildImageTag(Model.CoverImg,
+                new CloudinaryDotNet.StringDictionary("class=cover-img")))
+        @foreach (var member in Model.GroupMembers)
+        {
+            if (member.UserId.Equals(currentUserId) && member.RoleInGroup != "user")
+            {
+                <div class="change-cover">
+                    <span class="btn btn-info btn-file">
+                        <i class="glyphicon glyphicon-camera"></i>
+                        Thay đổi ảnh bìa
+                        <input type="file" id="imgInpCover" accept=".jpg, .jpeg, .png, .bmp">
+                    </span>
                 </div>
+            }
+        }
+        <div class="row">
+            <div class="avatar">
+                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                        .Height(200).Width(200).Crop("mpad")).BuildImageTag(Model.AvaImg,
+                            new CloudinaryDotNet.StringDictionary("class=avatar-img")))
+                @foreach (var member in Model.GroupMembers)
+                {
+                    if (member.UserId.Equals(currentUserId) && member.RoleInGroup != "user")
+                    {
+                        <div class="change-avatar">
+                            <span class="btn btn-info btn-file">
+                                <i class="glyphicon glyphicon-camera"></i>
+                                Thay đổi ảnh cá nhân
+                                <input type="file" id="imgInpAva" accept=".jpg, .jpeg, .png, .bmp">
+                            </span>
+                        </div>
+                    }
+                }
             </div>
         </div>
-        <div>
-            <i class="glyphicon glyphicon-tag grouptag"></i><span class="grouptag" style="top:-33px;"> [Harry Potter & the Deathly Hallows]   </span>
-        </div>
+        @*<div>
+                <i class="glyphicon glyphicon-tag grouptag"></i><span class="grouptag" style="top:-33px;"> [Harry Potter & the Deathly Hallows]   </span>
+            </div>*@
         <div class="cover-interaction">
             <button class="button buttonRe" onclick="location.href='@Url.Action("Setting", "Groups", new { id = Model.Id })'">Cài đặt</button>
             @if (Model.GroupMembers.Find(x => x.UserId.Equals(currentUserId)) == null)
@@ -160,9 +155,8 @@
     </div>
 
     <ul class="nav nav-tabs">
-        <li role="presentation"><a href="TrangNhom-Thaoluan.html">Thảo luận</a></li>
-        <li role="presentation" class="active"><a href="TranhNhom-Thanhvien.html">Thành viên</a></li>
-        <li role="presentation"><a href="TrangNhom-Anh.html">Ảnh</a></li>
+        <li role="presentation">@Html.ActionLink("Thảo luận", "MainPage", "Groups", new { id = Model.Id })</li>
+        <li role="presentation" class="active">@Html.ActionLink("Thành viên", "Members", "Groups", new { id = Model.Id })</li>
     </ul>
     <div class="container pills">
         <ul class="nav nav-pills">
@@ -192,7 +186,6 @@
                                         <a type="button" class="glyphicon glyphicon-cog" data-toggle="dropdown"></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="@Url.Action("SetupMember", "Groups", new { groupId = Model.Id, userId = member.UserId, option = 1 })">Thêm với tư cách quản lí</a></li>
-                                            @*<li><input type="submit" onclick="SetupMember('@Model.Id', '@member.UserId', '1')"/></li>*@
                                             <li><a href="@Url.Action("SetupMember", "Groups", new { groupId = Model.Id, userId = member.UserId, option = 3 })">Xóa khỏi nhóm</a></li>
                                         </ul>
                                     }
@@ -301,4 +294,69 @@
             }
         });
     };
+
+    $(document).ready(function () {
+        //Change Avatar
+        $("#imgInpAva").change(function () {
+            var avatarImg = this;
+            if (avatarImg.files && avatarImg.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.avatar-img').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(avatarImg.files[0]);
+            }
+            var formData = new FormData();
+            formData.append("id", '@Model.Id');
+            formData.append("file", avatarImg.files[0]);
+            formData.append("option", 1);
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("ChangeImage", "Groups")",
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+
+                success: function (result) {
+                    alert(result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        });
+        //Change Cover
+        $("#imgInpCover").change(function () {
+            var coverImg = this;
+            if (coverImg.files && coverImg.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.cover-img').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(coverImg.files[0]);
+            }
+            var formData = new FormData();
+            formData.append("id", '@Model.Id');
+            formData.append("file", coverImg.files[0]);
+            formData.append("option", 2);
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("ChangeImage", "Groups")",
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+
+                success: function (result) {
+                    alert(result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        });
+    });
 </script>

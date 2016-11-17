@@ -166,6 +166,8 @@
                                 @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @style = "resize: none; width: 40%;" })
                                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                             </div>
+                            @Html.HiddenFor(model => model.RatingPoint)
+                            @Html.HiddenFor(model => model.RateTime)
                         </div>
                         <div class="form-group" style="margin-top: 10px; text-align: center;">
                             <input type="submit" value="Lưu" class="btn btn-primary" />

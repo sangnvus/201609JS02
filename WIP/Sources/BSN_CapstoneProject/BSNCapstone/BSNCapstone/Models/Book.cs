@@ -66,12 +66,20 @@ namespace BSNCapstone.Models
         public List<string> Categories { get; set; }
         //DangVH. Update. End (14/11/2016)
 
+        //DangVH. Create. Start (17/11/2016)
+        public int RatingPoint { get; set; }
+
+        public int RateTime { get; set; }
+        //DangVH. Create. End (17/11/2016)
+
         public Book()
         {
             //DangVH. Update. Start (14/11/2016)
             //Categories = new List<BookCategoriesViewModel>();
             Publishers = new List<string>();
             Categories = new List<string>();
+            RateTime = 0;
+            RatingPoint = 0;
             //DangVH. Update. End (14/11/2016)
         }
     }

@@ -28,6 +28,32 @@ namespace BSNCapstone.ControllerHelpers
             return categories;
         }
 
+        public static int GetAverageRatingPoint(int ratingPoint, int ratingTime)
+        {
+            int result = 0;
+            if (ratingTime == 0)
+            {
+                result = ratingPoint;
+            }
+            else
+            {
+                //result = (ratingPoint / ratingTime);
+                double x = 0;
+                //x = Math.Round((double)(ratingPoint / ratingTime), 1);
+                x = (double)ratingPoint / ratingTime;
+                x = x - Math.Floor(x);
+                if (x >= 0.5)
+                {
+                    result = (int)Math.Floor((double)ratingPoint / ratingTime) + 1;
+                }
+                else
+                {
+                    result = (int)Math.Floor((double)ratingPoint / ratingTime);
+                }
+            }
+            return result;
+        }
+
         //public static Models.Book GetCheckBoxValues()
         //{
         //    ApplicationIdentityContext Context = ApplicationIdentityContext.Create();

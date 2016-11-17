@@ -68,6 +68,7 @@ namespace BSNCapstone.Controllers
             var allCategory = Context.Categories.Find(_ => true).ToEnumerable();
             ViewBag.allCategories = BooksControllerHelper.ListAllCategory();
             ViewBag.allPublishers = Context.Publishers.Find(_ => true).ToList();
+            ViewBag.avarageRatingPoint = BooksControllerHelper.GetAverageRatingPoint(book.RatingPoint, book.RateTime);
             //DangVH. Delete. Start (14/11/2016)
             //List<Category> listCategory = new List<Category>();
             //foreach (var cat in book.Categories)
@@ -276,5 +277,20 @@ namespace BSNCapstone.Controllers
             return Json("Xóa thành công");
             //DangVH. Update. End (14/11/2016)
         }
+
+        //DangVH. Create. Start (17/11/2016)
+        //Rating book
+        [HttpPost]
+        public ActionResult RatingBook(string id, int rating)
+        {
+            var book = Context.Books.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+            int ratingPoint = book.RatingPoint + rating;
+            int ratingTime = book.RateTime + 1;
+            var filter = Builders<Book>.Filter.Where(x => x.Id.Equals(book.Id));
+            var update = Builders<Book>.Update.Set(x => x.RatingPoint, ratingPoint).Set(x => x.RateTime, ratingTime);
+            Context.Books.UpdateOneAsync(filter, update);
+            return Json("Cảm ơn bạn đã đánh giá :D");
+        }
+        //DangVH. Create. End (17/11/2016)
     }
 }
