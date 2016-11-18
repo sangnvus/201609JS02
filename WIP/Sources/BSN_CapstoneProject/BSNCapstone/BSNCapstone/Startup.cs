@@ -8,10 +8,10 @@ namespace BSNCapstone
     {
         public void Configuration(IAppBuilder app)
         {
+            ConfigureAuth(app);
             // HuyenPT. Create. Start. 14-11-2016
             app.MapSignalR();
             // HuyenPT. Create. End. 14-11-2016
-            ConfigureAuth(app);
         }
     }
 }

@@ -40,33 +40,21 @@ namespace BSNCapstone.App_Start
             var posts = database.GetCollection<Post>("posts");
             //HuyenPT. Create. End. 08-11-2016
             //HuyenPT. Create. Start. 10-11-2016
-            var comments = database.GetCollection<Comment>("comments");
-            var userprofiles = database.GetCollection<UserProfile>("userprofiles");
-            //HuyenPT. Create. End. 10-11-2016
 
             //DangVH. Create. Start (08/11/2016)
             var groups = database.GetCollection<Group>("groups");
             //DangVH. Create. End (08/11/2016)
 
-            //HuyenPT. Update. Start. 14-11-2016
-            //return new ApplicationIdentityContext(users, roles, categories, books, sliders, publishers, posts, groups);
-            return new ApplicationIdentityContext(users, roles, categories, books, sliders, publishers, groups, posts, comments, userprofiles);
-            //HuyenPT. Update. End. 14-11-2016
+            //HuyenPT. Update. Start. 19-11-2016
+            //return new ApplicationIdentityContext(users, roles, categories, books, sliders, publishers, groups, posts, comments, userprofiles);
+            return new ApplicationIdentityContext(users, roles, categories, books, sliders, publishers, groups, posts);
+            //HuyenPT. Update. End. 19-11-2016
 
         }
 
         // Khai báo Context cho từng Object 
-        //HuyenPT. Update. Start. 14-11-2016
+        //HuyenPT. Update. Start. 19-11-2016
         /*private ApplicationIdentityContext(IMongoCollection<ApplicationUser> users,
-           IMongoCollection<IdentityRole> roles,
-           IMongoCollection<Category> categories,
-           IMongoCollection<Book> books,
-           IMongoCollection<Slider> sliders,
-           IMongoCollection<Publisher> publishers,
-           IMongoCollection<Post> posts,
-           IMongoCollection<Group> groups
-        )*/
-        private ApplicationIdentityContext(IMongoCollection<ApplicationUser> users,
            IMongoCollection<IdentityRole> roles,
            IMongoCollection<Category> categories,
            IMongoCollection<Book> books,
@@ -76,8 +64,17 @@ namespace BSNCapstone.App_Start
            IMongoCollection<Post> posts,
            IMongoCollection<Comment> comments,
            IMongoCollection<UserProfile> userprofiles
+        )*/
+        private ApplicationIdentityContext(IMongoCollection<ApplicationUser> users,
+           IMongoCollection<IdentityRole> roles,
+           IMongoCollection<Category> categories,
+           IMongoCollection<Book> books,
+           IMongoCollection<Slider> sliders,
+           IMongoCollection<Publisher> publishers,
+           IMongoCollection<Group> groups,
+           IMongoCollection<Post> posts
         )
-        //HuyenPT. Update. End. 14-11-2016
+        //HuyenPT. Update. End. 19-11-2016
         {
             Users = users;
             Roles = roles;
@@ -92,10 +89,6 @@ namespace BSNCapstone.App_Start
             //HuyenPT. Create. Start. 08-11-2016
             Posts = posts;
             //HuyenPT. Create. End. 08-11-2016
-            //HuyenPT. Create. Start. 14-11-2016
-            Comments = comments;
-            UserProfiles = userprofiles;
-            //HuyenPT. Create. End. 14-11-2016
             //DangVH. Create. Start (08/11/2016)
             Groups = groups;
             //DangVH. Create. End (08/11/2016)
@@ -115,10 +108,6 @@ namespace BSNCapstone.App_Start
         //HuyenPT. Create. Start. 08-11-2016
         public IMongoCollection<Post> Posts { get; set; }
         //HuyenPT. Create. End. 08-11-2016
-        //HuyenPT. Create. Start. 14-11-2016      
-        public IMongoCollection<Comment> Comments { get; set; }
-        public IMongoCollection<UserProfile> UserProfiles { get; set; }
-        //HuyenPT. Create. End. 14-11-2016 
         //DangVH. Create. Start (08/11/2016)
         public IMongoCollection<Group> Groups { get; set; }
         //DangVH. Create. End (08/11/2016)

@@ -11,7 +11,7 @@ using MongoDB.Driver.Builders;
 
 namespace BSNCapstone.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class NewFeedController : Controller
     {
         private readonly ApplicationIdentityContext Context = ApplicationIdentityContext.Create();

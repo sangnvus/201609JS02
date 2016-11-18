@@ -15,15 +15,20 @@ namespace BSNCapstone.Models
         }
 
         [BsonRepresentation(BsonType.ObjectId)]
-        public String Id { get; set; }
+        public string Id { get; set; }
 
         public string Message { get; set; }
 
-        public int PostedBy { get; set; }
+        // HuyenPT. Update. Start. 19-11-2016
+        //public int PostedBy { get; set; }
+        public string PostedBy { get; set; }
+        // HuyenPT. Update. End. 19-11-2016
 
         public System.DateTime PostedDate { get; set; }
 
         public virtual ICollection<Comment> PostComments { get; set; }
-        public virtual UserProfile UserProfile { get; set; }
+        // HuyenPT. Delete. Start. 19-11-2016
+        //public virtual UserProfile UserProfile { get; set; }
+        // HuyenPT. Delete. End. 19-11-2016
     }
 }
