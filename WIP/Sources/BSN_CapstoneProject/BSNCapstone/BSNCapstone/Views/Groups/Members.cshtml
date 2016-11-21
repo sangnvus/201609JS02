@@ -14,10 +14,12 @@
     <title>Trang thành viên nhóm</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/Trangnhom.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/Content/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <script src="~/Script/capstone-rename-later-v1.0.js"></script>
 </head>
 
@@ -34,9 +36,9 @@
             if (member.UserId.Equals(currentUserId) && member.RoleInGroup != "user")
             {
                 <div class="change-cover">
-                    <span class="btn btn-info btn-file">
-                        <i class="glyphicon glyphicon-camera"></i>
-                        Thay đổi ảnh bìa
+                    <span class="btn btn-file">
+                        <i class="glyphicon glyphicon-camera" style="color: white;"></i>
+                            <span style="color: white;">Thay đổi ảnh bìa</span>
                         <input type="file" id="imgInpCover" accept=".jpg, .jpeg, .png, .bmp">
                     </span>
                 </div>
@@ -52,9 +54,9 @@
                     if (member.UserId.Equals(currentUserId) && member.RoleInGroup != "user")
                     {
                         <div class="change-avatar">
-                            <span class="btn btn-info btn-file">
-                                <i class="glyphicon glyphicon-camera"></i>
-                                Thay đổi ảnh cá nhân
+                            <span class="btn btn-file">
+                                <i class="glyphicon glyphicon-camera" style="color: white;"></i>
+                                    <span style="color: white;">Thay đổi ảnh cá nhân</span>
                                 <input type="file" id="imgInpAva" accept=".jpg, .jpeg, .png, .bmp">
                             </span>
                         </div>

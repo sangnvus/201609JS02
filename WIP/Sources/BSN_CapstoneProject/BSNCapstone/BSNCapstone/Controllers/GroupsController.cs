@@ -255,28 +255,67 @@ namespace BSNCapstone.Controllers
         //
         // POST: /Groups/Create
         [HttpPost]
-        public ActionResult Create(Group group)
+        public ActionResult Create(string groupName, string groupTag, string groupDesc, string groupType)
         {
-            if (ModelState.IsValid)
+            try
             {
                 // TODO: Add insert logic here
-                var newGroup = new Group()
+                var groups = Context.Groups.Find(_ => true).ToList();
+                List<string> errorMessage = new List<string>();
+                if (groupName == "" || groupName == null)
                 {
-                    GroupName = group.GroupName,
-                    CreatorId = User.Identity.GetUserId(),
-                    Tag = group.Tag,
-                    GroupType = group.GroupType,
-                    Description = group.Description
-                };
-                newGroup.GroupMembers.Add(new GroupMembersViewModel()
+                    var message = "Bạn phải điền tên nhóm";
+                    errorMessage.Add(message);
+                }
+                if (groupTag == "" || groupTag == null)
                 {
-                    UserId = User.Identity.GetUserId(),
-                    RoleInGroup = "creator"
-                });
-                Context.Groups.InsertOneAsync(newGroup);
-                return RedirectToAction("Index");
+                    var message = "Bạn phải chọn thẻ nhóm";
+                    errorMessage.Add(message);
+                }
+                if (groupType == "undefined")
+                {
+                    var message = "Bạn phải chọn thể loại nhóm";
+                    errorMessage.Add(message);
+                }
+                foreach (var group in groups)
+                {
+                    if (group.GroupName.ToLower().Equals(groupName.ToLower()))
+                    {
+                        var message = "Tên nhóm đã tồn tại";
+                        errorMessage.Add(message);
+                    }
+                }
+                if (errorMessage.Count() == 0)
+                {
+                    var newGroup = new Group()
+                    {
+                        GroupName = groupName,
+                        CreatorId = User.Identity.GetUserId(),
+                        Tag = groupTag,
+                        GroupType = groupType,
+                        Description = groupDesc
+                    };
+                    newGroup.GroupMembers.Add(new GroupMembersViewModel()
+                    {
+                        UserId = User.Identity.GetUserId(),
+                        RoleInGroup = "creator"
+                    });
+                    Context.Groups.InsertOneAsync(newGroup);
+                    var justAddedGroup = Context.Groups.Find(x => x.GroupName.Equals(newGroup.GroupName)).FirstOrDefault().Id;
+                    return Json(new
+                    {
+                        redirectUrl = Url.Action("MainPage", "Groups", new { id = justAddedGroup })
+                    });
+                }
+                else
+                {
+                    return Json(errorMessage, JsonRequestBehavior.AllowGet);
+                }
             }
-            return View();
+            catch (Exception ex)
+            {
+                return Json(ex.Message);
+            }
         }
 
         //

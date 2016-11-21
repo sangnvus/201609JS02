@@ -59,6 +59,14 @@ namespace BSNCapstone.Controllers
                 {
                     return Json("Tên thể loại bắt buộc");
                 }
+                var categories = Context.Categories.Find(_ => true).ToList();
+                foreach (var cat in categories)
+                {
+                    if (cat.CategoryName.ToLower().Equals(categoryName.ToLower()))
+                    {
+                        return Json("Thể loại đã tồn tại");
+                    }
+                }
                 Category category = new Category()
                 {
                     CategoryName = categoryName

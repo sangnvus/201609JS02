@@ -104,10 +104,18 @@ namespace BSNCapstone.Controllers
         [HttpPost]
         public ActionResult Create(Book book)
         {
+            var listBook = Context.Books.Find(_ => true).ToList();
             var file = Request.Files[0];
             if (file.ContentLength == 0)
             {
                 ModelState.AddModelError("ImgPublicId", "Ảnh sách bắt buộc");
+            }
+            foreach (var eachBook in listBook)
+            {
+                if (eachBook.BookName.ToLower().Equals(book.BookName.ToLower()))
+                {
+                    ModelState.AddModelError("BookName", "Tên sách đã tồn tại");
+                }
             }
             if (ModelState.IsValid)
             {
@@ -201,41 +209,51 @@ namespace BSNCapstone.Controllers
         [HttpPost]
         public ActionResult Edit(Book book)
         {
+            var listBook = Context.Books.Find(_ => true).ToList();
+            foreach (var eachBook in listBook)
+            {
+                if (eachBook.BookName.ToLower().Equals(book.BookName.ToLower()))
+                {
+                    ModelState.AddModelError("BookName", "Tên sách đã tồn tại");
+                }
+            }
             if (ModelState.IsValid)
             {
                 // TODO: Add update logic here
                 //DangVH. Create. Start (02/11/2016)
-                var file = Request.Files[0];
-                var uploadResult = ImageUploadHelper.GetUploadResult(file);
-                //DangVH. Create. End (02/11/2016)
-                var editBook = Context.Books.Find(x => x.Id.Equals(new ObjectId(book.Id))).FirstOrDefault();
-                editBook.BookName = book.BookName;
-                editBook.Authors = book.Authors;
-                editBook.ReleaseDay = book.ReleaseDay.ToLocalTime();
-                editBook.Description = book.Description;
-                if (file.ContentLength == 0)
                 {
-                    editBook.ImgPublicId = book.ImgPublicId;
-                }
-                else
-                {
-                    editBook.ImgPublicId = uploadResult.PublicId;
-                }
-                editBook.Categories.Clear();
-                //DangVH. Create. Start (14/11/2016)
-                editBook.Publishers.Clear();
-                foreach (var publisherId in book.Publishers)
-                {
-                    editBook.Publishers.Add(publisherId);
-                }
+                    var file = Request.Files[0];
+                    var uploadResult = ImageUploadHelper.GetUploadResult(file);
+                    //DangVH. Create. End (02/11/2016)
+                    var editBook = Context.Books.Find(x => x.Id.Equals(new ObjectId(book.Id))).FirstOrDefault();
+                    editBook.BookName = book.BookName;
+                    editBook.Authors = book.Authors;
+                    editBook.ReleaseDay = book.ReleaseDay.ToLocalTime();
+                    editBook.Description = book.Description;
+                    if (file.ContentLength == 0)
+                    {
+                        editBook.ImgPublicId = book.ImgPublicId;
+                    }
+                    else
+                    {
+                        editBook.ImgPublicId = uploadResult.PublicId;
+                    }
+                    editBook.Categories.Clear();
+                    //DangVH. Create. Start (14/11/2016)
+                    editBook.Publishers.Clear();
+                    foreach (var publisherId in book.Publishers)
+                    {
+                        editBook.Publishers.Add(publisherId);
+                    }
 
-                foreach (var categoryId in book.Categories)
-                {
-                    editBook.Categories.Add(categoryId);
+                    foreach (var categoryId in book.Categories)
+                    {
+                        editBook.Categories.Add(categoryId);
+                    }
+                    //DangVH. Create. End (14/11/2016)
+                    Context.Books.ReplaceOneAsync(x => x.Id.Equals(new ObjectId(book.Id)), editBook);
+                    return RedirectToAction("Index");
                 }
-                //DangVH. Create. End (14/11/2016)
-                Context.Books.ReplaceOneAsync(x => x.Id.Equals(new ObjectId(book.Id)), editBook);
-                return RedirectToAction("Index");
             }
             ViewBag.bookNumber = BooksControllerHelper.GetBookNumber(); 
             var selectedPublisherValue = book.Publishers.ToString();
