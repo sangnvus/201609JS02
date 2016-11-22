@@ -2,6 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Trang thành viên nhóm";
     var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
     var allUser = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUser;
     string currentUserId = ViewBag.currentUser;
@@ -10,18 +11,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+@*<head>
     <title>Trang thành viên nhóm</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/Trangnhom.css">
-    <script src="~/Scripts/bootstrap.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="~/Content/bootstrap.css">
-    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <script src="~/Script/capstone-rename-later-v1.0.js"></script>
-</head>
+</head>*@
 
 <body>
     <!-------------------Dưới thanh bar-------------------------->
@@ -271,6 +267,9 @@
 </body>
 
 </html>
+@section scripts {
+    <link rel="stylesheet" href="~/Content/Trangnhom.css">
+}
 <script>
     function GroupRequestHandle(groupId, userId, option) {
         var formData = new FormData();

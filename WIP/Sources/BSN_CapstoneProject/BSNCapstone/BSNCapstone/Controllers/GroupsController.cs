@@ -234,7 +234,9 @@ namespace BSNCapstone.Controllers
                 var editGroup = Context.Groups.Find(x => x.Id.Equals(new ObjectId(groupSetting.Id))).FirstOrDefault();
                 return RedirectToAction("Setting", "Groups", editGroup.Id);
             }
+            var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(groupSetting.Id))).FirstOrDefault();
             ViewBag.cloudinary = cloudinary;
+            ViewBag.group = group;
             return View(groupSetting);
         }
 

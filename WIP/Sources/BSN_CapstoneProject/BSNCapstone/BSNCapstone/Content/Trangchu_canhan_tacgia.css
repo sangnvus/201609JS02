@@ -719,7 +719,7 @@ p1 {
 .dropdown-menu {
 	position: absolute;
 	top: 50px;
-	overflow-y: scroll;
+	/*overflow-y: scroll;*/
 	max-height: 400px;
 	width: 200px;
 }

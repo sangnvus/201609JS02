@@ -12,15 +12,18 @@ namespace BSNCapstone.ViewModels
 
         public string CreatorId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Tên nhóm bắt buộc")]
+        [Display(Name="Tên nhóm")]
         public string GroupName { get; set; }
 
+        [Display(Name="Miêu tả nhóm")]
         public string Description { get; set; }
 
         public bool Lock { get; set; }
 
         public string Tag { get; set; }
 
+        [Display(Name="Thể loại nhóm")]
         public string GroupType { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>@ViewBag.Title</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @*<link rel="stylesheet" href="~/Content/bootstrap.min.css">*@
@@ -11,6 +11,7 @@
     @*<script src="~/Scripts/jquery.min.js"></script>    
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>*@ 
+    <script src="~/Scripts/jquery.min.js"></script>    
     <script src="~/Scripts/capstone-rename-later-v1.0.js"></script>
     <script src="~/Scripts/messenger.js"></script>
 
@@ -20,7 +21,7 @@
     <nav class="navbar navbar-default" style="background-color: black; margin-bottom: 0; border: 0; border-radius: 0;">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#"><img id="logo" src="logo.png" class="img-rounded" alt="Trolltunga Norway" style="width:180px; height:40px;margin-top:-5%"> </a>
+                <a class="navbar-brand" href="@Url.Action("Index", "NewFeed")"><img id="logo" src="logo.png" class="img-rounded" alt="Trolltunga Norway" style="width:180px; height:40px;margin-top:-5%"> </a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <form class="navbar-form navbar-left" style="padding-left: 10%;">
@@ -31,7 +32,7 @@
                 </form>
                 <ul class="nav navbar-nav navbar-right" style="padding-right: 15%;">
                     <li><a href="#"><i class="glyphicon glyphicon-user"></i> </a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-home"></i> </a></li>
+                    <li><a href="@Url.Action("Index", "NewFeed")"><i class="glyphicon glyphicon-home"></i> </a></li>
                     @*HaiCM. Update. Start. 11-11-2016*@
                     @*<li><a href="#"><i class="glyphicon glyphicon-comment"></i> </a></li>*@
                     <li class="dropdown">
@@ -124,9 +125,6 @@
     @RenderBody()
     <hr />    
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
-    <script src="~/Scripts/jquery.min.js"></script>
-    @*<script src="~/Scripts/bootstrap.js"></script>*@
-    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

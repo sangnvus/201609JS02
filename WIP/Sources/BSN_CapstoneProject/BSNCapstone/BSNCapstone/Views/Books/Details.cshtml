@@ -2,6 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Sách - " + Model.BookName.First().ToString().ToUpper() + Model.BookName.Substring(1); 
     var allCategories = ((List<BSNCapstone.Models.Category>)ViewBag.allCategories);
     var allPublishers = ((List<BSNCapstone.Models.Publisher>)ViewBag.allPublishers);
     <!--DangVH. Create. Start (02/11/2016)-->
@@ -10,17 +11,8 @@
     int avarageRatingPoint = ViewBag.avarageRatingPoint;
 }
 
-<head>
-    <title>Sach</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="~/Content/Sach.css">
-    <script src="~/Scripts/bootstrap.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <script src="~/Scripts/capstone-rename-later-v1.0.js"></script>
-</head>
+<!DOCTYPE html>
+<html>
 <body>
     <div class="container-fluid">
         <div class="col-md-8 gioithieusach">
@@ -494,19 +486,22 @@
                                     </a>
                                 </li>
                             </ul>
-
                         </div>
                     </div>
                 </div>
                 <p class="text-right">
                     <button type="button" class="btn btn-link">Xem thêm </button>
                 </p>
-
                 <br>
             </div>
-
         </div>
-        <script>
+    </div>
+</body>
+</html>
+@section scripts {
+    <link rel="stylesheet" href="~/Content/Sach.css">
+}
+<script>
             $(document).ready(function () {
                 $("input[name=rating]").click(function () {
                     var rating = $("input[name=rating]:checked").val();
@@ -529,6 +524,6 @@
                     });
                 });
             });
-        </script>
-    </div>
-</body>
+</script>
+
+

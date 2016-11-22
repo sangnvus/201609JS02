@@ -445,9 +445,9 @@ footer {
 
 .dropdown-menu {
     width: 70%;
+    top: 50px;
     position: absolute;
     left: 60%;
-    top: 60%;
 }
 
 .dropdown-menu li a {
