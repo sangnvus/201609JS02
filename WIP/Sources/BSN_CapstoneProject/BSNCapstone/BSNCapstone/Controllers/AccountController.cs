@@ -145,7 +145,7 @@ namespace BSNCapstone.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Register.UserName, Email = model.Register.Email };
+                var user = new ApplicationUser { UserName = model.Register.UserName, Email = model.Register.Email,Avatar=Common.Constant.DefaultAvatarLink,Cover = Common.Constant.DefaultCoverLink};
                 var result = await UserManager.CreateAsync(user, model.Register.Password);
                 if (result.Succeeded)
                  {
@@ -181,8 +181,8 @@ namespace BSNCapstone.Controllers
                 var file = Request.Files[0];
             
                 var uploadResult = ImageUploadHelper.GetUploadResult(file);
-                
-                var user = new ApplicationUser { UserName = model.AuthorRegister.UserName, Email = model.AuthorRegister.Email,SSNImgId = uploadResult.PublicId};
+
+                var user = new ApplicationUser { UserName = model.AuthorRegister.UserName, Email = model.AuthorRegister.Email, SSNImgId = uploadResult.PublicId, Avatar = Common.Constant.DefaultAvatarLink, Cover = Common.Constant.DefaultCoverLink};
                 var result = await UserManager.CreateAsync(user, model.AuthorRegister.Password);
                 if (result.Succeeded)
                 {

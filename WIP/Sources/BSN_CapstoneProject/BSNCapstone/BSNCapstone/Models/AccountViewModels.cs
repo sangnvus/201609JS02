@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace BSNCapstone.Models
 {
@@ -129,6 +131,18 @@ namespace BSNCapstone.Models
         public string Code { get; set; }
     }
 
-    
+    public class UserProfile
+    {
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string id { get; set; }
+
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        [Display(Name = "DateOfBirth")]
+        public string DOB { get; set; }
+    }
 }
 
