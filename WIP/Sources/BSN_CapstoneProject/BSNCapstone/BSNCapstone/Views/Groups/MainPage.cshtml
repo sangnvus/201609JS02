@@ -146,7 +146,7 @@
                                             </div>
                                             <div class="divider-horizontal"></div>
                                             <div class="BT">
-                                                <button id="buttonCancel" class="btn btn-default">Hủy</button>
+                                                <button id="buttonCancel" class="btn btn-default" data-dismiss="modal">Hủy</button>
                                                 <button id="buttonPost" class="btn btn-default">Gửi</button>
                                             </div>
 
@@ -859,6 +859,30 @@
     <link rel="stylesheet" href="~/Content/Trangnhom.css">
 }
 <script>
+    function GroupRequestHandle(groupId, userId, option) {
+        var formData = new FormData();
+        formData.append("groupId", groupId);
+        formData.append("userId", userId);
+        formData.append("option", option);
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("GroupRequestHandle", "Groups")",
+            data: formData,
+        dataType: 'json',
+        contentType: false,
+        processData: false,
+
+        success: function (result) {
+            if (result != "") {
+                window.alert(result);
+            }
+            else {
+                window.location.reload();
+            }
+        }
+    });
+    };
+
     $(document).ready(function () {
         //Change Avatar
         $("#imgInpAva").change(function () {

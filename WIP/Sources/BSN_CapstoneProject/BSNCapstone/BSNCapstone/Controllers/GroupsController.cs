@@ -73,40 +73,31 @@ namespace BSNCapstone.Controllers
         //
         //GET: /Groups/SetupMember/
         //[HttpPost]
-        public ActionResult SetupMember(string groupId, string userId, int option)
-        {
-            var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(groupId))).FirstOrDefault();
-            var updatedGroup = new Group();
-            if (group.GroupMembers.Where(x => x.UserId.Equals(userId)).FirstOrDefault().RoleInGroup != "creator")
-            {
-                switch (option)
-                {
-                    case 1: // Thêm user vs role admin
-                        var filter1 = Builders<Group>.Filter.Where(x => x.Id.Equals(new ObjectId(groupId)) && x.GroupMembers.Any(i => i.UserId.Equals(userId)));
-                        var update1 = Builders<Group>.Update.Set(x => x.GroupMembers[-1].RoleInGroup, "admin");
-                        Context.Groups.UpdateOneAsync(filter1, update1);
-                        break;
-                    case 2: // Chuyển role admin về user
-                        var filter2 = Builders<Group>.Filter.Where(x => x.Id.Equals(new ObjectId(groupId)) && x.GroupMembers.Any(i => i.UserId.Equals(userId)));
-                        var update2 = Builders<Group>.Update.Set(x => x.GroupMembers[-1].RoleInGroup, "user");
-                        Context.Groups.UpdateOneAsync(filter2, update2);
-                        break;
-                    case 3: // Xóa user/admin khỏi nhóm
-                        var filter3 = Builders<Group>.Filter.Where(x => x.Id.Equals(new ObjectId(groupId)));
-                        var update3 = Builders<Group>.Update.PullFilter(x => x.GroupMembers, i => i.UserId.Equals(userId));
-                        Context.Groups.UpdateOneAsync(filter3, update3);
-                        break;
-                }
-                updatedGroup = Context.Groups.Find(x => x.Id.Equals(new ObjectId(groupId))).FirstOrDefault();
-                return RedirectToAction("Members", updatedGroup);
-                //return Json(new { url = Url.Action("Members", updatedGroup) });
-            }
-            else
-            {
-                updatedGroup = Context.Groups.Find(x => x.Id.Equals(new ObjectId(groupId))).FirstOrDefault();
-                return Json(new { status = "error", message = "Can't interact with creator" });
-            }
-        }
+        //public ActionResult SetupMember(string groupId, string userId, int option)
+        //{
+        //    var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(groupId))).FirstOrDefault();
+        //    var updatedGroup = new Group();
+        //    switch (option)
+        //    {
+        //        case 1: // Thêm user vs role admin
+        //            var filter1 = Builders<Group>.Filter.Where(x => x.Id.Equals(new ObjectId(groupId)) && x.GroupMembers.Any(i => i.UserId.Equals(userId)));
+        //            var update1 = Builders<Group>.Update.Set(x => x.GroupMembers[-1].RoleInGroup, "admin");
+        //            Context.Groups.UpdateOneAsync(filter1, update1);
+        //            break;
+        //        case 2: // Chuyển role admin về user
+        //            var filter2 = Builders<Group>.Filter.Where(x => x.Id.Equals(new ObjectId(groupId)) && x.GroupMembers.Any(i => i.UserId.Equals(userId)));
+        //            var update2 = Builders<Group>.Update.Set(x => x.GroupMembers[-1].RoleInGroup, "user");
+        //            Context.Groups.UpdateOneAsync(filter2, update2);
+        //            break;
+        //        case 3: // Xóa user/admin khỏi nhóm
+        //            var filter3 = Builders<Group>.Filter.Where(x => x.Id.Equals(new ObjectId(groupId)));
+        //            var update3 = Builders<Group>.Update.PullFilter(x => x.GroupMembers, i => i.UserId.Equals(userId));
+        //            Context.Groups.UpdateOneAsync(filter3, update3);
+        //            break;
+        //    }
+        //    updatedGroup = Context.Groups.Find(x => x.Id.Equals(new ObjectId(groupId))).FirstOrDefault();
+        //    return RedirectToAction("Members", updatedGroup);
+        //}
 
         //
         // POST: /Groups/JoinLeaveGroup
@@ -122,11 +113,11 @@ namespace BSNCapstone.Controllers
                         var filter1 = Builders<Group>.Filter.Where(x => x.Id.Equals(new ObjectId(groupId)));
                         var update1 = Builders<Group>.Update.Push(x => x.ListJoinRequest, userId);
                         Context.Groups.UpdateOneAsync(filter1, update1);
-                        message = "Wait for approved";
+                        message = "Xin chờ để được chấp thuận";
                     }
                     else
                     {
-                        message = "Already requested";
+                        message = "Bạn đã yêu cầu";
                     }
                     break;
                 case 2: // Rời nhóm 
@@ -171,6 +162,21 @@ namespace BSNCapstone.Controllers
                     var filter6 = Builders<Group>.Filter.Where(x => x.Id.Equals(new ObjectId(groupId)));
                     var update6 = Builders<Group>.Update.PullAll(x => x.ListJoinRequest, group.ListJoinRequest);
                     Context.Groups.UpdateOneAsync(filter6, update6);
+                    break;
+                case 7: // Chuyền 1 member thành admin
+                    var filter7 = Builders<Group>.Filter.Where(x => x.Id.Equals(new ObjectId(groupId)) && x.GroupMembers.Any(i => i.UserId.Equals(userId)));
+                    var update7 = Builders<Group>.Update.Set(x => x.GroupMembers[-1].RoleInGroup, "admin");
+                    Context.Groups.UpdateOneAsync(filter7, update7);
+                    break;
+                case 8: // Chuyển role admin về user
+                    var filter8 = Builders<Group>.Filter.Where(x => x.Id.Equals(new ObjectId(groupId)) && x.GroupMembers.Any(i => i.UserId.Equals(userId)));
+                    var update8 = Builders<Group>.Update.Set(x => x.GroupMembers[-1].RoleInGroup, "user");
+                    Context.Groups.UpdateOneAsync(filter8, update8);
+                    break;
+                case 9: // Xóa user/admin khỏi nhóm
+                    var filter9 = Builders<Group>.Filter.Where(x => x.Id.Equals(new ObjectId(groupId)));
+                    var update9 = Builders<Group>.Update.PullFilter(x => x.GroupMembers, i => i.UserId.Equals(userId));
+                    Context.Groups.UpdateOneAsync(filter9, update9);
                     break;
             }
             return Json(message);
@@ -394,5 +400,11 @@ namespace BSNCapstone.Controllers
             }
         }
         //DangVH. Create. End (17/11/2016)
+
+        [HttpPost]
+        public ActionResult Report()
+        {
+            return Json("");
+        }
     }
 }
