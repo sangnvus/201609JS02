@@ -152,13 +152,13 @@
 
     </div>
 
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs" style="bottom: 36%;">
         <li role="presentation">@Html.ActionLink("Thảo luận", "MainPage", "Groups", new { id = Model.Id })</li>
         <li role="presentation" class="active">@Html.ActionLink("Thành viên", "Members", "Groups", new { id = Model.Id })</li>
     </ul>
     <div class="container pills">
         <ul class="nav nav-pills">
-            <li class="active"><a data-toggle="pill" href="#nomalMembers">Thành viên thường</a></li>
+            <li class="active"><a data-toggle="pill" href="#NomalMembers">Thành viên thường</a></li>
             <li><a data-toggle="pill" href="#Admins">Quản trị viên</a></li>
         </ul>
         <div class="tab-content">
@@ -183,8 +183,8 @@
                                     {
                                         <a type="button" class="glyphicon glyphicon-cog" data-toggle="dropdown"></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="@Url.Action("SetupMember", "Groups", new { groupId = Model.Id, userId = member.UserId, option = 1 })">Thêm với tư cách quản lí</a></li>
-                                            <li><a href="@Url.Action("SetupMember", "Groups", new { groupId = Model.Id, userId = member.UserId, option = 3 })">Xóa khỏi nhóm</a></li>
+                                            <li><a href="#" onclick="GroupRequestHandle('@Model.Id', '@member.UserId', '7')">Thêm với tư cách quản lí</a></li>
+                                            <li><a href="#" onclick="GroupRequestHandle('@Model.Id', '@member.UserId', '9')">Xóa khỏi nhóm</a></li>
                                         </ul>
                                     }
                                 </div>
@@ -227,11 +227,14 @@
                                     </a>
                                     @if (Model.GroupMembers.Where(x => x.UserId.Equals(currentUserId)).FirstOrDefault().RoleInGroup != "user")
                                     {
-                                        <a type="button" class="glyphicon glyphicon-cog" data-toggle="dropdown"></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="@Url.Action("SetupMember", "Groups", new { groupId = Model.Id, userId = member.UserId, option = 2 })">Xóa với tư cách quản lí</a></li>
-                                            <li><a href="@Url.Action("SetupMember", "Groups", new { groupId = Model.Id, userId = member.UserId, option = 3 })">Xóa khỏi nhóm</a></li>
-                                        </ul>
+                                        if (!member.RoleInGroup.Equals("creator"))
+                                        {
+                                            <a type="button" class="glyphicon glyphicon-cog" data-toggle="dropdown"></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#" onclick="GroupRequestHandle('@Model.Id', '@member.UserId', '8')">Xóa với tư cách quản lí</a></li>
+                                                <li><a href="#" onclick="GroupRequestHandle('@Model.Id', '@member.UserId', '9')">Xóa khỏi nhóm</a></li>
+                                            </ul>
+                                        }
                                     }
                                 </div>
                             }
@@ -287,7 +290,6 @@
             success: function (result) {
                 if (result != "") {
                     window.alert(result);
-                    window.location.reload();
                 }
                 else {
                     window.location.reload();

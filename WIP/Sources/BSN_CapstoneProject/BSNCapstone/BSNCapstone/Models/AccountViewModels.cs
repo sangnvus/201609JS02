@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace BSNCapstone.Models
 {
@@ -129,6 +132,21 @@ namespace BSNCapstone.Models
         public string Code { get; set; }
     }
 
-    
+    public class UserProfile
+    {
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string id { get; set; }
+
+        [Display(Name = "UserName")]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        public string UserName { get; set; }
+
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        [RegularExpression(@"^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((1[6-9]|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((1[6-9]|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((1[6-9]|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$", ErrorMessage = "Musbe in format dd/MM/yyyy")]
+        public string DOB { get; set; }
+    }
 }
 

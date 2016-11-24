@@ -1,6 +1,9 @@
 ﻿using AspNet.Identity.MongoDB;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -22,8 +25,23 @@ namespace BSNCapstone.Models
 
         }
 
+        public string Avatar { get; set; }
+
+        public string Cover { get; set; }
+
+        public string Address { get; set; }
+
+        [DisplayFormat(DataFormatString = "{dd/MM/yyyy}")]
+        public DateTime? DOB { get; set; }
+
 
        public string SSNImgId { get; set; }
+
+       public List<string> Follower { get; set; }
+
+       public List<string> Followed { get; set; }
+
+       public List<string> Interacbook { get; set; }
     }
 
 }
