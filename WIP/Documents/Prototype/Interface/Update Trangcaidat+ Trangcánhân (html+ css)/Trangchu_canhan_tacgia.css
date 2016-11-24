@@ -1,0 +1,745 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+body {
+	background-color: #f1f1f1;
+	margin: 0;
+}
+
+.nav-space {
+	width: 20%;
+}
+
+.navbar {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-radius: 0;
+	background-color: #2f2f2f;
+}
+
+
+/* Set chiều cao của trang */
+
+.row.content {
+	height: auto;
+	width: auto;
+}
+
+
+/* Set gray background color and 100% height */
+
+.sidenav {
+	min-height: 100vh;
+}
+
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+
+@media screen and (max-width: 767px) {
+	.sidenav {
+		padding: 15px;
+		min-height: 100%;
+		height: 100vh;
+	}
+	.row.content {
+		height: auto;
+	}
+}
+
+.authorname {
+	color: brown;
+}
+
+
+/*******************************RATING STAR *************************************************/
+
+fieldset,
+label {
+	margin: 0;
+	padding: 0;
+}
+
+.rating {
+	border: none;
+	float: right;
+}
+
+.rating > input {
+	display: none;
+}
+
+.rating > label:before {
+	margin: 2px;
+	font-size: 1em;
+	font-family: FontAwesome;
+	display: inline-block;
+	content: "\f005";
+}
+
+.rating > label {
+	color: #ddd;
+	float: right;
+}
+
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label,
+
+/* show gold star when clicked */
+
+.rating:not(:checked) > label:hover,
+
+/* hover current star */
+
+.rating:not(:checked) > label:hover ~ label {
+	color: #FFD700;
+}
+
+
+/* hover previous stars in list */
+
+.rating > input:checked + label:hover,
+
+/* hover current star when changing rating */
+
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+
+/* lighten current selection */
+
+.rating > input:checked ~ label:hover ~ label {
+	color: #FFED85;
+}
+
+
+/***************************************************BUTTON*******************************/
+
+#star {
+	color: #FFD700;
+}
+
+.button {
+	border-radius: 8px;
+	color: black;
+	padding: 3px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	margin: 2px 1px;
+	cursor: pointer;
+}
+
+.buttonRe {
+	border-radius: 8px;
+}
+
+.list-group {}
+
+.list-group li {
+	list-style: none;
+}
+
+.list-group li span {
+	width: calc(100% - 20px);
+	overflow: hidden !important;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.list-group span {
+	width: calc(100% - 20px);
+	overflow: hidden !important;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+}
+
+
+/*****************************BUTTON POST************************/
+
+#buttonPost {
+	color: white;
+}
+
+
+/***********************************POST*************************************************/
+
+.center-post {
+	background-color: white;
+	min-height: 100vh;
+}
+
+.post-card {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.write-post {
+	width: calc(100% - 2px);
+	padding: 10px;
+	margin: 2px;
+	border: none;
+	resize: none;
+	outline: none;
+}
+
+.stt-card {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.divider-horizontal {
+	height: 1px;
+	width: 98%;
+	float: bottom;
+	opacity: 0.2;
+	border-bottom: 1px solid gray;
+	margin: 5px 0px;
+	margin-left: 1%;
+}
+
+.list-book-tag {
+	-webkit-padding-start: 0px;
+}
+
+.list-book-tag li {
+	list-style: none;
+	display: inline;
+	background-color: #A8D4FF;
+	/* tu chookn mau lai nheok*/
+	padding: 5px 10px;
+	border: 1px solid #c2c4c6;
+	border-radius: 5px;
+}
+
+.owner-avatar,
+.owner-info {
+	float: left;
+}
+
+.owner-avatar img {
+	width: 40px;
+	height: 40px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	/* tu chon mau */
+	-o-object-fit: cover;
+	object-fit: cover;
+}
+
+.owner-info {
+	width: calc(100% - 50px);
+	padding-left: 10px;
+	margin-top: 5px;
+}
+
+.owner-name {
+	font-weight: bold;
+	color: #000;
+	/* tu chon mau */
+	font-size: 16px;
+}
+
+.post-time {
+	font-weight: normal;
+}
+
+.post-time i {
+	margin-right: 5px;
+}
+
+.post-content {
+	margin-top: 5px;
+}
+
+.book-tag-list-in-post {
+	-webkit-padding-start: 0px;
+	margin-bottom: 0;
+}
+
+.book-tag-list-in-post li {
+	font-size: 12px;
+	background-color: #A8D4FF;
+	/*tu chon mau */
+	padding: 2px 8px;
+	margin-right: 5px;
+	display: inline;
+	border-radius: 3px;
+	list-style: none;
+}
+
+.interaction-list {
+	-webkit-padding-start: 0px;
+	margin-bottom: 0;
+}
+
+.interaction-list li {
+	list-style: none;
+	display: inline;
+}
+
+.interaction-list li button {
+	background-color: transparent;
+	color: #8c8c8c;
+	border: none;
+}
+
+.interaction-list li button i {
+	margin-right: 3px;
+}
+
+p1 {
+	margin-right: 80px;
+}
+
+
+/***************************************************Tạo phần action của bình luận *******************************/
+
+#username {
+	font-size: 100%;
+}
+
+#content p {
+	font-size: 100%;
+	padding-left: 1%;
+}
+
+#action {
+	font-size: 90%;
+}
+
+#traloi {
+	position: relative;
+}
+
+.form-group {
+	width: 100%;
+	height: 2%;
+}
+
+#traloi owner-avatar {
+	padding-left: 50%;
+}
+
+
+/************************TRANG CÁ NHÂN *******************************/
+
+#nhom {
+	background-color: #F15F66;
+	color: white;
+	width: 100%;
+}
+
+#tacgia {
+	color: brown;
+}
+
+#tensach {
+	color: black;
+}
+
+.rating {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+}
+
+.rating > span {
+	display: inline-block;
+	position: relative;
+	width: 1.1em;
+}
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+	content: "\2605";
+	position: absolute;
+	color: gold;
+	font-size-adjust: auto;
+}
+
+.button {
+	border-radius: 8px;
+	color: black;
+	padding: 3px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	margin: 2px 1px;
+	cursor: pointer;
+}
+
+.buttonRe {
+	border-radius: 8px;
+}
+
+#star {
+	color: #FFD951;
+	border: 1;
+}
+
+.buttonFo {
+	border-radius: 8px;
+}
+
+.list-group {}
+
+.list-group li {
+	list-style: none;
+}
+
+.list-group li span {
+	width: calc(100% - 20px);
+	overflow: hidden !important;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.list-group span {
+	width: calc(100% - 20px);
+	overflow: hidden !important;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+}
+
+
+/*****************************BUTTON POST và buttonCancel************************/
+
+#buttonPost {
+	color: white;
+}
+
+#buttonCancel {
+	color: black;
+}
+
+
+/*********************************** POST *************************************************/
+
+.post-card {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.write-post {
+	width: calc(100% - 2px);
+	padding: 10px;
+	margin: 2px;
+	border: none;
+	resize: none;
+	outline: none;
+}
+
+.stt-card {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.divider-horizontal {
+	height: 1px;
+	width: 98%;
+	float: bottom;
+	opacity: 0.2;
+	border-bottom: 1px solid gray;
+	margin: 5px 0px;
+	margin-left: 1%;
+}
+
+.list-book-tag {
+	-webkit-padding-start: 0px;
+}
+
+.list-book-tag li {
+	list-style: none;
+	display: inline;
+	background-color: #365899;
+	;
+	/* tu chookn mau lai nheok*/
+	padding: 5px 10px;
+	border: 1px solid #c2c4c6;
+	border-radius: 5px;
+	color: white;
+}
+
+.owner-avatar,
+.owner-info {
+	float: left;
+}
+
+.owner-avatar img {
+	width: 40px;
+	height: 40px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	/* tu chon mau */
+	-o-object-fit: cover;
+	object-fit: cover;
+}
+
+.owner-info {
+	width: calc(100% - 50px);
+	padding-left: 10px;
+	margin-top: 5px;
+}
+
+.owner-name {
+	font-weight: bold;
+	color: #000;
+	/* tu chon mau */
+	font-size: 16px;
+}
+
+.post-time {
+	font-weight: normal;
+}
+
+.post-time i {
+	margin-right: 5px;
+}
+
+.post-content {
+	margin-top: 5px;
+}
+
+.book-tag-list-in-post {
+	-webkit-padding-start: 0px;
+	margin-bottom: 0;
+}
+
+.book-tag-list-in-post li {
+	font-size: 12px;
+	background-color: #365899;
+	;
+	/*tu chon mau */
+	padding: 2px 8px;
+	margin-right: 5px;
+	display: inline;
+	border-radius: 3px;
+	list-style: none;
+	color: white;
+}
+
+.interaction-list {
+	-webkit-padding-start: 0px;
+	margin-bottom: 0;
+}
+
+.interaction-list li {
+	list-style: none;
+	display: inline;
+}
+
+.interaction-list li button {
+	background-color: transparent;
+	color: #8c8c8c;
+	border: none;
+}
+
+.interaction-list li button i {
+	margin-right: 3px;
+}
+
+
+/*********************************** AVATR & COVER ***********************************************/
+
+.cover {
+	position: relative;
+	margin-top: 0px;
+}
+
+.cover-img {
+	width: 100%;
+	height: 350px;
+	margin-top: 0px;
+}
+
+.avatar {
+	position: absolute;
+	left: 30px;
+	bottom: 10px;
+}
+
+.avatar .avatar-img {
+	width: 200px;
+	height: 200px;
+	border-radius: 3px;
+	border: 4px solid #000;
+}
+
+.cover-interaction {
+	position: absolute;
+	right: 0;
+	bottom: 70px;
+	width: 50%;
+	text-align: right;
+	padding-right: 20px;
+}
+
+.change-cover {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	text-align: right;
+	width: 30%;
+	display: none;
+	-webkit-transition: display .5s;
+	transition: display .5s;
+}
+
+.change-cover .change-cover-button {
+	border: #fff;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 10px 20px;
+	color: #fff;
+	border-radius: 3px;
+}
+
+.change-avatar {
+	position: absolute;
+	bottom: 3px;
+	left: 18px;
+	text-align: left;
+	width: 50%;
+	display: none;
+	-webkit-transition: display .5s;
+	transition: display .5s;
+}
+
+.change-avatar .change-avatar-button {
+	border: #fff;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 10px 20px;
+	color: #fff;
+	border-radius: 3px;
+}
+
+.avatar-cover:hover .change-cover {
+	display: block;
+}
+
+.avatar-cover:hover .change-avatar {
+	display: block;
+}
+
+.tencanhan {
+	position: absolute;
+	left: 21%;
+	top: 60%;
+	font-size: 23px;
+	max-width: 300px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	text-shadow: 0 0 3px rgba(0, 0, 0, .8);
+	white-space: nowrap;
+}
+
+.tencanhan b {
+	color: white;
+}
+
+
+/*************************DANH SÁCH THÀNH VIÊN************************/
+
+.listthanhvien,
+.listadmin {
+	background-color: whitesmoke;
+	width: 100%;
+	height: 100;
+	position: absolute;
+	left: 0%;
+	border: 1px solid orange;
+}
+
+.listavatar,
+.listcover {
+	background-color: whitesmoke;
+	padding-left: 40px;
+	width: 100%;
+	height: 100;
+	position: absolute;
+	left: 0%;
+	border: 1px solid orange;
+}
+
+.avatarthanhvien {
+	width: 28.3%;
+	margin-top: 2%;
+	border: 2px solid whitesmoke;
+	margin-left: 30px;
+	margin-right: 10px;
+	padding: 4px;
+}
+
+.avatargroup,
+.cover {
+	margin-top: 15px;
+	width: 19%;
+}
+
+.avatarthanhvien img {
+	width: 150px;
+	height: 150px;
+	border: .5px solid #000;
+}
+
+.avatargroup img,
+.cover img {
+	width: 180px;
+	height: 180px;
+	border: 1px solid #777;
+	margin-left: 1px;
+}
+
+.dropdown-menu {
+	width: 70%;
+	position: absolute;
+	left: 60%;
+	top: 60%;
+}
+
+.dropdown-menu li a {
+	text-align: left;
+}
+
+
+/**********************************SETTING*******************************/
+
+.editInfor,
+.memberRequest {
+	background-color: whitesmoke;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 2px;
+	width: 100%;
+	position: absolute;
+	top: 0%;
+}
+
+.editform {
+	width: 35%;
+	position: relative;
+	left: 20%;
+}
+
+
+/*.nav-pills-vertical {
+    width: 16.3%;
+    height: 1000px;
+}*/
+
+
+/*************Phần báo cáo ****************************************/
+
+#Othercomment {
+	width: 200%;
+	height: 5%;
+}
+
+.radio {
+	text-align: left;
+	padding-left: 5%;
+}
