@@ -6756,7 +6756,7 @@
 				 * in the filtering or not.
 				 *  @type boolean
 				 */
-				"bSearchable": null,
+				"bSearchable": true,
 
 				/**
 				 * Flag to indicate if the column is sortable or not.
@@ -7124,7 +7124,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"aLengthMenu": [6, 30, 60, 100],
+				"aLengthMenu": [10, 25, 50, 100],
 
 
 				/**
@@ -7287,7 +7287,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"bFilter": false,
+				"bFilter": true,
 
 
 				/**
@@ -9040,7 +9040,7 @@
 				 *        ] } );
 				 *    } );
 				 */
-				"bSearchable": true,
+				"bSearchable": false,
 
 
 				/**
