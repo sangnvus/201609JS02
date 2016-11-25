@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Trang chủ";
+    var currentUserId = ViewBag.currentUser;
 }
 
 <!DOCTYPE html>
@@ -23,8 +24,9 @@
                     <img src="/Images/profileimages/user.png" style="width:25px;height:25px" />
                 </div>
                 <div class="col-md-10 col-sm-8" style="padding-left:0;margin-top:15px">
-                    <a><strong>@User.Identity.Name</strong></a>
+                    <a href="@Url.Action("Details", "Timeline", new { id = currentUserId })"><strong>@User.Identity.Name</strong></a>
                 </div>
+                <a href="@Url.Action("EditProfile", "Timeline", new { id = currentUserId })">Chỉnh sửa thông tin cá nhân</a>
                 <!--HuyenPT. Update. End. 20-11-2016-->
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="text-left" class="panel-heading">
@@ -38,40 +40,6 @@
                                 <div class="col-md-12">
                                     <div class="col-md-1">
                                         <img src="/Anhtacgia/JKRowling_tacgia.jpg" style="width:20px;height:20px" />
-                                    </div>
-                                    <div class="col-md-8">
-                                        <li>
-                                            <span>Hội yêu thích truyện Harry Potter</span>
-                                        </li>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p>12</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="col-md-1">
-                                        <img src="/Anhtacgia/James%20Patterson_tacgia.jpg" style="width:20px;height:20px" />
-                                    </div>
-                                    <div class="col-md-8">
-                                        <li>
-                                            <span>Hội yêu thích truyện Harry Potter</span>
-                                        </li>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p>12</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="col-md-1">
-                                        <img src="/Anhtacgia/nguy%E1%BB%85n%20nh%E1%BA%ADt%20%C3%A1nh_tacgia.jpg" style="width:20px;height:20px" />
                                     </div>
                                     <div class="col-md-8">
                                         <li>

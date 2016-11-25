@@ -1,4 +1,8 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+body {
+	background-color: #f1f1f1;
+	margin: 0;
+}
 .nav-space {
     width: 20%;
 }
@@ -15,16 +19,20 @@
 }
 /* Set gray background color and 100% height */
 .sidenav {
-    padding-top: 20px;
+    /*padding-top: 20px;
     background-color: #f1f1f1;
-    height: auto;
+    height: auto;*/
+    min-height: 100vh;
 }
 /* On small screens, set height to 'auto' for sidenav and grid */
 
 @media screen and (max-width: 767px) {
     .sidenav {
-        height: auto;
+        /*height: auto;
+        padding: 15px;*/
         padding: 15px;
+		min-height: 100%;
+		height: 100vh;
     }
     .row.content {
         height: auto;
@@ -43,7 +51,8 @@ label {
 }
 .rating {
     border: none;
-    float: left;
+    /*float: left;*/
+    float: right;
 }
 
 .rating > input {
@@ -146,6 +155,10 @@ label {
     color: white;
 }
 /***********************************POST*************************************************/
+.center-post {
+	background-color: white;
+	min-height: 100vh;
+}
 
 .post-card {
     border: 1px solid #ccc;
@@ -356,9 +369,8 @@ p1 {
 
 .buttonFo {
     border-radius: 8px;
-    background-color: #921622;
-    color: white;
-
+    /*background-color: #921622;*/
+    /*color: white;*/
 }
 
 .list-group {}
@@ -388,7 +400,7 @@ p1 {
 
 #buttonPost {
     color: white;
-    background-color: #224A86;
+    /*background-color: #224A86;*/
 }
 #buttonCancel{
     color: black;
@@ -433,7 +445,8 @@ p1 {
 .list-book-tag li {
     list-style: none;
     display: inline;
-    background-color: #365899;;
+    background-color: #365899;
+
     /* tu chookn mau lai nheok*/
     padding: 5px 10px;
     border: 1px solid #c2c4c6;
@@ -488,7 +501,7 @@ p1 {
 
 .book-tag-list-in-post li {
     font-size: 12px;
-    background-color: #365899;;
+    background-color: #365899;
     /*tu chon mau */
     padding: 2px 8px;
     margin-right: 5px;
@@ -523,11 +536,13 @@ p1 {
 
 .cover {
     position: relative;
+	margin-top: 0px;
 }
 
 .cover-img {
     width: 100%;
     height: 350px;
+	margin-top: 0px;
 }
 
 .avatar {
@@ -600,9 +615,18 @@ p1 {
 
 .tencanhan {
     position: absolute;
-    left: 20%;
+    /*left: 20%;
     top: 55%;
-    font-size: 25px;
+    font-size: 25px;*/
+    left: 21%;
+	top: 60%;
+	font-size: 23px;
+	max-width: 300px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	text-shadow: 0 0 3px rgba(0, 0, 0, .8);
+	white-space: nowrap;
 }
 
 .tencanhan b {

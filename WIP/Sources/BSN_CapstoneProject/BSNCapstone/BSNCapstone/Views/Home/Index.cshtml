@@ -25,7 +25,7 @@
                     <img src="@ViewBag.avatar" style="width:25px;height:25px"/>
                 </div>
                 <div class="col-md-10 col-sm-8" style="padding-left:0;margin-top:15px">
-                    <a><strong>@ViewBag.Name</strong></a>
+                    <a href="@Url.Action("Details", "Timeline", new { id = @ViewBag.Id })"><strong>@ViewBag.Name</strong></a>
                 </div>
 
                 <a href="@Url.Action("EditProfile", "Timeline", new { id = @ViewBag.Id })">Chỉnh sửa thông tin cá nhân</a>

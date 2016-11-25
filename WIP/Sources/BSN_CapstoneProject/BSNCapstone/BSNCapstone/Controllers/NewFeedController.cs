@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using BSNCapstone.Models;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
-
+using Microsoft.AspNet.Identity;
 
 namespace BSNCapstone.Controllers
 {
@@ -18,6 +18,7 @@ namespace BSNCapstone.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.currentUser = User.Identity.GetUserId();
             return View();
         }
     }

@@ -245,6 +245,7 @@
     <Content Include="Content\pagination.css" />
     <Content Include="Content\Sach.css" />
     <Content Include="Content\TrangAdmin.css" />
+    <Content Include="Content\Trangcaidat.css" />
     <Content Include="Content\Trangchu_canhan_tacgia.css" />
     <Content Include="Content\Trangnhom-caidat.css" />
     <Content Include="Content\Trangnhom.css" />
@@ -253,6 +254,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\ProfileImages\user.png" />
     <Content Include="Scripts\advanced-tables-demo.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -355,6 +357,7 @@
     <Content Include="Views\NewFeed\Index.cshtml" />
     <Content Include="Views\Timeline\EditProfile.cshtml" />
     <Content Include="Views\Timeline\Index.cshtml" />
+    <Content Include="Views\Timeline\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

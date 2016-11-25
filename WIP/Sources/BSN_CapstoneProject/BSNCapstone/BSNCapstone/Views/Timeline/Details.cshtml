@@ -1,7 +1,8 @@
 ﻿@model BSNCapstone.Models.ApplicationUser
 @{
+    ViewBag.Title = Model.UserName;
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Index";
+    var currentUserId = ViewBag.currentUser;
 }
 
 <!DOCTYPE html>
@@ -23,8 +24,11 @@
                 </div>
             </div>
             <div class="cover-interaction">
+                @if (currentUserId != Model.Id)
+                {
+                    <button class="button buttonRe">Theo dõi </button>
+                }
                 <button class="button buttonRe">Tin nhắn</button>
-                <button class="button buttonRe">Theo dõi </button>
                 <button class="button buttonRe" data-toggle="modal" data-target="#ModalReport">Báo cáo</button>
                 <!---------------Báo cáo -------------------------------------->
                 <div id="ModalReport" class="modal fade" role="dialog">
@@ -99,7 +103,7 @@
         </div>
     </div>
     <!-----------------------UNDER cover & ava--------------------------------->
-    <div class="tencanhan"><a href="#"><b>Ten Ca Nhan</b></a></div>
+    <div class="tencanhan"><a href="@Url.Action("Details", "Timeline", new { id = @Model.Id })"><b>@Model.UserName</b></a></div>
     <div class="container-fluid text-left">
         <div class="row content">
             <!------------LEFT SIDE--------------->

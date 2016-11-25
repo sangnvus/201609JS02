@@ -28,9 +28,9 @@ namespace BSNCapstone.ControllerHelpers
             return categories;
         }
 
-        public static int GetAverageRatingPoint(int ratingPoint, int ratingTime)
+        public static double GetAverageRatingPoint(int ratingPoint, int ratingTime)
         {
-            int result = 0;
+            double result = 0;
             if (ratingTime == 0)
             {
                 result = ratingPoint;
@@ -41,15 +41,7 @@ namespace BSNCapstone.ControllerHelpers
                 double x = 0;
                 //x = Math.Round((double)(ratingPoint / ratingTime), 1);
                 x = (double)ratingPoint / ratingTime;
-                x = x - Math.Floor(x);
-                if (x >= 0.5)
-                {
-                    result = (int)Math.Floor((double)ratingPoint / ratingTime) + 1;
-                }
-                else
-                {
-                    result = (int)Math.Floor((double)ratingPoint / ratingTime);
-                }
+                result = Math.Round(x, 1);
             }
             return result;
         }

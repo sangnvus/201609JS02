@@ -11,6 +11,7 @@ using BSNCapstone.Models;
 using MongoDB.Driver;
 using System.Threading.Tasks;
 using System.Globalization;
+using Microsoft.AspNet.Identity;
 
 namespace BSNCapstone.Controllers
 {
@@ -32,11 +33,18 @@ namespace BSNCapstone.Controllers
         }
 
         // GET: Timeline
-        public ActionResult Index()
-        {
-           return View();
-        }
+        //public ActionResult Index(string id)
+        //{
+        //    var user = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+        //    return View(user);
+        //}
 
+        public ActionResult Details(string id) 
+        {
+            var user = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+            ViewBag.currentUser = User.Identity.GetUserId();
+            return View(user);
+        }
 
         //
         // GET: /UserProfile/Edit/5

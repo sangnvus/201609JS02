@@ -72,6 +72,8 @@ namespace BSNCapstone.Models
         public int RateTime { get; set; }
         //DangVH. Create. End (17/11/2016)
 
+        public double AvarageRating { get; set; }
+
         public Book()
         {
             //DangVH. Update. Start (14/11/2016)
@@ -80,6 +82,7 @@ namespace BSNCapstone.Models
             Categories = new List<string>();
             RateTime = 0;
             RatingPoint = 0;
+            AvarageRating = 0;
             //DangVH. Update. End (14/11/2016)
         }
     }

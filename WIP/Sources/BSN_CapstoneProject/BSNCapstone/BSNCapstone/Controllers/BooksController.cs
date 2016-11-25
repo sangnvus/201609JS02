@@ -305,7 +305,9 @@ namespace BSNCapstone.Controllers
             int ratingPoint = book.RatingPoint + rating;
             int ratingTime = book.RateTime + 1;
             var filter = Builders<Book>.Filter.Where(x => x.Id.Equals(book.Id));
-            var update = Builders<Book>.Update.Set(x => x.RatingPoint, ratingPoint).Set(x => x.RateTime, ratingTime);
+            var update = Builders<Book>.Update.Set(x => x.RatingPoint, ratingPoint).
+                Set(x => x.RateTime, ratingTime).
+                Set(x => x.AvarageRating, BooksControllerHelper.GetAverageRatingPoint(ratingPoint, ratingTime));
             Context.Books.UpdateOneAsync(filter, update);
             return Json("Cảm ơn bạn đã đánh giá :D");
         }
