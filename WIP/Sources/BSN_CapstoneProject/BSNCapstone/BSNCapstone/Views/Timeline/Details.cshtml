@@ -137,30 +137,29 @@
                 <br>
             </div>
             <!-------------------------------Center Post---------------------------------------->
-            <div class="col-md-6 col-sm-8 col-xs-12 text-left" style="position:relative;top:-9px;">
-                <br>
-                <div class="row center-post" style="margin-top:-20px; padding-top:30px;">
-                    <!---------Recommendation Post------------>
+            <div class="col-md-6 col-sm-8 col-xs-12 text-left">
+                <br />
+                <div class="row">
+                    <!---------PHẦN NHẬP NỘI DUNG BÀI POST VÀ TAG SÁCH------------>
                     <div class="col-md-12">
-                        <div class="post-card" style="margin-bottom:15px;">
-                            <textarea class="write-post" placeholder="Bạn đang nghĩ gì ?"></textarea>
-                            <div class="divider-horizontal"></div>
-                            <div class="row" style="padding: 5px 15px;">
-                                <div class="col-md-6 col-sm-12 col-xs-12">
-                                    <div class="tag-area">
-                                        <ul class="list-book-tag">
-                                            <li>
-                                                <span>Thẻ sách</span>
-                                                <i class="glyphicon glyphicon-remove"></i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
-                                    <button id="choose-book-tag" class="btn btn-default">Gắn Thẻ sách</button>
-                                    <button id="buttonPost" style="background-color: #224A86" class="btn btn-default">Đăng</button>
-                                </div>
+                        <div class="post-card" style="padding-top: 2px;">
+                            <!--TextBox để nhập nội dung post-->
+                            <textarea class="write-post" placeholder="Bạn đang nghĩ gì ?"
+                                      id="txtPostContent" data-bind="value: newMessage"></textarea>
 
+                            <div class="divider-horizontal"></div>
+
+                            <div class="row" style="padding: 5px 15px;">
+                                <!--Hiển thị thẻ sách - chờ design update-->
+                                <div class="col-md-6 col-sm-12 col-xs-12"></div>
+                                <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
+                                    <!--Button để hiển thị ra pop-up gắn thẻ sách-->
+                                    <button id="choose-book-tag" class="btn btn-default">Gắn Thẻ sách</button>
+                                    <!--Button đăng bài post-->
+                                    <input class="btn btn-default" type="button" style="background-color: #224A86" value="Đăng"
+                                           data-url="/Index/SavePost" id="btnShare" data-bind="click: addPost" />
+                                </div>
+                                <!--Pop-up để nhập tag sách-->
                                 <div id="book-tag-select" style="display: none">
                                     <div class="content">
                                         <div class="form-group">
@@ -168,323 +167,166 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
-
-                    <!-- Post 1 -->
-
-                    <div class="col-md-12" style="margin-top: 5px;" style="padding-top:5%;">
-                        <div class="post-card" style="padding: 5px 15px;">
+                </div>
+                <!------------------------HIỂN THỊ CÁC BÀI POST-------------------------->
+                <ul id="msgHolder" data-bind="foreach: posts">
+                    <div class="col-md-12" style="margin-top: 5px; padding-top:5%;">
+                        <div class="post-card" style="padding-top: 5%; padding: 5px 15px">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <!-- Post Content -->
-
+                                    <!--Hiển thị thông tin người dùng-->
                                     <div class="row">
-                                        <!-- Post Owner -->
                                         <div class="col-md-12">
+                                            <!--Ảnh đại diện-->
                                             <div class="owner-avatar">
-                                                <img src="/AnhAvaNguoiDung/avaHuyen.jpg" style="width:50px;height:50px" />
+                                                <img data-bind="attr: { src : PostedByAvatar }" />
                                             </div>
 
                                             <div class="owner-info">
+                                                <!--Tên người dùng-->
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <a class="owner-name" href="">Huyền</a>
+                                                        <a class="owner-name" data-bind="text : PostedBy"></a>
+                                                    </div>
+                                                    <!--Drop down list gồm chức năng sửa và xóa post-->
+                                                    <div class="col-md-6">
+                                                        <button type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <span class="fa fa-angle-down"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a href="#"> Sửa</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#" data-bind="click: deletePost"> Xóa</a>
+                                                            </li>
+                                                        </ul>
                                                     </div>
                                                 </div>
+                                                <!--Thời gian post bài-->
                                                 <div class="row">
-                                                    <div class="col-md-12">
-                                                        <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>11:59 PM</span></label>
+                                                    <div class="col-md-12" style="color:grey; font-size: 12px">
+                                                        <i class="glyphicon glyphicon-time"></i>
+                                                        <span data-bind="text : PostedDate"></span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <p class="post-content">Đây là nội dung bài post</p>
-                                    <!-- Post Interaction -->
+                                    <!--Nội dung bài post-->
+                                    <p class="post-content"><span data-bind="html : Message"></span></p>
+
                                     <div class="divider-horizontal"></div>
                                     <div class="row">
+                                        <!--Thẻ sách-->
                                         <div class="col-md-6 col-sm-12">
-                                            <ul class="book-tag-list-in-post">
-                                                <li>
-                                                    Thẻ sách 1
-                                                </li>
-
-                                            </ul>
                                         </div>
-                                        <div class="col-md-6 col-sm-12" style="text-align: right;">
+                                        <!--Các button để tương tác với post-->
+                                        <div style="text-align: left;">
                                             <ul class="interaction-list">
+                                                <!--Nút thích-->
                                                 <li>
-                                                    <button class="post-interaction-btn"><i class="glyphicon glyphicon-thumbs-up"></i><span>Thích</span></button>
-                                                </li>
-                                                <li>
-                                                    <button class="post-interaction-btn" data-toggle="collapse" data-target="#binhluan">
-                                                        <i class="glyphicon glyphicon-comment"></i>
-                                                        <span>Bình luận</span>
-
+                                                    <button class="post-interaction-btn" data-bind="click: addPostLike" style="color:hotpink ">
+                                                        <i class="glyphicon glyphicon-thumbs-up"></i>
+                                                        @*<a data-bind="text : NumOfLike" id="like-count"></a>*@
+                                                        <span data-bind="text : NumOfPostLike"></span>
+                                                        <span>Thích</span>
                                                     </button>
                                                 </li>
+                                                <!--Nút chia sẻ-->
                                                 <li>
-                                                    <button class="post-interaction-btn" data-toggle="modal" data-target="#ModalShare"><i class="glyphicon glyphicon-share"></i><span>Chia sẻ</span></button>
+                                                    <button class="post-interaction-btn" data-toggle="modal" data-target="#ModalShare" style="color:chocolate">
+                                                        <i class="glyphicon glyphicon-share"></i><span>Chia sẻ</span>
+                                                    </button>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="divider-horizontal"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--------------------------------------------PHẦN CHIA SẺ----------------------------------------------------->
-                        <div id="ModalShare" class="modal fade" role="dialog">
-                            <div class="modal-dialog modal-lg">
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div style="background-color: #F7E8AF;" class="modal-header clearfix">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-body clearfix">
-                                        <div class="content">
+
+                                    <!--Notify của phần comment-->
+                                    <a data-bind="click: loadNewComments">load new cmt</a>
+
+                                    <!--Ô ĐỂ NHẬP BÌNH LUẬN-->
+                                    <div>
+                                        <div class="jumbotron">
                                             <div class="row">
-                                                <div class="col-md-1" style="margin-top: 5px;">
-                                                    <img src="/AnhAvaNguoiDung/avaVan.jpg" style="width:50px;height:50px" />
+                                                <div class="col-md-12">
+                                                    <!--Ảnh của nười dùng hiện tại-->
+                                                    <div class="owner-avatar">
+                                                        <img src="/Images/profileimages/user.png" style="width:40px;height:40px" />
+                                                    </div>
+                                                    <div class="owner-info">
+                                                        <!--Textbox để viết bình luận-->
+                                                        <textarea class="form-control" data-bind="value: newCommentMessage" placeholder="Viết bình luận..."></textarea>
+                                                        <!--Button để bình luận-->
+                                                        <input type="button" class="btn btn-warning" value="Bình luận" data-bind="click: addComment" />
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-11">
-                                                    <div class="post-card" style="padding-top: 2px;">
-                                                        <textarea class="write-post" placeholder="Bạn đang nghĩ gì ?"></textarea>
-                                                        <div class="row" style="padding: 5px 15px;">
-                                                            <div class="" style="padding: 5px 15px;">
-                                                                <!-- Post Content -->
-                                                                <div class="row">
-                                                                    <!-- Post Owner -->
-                                                                    <div class="col-md-12">
-                                                                        <div class="owner-avatar">
-                                                                            <img src="/AnhAvaNguoiDung/avaHuyen.jpg" style="width:50px;height:50px" />
-                                                                        </div>
-                                                                        <div class="owner-info">
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <a class="owner-name" href="">Huyền</a>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>11:59 PM</span></label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <p class="post-content">Đây là nội dung bài post</p>
-                                                                <!-- Post Interaction -->
-                                                                <div class="row">
-                                                                    <div class="col-md-6 col-sm-12">
-                                                                        <ul class="book-tag-list-in-post">
-                                                                            <li>
-                                                                                Thẻ sách 1
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="divider-horizontal"></div>
-                                                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                                            </div>
-                                                            <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
-                                                                <button id="buttonPost" style="background-color: #224A86" class="btn btn-default">Đăng</button>
-                                                            </div>
+                                            </div>
+                                            <br>
+                                            <!--------------------------------HIẾN THỊ CÁC COMMENT CỦA BÀI POST -------------------------->
+                                            <ul data-bind="foreach: PostComments">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <!--Ảnh của người cmt-->
+                                                        <div class="owner-avatar">
+                                                            <img style="width:40px;height:40px" data-bind="attr: { src: CommentedByAvatar }" />
+                                                        </div>
+
+                                                        @*<div class="row">*@
+                                                        <div class="owner-info">
+                                                            <!--Tên người cmt-->
+                                                            <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>
+                                                            <!--Nội dung cmt-->
+                                                            <span data-bind="    html: Message"></span>
 
                                                         </div>
+                                                        <!--Drop down list gồm chức năng sửa và xóa cmt-->
+                                                        <div>
+                                                            <button type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <span class="fa fa-angle-down"></span>
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li>
+                                                                    <a href="#">Sửa</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Xóa</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        @*</div>*@
+                                                        <!--Các chức năng tương tác với comment-->
+                                                        <ul class="interaction-list">
+                                                            <li>
+                                                                <button class="post-interaction-btn">
+                                                                    <i class="glyphicon glyphicon-thumbs-up"></i>
+                                                                    @*<i class="glyphicon glyphicon-thumbs-up" data-bind="click: addCmtLike"></i>*@
+                                                                    @*<span data-bind="text : NumOfCmtLike"></span>*@
+                                                                    <span>Thích</span>
+                                                                </button>
+                                                            </li>
+                                                            <li>
+                                                                <button class="post-interaction-btn" style="color:grey; font-size: 12px">
+                                                                    <i class="glyphicon glyphicon-time"></i>
+                                                                    <span data-bind="text: CommentedDate"></span>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
                                                     </div>
                                                 </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-*********************************************************BÌNH LUẬN VÀ TRẢ LỜI BÌNH LUẬN*************************************************/-->
-                        <div id="binhluan" class="collapse">
-                            <div class="jumbotron">
-                                <div class="row">
-                                    <!-- Post Owner -->
-                                    <div class="col-md-12">
-                                        <div class="owner-avatar">
-                                            <img src="/AnhAvaNguoiDung/avaHuyen.jpg" style="width:40px;height:40px" />
-                                        </div>
-
-                                        <div class="owner-info">
-                                            <input type="text" class="form-control" placeholder="Viết bình luận">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <br>
-                                <!--------------------------------COMMENT CỦA NG KHÁC -------------------------->
-                                <div class="row">
-                                    <!-- Post Owner -->
-                                    <div class="col-md-12">
-                                        <div class="owner-avatar">
-                                            <img src="/AnhAvaNguoiDung/avaDang.JPG" style="width:40px;height:40px" />
-                                        </div>
-
-                                        <div class="owner-info">
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <a id="username" class="owner-name" href="">Huyền</a>
-
-                                                </div>
-                                                <div id="content" class="col-md-11">
-                                                    <p>Cuốn sách này rất hay </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <ul id="action" class="interaction-list" style="padding-left: 8%;">
-                                            <li>
-                                                <button class="post-interaction-btn"><i class="glyphicon glyphicon-thumbs-up"></i><span>Thích</span></button>
-                                            </li>
-                                            <li>
-                                                <button class="post-interaction-btn" data-toggle="collapse" data-target="#traloi"><i class="glyphicon glyphicon-comment"></i><span>Trả lời</span></button>
-                                            </li>
-                                            <li>
-                                                <button class="post-interaction-btn"><i class="glyphicon glyphicon-thumbs-up"></i><span>1</span></button>
-                                            </li>
-                                            <li>
-                                                <button class="post-interaction-btn"><span>12 phút</span></button>
-                                            </li>
-                                        </ul>
-                                        <!----trả lời bình luận ---->
-                                        <div id="traloi" class=" collapse" style="padding-left: 10%;">
-
-                                            <div class="row">
-                                                <!-- Post Owner -->
-                                                <div class="col-md-12">
-                                                    <div class="owner-avatar">
-                                                        <img src="/AnhAvaNguoiDung/avaHai.jpg" style="width:30px;height:30px" />
-                                                    </div>
-
-                                                    <div class="owner-info">
-                                                        <input type="text" class="form-control" style="width:100%;height:25px" placeholder="Viết trả lời">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <!-- Post Owner -->
-                                    <div class="col-md-12">
-                                        <div class="owner-avatar">
-                                            <img src="/AnhAvaNguoiDung/avaHuyen.jpg" style="width:40px;height:40px" />
-                                        </div>
-
-                                        <div class="owner-info">
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <a id="username" class="owner-name" href="">Huyền</a>
-
-                                                </div>
-                                                <div id="content" class="col-md-11">
-                                                    <p>Cuốn sách này rất hay </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <ul id="action" class="interaction-list" style="padding-left: 8%;">
-                                            <li>
-                                                <button class="post-interaction-btn"><i class="glyphicon glyphicon-thumbs-up"></i><span>Thích</span></button>
-                                            </li>
-                                            <li>
-                                                <button class="post-interaction-btn"><i class="glyphicon glyphicon-comment"></i><span>Trả lời</span></button>
-                                            </li>
-                                            <li>
-                                                <button class="post-interaction-btn"><i class="glyphicon glyphicon-thumbs-up"></i><span>1</span></button>
-                                            </li>
-                                            <li>
-                                                <button class="post-interaction-btn"><span>12 phút</span></button>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Post 2 -->
-                    <br>
-                    <div class="col-md-12" style="margin-top: 5px;">
-                        <div class="post-card" style="padding: 5px 15px;">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <!-- Post Content -->
-                                    <div class="row">
-                                        <!-- Post Owner -->
-                                        <div class="col-md-12">
-                                            <div class="owner-avatar">
-                                                <img src="/AnhAvaNguoiDung/avaHai.jpg" style="width:50px;height:50px" />
-                                            </div>
-                                            <div class="owner-info">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <a class="owner-name" href="">Hải</a>
-                                                        <i class="glyphicon glyphicon-play" style="font-size: 12px; color: #ccc; margin: 0 5px;"></i>
-                                                        <a class="owner-name" href="">Tên nhóm</a>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>11:59 PM</span></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="post-content">Đây là nội dung bài post</p>
-                                    <!-- Post Interaction -->
-                                    <div class="divider-horizontal"></div>
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-12">
-                                            <ul class="book-tag-list-in-post">
-                                                <li>
-                                                    Thẻ sách 2
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12" style="text-align: right;">
-                                            <ul class="interaction-list">
-                                                <li>
-                                                    <button class="post-interaction-btn"><i class="glyphicon glyphicon-thumbs-up"></i><span>Thích</span></button>
-                                                </li>
-                                                <li>
-                                                    <button class="post-interaction-btn"><i class="glyphicon glyphicon-comment"></i><span>Bình luận</span></button>
-                                                </li>
-                                                <li>
-                                                    <button class="post-interaction-btn"><i class="glyphicon glyphicon-share"></i><span>Chia sẻ</span></button>
-                                                </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="divider-horizontal"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                </div>
+                </ul>
             </div>
             <!--  Bắt đầu phần bên phải -->
             <div class="col-md-4 sidenav">
@@ -558,6 +400,16 @@
 </body>
 
 </html>
-@section scripts {
+@section scripts{
+    <!--Reference the SignalR library. -->
+    <script src="~/Scripts/jquery.signalR-2.2.1.js"></script>
+    <!--Reference the autogenerated SignalR hub script. -->
+    <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts/jquery.timeago.js"></script>
+    <script src="~/Scripts/knockout-2.2.0.js"></script>
+    <script src="~/Scripts/post.js"></script>
+
     <link rel="stylesheet" href="~/Content/Trangchu_canhan_tacgia.css">
+    <link href="rateit/src/rateit.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="~/Content/font-awesome.css">
 }
