@@ -202,7 +202,6 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\NewFeedController.cs" />
     <Compile Include="Controllers\PublisherController.cs" />
     <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\TimelineController.cs" />
@@ -356,7 +355,6 @@
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\NewFeed\Index.cshtml" />
     <Content Include="Views\Timeline\EditProfile.cshtml" />
     <Content Include="Views\Timeline\Index.cshtml" />
     <Content Include="Views\Timeline\Details.cshtml" />
