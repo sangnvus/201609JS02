@@ -822,3 +822,13 @@ p1 {
 	height: 100%;
 	overflow-y: scroll;
 }
+
+/*HuyenPT. Create. Start. 22-11-2016*/
+.buttondropdown {
+	border: none;
+	font-size: 130%;
+	margin-top: -10px;
+	margin-right: -15px;
+	background-color: none;
+}
+/*HuyenPT. Create. End. 22-11-2016*/

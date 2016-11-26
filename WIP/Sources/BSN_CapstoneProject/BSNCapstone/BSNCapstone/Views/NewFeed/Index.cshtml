@@ -53,11 +53,6 @@
                             </div>
                         </a>
                     </ul>
-                    <!--
-                                <p class="text-right">
-                                    <button type="button" class="btn btn-link">Xem thêm </button>
-                                </p>
-            -->
                 </div>
                 <!--------------------------->
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -96,12 +91,6 @@
             @*HaiCM. Creat. End. 19-11-2016*@
             <!-------------------------------Hết phần bên trái---------------------------------->
             <!-------------------------------Center Post---------------------------------------->
-            <!--Notify để load post mới-->
-
-
-            <div data-bind="visible: newPosts().length > 0">
-                <a data-bind="    click: loadNewPosts"> <span data-bind="    text: newPosts().length"></span> new post(s)</a>
-            </div>
 
             <div class="col-md-6 col-sm-8 col-xs-12 text-left">
                 <br />
@@ -111,7 +100,7 @@
                         <div class="post-card" style="padding-top: 2px;">
                             <!--TextBox để nhập nội dung post-->
                             <textarea class="write-post" placeholder="Bạn đang nghĩ gì ?"
-                                      id="txtMessage" data-bind="value: newMessage"></textarea>
+                                      id="txtPostContent" data-bind="value: newMessage"></textarea>
 
                             <div class="divider-horizontal"></div>
 
@@ -157,12 +146,26 @@
                                                     <div class="col-md-12">
                                                         <a class="owner-name" data-bind="text : PostedBy"></a>
                                                     </div>
+                                                    <!--Drop down list gồm chức năng sửa và xóa post-->
+                                                    <div class="col-md-6">
+                                                        <button type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <span class="fa fa-angle-down"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a href="#"> Sửa</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#" data-bind="click: deletePost"> Xóa</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                                 <!--Thời gian post bài-->
                                                 <div class="row">
-                                                    <div class="col-md-12">
+                                                    <div class="col-md-12" style="color:grey; font-size: 12px">
                                                         <i class="glyphicon glyphicon-time"></i>
-                                                        <span class="timeago" data-bind="text : PostedDate"></span>
+                                                        <span data-bind="text : PostedDate"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -177,19 +180,20 @@
                                         <div class="col-md-6 col-sm-12">
                                         </div>
                                         <!--Các button để tương tác với post-->
-                                        <div class="col-md-6 col-sm-12" style="text-align: right;">
+                                        <div style="text-align: left;">
                                             <ul class="interaction-list">
                                                 <!--Nút thích-->
                                                 <li>
-                                                    <button class="post-interaction-btn"><i class="glyphicon glyphicon-thumbs-up"></i><span>Thích</span></button>
-                                                </li>
-                                                <!--Nút sửa-->
-                                                <li>
-                                                    <button class="post-interaction-btn"><i class="glyphicon glyphicon-edit"></i><span>Sửa</span></button>
+                                                    <button class="post-interaction-btn" data-bind="click: addPostLike" style="color:hotpink ">
+                                                        <i class="glyphicon glyphicon-thumbs-up"></i>
+                                                        @*<a data-bind="text : NumOfLike" id="like-count"></a>*@
+                                                        <span data-bind="text : NumOfPostLike"></span>
+                                                        <span>Thích</span>
+                                                    </button>
                                                 </li>
                                                 <!--Nút chia sẻ-->
                                                 <li>
-                                                    <button class="post-interaction-btn" data-toggle="modal" data-target="#ModalShare">
+                                                    <button class="post-interaction-btn" data-toggle="modal" data-target="#ModalShare" style="color:chocolate">
                                                         <i class="glyphicon glyphicon-share"></i><span>Chia sẻ</span>
                                                     </button>
                                                 </li>
@@ -199,9 +203,7 @@
                                     <div class="divider-horizontal"></div>
 
                                     <!--Notify của phần comment-->
-                                    <div data-bind="visible: NewComments().length > 0">
-                                        <a data-bind="click: loadNewComments"><span data-bind="    text: NewComments().length"></span> new comment(s)</a>
-                                    </div>
+                                    <a data-bind="click: loadNewComments">load new cmt</a>
 
                                     <!--Ô ĐỂ NHẬP BÌNH LUẬN-->
                                     <div>
@@ -218,7 +220,6 @@
                                                         <!--Button để bình luận-->
                                                         <input type="button" class="btn btn-warning" value="Bình luận" data-bind="click: addComment" />
                                                     </div>
-
                                                 </div>
                                             </div>
                                             <br>
@@ -230,23 +231,45 @@
                                                         <div class="owner-avatar">
                                                             <img style="width:40px;height:40px" data-bind="attr: { src: CommentedByAvatar }" />
                                                         </div>
+
+                                                        @*<div class="row">*@
                                                         <div class="owner-info">
-                                                            <div class="row">
-                                                                <!--Tên người cmt-->
-                                                                <a class="authorname" data-bind="text: CommentedBy"></a>
-                                                                <!--Nội dung cmt-->
-                                                                <span data-bind="    html: Message"></span>
-                                                            </div>
+                                                            <!--Tên người cmt-->
+                                                            <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>
+                                                            <!--Nội dung cmt-->
+                                                            <span data-bind="    html: Message"></span>
+
                                                         </div>
-                                                        <ul id="action" class="interaction-list" style="padding-left: 8%;">
+                                                        <!--Drop down list gồm chức năng sửa và xóa cmt-->
+                                                        <div>
+                                                            <button type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <span class="fa fa-angle-down"></span>
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li>
+                                                                    <a href="#">Sửa</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Xóa</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        @*</div>*@
+                                                        <!--Các chức năng tương tác với comment-->
+                                                        <ul class="interaction-list">
                                                             <li>
-                                                                <button class="post-interaction-btn"><i class="glyphicon glyphicon-thumbs-up"></i><span>Thích(0)</span></button>
+                                                                <button class="post-interaction-btn">
+                                                                    <i class="glyphicon glyphicon-thumbs-up"></i>
+                                                                    @*<i class="glyphicon glyphicon-thumbs-up" data-bind="click: addCmtLike"></i>*@
+                                                                    @*<span data-bind="text : NumOfCmtLike"></span>*@
+                                                                    <span>Thích</span>
+                                                                </button>
                                                             </li>
                                                             <li>
-                                                                <button class="post-interaction-btn"><i class="glyphicon glyphicon-edit"></i><span>Sửa</span></button>
-                                                            </li>
-                                                            <li>
-                                                                <button class="post-interaction-btn"><i class="glyphicon glyphicon-time"></i><span data-bind="text: CommentedDate"></span></button>
+                                                                <button class="post-interaction-btn" style="color:grey; font-size: 12px">
+                                                                    <i class="glyphicon glyphicon-time"></i>
+                                                                    <span data-bind="text: CommentedDate"></span>
+                                                                </button>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -259,7 +282,6 @@
                         </div>
                     </div>
                 </ul>
-
             </div>
 
             <!--------------------------------Phần bên phải------------------------------------->
@@ -463,13 +485,6 @@
                         </div>
                     </div>
                 </div>
-                <!--
-                        <p class="text-right">
-                            <button type="button" class="btn btn-link">Xem thêm </button>
-                        </p>
-        -->
-                <!--  Kết thúc phần tác giả -->
-                <!--  Bắt đầu phần nhà xuất bản -->
                 <br>
                 <div class="text-left" class="panel-heading">
                     <h5><strong>NHÀ XUẤT BẢN</strong></h5>
@@ -508,7 +523,9 @@
     <script src="~/Scripts/jquery.timeago.js"></script>
     <script src="~/Scripts/knockout-2.2.0.js"></script>
     <script src="~/Scripts/post.js"></script>
-<link rel="stylesheet" href="~/Content/Trangchu_canhan_tacgia.css">
-<link href="rateit/src/rateit.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="~/Content/Trangchu_canhan_tacgia.css">
+    <link href="rateit/src/rateit.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="~/Content/font-awesome.css">
 }
 

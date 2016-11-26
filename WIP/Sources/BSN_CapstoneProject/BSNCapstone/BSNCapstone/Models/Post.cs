@@ -2,6 +2,7 @@
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -12,23 +13,21 @@ namespace BSNCapstone.Models
         public Post()
         {
             this.PostComments = new HashSet<Comment>();
+            this.PostLikes = new HashSet<PostLike>();
         }
 
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
+        [Required]
         public string Message { get; set; }
 
-        // HuyenPT. Update. Start. 19-11-2016
-        //public int PostedBy { get; set; }
         public string PostedBy { get; set; }
-        // HuyenPT. Update. End. 19-11-2016
 
         public System.DateTime PostedDate { get; set; }
 
         public virtual ICollection<Comment> PostComments { get; set; }
-        // HuyenPT. Delete. Start. 19-11-2016
-        //public virtual UserProfile UserProfile { get; set; }
-        // HuyenPT. Delete. End. 19-11-2016
+
+        public virtual ICollection<PostLike> PostLikes { get; set; }
     }
 }
