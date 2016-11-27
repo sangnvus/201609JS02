@@ -8,6 +8,7 @@ using WebMatrix.WebData;
 using BSNCapstone.App_Start;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using Microsoft.AspNet.Identity;
 
 /*
  * Giải thích về Hub:
@@ -86,6 +87,7 @@ namespace BSNCapstone.Hubs
                 var ret = new
                 {
                     Message = item.Message,
+                    PostedById = item.PostedById,
                     PostedBy = item.PostedBy,
                     PostedByAvatar = "/Images/profileimages/user.png",
                     PostedDate = item.PostedDate,
@@ -106,8 +108,9 @@ namespace BSNCapstone.Hubs
             var newPost = new Post()
             {
                 Message = post.Message,
+                PostedById = Context.User.Identity.GetUserId(),
                 PostedBy = Context.User.Identity.Name,
-                PostedDate = DateTime.UtcNow
+                PostedDate = DateTime.UtcNow.AddHours(7)
             };
             con.Posts.InsertOneAsync(newPost);
 
@@ -118,7 +121,10 @@ namespace BSNCapstone.Hubs
             {
                 PostId = disPost.Id,
                 Message = disPost.Message,
-                PostedBy = Context.User.Identity.Name,
+                //PostById = Context.User.Identity.GetUserId(),
+                PostedById = disPost.PostedById,
+                //PostedBy = Context.User.Identity.Name,
+                PostedBy = disPost.PostedBy,
                 PostedByAvatar = "/Images/profileimages/user.png",
                 PostedDate = disPost.PostedDate
             };

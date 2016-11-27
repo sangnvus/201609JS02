@@ -189,13 +189,13 @@ label {
 
 .cover {
 	position: relative;
-	margin-top: 0px;
+	/*margin-top: 0px;*/
 }
 
 .cover-img {
 	width: 100%;
 	height: 350px;
-	margin-top: 0px;
+	/*margin-top: 0px;*/
 }
 
 .avatar {
@@ -207,8 +207,9 @@ label {
 .avatar .avatar-img {
 	width: 200px;
 	height: 200px;
-	border-radius: 3px;
-	border: 4px solid #000;
+    background-color: white;
+	/*border-radius: 3px;
+	border: 4px solid #000;*/
 }
 
 .cover-interaction {
@@ -225,7 +226,7 @@ label {
 	top: 10px;
 	right: 20px;
 	text-align: right;
-	width: 30%;
+	width: 13%;
 	display: none;
 	-webkit-transition: display .5s;
 	transition: display .5s;
@@ -241,10 +242,10 @@ label {
 
 .change-avatar {
 	position: absolute;
-	bottom: 3px;
-	left: 18px;
+	bottom: 0px;
+	/*left: 18px;*/
 	text-align: left;
-	width: 50%;
+	width: 100%;
 	display: none;
 	-webkit-transition: display .5s;
 	transition: display .5s;
@@ -281,4 +282,35 @@ label {
 
 .tencanhan b {
 	color: white;
+}
+
+/************Upload Image Button**************/
+.upload-image {
+    position: relative;
+    top: 0px;
+    width: 100%;
+}
+
+.btn-file {
+    border: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    position: relative;
+    width: 100%;
+    margin-top: 8%;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    right: 0px;
+    height: 100%;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
 }

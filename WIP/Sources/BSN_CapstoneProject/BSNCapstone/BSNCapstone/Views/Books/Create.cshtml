@@ -134,7 +134,7 @@
                             @Html.ValidationMessageFor(model => model.Categories, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
-                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @placeholder = "Miêu tả" })
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @placeholder = "Miêu tả", @style = "resize: none;" })
                             @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group" style="margin-top:1%; margin-left:0px">

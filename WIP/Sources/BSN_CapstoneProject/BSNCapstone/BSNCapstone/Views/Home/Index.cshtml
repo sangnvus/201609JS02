@@ -1,9 +1,14 @@
-﻿@{
+﻿@model BSNCapstone.Models.ApplicationUser
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Trang chủ";
+    var listHotBook = (List<BSNCapstone.ViewModels.BooksSuggestViewModel>)ViewBag.listHotBook;
+    var listNewBook = (List<BSNCapstone.ViewModels.BooksSuggestViewModel>)ViewBag.listNewBook;
+    var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
+    var randomAuthor = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.randomAuthor;
+    var randomPublisher = (List<BSNCapstone.Models.Publisher>)ViewBag.randomPublisher;
+    var listGroup = (List<BSNCapstone.Models.Group>)ViewBag.listGroup;
  }
-@using BSNCapstone.Models;
-@model IEnumerable<BSNCapstone.Models.Book>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,13 +20,15 @@
             @*HaiCM. Create. Start. 19-11-2016*@
             <div class="col-md-2 col-sm-4 col-xs-12 sidenav">
                 <div class="col-md-2" style="padding-left:0; margin-top: 10px;">
-                    <img src="@ViewBag.avatar" style="width:25px;height:25px"/>
+                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                            .Height(25).Width(25).Crop("fill")).BuildImageTag(@Model.Avatar,
+                                new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                 </div>
                 <div class="col-md-10 col-sm-8" style="padding-left:0;margin-top:15px">
-                    <a href="@Url.Action("Details", "Timeline", new { id = @ViewBag.Id })"><strong>@ViewBag.Name</strong></a>
+                    <a href="@Url.Action("Details", "Timeline", new { id = @Model.Id })"><strong>@Model.UserName</strong></a>
                 </div>
 
-                <a href="@Url.Action("EditProfile", "Timeline", new { id = @ViewBag.Id })">Chỉnh sửa thông tin cá nhân</a>
+                <a href="@Url.Action("EditProfile", "Timeline", new { id = @Model.Id })">Chỉnh sửa thông tin cá nhân</a>
 
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="text-left" class="panel-heading">
@@ -30,15 +37,21 @@
                 </div>
                 <div class="row">
                     <ul class="list-group">
-                        <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
+                        @foreach (var group in listGroup)
+                        {
+                            <a href="@Url.Action("MainPage", "Groups", new { id = @group.Id })" data-toggle="tooltip" title="@group.GroupName">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-md-1">
-                                        <img src="/Anhtacgia/JKRowling_tacgia.jpg" style="width:20px;height:20px" />
+                                        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                            .Height(20).Width(20).Crop("fill")).BuildImageTag(group.AvaImg,
+                                                new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                                     </div>
                                     <div class="col-md-8">
                                         <li>
-                                            <span>Hội yêu thích truyện Harry Potter</span>
+                                            <span>
+                                                @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@group.GroupName.ToLower())
+                                            </span>
                                         </li>
                                     </div>
                                     <div class="col-md-2">
@@ -47,40 +60,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="col-md-1">
-                                        <img src="/Anhtacgia/James%20Patterson_tacgia.jpg" style="width:20px;height:20px" />
-                                    </div>
-                                    <div class="col-md-8">
-                                        <li>
-                                            <span>Hội yêu thích truyện Harry Potter</span>
-                                        </li>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p>12</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="col-md-1">
-                                        <img src="/Anhtacgia/nguy%E1%BB%85n%20nh%E1%BA%ADt%20%C3%A1nh_tacgia.jpg" style="width:20px;height:20px" />
-                                    </div>
-                                    <div class="col-md-8">
-                                        <li>
-                                            <span>Hội yêu thích truyện Harry Potter</span>
-                                        </li>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p>12</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                        }
                     </ul>
                 </div>
                 <!--------------------------->
@@ -89,38 +69,41 @@
                         <h5><strong>MỚI XUẤT BẢN</strong></h5>
                     </div>
                 </div>
-                @*<div class="row">
-                    <div class="col-md-6" style="padding-left:5px;">
-                        <img src="/Anhsach/nhagiakim.jpg" class="img-rounded" width="90" height="117">
-                    </div>
-                    <fieldset class="rating" style="padding-right:15px;">
-                        <input type="radio" id="star5" name="rating" value="5" />
-                        <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                        <input type="radio" id="star4" name="rating" value="4" />
-                        <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                        <input type="radio" id="star3" name="rating" value="3" />
-                        <label class="full" for="star3" title="Meh - 3 stars"></label>
-                        <input type="radio" id="star2" name="rating" value="2" />
-                        <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                        <input type="radio" id="star1" name="rating" value="1" />
-                        <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                    </fieldset>
-                    <h5 style="float:right;padding-right:5px;">345 lượt đánh giá</h5>
-                    <br>
-                    <br>
-                    <button class="button buttonRe" style="margin-left:10px;">Nhận xét</button>
-                    <div class="col-md-12 list-group" style="padding-left:6px">
-                        <span>
-                            <strong data-toggle="tooltip" title="NHÀ GIẢ KIM">NHÀ GIẢ KIM</strong>
-                            <br><i data-toggle="tooltip" title="Paulo Coelho" class="authorname"><strong>Paulo Coelho </strong> </i>
-                        </span>
-                    </div>
-                </div>*@
-
-                @foreach (var book in Model)
+                @foreach (var book in listNewBook)
                 {
-                    <h4>@Html.DisplayFor(b => book.BookName)</h4>
-                    <h4>@Html.DisplayFor(b => book.Authors)</h4>
+                    <div class="row" style="padding-left: 20px;">
+                        <div class="col-md-6" style="padding-left:5px;">
+                            @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                .Height(117).Width(90).Crop("fill")).BuildImageTag(book.ImgPublicId,
+                                    new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                        </div>
+                        <fieldset class="rating" style="padding-right:15px;">
+                            <input type="radio" id="star5" name="rating" value="5" />
+                            <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                            <input type="radio" id="star4" name="rating" value="4" />
+                            <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                            <input type="radio" id="star3" name="rating" value="3" />
+                            <label class="full" for="star3" title="Meh - 3 stars"></label>
+                            <input type="radio" id="star2" name="rating" value="2" />
+                            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                            <input type="radio" id="star1" name="rating" value="1" />
+                            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                        </fieldset>
+                        <h5 style="float:right;padding-right:5px;">@book.RateTime lượt đánh giá</h5>
+                        <br>
+                        <br>
+                        <button class="button buttonRe" style="margin-left:10px;">Nhận xét</button>
+                        <div class="col-md-12 list-group" style="padding-left:6px">
+                            <span>
+                                <strong data-toggle="tooltip" title="@book.BookName">
+                                    <a href="@Url.Action("Details", "Books", new { id = @book.BookId })">@book.BookName.ToUpper()</a>
+                                </strong>
+                                <br><i data-toggle="tooltip" title="@book.AuthorName" class="authorname">
+                                        <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@book.AuthorName.ToLower())</strong> 
+                                    </i>
+                            </span>
+                        </div>
+                    </div>
                 }
             </div>
             @*HaiCM. Creat. End. 19-11-2016*@
@@ -327,114 +310,43 @@
                 <!--  Bắt đầu phần trending now -->
                 <div class="row">
                     <!--VÒNG FOR BẮT ĐẦU TỪ DIV NÀY-->
-                    <div class="col-md-6" style="padding-left:10px;">
-                        <div class="col-md-6" style="padding-left:0px;">
-                            <img src="/Anhsach/nhagiakim.jpg" class="img-rounded" width="90" height="117">
+                    @foreach (var hotBook in listHotBook)
+                    {
+                        <div class="col-md-6" style="padding-left:10px;">
+                            <div class="col-md-6" style="padding-left:0px;">
+                                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                    .Height(117).Width(90).Crop("fill")).BuildImageTag(hotBook.ImgPublicId,
+                                        new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                            </div>
+                            <fieldset class="rating">
+                                <input type="radio" id="star5" name="rating" value="5" />
+                                <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio" id="star4" name="rating" value="4" />
+                                <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio" id="star3" name="rating" value="3" />
+                                <label class="full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio" id="star2" name="rating" value="2" />
+                                <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio" id="star1" name="rating" value="1" />
+                                <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                            </fieldset>
+                            <h5 style="float:right;">@hotBook.RateTime lượt đánh giá</h5>
+                            <br>
+                            <br>
+                            <button class="button buttonRe" style="margin-left:15px;">Nhận xét</button>
+                            <div class="col-md-12 list-group">
+                                <span>
+                                    <strong data-toggle="tooltip" title="@hotBook.BookName">
+                                        <a href="@Url.Action("Details", "Books", new { id = @hotBook.BookId })">@hotBook.BookName.ToUpper()</a>
+                                    </strong>
+                                    <br><i data-toggle="tooltip" title="@hotBook.AuthorName" class="authorname">
+                                            <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@hotBook.AuthorName.ToLower())</strong> 
+                                        </i>
+                                </span>
+                            </div>
                         </div>
-                        <fieldset class="rating">
-                            <input type="radio" id="star5" name="rating" value="5" />
-                            <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                            <input type="radio" id="star4" name="rating" value="4" />
-                            <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                            <input type="radio" id="star3" name="rating" value="3" />
-                            <label class="full" for="star3" title="Meh - 3 stars"></label>
-                            <input type="radio" id="star2" name="rating" value="2" />
-                            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                            <input type="radio" id="star1" name="rating" value="1" />
-                            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                        </fieldset>
-                        <h5 style="float:right;">345 lượt đánh giá</h5>
-                        <br>
-                        <br>
-                        <button class="button buttonRe" style="margin-left:15px;">Nhận xét</button>
-                        <div class="col-md-12 list-group">
-                            <span>
-                                <strong data-toggle="tooltip" title="NHÀ GIẢ KIM">NHÀ GIẢ KIM</strong>
-                                <br><i data-toggle="tooltip" title="Paulo Coelho" class="authorname"><strong>Paulo Coelho </strong> </i>
-                            </span>
-                        </div>
-                    </div>
+                    }
                     <!--VÒNG FOR KẾT THÚC Ở ĐÂY-->
-                    <div class="col-md-6" style="padding-left:10px;">
-                        <div class="col-md-6" style="padding-left:0px;">
-                            <img src="/Anhsach/ngayxuacomotchuyentinh.jpg" class="img-rounded" width="90" height="117">
-                        </div>
-                        <fieldset class="rating">
-                            <input type="radio" id="star5" name="rating" value="5" />
-                            <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                            <input type="radio" id="star4" name="rating" value="4" />
-                            <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                            <input type="radio" id="star3" name="rating" value="3" />
-                            <label class="full" for="star3" title="Meh - 3 stars"></label>
-                            <input type="radio" id="star2" name="rating" value="2" />
-                            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                            <input type="radio" id="star1" name="rating" value="1" />
-                            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                        </fieldset>
-                        <h5 style="float:right;">345 lượt đánh giá</h5>
-                        <br>
-                        <br>
-                        <button class="button buttonRe" style="margin-left:15px;">Nhận xét</button>
-                        <div class="col-md-12 list-group">
-                            <span>
-                                <strong data-toggle="tooltip" title="NGÀY XƯA CÓ MỘT CHUYỆN TÌNH">NGÀY XƯA CÓ MỘT CHUYỆN TÌNH</strong>
-                                <br><i data-toggle="tooltip" title="Nguyễn Nhật Ánh" class="authorname"><strong>Nguyễn Nhật Ánh </strong> </i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-md-6" style="padding-left:10px;">
-                        <div class="col-md-6" style="padding-left:0px;">
-                            <img src="/Anhsach/ngayxuacomotchuyentinh.jpg" class="img-rounded" width="90" height="117">
-                        </div>
-                        <fieldset class="rating">
-                            <input type="radio" id="star5" name="rating" value="5" />
-                            <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                            <input type="radio" id="star4" name="rating" value="4" />
-                            <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                            <input type="radio" id="star3" name="rating" value="3" />
-                            <label class="full" for="star3" title="Meh - 3 stars"></label>
-                            <input type="radio" id="star2" name="rating" value="2" />
-                            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                            <input type="radio" id="star1" name="rating" value="1" />
-                            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                        </fieldset>
-                        <h5 style="float:right;">345 lượt đánh giá</h5>
-                        <br>
-                        <br>
-                        <button class="button buttonRe" style="margin-left:15px;">Nhận xét</button>
-                        <div class="col-md-12 list-group">
-                            <span>
-                                <strong data-toggle="tooltip" title="NGÀY XƯA CÓ MỘT CHUYỆN TÌNH">NGÀY XƯA CÓ MỘT CHUYỆN TÌNH</strong>
-                                <br><i data-toggle="tooltip" title="Nguyễn Nhật Ánh" class="authorname"><strong>Nguyễn Nhật Ánh </strong> </i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-md-6" style="padding-left:10px;">
-                        <div class="col-md-6" style="padding-left:0px;">
-                            <img src="/Anhsach/ngayxuacomotchuyentinh.jpg" class="img-rounded" width="90" height="117">
-                        </div>
-                        <fieldset class="rating">
-                            <input type="radio" id="star5" name="rating" value="5" />
-                            <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                            <input type="radio" id="star4" name="rating" value="4" />
-                            <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                            <input type="radio" id="star3" name="rating" value="3" />
-                            <label class="full" for="star3" title="Meh - 3 stars"></label>
-                            <input type="radio" id="star2" name="rating" value="2" />
-                            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                            <input type="radio" id="star1" name="rating" value="1" />
-                            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                        </fieldset>
-                        <h5 style="float:right;">345 lượt đánh giá</h5>
-                        <br>
-                        <br>
-                        <button class="button buttonRe" style="margin-left:15px;" data-toggle="modal" data-target="#myRecommendation">Nhận xét</button>
-                        <div class="col-md-12 list-group">
-                            <span>
-                                <strong data-toggle="tooltip" title="NGÀY XƯA CÓ MỘT CHUYỆN TÌNH">NGÀY XƯA CÓ MỘT CHUYỆN TÌNH</strong>
-                                <br><i data-toggle="tooltip" title="Nguyễn Nhật Ánh" class="authorname"><strong>Nguyễn Nhật Ánh</strong> </i>
-                            </span>
-                        </div>
                         <div id="myRecommendation" class="modal fade" role="dialog">
                             <div class="modal-dialog modal-lg">
                                 <!-- Modal content-->
@@ -486,73 +398,78 @@
                     </div>
                     <br>
                     <br>
-                </div>
-                <!-- Kết thúc phần trending now -->
-                <!--  Bắt đầu phần tác giả -->
-                <div class="row">
-                    <div class="col-md-6" style="padding-left:10px;">
-                        <div class="col-md-6" style="padding-left:0;">
-                            <img src="/Anhtacgia/nguy%E1%BB%85n%20nh%E1%BA%ADt%20%C3%A1nh_tacgia.jpg" class="img-rounded" width="90" height="117">
+                    <!-- Kết thúc phần trending now -->
+                    <!--  Bắt đầu phần tác giả -->
+                    <div class="row">
+                        <div class="text-left" class="panel-heading">
+                            <h5><strong>TÁC GIẢ</strong></h5>
                         </div>
-                        <br>
-                        <br>
-                        <br>
-                        <button class="button buttonFo" style="margin-left:14px;">+Theo dõi</button>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <ul class="list-group">
-                                <i class="authorname"><strong data-toggle="tooltip" title="Nguyễn Nhật Ánh">Nguyễn Nhật Ánh</strong> </i>
-                            </ul>
+                        @foreach (var author in randomAuthor)
+                        {
+                            <div class="col-md-6" style="padding-left:10px;">
+                            <div class="col-md-6" style="padding-left:0;">
+                                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                    .Height(117).Width(90).Crop("fill")).BuildImageTag(author.Avatar,
+                                        new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <button class="button buttonFo" style="margin-left:14px;">+Theo dõi</button>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <ul class="list-group">
+                                    <i class="authorname">
+                                        <strong data-toggle="tooltip" title="@author.UserName">
+                                            <a href="@Url.Action("Details", "Timeline", new { id = @author.Id })">
+                                                @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.UserName.ToLower())
+                                            </a>
+                                        </strong> 
+                                    </i>
+                                </ul>
+                            </div>
                         </div>
+                        }
                     </div>
-                    <div class="col-md-6" style="padding-left:10px;">
-                        <div class="col-md-6" style="padding-left:0;">
-                            <img src="Anhtacgia/R.%20L.%20Stine_tacgia.jpg" class="img-rounded" width="90" height="117">
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <button class="button buttonFo" style="margin-left:14px;">+Theo dõi</button>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <ul class="list-group">
-                                <i class="authorname"><strong data-toggle="tooltip" title="R. L. Stine">R. L. Stine</strong> </i>
-                            </ul>
-                        </div>
+                    <!--  Kết thúc phần tác giả -->
+                    <!--  Bắt đầu phần nhà xuất bản -->
+                    <br>
+                    <div class="text-left" class="panel-heading">
+                        <h5><strong>NHÀ XUẤT BẢN</strong></h5>
                     </div>
+                    <div class="row">
+                        @foreach (var publisher in randomPublisher)
+                        {
+                            <div class="col-md-6" style="padding-left:10px; margin-top:10px;">
+                                <div class="col-md-6" style="padding-left:0">
+                                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                        .Height(117).Width(90).Crop("fill")).BuildImageTag(publisher.ImagePublicId,
+                                            new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                                </div>
+                                <ul class="list-group">
+                                    <h6 data-toggle="tooltip" title="@publisher.Name">@publisher.Name</h6>
+                                </ul>
+                                <fieldset class="pull-right">
+                                    <i id="star" class="glyphicon glyphicon-star"></i>
+                                    <i id="star" class="glyphicon glyphicon-star"></i>
+                                    <i id="star" class="glyphicon glyphicon-star"></i>
+                                    <i id="star" class="glyphicon glyphicon-star"></i>
+                                    <i id="star" class="glyphicon glyphicon-star"></i>
+                                </fieldset>
+                            </div>
+                        }
+                    </div>
+                    <!--  Kết thúc phần tác giả  -->
                 </div>
+                
                 <!--
                                 <p class="text-right">
                                     <button type="button" class="btn btn-link">Xem thêm </button>
                                 </p>
                 -->
-                <!--  Kết thúc phần tác giả -->
-                <!--  Bắt đầu phần nhà xuất bản -->
-                <br>
-                <div class="text-left" class="panel-heading">
-                    <h5><strong>NHÀ XUẤT BẢN</strong></h5>
-                </div>
-                <div class="row">
-                    <div class="col-md-6" style="padding-left:10px; margin-top:10px;">
-                        <div class="col-md-6" style="padding-left:0">
-                            <img src="/Anhnhaxuatban/NXBTRE.jpg" class="img-rounded" width="90" height="117">
-                        </div>
-                        <ul class="list-group">
-                            <h6 data-toggle="tooltip" title="NXB TRẺ">NXB TRẺ</h6>
-                        </ul>
-                        <fieldset class="pull-right">
-                            <i id="star" class="glyphicon glyphicon-star"></i>
-                            <i id="star" class="glyphicon glyphicon-star"></i>
-                            <i id="star" class="glyphicon glyphicon-star"></i>
-                            <i id="star" class="glyphicon glyphicon-star"></i>
-                            <i id="star" class="glyphicon glyphicon-star"></i>
-                        </fieldset>
-                    </div>
-                </div>
-                <!--  Kết thúc phần tác giả  -->
             </div>
             @*HaiCM. Create. End. 19-11-2016*@
             <!--------------------------------Hết phần bên phải------------------------------------->
         </div>
-    </div>
 </body>
 </html>
 

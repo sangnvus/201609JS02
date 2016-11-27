@@ -22,6 +22,8 @@ namespace BSNCapstone.Models
         [Required]
         public string Message { get; set; }
 
+        public string PostedById { get; set; }
+
         public string PostedBy { get; set; }
 
         public System.DateTime PostedDate { get; set; }

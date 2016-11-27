@@ -14,10 +14,15 @@ namespace BSNCapstone.ControllerHelpers
     public class BooksControllerHelper
     {
         //DangVH. Create. Start (02/11/2016)
+        private static ApplicationIdentityContext Context()
+        {
+            ApplicationIdentityContext context = ApplicationIdentityContext.Create();
+            return context;
+        }
+
         public static int GetBookNumber()
         {
-            ApplicationIdentityContext Context = ApplicationIdentityContext.Create();
-            return (int)Context.Books.Find(_ => true).Count();
+            return (int)BooksControllerHelper.Context().Books.Find(_ => true).Count();
         }
         //DangVH. Create. End (02/11/2016)
 
@@ -64,5 +69,94 @@ namespace BSNCapstone.ControllerHelpers
         //    book.Categories = bookCategoriesViewModel;
         //    return book;
         //}
+
+        public static List<BooksSuggestViewModel> SuggestBook(string bookId, int option)
+        {
+            var Context = BooksControllerHelper.Context();
+            List<Book> listBook = Context.Books.Find(_ => true).ToList();
+            List<BooksSuggestViewModel> suggestBooks = new List<BooksSuggestViewModel>();
+            switch (option)
+            {
+                case 1:
+                    DateTime startTime = DateTime.Now.AddDays(-1);
+                    DateTime endTime = DateTime.Now;
+                    List<BooksSuggestViewModel> newList = new List<BooksSuggestViewModel>();
+                    var b = Context.BooksStatistic.Find(x => x.EachDate.Equals(startTime.Date.AddHours(7))).ToList();
+                    var c = Context.BooksStatistic.Find(x => x.EachDate.Equals(endTime.Date.AddHours(7))).ToList();
+                    if (b.Count() == 0)
+                    {
+                        foreach (var c1 in c)
+                        {
+                            newList.Add(new BooksSuggestViewModel()
+                            {
+                                BookId = c1.BookId,
+                                Count = c1.Count,
+                                BookName = listBook.Find(x => x.Id.Equals(c1.BookId)).BookName,
+                                AuthorName = listBook.Find(x => x.Id.Equals(c1.BookId)).Authors,
+                                ImgPublicId = listBook.Find(x => x.Id.Equals(c1.BookId)).ImgPublicId,
+                                RateTime = listBook.Find(x => x.Id.Equals(c1.BookId)).RateTime
+                            });
+                        }
+                    }
+                    else
+                    {
+                        foreach (var b1 in b)
+                        {
+                            foreach (var c1 in c)
+                            {
+                                if (b1.BookId == c1.BookId)
+                                {
+                                    newList.Add(new BooksSuggestViewModel()
+                                    {
+                                        BookId = b1.BookId,
+                                        Count = b1.Count + c1.Count,
+                                        BookName = listBook.Find(x => x.Id.Equals(c1.BookId)).BookName,
+                                        AuthorName = listBook.Find(x => x.Id.Equals(c1.BookId)).Authors,
+                                        ImgPublicId = listBook.Find(x => x.Id.Equals(c1.BookId)).ImgPublicId,
+                                        RateTime = listBook.Find(x => x.Id.Equals(c1.BookId)).RateTime
+                                    });
+                                }
+                                else
+                                {
+                                    newList.Add(new BooksSuggestViewModel()
+                                    {
+                                        BookId = b1.BookId,
+                                        Count = b1.Count,
+                                        BookName = listBook.Find(x => x.Id.Equals(b1.BookId)).BookName,
+                                        AuthorName = listBook.Find(x => x.Id.Equals(b1.BookId)).Authors,
+                                        ImgPublicId = listBook.Find(x => x.Id.Equals(b1.BookId)).ImgPublicId,
+                                        RateTime = listBook.Find(x => x.Id.Equals(b1.BookId)).RateTime
+                                    });
+                                }
+                            }
+                        }
+                    }
+                    suggestBooks = newList.OrderByDescending(x => x.Count).Take(4).ToList();
+                    break;
+                case 2:
+                    listBook = listBook.OrderByDescending(x => x.AvarageRating).Take(4).ToList();
+                    //foreach (var book in listBook)
+                    //{
+                    //    suggestBooks.Add(book.Id);
+                    //}
+                    break;
+                case 3:
+                    listBook = listBook.OrderByDescending(x => x.ReleaseDay).Take(4).ToList();
+                    foreach (var book in listBook)
+                    {
+                        suggestBooks.Add(new BooksSuggestViewModel() 
+                        {
+                            BookId = book.Id,
+                            BookName = book.BookName,
+                            AuthorName = book.Authors,
+                            ImgPublicId = book.ImgPublicId,
+                            RateTime = book.RateTime
+                        });
+                    }
+                    break;
+            }
+            //return suggestBooks;
+            return suggestBooks;
+        }
     }
 }

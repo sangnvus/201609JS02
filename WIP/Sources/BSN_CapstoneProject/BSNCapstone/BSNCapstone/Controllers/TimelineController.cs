@@ -19,6 +19,7 @@ namespace BSNCapstone.Controllers
     public class TimelineController : Controller
     {
         private readonly ApplicationIdentityContext Context = ApplicationIdentityContext.Create();
+        private readonly CloudinaryDotNet.Cloudinary cloudinary = ImageUploadHelper.GetCloudinaryAccount();
         private IdentityConfig.ApplicationUserManager _userManager;
         public IdentityConfig.ApplicationUserManager UserManager
         {
@@ -43,6 +44,7 @@ namespace BSNCapstone.Controllers
         {
             var user = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
             ViewBag.currentUser = User.Identity.GetUserId();
+            ViewBag.cloudinary = cloudinary;
             return View(user);
         }
 
@@ -58,6 +60,9 @@ namespace BSNCapstone.Controllers
                 DOB = Convert.ToDateTime(user.DOB).ToString("dd/MM/yyyy"),
                 Address = user.Address
             };
+            ViewBag.cloudinary = cloudinary;
+            ViewBag.user = user;
+            ViewBag.currentUser = User.Identity.GetUserId();
             return View(newprofile);
         }
 
@@ -82,6 +87,31 @@ namespace BSNCapstone.Controllers
                 return RedirectToAction("Index", "Home");
             }
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult ChangeImage(string id, HttpPostedFileBase file, int option)
+        {
+            try
+            {
+                var uploadResult = ImageUploadHelper.GetUploadResult(file);
+                switch (option)
+                {
+                    case 1:
+                        var update1 = new BsonDocument("$set", new BsonDocument("Avatar", uploadResult.PublicId));
+                        Context.Users.UpdateOneAsync(x => x.Id.Equals(new ObjectId(id)), update1);
+                        break;
+                    case 2:
+                        var update2 = new BsonDocument("$set", new BsonDocument("Cover", uploadResult.PublicId));
+                        Context.Users.UpdateOneAsync(x => x.Id.Equals(new ObjectId(id)), update2);
+                        break;
+                }
+                return Json("Đổi ảnh hoàn tất");
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message);
+            }
         }
     }
 }

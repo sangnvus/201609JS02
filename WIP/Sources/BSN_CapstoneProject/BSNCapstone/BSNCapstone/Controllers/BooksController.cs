@@ -8,6 +8,7 @@ using BSNCapstone.ViewModels;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using Microsoft.AspNet.Identity;
+using System;
 
 namespace BSNCapstone.Controllers
 {
@@ -69,17 +70,26 @@ namespace BSNCapstone.Controllers
             ViewBag.allCategories = BooksControllerHelper.ListAllCategory();
             ViewBag.allPublishers = Context.Publishers.Find(_ => true).ToList();
             ViewBag.avarageRatingPoint = BooksControllerHelper.GetAverageRatingPoint(book.RatingPoint, book.RateTime);
-            //DangVH. Delete. Start (14/11/2016)
-            //List<Category> listCategory = new List<Category>();
-            //foreach (var cat in book.Categories)
-            //{
-            //    listCategory.Add(new Category()
-            //    {
-            //        CategoryName = allCategory.Where(x => x.Id.Equals(cat.CategoryId)).First().CategoryName
-            //    });
-            //}
-            //ViewBag.ListCategory = listCategory;
-            //DangVH. Delete. End (14/11/2016)
+            var booksStatistic = Context.BooksStatistic.Find(_ => true).ToList();
+            var date = DateTime.Now;
+            var builder = Builders<BookStatistic>.Filter;
+            var filter = builder.Eq("BookId", book.Id) & builder.Eq("EachDate", date.Date.AddHours(7));
+            if (Context.BooksStatistic.Find(filter).FirstOrDefault() != null)
+            {
+                int count = Context.BooksStatistic.Find(filter).FirstOrDefault().Count + 1;
+                var update = Builders<BookStatistic>.Update.Set(x => x.Count, count);
+                Context.BooksStatistic.UpdateOneAsync(filter, update);
+            }
+            else
+            {
+                var bookStatistic = new BookStatistic()
+                {
+                    BookId = book.Id,
+                    EachDate = date.Date.AddHours(7)
+                };
+                Context.BooksStatistic.InsertOneAsync(bookStatistic);
+            }
+            BooksControllerHelper.SuggestBook("", 1);
             return View(book);
         }
 
@@ -112,7 +122,7 @@ namespace BSNCapstone.Controllers
             }
             foreach (var eachBook in listBook)
             {
-                if (eachBook.BookName.ToLower().Equals(book.BookName.ToLower()))
+                if (book.BookName != null && eachBook.BookName.ToLower().Equals(book.BookName.ToLower()))
                 {
                     ModelState.AddModelError("BookName", "Tên sách đã tồn tại");
                 }
