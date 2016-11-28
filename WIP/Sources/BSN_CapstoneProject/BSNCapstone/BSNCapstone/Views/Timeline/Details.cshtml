@@ -46,7 +46,16 @@
             <div class="cover-interaction">
                 @if (currentUserId != Model.Id)
                 {
-                    <button class="button buttonRe">Theo dõi </button>
+                    if (Model.Follower.Contains(currentUserId))
+                    {
+                        <button class="button buttonRe" id="follow" onclick="FollowHandle(1)" style="display: none;">Theo dõi</button>
+                        <button class="button buttonRe" id="unfollow" onclick="FollowHandle(2)">Bỏ Theo dõi</button>
+                    }
+                    else
+                    {
+                        <button class="button buttonRe" id="follow" onclick="FollowHandle(1)">Theo dõi</button>
+                        <button class="button buttonRe" id="unfollow" onclick="FollowHandle(2)" style="display: none;">Bỏ Theo dõi</button>
+                    }
                 }
                 <button class="button buttonRe">Tin nhắn</button>
                 <button class="button buttonRe" data-toggle="modal" data-target="#ModalReport">Báo cáo</button>
@@ -133,26 +142,36 @@
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col-md-6 " style="padding-left:5px;">
-                        <img src="/Anhtacgia/James%20Patterson_tacgia.jpg" class="img-rounded" alt="" width="90" height="117">
-                        <ul class="list-group">
-                            <li>
-                                <span>
-                                    <i data-toggle="tooltip" title="James Patterson " id="tacgia"><strong>James Patterson </strong> </i>
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6" style="padding-left:5px;">
-                        <img src="/Anhtacgia/Jeff%20Kinney_tacgia.jpg" class="img-rounded" alt="" width="90" height="117">
-                        <ul class="list-group">
-                            <li>
-                                <span>
-                                    <i data-toggle="tooltip" title="Jeff Kinney" id="tacgia"><strong>Jeff Kinney </strong> </i>
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
+                    @if (Model.Following.Count() != 0)
+                    {
+                        foreach (var user in allUser)
+                        {
+                            foreach (var flwing in Model.Following)
+                            {
+                                if (user.Id == flwing)
+                                {
+                                    <div class="col-md-6 " style="padding-left:5px;">
+                                        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                            .Height(117).Width(90).Crop("mpad")).BuildImageTag(user.Avatar,
+                                                new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                                        <ul class="list-group">
+                                            <li>
+                                                <span>
+                                                    <i data-toggle="tooltip" title="@user.UserName.ToUpper()" id="tacgia">
+                                                        <strong>
+                                                            <a href="@Url.Action("Details", "Timeline", new { id = @flwing })">
+                                                                @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@user.UserName.ToLower())
+                                                            </a>
+                                                        </strong> 
+                                                    </i>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                }
+                            }
+                        }
+                    }
                 </div>
                 <br>
             </div>
@@ -434,6 +453,33 @@
     <link rel="stylesheet" href="~/Content/font-awesome.css">
 }
 <script>
+    function FollowHandle(option) {
+        var formData = new FormData();
+        formData.append("followerId", '@currentUserId');
+        formData.append("followedUserId", '@Model.Id');
+        formData.delete("option", option);
+        if (option == 1) {
+            formData.append("option", option);
+            $("#follow").toggle();
+            $("#unfollow").toggle();
+        } else {
+            formData.append("option", option);
+            $("#unfollow").toggle();
+            $("#follow").toggle();
+        }
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("FollowHandle", "Timeline")",
+            data: formData,
+        dataType: 'json',
+        contentType: false,
+        processData: false,
+
+        success: function (result) {
+        }
+    });
+    };
+
     $(document).ready(function () {
         //Change Avatar
         $("#imgInpAva").change(function () {

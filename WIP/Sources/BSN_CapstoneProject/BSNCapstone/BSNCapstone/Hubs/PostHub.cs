@@ -110,7 +110,7 @@ namespace BSNCapstone.Hubs
                 Message = post.Message,
                 PostedById = Context.User.Identity.GetUserId(),
                 PostedBy = Context.User.Identity.Name,
-                PostedDate = DateTime.UtcNow.AddHours(7)
+                PostedDate = DateTime.Now
             };
             con.Posts.InsertOneAsync(newPost);
 

@@ -89,7 +89,9 @@ namespace BSNCapstone.Controllers
                 };
                 Context.BooksStatistic.InsertOneAsync(bookStatistic);
             }
-            BooksControllerHelper.SuggestBook("", 1);
+            ViewBag.listSameBook = BooksControllerHelper.SuggestBook(id, 4);
+            Random random = new Random((int)(DateTime.Now.Ticks));
+            ViewBag.randomGroup = Context.Groups.Find(_ => true).ToList().OrderBy(x => random.Next()).Take(4).ToList();
             return View(book);
         }
 

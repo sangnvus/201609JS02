@@ -9,6 +9,7 @@
     var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
     <!--DangVH. Create. End (02/11/2016)-->
     double avarageRatingPoint = ViewBag.avarageRatingPoint;
+    var listSameBook = (List<BSNCapstone.ViewModels.BooksSuggestViewModel>)ViewBag.listSameBook;
 }
 
 <!DOCTYPE html>
@@ -98,7 +99,7 @@
                 </div>
                 <div class="cover cover-reading-list col-md-5 pull-left">
                     @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
-                    .Height(381).Width(256).Crop("fill")).BuildImageTag(Model.ImgPublicId,
+                        .Height(381).Width(256).Crop("fill")).BuildImageTag(Model.ImgPublicId,
                             new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
                 </div>
             </div>
@@ -280,51 +281,32 @@
             </div>
             <br>
             <div class="row">
-                <div class="col-md-3">
-                    <img src="/Anhsach/nhagiakim.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
-
-                </div>
-                @*<div class="col-md-3">
-                            <fieldset class="rating">
-                                <input type="radio" id="star5" name="rating" value="5" />
-                                <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                                <input type="radio" id="star4" name="rating" value="4" />
-                                <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                                <input type="radio" id="star3" name="rating" value="3" />
-                                <label class="full" for="star3" title="Meh - 3 stars"></label>
-                                <input type="radio" id="star2" name="rating" value="2" />
-                                <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                                <input type="radio" id="star1" name="rating" value="1" />
-                                <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                            </fieldset>
-                            <p>345 đánh giá</p>
-                            <br>
-                            <br>
-                            <button class="button buttonRe">Nhận xét</button>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="/Anhsach/ngayxuacomotchuyentinh.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
-                        </div>
-                        <div class="col-md-3">
-                            <fieldset class="rating">
-                                <input type="radio" id="star5" name="rating" value="5" />
-                                <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                                <input type="radio" id="star4" name="rating" value="4" />
-                                <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                                <input type="radio" id="star3" name="rating" value="3" />
-                                <label class="full" for="star3" title="Meh - 3 stars"></label>
-                                <input type="radio" id="star2" name="rating" value="2" />
-                                <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                                <input type="radio" id="star1" name="rating" value="1" />
-                                <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                            </fieldset>
-                            <p>345 đánh giá</p>
-                            <br>
-                            <br>
-                            <button class="button buttonRe">Nhận xét</button>
-                        </div>
-                    </div>*@
-
+                @foreach (var book in listSameBook)
+                {
+                    <div class="col-md-3">
+                        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                            .Height(130).Width(100).Crop("fill")).BuildImageTag(book.ImgPublicId,
+                                new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                    </div>
+                    <div class="col-md-3">
+                        <fieldset class="rating">
+                            <input type="radio" id="star5" name="rating" value="5" />
+                            <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                            <input type="radio" id="star4" name="rating" value="4" />
+                            <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                            <input type="radio" id="star3" name="rating" value="3" />
+                            <label class="full" for="star3" title="Meh - 3 stars"></label>
+                            <input type="radio" id="star2" name="rating" value="2" />
+                            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                            <input type="radio" id="star1" name="rating" value="1" />
+                            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                        </fieldset>
+                        <p>@book.RateTime đánh giá</p>
+                        <br>
+                        <br>
+                        <button class="button buttonRe">Nhận xét</button>
+                    </div>
+                }
                 <div class="row">
                     <div class="col-md-6">
                         <div class="col-md-12 col-sm-12 col-xs-12">

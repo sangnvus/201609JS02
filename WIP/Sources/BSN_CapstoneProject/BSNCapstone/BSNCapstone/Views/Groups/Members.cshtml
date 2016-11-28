@@ -168,7 +168,7 @@
                                             .Height(130).Width(130).Crop("fill")).BuildImageTag(Model.ImgPublicId,
                                             new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))*@
                                     <img src="Anhtacgia/James%20Patterson_tacgia.jpg" alt="username">
-                                    <a href="@Url.Action("Details", "Users", new { id = member.UserId })">
+                                    <a href="@Url.Action("Details", "Timeline", new { id = member.UserId })">
                                         <b>@allUser.Where(x => x.Id.Equals(member.UserId)).FirstOrDefault().UserName</b>
                                     </a>
                                     @if (Model.GroupMembers.Where(x => x.UserId.Equals(currentUserId)).FirstOrDefault().RoleInGroup != "user")
@@ -195,7 +195,7 @@
                                             .Height(130).Width(130).Crop("fill")).BuildImageTag(Model.ImgPublicId,
                                             new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))*@
                                     <img src="Anhtacgia/James%20Patterson_tacgia.jpg" alt="username">
-                                    <a href="@Url.Action("Details", "Users", new { id = member.UserId })">
+                                    <a href="@Url.Action("Details", "Timeline", new { id = member.UserId })">
                                         <b>@allUser.Where(x => x.Id.Equals(member.UserId)).FirstOrDefault().UserName</b>
                                     </a>
                                 </div>
@@ -214,7 +214,7 @@
                             {
                                 <div class="col-md-4 avatarthanhvien">
                                     <img src="Anhtacgia/Jeff%20Kinney_tacgia.jpg" alt="username">
-                                    <a href="@Url.Action("Details", "Users", new { id = member.UserId })">
+                                    <a href="@Url.Action("Details", "Timeline", new { id = member.UserId })">
                                         <b>@allUser.Where(x => x.Id.Equals(member.UserId)).FirstOrDefault().UserName</b>
                                     </a>
                                     @if (Model.GroupMembers.Where(x => x.UserId.Equals(currentUserId)).FirstOrDefault().RoleInGroup != "user")
@@ -240,7 +240,7 @@
                             {
                                 <div class="col-md-4 avatarthanhvien">
                                     <img src="Anhtacgia/Jeff%20Kinney_tacgia.jpg" alt="username">
-                                    <a href="@Url.Action("Details", "Users", new { id = member.UserId })">
+                                    <a href="@Url.Action("Details", "Timeline", new { id = member.UserId })">
                                         <b>@allUser.Where(x => x.Id.Equals(member.UserId)).FirstOrDefault().UserName</b>
                                     </a>
                                 </div>

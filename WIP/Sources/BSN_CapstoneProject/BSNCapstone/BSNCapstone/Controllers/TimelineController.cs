@@ -45,6 +45,7 @@ namespace BSNCapstone.Controllers
             var user = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
             ViewBag.currentUser = User.Identity.GetUserId();
             ViewBag.cloudinary = cloudinary;
+            ViewBag.allUser = Context.Users.Find(_ => true).ToList();
             return View(user);
         }
 
@@ -112,6 +113,38 @@ namespace BSNCapstone.Controllers
             {
                 return Json(ex.Message);
             }
+        }
+
+        [HttpPost]
+        public ActionResult FollowHandle(string followerId, string followedUserId, int option)
+        {
+            int message = 0;
+            switch (option)
+            {
+                case 1:
+                    // Thêm Id vào list follower (Về phía người được follow)
+                    var followerAddFilter = Builders<ApplicationUser>.Filter.Where(x => x.Id.Equals(new ObjectId(followedUserId)));
+                    var followerAddUpdate = Builders<ApplicationUser>.Update.Push(x => x.Follower, followerId);
+                    Context.Users.UpdateOneAsync(followerAddFilter, followerAddUpdate);
+                    // Thêm Id vào list following (Về phía người đi follow) 
+                    var followingAddFilter = Builders<ApplicationUser>.Filter.Where(x => x.Id.Equals(new ObjectId(followerId)));
+                    var followingAddUpdate = Builders<ApplicationUser>.Update.Push(x => x.Following, followedUserId);
+                    Context.Users.UpdateOneAsync(followingAddFilter, followingAddUpdate);
+                    message = 1;
+                    break;
+                case 2:
+                    // Bỏ Id khỏi list follower (Về phía người được follow)
+                    var followerRemoveFilter = Builders<ApplicationUser>.Filter.Where(x => x.Id.Equals(new ObjectId(followedUserId)));
+                    var followerRemoveUpdate = Builders<ApplicationUser>.Update.Pull(x => x.Follower, followerId);
+                    Context.Users.UpdateOneAsync(followerRemoveFilter, followerRemoveUpdate);
+                    // Bỏ Id khỏi list following (Về phía người đi follow)
+                    var followingRemoveFilter = Builders<ApplicationUser>.Filter.Where(x => x.Id.Equals(new ObjectId(followerId)));
+                    var followingRemoveUpdate = Builders<ApplicationUser>.Update.Pull(x => x.Following, followedUserId);
+                    Context.Users.UpdateOneAsync(followingRemoveFilter, followingRemoveUpdate);
+                    message = 2;
+                    break;
+            }
+            return Json(message);
         }
     }
 }

@@ -131,14 +131,23 @@ namespace BSNCapstone.ControllerHelpers
                             }
                         }
                     }
-                    suggestBooks = newList.OrderByDescending(x => x.Count).Take(4).ToList();
+                    suggestBooks = newList.OrderByDescending(x => x.Count).ToList();
+                    suggestBooks = suggestBooks.GroupBy(x => x.BookId).Select(y => y.First()).ToList().Take(4).ToList();
+                    Console.Write(suggestBooks);
                     break;
                 case 2:
                     listBook = listBook.OrderByDescending(x => x.AvarageRating).Take(4).ToList();
-                    //foreach (var book in listBook)
-                    //{
-                    //    suggestBooks.Add(book.Id);
-                    //}
+                    foreach (var book in listBook)
+                    {
+                        suggestBooks.Add(new BooksSuggestViewModel() 
+                        { 
+                            BookId = book.Id,
+                            BookName = book.BookName,
+                            AuthorName = book.Authors,
+                            ImgPublicId = book.ImgPublicId,
+                            RateTime = book.RateTime
+                        });
+                    }
                     break;
                 case 3:
                     listBook = listBook.OrderByDescending(x => x.ReleaseDay).Take(4).ToList();
@@ -154,9 +163,51 @@ namespace BSNCapstone.ControllerHelpers
                         });
                     }
                     break;
+                case 4:
+                    var modelBook = Context.Books.Find(x => x.Id.Equals(new ObjectId(bookId))).FirstOrDefault();
+                    foreach (var book in listBook)
+                    {
+                        int count = 0;
+                        foreach (var category in modelBook.Categories)
+                        {
+                            if (book.Categories.Contains(category) && !book.Id.Equals(new ObjectId(bookId)))
+                            {
+                                count = count + 1;
+                            }                       
+                        }
+                        if (book.Id != bookId) 
+                        {
+                            suggestBooks.Add(new BooksSuggestViewModel() 
+                            {
+                                BookId = book.Id,
+                                BookName = book.BookName,
+                                AuthorName = book.Authors,
+                                ImgPublicId = book.ImgPublicId,
+                                RateTime = book.RateTime,
+                                Count = count
+                            });
+                        }
+                    }
+                    Console.Write(suggestBooks);
+                    suggestBooks = suggestBooks.OrderByDescending(x => x.Count).Take(4).ToList();
+                    break;
             }
             //return suggestBooks;
             return suggestBooks;
+        }
+
+        class BookCompare : IEqualityComparer<Book>
+        {
+            public bool Equals(Book x, Book y)
+            {
+                if (x.Id == y.Id) return true;
+                return false; 
+            }
+
+            public int GetHashCode(Book book)
+            {
+                return book.Id.GetHashCode();
+            }
         }
     }
 }

@@ -39,9 +39,15 @@ namespace BSNCapstone.Models
 
        public List<string> Follower { get; set; }
 
-       public List<string> Followed { get; set; }
+       public List<string> Following { get; set; }
 
        public List<string> Interacbook { get; set; }
+
+       public ApplicationUser()
+       {
+           Follower = new List<string>();
+           Following = new List<string>();
+       }
     }
 
 }
