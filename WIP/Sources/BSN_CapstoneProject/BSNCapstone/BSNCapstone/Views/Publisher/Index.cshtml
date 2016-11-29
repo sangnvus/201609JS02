@@ -7,25 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/TrangAdmin.css">
+    <link rel="stylesheet" href="~/Content/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/font-awesome.css">
+
     <script src="~/Scripts/jquery.min.js"></script>
     <script src="~/Scripts/filter.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="~/Content/bootstrap.css">
-    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <link rel="stylesheet" href="~/Content/font-awesome.css">
+    @*HuyenPT. Create. Start. 29-11-2016*@
+    <script src="~/Scripts/Custom/publisher.js"></script>
+    @*HuyenPT. Create. End. 29-11-2016*@
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="thanhbar" style="height:11%; background: #2f2f2f">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <img src="logo.png" alt="Bookaholic.com" style="width:160px; height:35px;margin-top:5%" onclick="window.location='../Interface_v1.1/DangKy.html'">
-            </div>
-        </div>
-    </nav>
     <!--------------DƯỚI NAV----------------->
     <div class="col-md-12">
         <!------BÊN TRÁI------>
@@ -119,10 +115,13 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    @*HuyenPT. Update. Start. 02-11-2016*@
-                                    @*<button type="button" class="btn btn-default" data-dismiss="modal">Thêm</button>*@
-                                    <button type="button" class="btn btn-default" data-dismiss="modal" id="UploadPublisher" style="margin-top:10px">Thêm</button>
-                                    @*HuyenPT. Update. End. 02-11-2016*@
+                                    @*HuyenPT. Update. Start. 29-11-2016*@
+                                    @*<button type="button" class="btn btn-default" data-dismiss="modal" id="UploadPublisher" style="margin-top:10px">Thêm</button>*@
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-top:10px"
+                                            id="UploadPublisher" onclick="UploadPublisher()">
+                                        Thêm
+                                    </button>
+                                    @*HuyenPT. Update. End. 29-11-2016*@
                                     <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin-top:10px;">Hủy</button>
                                 </div>
                             </div>
@@ -216,87 +215,8 @@
                 </div>
                 @*HaiCM. Create. End. 05-11-2016*@
                 <!-------NÚT SANG TRANG------->
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </div>
 </body>
-
 </html>
-
-@*HuyenPT. Create. Start. 02-11-2016*@
-<script>
-    //UPLOAD PUBLISHER
-    $(document).ready(function () {
-        $("#UploadPublisher").click(function () {
-            var formData = new FormData();
-            var totalFiles = document.getElementById("pubImage").files.length;
-            for (var i = 0; i < totalFiles; i++) {
-                var pubImage = document.getElementById("pubImage").files[i];
-                formData.append("pubImage", pubImage);
-            }
-            formData.append("pubName", $("#pubName").val());
-            formData.append("pubAddress", $("#pubAddress").val());
-            formData.append("pubPhoneNo", $("#pubPhoneNo").val());
-            $.ajax({
-                type: "POST",
-                url: '@Url.Action("Upload", "Publisher")',
-                data: formData,
-                dataType: 'json',
-                contentType: false,
-                processData: false,
-
-                success: function (result) {
-                    alert(result);
-                    window.location.reload();
-                },
-                error: function (err) {
-                    alert(err.statusText);
-                }
-            });
-        })
-    });
-
-    function DeletePublisher(id, i) {
-        var deleteConfirm = confirm("Do you really want to delete this slider? ");
-        if (deleteConfirm) {
-            var formData = new FormData();
-            formData.append("id", id);
-            $.ajax({
-                type: "POST",
-                url: "@Url.Action("Delete", "Publisher")",
-                data: formData,
-                dataType: 'json',
-                contentType: false,
-                processData: false,
-
-                success: function (result) {
-                    alert(result);
-                    $('table tbody tr#' + i).fadeOut('slow', function () { $(this).remove(); })
-                },
-                error: function (err) {
-                    alert(err.statusText);
-                }
-            });
-        }
-    }
-</script>
-@*HuyenPT. Create. End. 02-11-2016*@
