@@ -8,7 +8,7 @@
     var randomAuthor = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.randomAuthor;
     var randomPublisher = (List<BSNCapstone.Models.Publisher>)ViewBag.randomPublisher;
     var listGroup = (List<BSNCapstone.Models.Group>)ViewBag.listGroup;
- }
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,26 +40,26 @@
                         @foreach (var group in listGroup)
                         {
                             <a href="@Url.Action("MainPage", "Groups", new { id = @group.Id })" data-toggle="tooltip" title="@group.GroupName">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="col-md-1">
-                                        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-1">
+                                            @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                             .Height(20).Width(20).Crop("fill")).BuildImageTag(group.AvaImg,
                                                 new CloudinaryDotNet.StringDictionary("class=img-rounded")))
-                                    </div>
-                                    <div class="col-md-8">
-                                        <li>
-                                            <span>
-                                                @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@group.GroupName.ToLower())
-                                            </span>
-                                        </li>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p>12</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <li>
+                                                <span>
+                                                    @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@group.GroupName.ToLower())
+                                                </span>
+                                            </li>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p>12</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
                         }
                     </ul>
                 </div>
@@ -99,8 +99,8 @@
                                     <a href="@Url.Action("Details", "Books", new { id = @book.BookId })">@book.BookName.ToUpper()</a>
                                 </strong>
                                 <br><i data-toggle="tooltip" title="@book.AuthorName" class="authorname">
-                                        <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@book.AuthorName.ToLower())</strong> 
-                                    </i>
+                                    <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@book.AuthorName.ToLower())</strong>
+                                </i>
                             </span>
                         </div>
                     </div>
@@ -340,52 +340,51 @@
                                         <a href="@Url.Action("Details", "Books", new { id = @hotBook.BookId })">@hotBook.BookName.ToUpper()</a>
                                     </strong>
                                     <br><i data-toggle="tooltip" title="@hotBook.AuthorName" class="authorname">
-                                            <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@hotBook.AuthorName.ToLower())</strong> 
-                                        </i>
+                                        <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@hotBook.AuthorName.ToLower())</strong>
+                                    </i>
                                 </span>
                             </div>
                         </div>
                     }
                     <!--VÒNG FOR KẾT THÚC Ở ĐÂY-->
-                        <div id="myRecommendation" class="modal fade" role="dialog">
-                            <div class="modal-dialog modal-lg">
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div style="background-color: #F7E8AF;" class="modal-header clearfix">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <h3 class="modal-title"><a style="padding-left: 18%;" href="http://127.0.0.1:7211/Sach.html" class="modal-title on-story-details"><b>TOTTO CHAN BÊN CỬA SỔ</b></a></h3>
-                                            </div>
-                                            <div class="col-md-6">
+                    <div id="myRecommendation" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div style="background-color: #F7E8AF;" class="modal-header clearfix">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h3 class="modal-title"><a style="padding-left: 18%;" href="http://127.0.0.1:7211/Sach.html" class="modal-title on-story-details"><b>TOTTO CHAN BÊN CỬA SỔ</b></a></h3>
+                                        </div>
+                                        <div class="col-md-6">
 
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            </div>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div>
                                     </div>
-                                    <div class="modal-body clearfix">
-                                        <div class="content">
-                                            <div class="row">
-                                                <div class="col-md-1" style="margin-top: 5px;">
-                                                    <img src="/AnhAvaNguoiDung/avaVan.jpg" style="width:50px;height:50px" />
-                                                </div>
-                                                <div class="col-md-11">
-                                                    <div class="post-card" style="padding-top: 2px;">
-                                                        <textarea class="write-post" placeholder="Bạn đang nghĩ gì ?"></textarea>
-                                                        <div class="divider-horizontal"></div>
-                                                        <div class="row" style="padding: 5px 15px;">
-                                                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                                                <div class="tag-area">
-                                                                    <ul class="list-book-tag">
-                                                                        <li>
-                                                                            <span>#Tottochanbencuaso</span>
-                                                                            <i class="glyphicon glyphicon-remove"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
+                                </div>
+                                <div class="modal-body clearfix">
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-md-1" style="margin-top: 5px;">
+                                                <img src="/AnhAvaNguoiDung/avaVan.jpg" style="width:50px;height:50px" />
+                                            </div>
+                                            <div class="col-md-11">
+                                                <div class="post-card" style="padding-top: 2px;">
+                                                    <textarea class="write-post" placeholder="Bạn đang nghĩ gì ?"></textarea>
+                                                    <div class="divider-horizontal"></div>
+                                                    <div class="row" style="padding: 5px 15px;">
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="tag-area">
+                                                                <ul class="list-book-tag">
+                                                                    <li>
+                                                                        <span>#Tottochanbencuaso</span>
+                                                                        <i class="glyphicon glyphicon-remove"></i>
+                                                                    </li>
+                                                                </ul>
                                                             </div>
-                                                            <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
-                                                                <button id="buttonPost" style="background-color: #224A86" class="btn btn-default">Đăng</button>
-                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
+                                                            <button id="buttonPost" style="background-color: #224A86" class="btn btn-default">Đăng</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -396,17 +395,18 @@
                             </div>
                         </div>
                     </div>
-                    <br>
-                    <br>
-                    <!-- Kết thúc phần trending now -->
-                    <!--  Bắt đầu phần tác giả -->
-                    <div class="row">
-                        <div class="text-left" class="panel-heading">
-                            <h5><strong>TÁC GIẢ</strong></h5>
-                        </div>
-                        @foreach (var author in randomAuthor)
-                        {
-                            <div class="col-md-6" style="padding-left:10px;">
+                </div>
+                <br>
+                <br>
+                <!-- Kết thúc phần trending now -->
+                <!--  Bắt đầu phần tác giả -->
+                <div class="row">
+                    <div class="text-left" class="panel-heading">
+                        <h5><strong>TÁC GIẢ</strong></h5>
+                    </div>
+                    @foreach (var author in randomAuthor)
+                    {
+                        <div class="col-md-6" style="padding-left:10px;">
                             <div class="col-md-6" style="padding-left:0;">
                                 @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                     .Height(117).Width(90).Crop("fill")).BuildImageTag(author.Avatar,
@@ -423,47 +423,53 @@
                                             <a href="@Url.Action("Details", "Timeline", new { id = @author.Id })">
                                                 @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.UserName.ToLower())
                                             </a>
-                                        </strong> 
+                                        </strong>
                                     </i>
                                 </ul>
                             </div>
                         </div>
-                        }
-                    </div>
-                    <!--  Kết thúc phần tác giả -->
-                    <!--  Bắt đầu phần nhà xuất bản -->
-                    <br>
-                    <div class="text-left" class="panel-heading">
-                        <h5><strong>NHÀ XUẤT BẢN</strong></h5>
-                    </div>
-                    <div class="row">
-                        @foreach (var publisher in randomPublisher)
-                        {
-                            <div class="col-md-6" style="padding-left:10px; margin-top:10px;">
-                                <div class="col-md-6" style="padding-left:0">
-                                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                    }
+                </div>
+                <!--  Kết thúc phần tác giả -->
+                <!--  Bắt đầu phần nhà xuất bản -->
+                <br>
+                <div class="text-left" class="panel-heading">
+                    <h5><strong>NHÀ XUẤT BẢN</strong></h5>
+                </div>
+                <div class="row">
+                    @foreach (var publisher in randomPublisher)
+                    {
+                        <div class="col-md-6" style="padding-left:10px; margin-top:10px;">
+                            <div class="col-md-6" style="padding-left:0">
+                                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                         .Height(117).Width(90).Crop("fill")).BuildImageTag(publisher.ImagePublicId,
                                             new CloudinaryDotNet.StringDictionary("class=img-rounded")))
-                                </div>
-                                <ul class="list-group">
-                                    <h6 data-toggle="tooltip" title="@publisher.Name">@publisher.Name</h6>
-                                </ul>
-                                <fieldset class="pull-right">
-                                    <i id="star" class="glyphicon glyphicon-star"></i>
-                                    <i id="star" class="glyphicon glyphicon-star"></i>
-                                    <i id="star" class="glyphicon glyphicon-star"></i>
-                                    <i id="star" class="glyphicon glyphicon-star"></i>
-                                    <i id="star" class="glyphicon glyphicon-star"></i>
-                                </fieldset>
                             </div>
-                        }
-                    </div>
-                    <!--  Kết thúc phần tác giả  -->
+                            <ul class="list-group">
+                                <h6 data-toggle="tooltip" title="@publisher.Name">@publisher.Name</h6>
+                            </ul>
+                            <fieldset class="pull-right">
+                                <i id="star" class="glyphicon glyphicon-star"></i>
+                                <i id="star" class="glyphicon glyphicon-star"></i>
+                                <i id="star" class="glyphicon glyphicon-star"></i>
+                                <i id="star" class="glyphicon glyphicon-star"></i>
+                                <i id="star" class="glyphicon glyphicon-star"></i>
+                            </fieldset>
+                        </div>
+                    }
                 </div>
+                <!--  Kết thúc phần tác giả  -->
             </div>
-            @*HaiCM. Create. End. 19-11-2016*@
-            <!--------------------------------Hết phần bên phải------------------------------------->
+
+            <!--
+                            <p class="text-right">
+                                <button type="button" class="btn btn-link">Xem thêm </button>
+                            </p>
+            -->
         </div>
+        @*HaiCM. Create. End. 19-11-2016*@
+        <!--------------------------------Hết phần bên phải------------------------------------->
+    </div>
 </body>
 </html>
 
@@ -474,7 +480,7 @@
     <script src="~/signalr/hubs"></script>
     <script src="~/Scripts/jquery.timeago.js"></script>
     <script src="~/Scripts/knockout-2.2.0.js"></script>
-    <script src="~/Scripts/Custom/post.js"></script>
+    <script src="~/Scripts/post.js"></script>
 
     <link rel="stylesheet" href="~/Content/Trangchu_canhan_tacgia.css">
     <link href="rateit/src/rateit.css" rel="stylesheet" type="text/css">
