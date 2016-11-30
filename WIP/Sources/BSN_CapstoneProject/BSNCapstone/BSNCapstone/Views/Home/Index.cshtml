@@ -114,7 +114,7 @@
                 <div class="row">
                     <!---------PHẦN NHẬP NỘI DUNG BÀI POST VÀ TAG SÁCH------------>
                     <div class="col-md-12">
-                        <div class="post-card" style="padding-top: 2px;">
+                        <div class="post-card" style="background-color: white;">
                             <!--TextBox để nhập nội dung post-->
                             <textarea class="write-post" placeholder="Bạn đang nghĩ gì ?"
                                       id="txtPostContent" data-bind="value: newMessage"></textarea>
@@ -142,11 +142,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <!------------------------HIỂN THỊ CÁC BÀI POST-------------------------->
-                <ul id="msgHolder" data-bind="foreach: posts">
-                    <div class="col-md-12" style="margin-top: 5px; padding-top:5%;">
-                        <div class="post-card" style="padding-top: 5%; padding: 5px 15px">
+
+                    <!------------------------HIỂN THỊ CÁC BÀI POST-------------------------->
+
+                    <div class="col-md-12" style="margin-top: 7px; " id="msgHolder" data-bind="foreach: posts">
+                        <div class="post-card" style="padding-top: 5%;  padding: 5px 15px">
                             <div class="row">
                                 <div class="col-md-12">
                                     <!--Hiển thị thông tin người dùng-->
@@ -156,15 +156,14 @@
                                             <div class="owner-avatar">
                                                 <img data-bind="attr: { src : PostedByAvatar }" />
                                             </div>
-
                                             <div class="owner-info">
                                                 <!--Tên người dùng-->
                                                 <div class="row">
-                                                    <div class="col-md-12">
+                                                    <div class="col-md-6">
                                                         <a class="owner-name" data-bind="text : PostedBy"></a>
                                                     </div>
                                                     <!--Drop down list gồm chức năng sửa và xóa post-->
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 pull-right">
                                                         <button type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             <span class="fa fa-angle-down"></span>
                                                         </button>
@@ -197,7 +196,7 @@
                                         <div class="col-md-6 col-sm-12">
                                         </div>
                                         <!--Các button để tương tác với post-->
-                                        <div style="text-align: left;">
+                                        <div class="col-md-6 col-sm-12" style="text-align: right;">
                                             <ul class="interaction-list">
                                                 <!--Nút thích-->
                                                 <li>
@@ -208,19 +207,17 @@
                                                         <span>Thích</span>
                                                     </button>
                                                 </li>
-                                                <!--Nút chia sẻ-->
-                                                <li>
-                                                    <button class="post-interaction-btn" data-toggle="modal" data-target="#ModalShare" style="color:chocolate">
-                                                        <i class="glyphicon glyphicon-share"></i><span>Chia sẻ</span>
-                                                    </button>
-                                                </li>
+
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="divider-horizontal"></div>
 
                                     <!--Notify của phần comment-->
-                                    <a data-bind="click: loadNewComments">load new cmt</a>
+                                    <div class="col=md-12">
+                                        <a data-bind="click: loadNewComments">load new cmt</a>
+                                    </div>
+
 
                                     <!--Ô ĐỂ NHẬP BÌNH LUẬN-->
                                     <div>
@@ -232,10 +229,15 @@
                                                         <img src="/Images/profileimages/user.png" style="width:40px;height:40px" />
                                                     </div>
                                                     <div class="owner-info">
-                                                        <!--Textbox để viết bình luận-->
-                                                        <textarea class="form-control" data-bind="value: newCommentMessage" placeholder="Viết bình luận..."></textarea>
-                                                        <!--Button để bình luận-->
-                                                        <input type="button" class="btn btn-warning" value="Bình luận" data-bind="click: addComment" />
+                                                        <div class="pull-left form-inline">
+                                                            <!--Textbox để viết bình luận-->
+                                                            <input type="text" class="form-control" style="width:150%;height:30px" data-bind="value: newCommentMessage" placeholder="Viết bình luận..."></input>
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <!--Button để bình luận-->
+                                                            <input type="button" class="btn btn-warning" value="Bình luận" data-bind="click: addComment" />
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -251,15 +253,21 @@
 
                                                         @*<div class="row">*@
                                                         <div class="owner-info">
-                                                            <!--Tên người cmt-->
-                                                            <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>
-                                                            <!--Nội dung cmt-->
-                                                            <span data-bind="    html: Message"></span>
+                                                            <div class="row">
+                                                                <div class="col-md-1">
+                                                                    <!--Tên người cmt-->
+                                                                    <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>
+                                                                </div>
+                                                                <div class="col-md-11">
+                                                                    <!--Nội dung cmt-->
+                                                                    <span data-bind="    html: Message"></span>
+                                                                </div>
 
+                                                            </div>
                                                         </div>
                                                         <!--Drop down list gồm chức năng sửa và xóa cmt-->
-                                                        <div>
-                                                            <button type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <div class="pull-right">
+                                                            <button style="background-color: #f1f1f1;" type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                 <span class="fa fa-angle-down"></span>
                                                             </button>
                                                             <ul class="dropdown-menu">
@@ -273,7 +281,7 @@
                                                         </div>
                                                         @*</div>*@
                                                         <!--Các chức năng tương tác với comment-->
-                                                        <ul class="interaction-list">
+                                                        <ul class="interaction-list" style="padding-left: 8%;">
                                                             <li>
                                                                 <button class="post-interaction-btn">
                                                                     <i class="glyphicon glyphicon-thumbs-up"></i>
@@ -298,8 +306,11 @@
                             </div>
                         </div>
                     </div>
-                </ul>
+
+                </div>
+
             </div>
+
 
             <!--------------------------------Phần bên phải------------------------------------->
             @*HaiCM. Create. Start. 19-11-2016*@
