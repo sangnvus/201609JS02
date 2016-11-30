@@ -7,21 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/TrangAdmin.css">
-    <link rel="stylesheet" href="~/Content/bootstrap.css">
-    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
-    <link rel="stylesheet" href="~/Content/font-awesome.css">
-
     <script src="~/Scripts/jquery.min.js"></script>
     <script src="~/Scripts/filter.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/Content/bootstrap.css">
     <script src="~/Scripts/jquery-1.10.2.js"></script>
-    @*HuyenPT. Create. Start. 29-11-2016*@
+    <link rel="stylesheet" href="~/Content/font-awesome.css">
     <script src="~/Scripts/Custom/publisher.js"></script>
-    @*HuyenPT. Create. End. 29-11-2016*@
 </head>
 
 <body>
+    <!-- Navigation -->
+    <nav class="thanhbar" style="height:11%; background: #2f2f2f">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="logo.png" alt="Bookaholic.com" style="width:160px; height:35px;margin-top:5%" onclick="window.location='../Interface_v1.1/DangKy.html'">
+            </div>
+        </div>
+    </nav>
     <!--------------DƯỚI NAV----------------->
     <div class="col-md-12">
         <!------BÊN TRÁI------>
@@ -115,13 +119,12 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    @*HuyenPT. Update. Start. 29-11-2016*@
+                                    @*HuyenPT. Update. Start. 02-11-2016*@
+                                    @*<button type="button" class="btn btn-default" data-dismiss="modal">Thêm</button>*@
                                     @*<button type="button" class="btn btn-default" data-dismiss="modal" id="UploadPublisher" style="margin-top:10px">Thêm</button>*@
-                                    <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-top:10px"
-                                            id="UploadPublisher" onclick="UploadPublisher()">
-                                        Thêm
-                                    </button>
-                                    @*HuyenPT. Update. End. 29-11-2016*@
+                                    @*HuyenPT. Update. End. 02-11-2016*@
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-top:10px" 
+                                            id="UploadPublisher" onclick="UploadPublisher()">Thêm</button>
                                     <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin-top:10px;">Hủy</button>
                                 </div>
                             </div>
@@ -219,4 +222,5 @@
         </div>
     </div>
 </body>
+
 </html>

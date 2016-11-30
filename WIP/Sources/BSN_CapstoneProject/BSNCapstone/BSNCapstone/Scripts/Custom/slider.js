@@ -1,6 +1,4 @@
-﻿
-
-function Upload() {
+﻿function Upload() {
     var formData = new FormData();
     var totalFiles = document.getElementById("slide").files.length;
     for (var i = 0; i < totalFiles; i++) {

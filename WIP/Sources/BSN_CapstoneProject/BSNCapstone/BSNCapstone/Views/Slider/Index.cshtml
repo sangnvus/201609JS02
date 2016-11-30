@@ -7,24 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/TrangAdmin.css">
-    <link rel="stylesheet" href="css/datatables.css">
-    <link rel="stylesheet" href="css/pagination.css">
-    <link rel="stylesheet" href="~/Content/font-awesome.css">
-
+    @*<link rel="stylesheet" href="css/datatables.css">
+    <link rel="stylesheet" href="css/pagination.css">*@
     <script src="~/Scripts/jquery.min.js"></script>
     <script src="~/Scripts/filter.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/Content/bootstrap.css">
     <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <script src="js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" href="~/Content/font-awesome.css">
+    @*<script src="js/jquery.dataTables.js"></script>
     <script src="js/datatables-bs3.js"></script>
-    <script src="js/advanced-tables-demo.js"></script>
-    @*HuyenPT. Create Start. 29-11-2016*@
+    <script src="js/advanced-tables-demo.js"></script>*@
     <script src="~/Scripts/Custom/slider.js"></script>
-    @*HuyenPT. Create. End. 29-11-2016*@
 </head>
 
 <body>
+    <!-- Navigation -->
+    <nav class="thanhbar" style="height:11%; background: #2f2f2f">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="logo.png" alt="Bookaholic.com" style="width:160px; height:35px;margin-top:5%" onclick="window.location='../Interface_v1.1/DangKy.html'">
+            </div>
+        </div>
+    </nav>
+    <!--------------DƯỚI NAV----------------->
     <div class="col-md-12">
         <!------BÊN TRÁI------>
         <div class="col-md-2">
@@ -98,10 +105,11 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        @*HuyenPT. Update. Start. 29-11-2016*@
+                                        @*HuyenPT. Update. Start. 30-10-2016*@
+                                        @*<button type="button" class="btn btn-default" data-dismiss="modal">Thêm</button>*@
                                         @*<button type="button" class="btn btn-default" data-dismiss="modal" id="Upload">Thêm</button>*@
                                         <button type="button" class="btn btn-default" data-dismiss="modal" id="Upload" onclick="Upload()">Thêm</button>
-                                        @*HuyenPT. Update. End. 29-11-2016*@
+                                        @*HuyenPT. Update. End. 30-10-2016*@
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Hùy</button>
                                     </div>
                                 </div>
@@ -153,7 +161,6 @@
                         </div>
                     </div>
                     <!-------NÚT SANG TRANG------->
-
                 </div>
             </div>
         </div>

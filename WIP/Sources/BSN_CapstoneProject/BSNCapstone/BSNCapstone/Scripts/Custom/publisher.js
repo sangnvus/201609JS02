@@ -1,6 +1,4 @@
-﻿
-
-function UploadPublisher(){
+﻿function UploadPublisher() {
     var formData = new FormData();
     var totalFiles = document.getElementById("pubImage").files.length;
     for (var i = 0; i < totalFiles; i++) {
