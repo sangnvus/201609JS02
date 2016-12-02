@@ -28,7 +28,7 @@ namespace BSNCapstone.Models
 
 
         [Required(ErrorMessage = "Bắt buộc")]
-        [Display(Name = "Chế độ")]
+        [Display(Name = "Kiểu nhóm")]
         public string GroupType { get; set; }
 
         [Display(Name = "Ngày lập")]

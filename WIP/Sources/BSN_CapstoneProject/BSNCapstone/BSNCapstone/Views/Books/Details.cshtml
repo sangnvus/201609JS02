@@ -10,6 +10,8 @@
     <!--DangVH. Create. End (02/11/2016)-->
     double avarageRatingPoint = ViewBag.avarageRatingPoint;
     var listSameBook = (List<BSNCapstone.ViewModels.BooksSuggestViewModel>)ViewBag.listSameBook;
+    var currentUser = (BSNCapstone.Models.ApplicationUser)ViewBag.currentUser;
+    var allUser = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUser;
 }
 
 <!DOCTYPE html>
@@ -79,15 +81,22 @@
                                 </div>
                                 <div class="modal-body clearfix">
                                     <div class="content">
-                                        <h3 class="modal-title"><a href="http://127.0.0.1:7211/Sach.html" class="modal-title on-story-details">Cửa tiệm của những lá thư</a></h3>
+                                        <h3 class="modal-title"><a href="@Url.Action("Details", "Books", new { id = @Model.Id })" class="modal-title on-story-details">@Model.BookName</a></h3>
                                         <p class="description">
-                                            Cửa tiệm của những lá thư – Nơi gửi gắm ước mơ và niềm tin vào tương lai. Tiếp nối thành công từ hai cuốn tiểu thuyết trước là "Cuộc hẹn bình min"” và "Nếu ngày mai không bao giờ đến", ngòi bút của nhà văn Yasushi Kitagawa đã để lại một dấu ấn rất lớn trong lòng bạn đọc khi viết về những điều gần gũi, chân thực nhưng không kém phần sâu sắc của xã hội Nhật Bản đầy bất ổn với những khuôn phép gò bó. Với lần trở lại này, tác giả Yasushi đồng thời cũng là một thầy giáo được yêu mến tiếp tục chinh phục độc giả qua cuốn sách thứ ba "Cửa tiệm của những lá thư" – tác phẩm đạt doanh thu vượt 1 triệu bản in gây sốt tại xứ sở mặt trời mọc. Bước đi đầu tiên, ai cũng cần có dũng khí. Nhưng nếu, bạn có hứng thú muốn làm những điều tuyệt vời trong đời mình, mời hãy thử sử dụng dịch vụ của Thư quán một lần xem. Những bước chân vô thức đưa cậu chàng Nishiyama Ryouta lạc vào một tiệm cà phê cách ga tàu điện 5 phút đi bộ, một nơi chốn có rất ít người qua lại. Nhìn bên ngoài tưởng chừng như đây chỉ là một tiệm cà phê bình thường, nhưng bên trong quán còn sở hữu một không gian sách kì vĩ với những dịch vụ kì lạ khiến bất kì ai cũng cảm thấy hứng thú. Cũng trong giây phút ấy, cậu có dịp được gặp gỡ và tiếp xúc với rất nhiều người lạ mà một trong số họ có người về sau đã khiến cuộc đời cậu bước sang một trang mới. Con người không hề sống và cho rằng bản thân thế đã là hoàn hảo. Mọi người đều mang theo nhiều nỗi lo lắng và vấn đề riêng, va chạm với những người khác, tổn thương và làm kẻ khác bị tổn thương rồi mới trở nên trưởng thành hơn. Ngay khi từ khi còn ngồi trên ghế nhà trường, chúng ta luôn mơ ước về viễn cảnh tìm được một công việc phù hợp với sở thích và năng lực của bản thân. Nhưng theo thời gian, những ước mơ và khát khao ngày ấy dần phai nhạt, bị hiện thực xâm chiếm khiến con người ta đôi lúc cảm thấy hoang mang, không biết phải đi hướng nào cho đúng, làm thế nào để đạt được điều mình mong muốn. Những tháng ngày trượt dài trong lo lắng, chênh vênh về thứ gọi là tương lai an ổn. Cần lắm một người đi trước có kinh nghiệm để định hướng và dìu dắt ta bước qua những khó khăn trước mắt. Và như sự sắp đặt tình cờ của số phận, Ryouta đã gặp được Quán chủ của tiệm Thư lạc – một người vô cùng bí ẩn như một dấu chấm hỏi cần lời giải, luôn xuất hiện qua câu chữ tràn đầy năng lượng trong những lá thư trao đổi giữa hai người , nhưng đem lại cho Ryouta bước ngoặt lớn trong việc nhận thức được giá trị của bản thân và giải đáp những khúc mắc trong lòng cậu về quá trình tìm kiếm việc làm. Những người không bao giờ ngã không có nghĩa là họ mạnh, những người ngã nhưng vẫn đứng lên mới thực sự mạnh mẽ. Bây giờ, điều diễn ra với mình là may mắn hay bất hạnh, ta không thể phán đoán ngay lập tức. Có thể lúc đó ta coi là điều may mắn, nó lại có thể trở thành xiềng xích ràng lại cuộc đời mình. Nhưng có thể điều ta xem là không may lại giúp rất nhiều người nắm được thành công cũng là sự thật. Mặt khác, biến "khủng hoảng " thành "cơ hội" là điều cần thiết đối với rất nhiều người thành công. Như được truyền lửa, Ryouta đã có những bước tiến mới khả quan trong công cuộc tìm kiếm việc làm, không còn cảm thấy bỡ ngỡ hoặc thất vọng khi nhận được thư từ chối từ nhà tuyển dụng nữa. Cậu trở nên dạn dĩ, nỗ lực hơn cho giấc mơ đời mình. Mười lá thư được trao đi như gửi gắm tất cả hoài bão của cậu và quán chủ bí ẩn là người chắp cho nó thêm đôi cánh để tự tin bay vút lên bầu trời cao rộng. Qua những bài học bổ ích được lĩnh hội từ những bức thư tay của Quán chủ, dần dần Ryouta khao khát muốn có một cuộc gặp gỡ ngoài đời thực với người mà cậu tôn sùng và quý mến. Nhưng đúng là cuộc đời vốn không ai biết trước được điều gì, luôn có những bất ngờ xảy đến khiến chúng ta vỡ òa trong bất ngờ. Tất cả mọi người đều nhờ một cơ hội nào đó mà bắt đầu bước trên con đường thành công. Cuốn sách này không chỉ dừng lại ở những câu chuyện đời thường, ẩn chứa bên trong là một nội lực to lớn thúc đẩy con người sống hết mình hơn, có trách nhiệm hơn với bản thân và nhất là phải đặt niềm tin tuyệt đối vào những điều mình đang theo đuổi. Rồi một ngày bạn sẽ trở thành một người tốt đẹp như trong chính những giấc mơ của mình và giúp những người khác có một cuộc đời tốt đẹp hơn.
-
+                                            @Model.Description
                                         </p>
-
                                         <div class="info">
                                             <div class="taglist">
-                                                <span class="tag"><a href="/tags/nonfiction">#Tinhcam</a> </span>
+                                                @foreach (var item in allCategories)
+                                                {
+                                                    foreach (var category in Model.Categories)
+                                                    {
+                                                        if (item.Id == category)
+                                                        {
+                                                            <span class="tag"> #@item.CategoryName</span>
+                                                        }
+                                                    }
+                                                }
                                             </div>
                                         </div>
 
@@ -104,6 +113,7 @@
                 </div>
             </div>
             <!---------------HIỂN THỊ RATING ----------------->
+            <div class="hidden" id="RatingBook" data-url="@Url.Action("RatingBook", "Books")" data-id="@Model.Id"></div>
             <div class="row" class="danhgia">
                 <div class="col-md-10">
                     <fieldset class="rating" id="ratingbook">
@@ -125,152 +135,66 @@
             <br>
             <div class="jumbotron">
                 <div class="row">
+                    <div class="hidden" id="UserComment" data-url="@Url.Action("CommentBook", "Books")" data-id="@currentUser.Id"></div>
                     <div class="col-md-1" style="margin-top: 5px;">
-                        <img src="/AnhAvaNguoiDung/avaHai.jpg" style="width:50px;height:50px" />
+                        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                            .Height(50).Width(50).Crop("fill")).BuildImageTag(currentUser.Avatar,
+                                new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
                     </div>
                     <div class="col-md-11" style="margin-top: 5px;">
                         <form>
                             <div class="form-group">
-                                <textarea class="form-control" rows="5" id="comment" placeholder="Nhận xét"></textarea>
+                                <textarea class="form-control" rows="5" id="comment" style="resize:none;" placeholder="Nhận xét"></textarea>
                             </div>
                         </form>
                     </div>
                 </div>
                 <!--------------------------------COMMENT CỦA NG KHÁC -------------------------->
                 <br>
-                <div class="row">
-                    <div class="col-md-1" style="margin-top: 5px;">
-                        <img src="/AnhAvaNguoiDung/avaHuyen.jpg" style="width:50px;height:50px" />
-                    </div>
-                    <div class="col-md-11" style="margin-top: 5px;">
-                        <div class="post-card" style="padding: 5px 15px;">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <!-- Post Content -->
-                                    <div class="row">
-                                        <!-- Post Owner -->
-                                        <div class="col-md-12">
-                                            <div class="owner-info">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <a class="owner-name" href="">Huyền</a>
+                @foreach (var comment in Model.Comments)
+                {
+                    <div class="row">
+                        <div class="col-md-1" style="margin-top: 5px;">
+                            @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                            .Height(50).Width(50).Crop("fill")).BuildImageTag(allUser.Find(x => x.Id.Equals(comment.UserId)).Avatar,
+                                new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
+                        </div>
+                        <div class="col-md-11" style="margin-top: 5px;">
+                            <div class="post-card" style="padding: 5px 15px;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!-- Post Content -->
+                                        <div class="row">
+                                            <!-- Post Owner -->
+                                            <div class="col-md-12">
+                                                <div class="owner-info">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <a class="owner-name" href="@Url.Action("Details", "Timeline", new { id = comment.UserId})">
+                                                                @allUser.Find(x => x.Id.Equals(comment.UserId)).UserName.First().ToString().ToUpper()@String.Join("", allUser.Find(x => x.Id.Equals(comment.UserId)).UserName.Skip(1))
+                                                            </a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>11:59 PM</span></label>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>@comment.CreatedTime</span></label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <p class="post-content">@foreach (var line in comment.LinesDescription)
+                                                                {
+                                                                    @line <br />
+                                                                }
+                                        </p>
                                     </div>
-                                    <p class="post-content">Hay quá </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-md-1" style="margin-top: 5px;">
-                        <img src="/AnhAvaNguoiDung/avaVan.jpg" style="width:50px;height:50px" />
-                    </div>
-                    <div class="col-md-11" style="margin-top: 5px;">
-                        <div class="post-card" style="padding: 5px 15px;">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <!-- Post Content -->
-                                    <div class="row">
-                                        <!-- Post Owner -->
-                                        <div class="col-md-12">
-                                            <div class="owner-info">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <a class="owner-name" href="">Vân</a>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>11:59 PM</span></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="post-content">Tuyệt quá </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-                <div class="row">
-                    <div class="col-md-1" style="margin-top: 5px;">
-                        <img src="/AnhAvaNguoiDung/avaDang.JPG" style="width:50px;height:50px" />
-                    </div>
-                    <div class="col-md-11" style="margin-top: 5px;">
-                        <div class="post-card" style="padding: 5px 15px;">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <!-- Post Content -->
-                                    <div class="row">
-                                        <!-- Post Owner -->
-                                        <div class="col-md-12">
-                                            <div class="owner-info">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <a class="owner-name" href="">Đăng</a>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>11:59 PM</span></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="post-content"> Thích quá </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-                <div class="row">
-                    <div class="col-md-1" style="margin-top: 5px;">
-                        <img src="/Anhtacgia/JKRowling_tacgia.jpg" style="width:50px;height:50px" />
-                    </div>
-                    <div class="col-md-11" style="margin-top: 5px;">
-                        <div class="post-card" style="padding: 5px 15px;">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <!-- Post Content -->
-                                    <div class="row">
-                                        <!-- Post Owner -->
-                                        <div class="col-md-12">
-                                            <div class="owner-info">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <a class="owner-name" href="">Thang Owner</a>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>11:59 PM</span></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="post-content">Hay quá </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <br>
+                }
             </div>
         </div>
         <!--  Bắt đầu phần bên phải -->
@@ -482,30 +406,5 @@
 </html>
 @section scripts {
     <link rel="stylesheet" href="~/Content/Sach.css">
+    <script src="~/Scripts/Custom/book.js"></script>
 }
-<script>
-            $(document).ready(function () {
-                $("input[name=rating]").click(function () {
-                    var rating = $("input[name=rating]:checked").val();
-                    var formData = new FormData();
-                    formData.append("id", '@Model.Id');
-                    formData.append("rating", rating);
-                    console.log(rating);
-                    $.ajax({
-                        type: "POST",
-                        url: "@Url.Action("RatingBook", "Books")",
-                        data: formData,
-                        dataType: 'json',
-                        contentType: false,
-                        processData: false,
-
-                        success: function (result) {
-                            window.alert(result);
-                            window.location.reload();
-                        }
-                    });
-                });
-            });
-</script>
-
-

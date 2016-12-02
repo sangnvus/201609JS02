@@ -37,6 +37,8 @@ namespace BSNCapstone.Models
 
        public string SSNImgId { get; set; }
 
+       public string Gender { get; set; }
+
        public List<string> Follower { get; set; }
 
        public List<string> Following { get; set; }

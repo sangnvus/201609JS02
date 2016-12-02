@@ -137,16 +137,22 @@ namespace BSNCapstone.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string id { get; set; }
 
-        [Display(Name = "UserName")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "Tên người dùng")]
+        [Required(ErrorMessage = "Tên bắt buộc")]
+        [StringLength(100, ErrorMessage = "{0} phải dài tối thiểu {2} kí tự", MinimumLength = 2)]
         public string UserName { get; set; }
 
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        [Display(Name = "Address")]
+        //[StringLength(100, ErrorMessage = "{0} phải  {2} characters long.", MinimumLength = )]
+        [Display(Name = "Địa chỉ")]
         public string Address { get; set; }
 
-        [RegularExpression(@"^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((1[6-9]|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((1[6-9]|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((1[6-9]|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$", ErrorMessage = "Musbe in format dd/MM/yyyy")]
+        [Display(Name = "Ngày sinh")]
+        [RegularExpression(@"^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((1[6-9]|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((1[6-9]|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((1[6-9]|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$", ErrorMessage = "Phải là kiểu dd/MM/yyyy")]
         public string DOB { get; set; }
+
+        [Required(ErrorMessage = "Giới tính bắt buộc")]
+        [Display(Name = "Giới tính")]
+        public string Gender { get; set; }
     }
 }
 

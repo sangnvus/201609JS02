@@ -66,6 +66,12 @@ namespace BSNCapstone.Controllers
             ViewBag.cloudinary = cloudinary;
             //DangVH. Create. End (02/11/2016)
             var book = Context.Books.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+            foreach (var comment in book.Comments)
+            {
+                comment.LinesDescription = comment.Description.Split(new string[] { "\r\n" }, StringSplitOptions.None).ToList();
+            }
+            book.Comments = book.Comments.OrderByDescending(x => x.CreatedTime).ToList();
+            Console.Write(book);
             var allCategory = Context.Categories.Find(_ => true).ToEnumerable();
             ViewBag.allCategories = BooksControllerHelper.ListAllCategory();
             ViewBag.allPublishers = Context.Publishers.Find(_ => true).ToList();
@@ -92,6 +98,8 @@ namespace BSNCapstone.Controllers
             ViewBag.listSameBook = BooksControllerHelper.SuggestBook(id, 4);
             Random random = new Random((int)(DateTime.Now.Ticks));
             ViewBag.randomGroup = Context.Groups.Find(_ => true).ToList().OrderBy(x => random.Next()).Take(4).ToList();
+            ViewBag.currentUser = Context.Users.Find(x => x.Id.Equals(new ObjectId(User.Identity.GetUserId()))).FirstOrDefault();
+            ViewBag.allUser = Context.Users.Find(_ => true).ToList();
             return View(book);
         }
 
@@ -99,16 +107,10 @@ namespace BSNCapstone.Controllers
         // GET: /Books/Create
         public ActionResult Create()
         {
-            //DangVH. Delete. Start (14/11/2016)
-            //Book book = BooksControllerHelper.GetCheckBoxValues();
-            //return PartialView("_Create", book);
-            //DangVH. Delete. End (14/11/2016)
-            //DangVH. Create. Start (14/11/2016)
             ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
             ViewBag.CategoryId = GetPubsCats(null, 2);
             ViewBag.PublisherId = GetPubsCats(null, 1);
             return View();
-            //DangVH. Create. End (14/11/2016)
         }
 
         //
@@ -131,14 +133,7 @@ namespace BSNCapstone.Controllers
             }
             if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-                //DangVH. Delete. Start (14/11/2016)
-                //var selectedCategories = book.Categories.Where(x => x.IsSelected).Select(x => x.CategoryId).ToList();
-                //DangVH. Delete. End (14/11/2016)
-                //DangVH. Create. Start (01/11/2016)
-                //var file = Request.Files[0];
                 var uploadResult = ImageUploadHelper.GetUploadResult(file);
-                //DangVH. Create. End (01/11/2016)
                 var addBook = new Book()
                 {
                     BookName = book.BookName,
@@ -150,16 +145,6 @@ namespace BSNCapstone.Controllers
                     Description = book.Description,
                     ImgPublicId = uploadResult.PublicId
                 };
-                //DangVH. Delete. Start (14/11/2016)
-                //foreach (var categoryId in selectedCategories)
-                //{
-                //    addBook.Categories.Add(new BookCategoriesViewModel()
-                //    {
-                //        CategoryId = categoryId
-                //    });
-                //}
-                //DangVH. Delete. End (14/11/2016)
-                //DangVh. Create. Start (14/11/2016)
                 foreach (var publisherId in book.Publishers)
                 {
                     addBook.Publishers.Add(publisherId);
@@ -192,21 +177,6 @@ namespace BSNCapstone.Controllers
             ViewBag.cloudinary = cloudinary;
             //DangVH. Create. End (02/11/2016)
             var book = Context.Books.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
-            //DangVH. Delete. Start (14/11/2016)
-            //var allCategory = Context.Categories.Find(_ => true).ToEnumerable();
-            //var bookCategoriesViewModel = new List<BookCategoriesViewModel>();
-            //foreach (var category in allCategory)
-            //{
-            //    bookCategoriesViewModel.Add(new BookCategoriesViewModel()
-            //    {
-            //        CategoryId = category.Id,
-            //        CategoryName = category.CategoryName,
-            //        IsSelected = book.Categories.Where(x => x.CategoryId == category.Id).Any()
-            //    });
-            //}
-            //book.Categories = bookCategoriesViewModel;
-            //DangVH. Delete. End (14/11/2016)
-            //DangVH. Create. Start (14/11/2016)
             var selectedPublisherValue = book.Publishers.ToString();
             var selectedCategoryValue = book.Categories.ToString();
             ViewBag.publisherId = GetPubsCats(selectedPublisherValue.Split(','), 1);
@@ -224,7 +194,8 @@ namespace BSNCapstone.Controllers
             var listBook = Context.Books.Find(_ => true).ToList();
             foreach (var eachBook in listBook)
             {
-                if (eachBook.BookName.ToLower().Equals(book.BookName.ToLower()))
+                if (eachBook.BookName.ToLower().Equals(book.BookName.ToLower()) && 
+                    listBook.Find(x => x.BookName.ToLower().Equals(book.BookName.ToLower())).Id != book.Id)
                 {
                     ModelState.AddModelError("BookName", "Tên sách đã tồn tại");
                 }
@@ -276,32 +247,13 @@ namespace BSNCapstone.Controllers
             return View(book);
         }
 
-        //DangVH. Delete. Start (14/11/2016)
-        //
-        // GET: /Books/Delete/5
-        //public ActionResult Delete(string id)
-        //{
-        //    var book = Context.Books.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
-        //    var allCategory = Context.Categories.Find(_ => true).ToEnumerable();
-        //    List<Category> listCategory = new List<Category>();
-        //    foreach (var cat in book.Categories)
-        //    {
-        //        listCategory.Add(new Category()
-        //        {
-        //            CategoryName = allCategory.Where(x => x.Id.Equals(cat.CategoryId)).First().CategoryName
-        //        });
-        //    }
-        //    ViewBag.ListCategory = listCategory;
-        //    return View(book);
-        //}
-        //DangVH. Delete. End (14/11/2016)
-
         //
         // POST: /Books/Delete/5
         [HttpPost]
         public ActionResult DeleteConfirm(string id)
         {
             Context.Books.DeleteOneAsync(x => x.Id.Equals(new ObjectId(id)));
+            Context.BooksStatistic.DeleteManyAsync(x => x.BookId.Equals(id));
             //DangVH. Update. Start (14/11/2016)
             //return RedirectToAction("Index");
             return Json("Xóa thành công");
@@ -324,5 +276,21 @@ namespace BSNCapstone.Controllers
             return Json("Cảm ơn bạn đã đánh giá :D");
         }
         //DangVH. Create. End (17/11/2016)
+
+        [HttpPost]
+        public ActionResult CommentBook(string commentedUser, string bookId, string commentContent)
+        {
+            BookCommentViewModel comment = new BookCommentViewModel() 
+            {
+                Id = ObjectId.GenerateNewId(),
+                UserId = commentedUser,
+                CreatedTime = DateTime.Now.AddHours(7),
+                Description = commentContent
+            };
+            var filter = Builders<Book>.Filter.Where(x => x.Id.Equals(new ObjectId(bookId)));
+            var update = Builders<Book>.Update.Push(x => x.Comments, comment);
+            Context.Books.UpdateOneAsync(filter, update);
+            return Json("Bình luận thành công");
+        }
     }
 }

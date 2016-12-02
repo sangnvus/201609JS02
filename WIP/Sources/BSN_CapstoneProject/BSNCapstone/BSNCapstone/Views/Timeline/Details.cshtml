@@ -12,7 +12,7 @@
 <body>
     <!-------------------/NAVBAR-------------------------->
     <!-------------------Cover & avatar------------------------->
-
+    <div class="hidden" id="ImageChangeUrl" data-url="@Url.Action("ChangeImage", "Timeline")" data-id="@Model.Id"></div>
     <div class="col-md-12 avatar-cover" style="padding:0; height: 410px;">
         @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
             .Height(350).Width(1349).Crop("fill")).BuildImageTag(Model.Cover,
@@ -44,6 +44,8 @@
                 }
             </div>
             <div class="cover-interaction">
+                <div class="hidden" id="FollowHandleUrl" data-url="@Url.Action("FollowHandle", "Timeline")" 
+                     data-followerid="@currentUserId" data-followeduserid="@Model.Id"></div>
                 @if (currentUserId != Model.Id)
                 {
                     if (Model.Follower.Contains(currentUserId))
@@ -152,7 +154,7 @@
                                 {
                                     <div class="col-md-6 " style="padding-left:5px;">
                                         @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
-                                            .Height(117).Width(90).Crop("mpad")).BuildImageTag(user.Avatar,
+                                            .Height(117).Width(90).Crop("fill")).BuildImageTag(user.Avatar,
                                                 new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                                         <ul class="list-group">
                                             <li>
@@ -446,102 +448,11 @@
     <script src="~/signalr/hubs"></script>
     <script src="~/Scripts/jquery.timeago.js"></script>
     <script src="~/Scripts/knockout-2.2.0.js"></script>
-    <script src="~/Scripts/post.js"></script>
+    <script src="~/Scripts/Custom/post.js"></script>
+    <script src="~/Scripts/Custom/group.js"></script>
+    <script src="~/Scripts/Custom/follow-handle.js"></script>
 
     <link rel="stylesheet" href="~/Content/Trangchu_canhan_tacgia.css">
     <link href="rateit/src/rateit.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="~/Content/font-awesome.css">
 }
-<script>
-    function FollowHandle(option) {
-        var formData = new FormData();
-        formData.append("followerId", '@currentUserId');
-        formData.append("followedUserId", '@Model.Id');
-        formData.delete("option", option);
-        if (option == 1) {
-            formData.append("option", option);
-            $("#follow").toggle();
-            $("#unfollow").toggle();
-        } else {
-            formData.append("option", option);
-            $("#unfollow").toggle();
-            $("#follow").toggle();
-        }
-        $.ajax({
-            type: "POST",
-            url: "@Url.Action("FollowHandle", "Timeline")",
-            data: formData,
-        dataType: 'json',
-        contentType: false,
-        processData: false,
-
-        success: function (result) {
-        }
-    });
-    };
-
-    $(document).ready(function () {
-        //Change Avatar
-        $("#imgInpAva").change(function () {
-            var avatarImg = this;
-            if (avatarImg.files && avatarImg.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('.avatar-img').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(avatarImg.files[0]);
-            }
-            var formData = new FormData();
-            formData.append("id", '@Model.Id');
-            formData.append("file", avatarImg.files[0]);
-            formData.append("option", 1);
-            $.ajax({
-                type: "POST",
-                url: "@Url.Action("ChangeImage", "Timeline")",
-                data: formData,
-            dataType: 'json',
-            contentType: false,
-            processData: false,
-
-            success: function (result) {
-                alert(result);
-            },
-            error: function (err) {
-                alert(err.statusText);
-            }
-        });
-    });
-    //Change Cover
-    $("#imgInpCover").change(function () {
-        var coverImg = this;
-        if (coverImg.files && coverImg.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('.cover-img').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(coverImg.files[0]);
-        }
-        var formData = new FormData();
-        formData.append("id", '@Model.Id');
-        formData.append("file", coverImg.files[0]);
-        formData.append("option", 2);
-        $.ajax({
-            type: "POST",
-            url: "@Url.Action("ChangeImage", "Timeline")",
-            data: formData,
-        dataType: 'json',
-        contentType: false,
-        processData: false,
-
-        success: function (result) {
-            alert(result);
-        },
-        error: function (err) {
-            alert(err.statusText);
-        }
-    });
-    });
-    });
-</script>

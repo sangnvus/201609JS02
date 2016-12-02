@@ -59,11 +59,13 @@ namespace BSNCapstone.Controllers
                 id = user.Id,
                 UserName = user.UserName,
                 DOB = Convert.ToDateTime(user.DOB).ToString("dd/MM/yyyy"),
+                Gender = user.Gender,
                 Address = user.Address
             };
             ViewBag.cloudinary = cloudinary;
             ViewBag.user = user;
             ViewBag.currentUser = User.Identity.GetUserId();
+            ViewBag.allUser = Context.Users.Find(_ => true).ToList();
             return View(newprofile);
         }
 
@@ -72,6 +74,15 @@ namespace BSNCapstone.Controllers
         [HttpPost]
         public async Task<ActionResult> EditProfile(UserProfile user1)
         {
+            var allUser = Context.Users.Find(_ => true).ToList();
+            foreach (var user in allUser)
+            {
+                if (user.UserName.ToLower().Equals(user1.UserName.ToLower()) &&
+                    allUser.Find(x => x.UserName.ToLower().Equals(user1.UserName.ToLower())).Id != user1.id)
+                {
+                    ModelState.AddModelError("UserName", "Tên đã tồn tại");
+                }
+            }
             if (ModelState.IsValid)
             {
                 var user2 = await UserManager.FindByIdAsync(user1.id);
@@ -83,11 +94,16 @@ namespace BSNCapstone.Controllers
 
                 user2.Address = user1.Address;
                 user2.DOB = DateTime.ParseExact(user1.DOB, "dd/MM/yyyy", CultureInfo.InvariantCulture).AddHours(7);
+                user2.Gender = user1.Gender;
                 user2.UserName = user1.UserName;
                 await Context.Users.ReplaceOneAsync(x => x.Id.Equals(new ObjectId(user2.Id)), user2);
                 return RedirectToAction("Index", "Home");
             }
-            return View();
+            ViewBag.cloudinary = cloudinary;
+            ViewBag.user = Context.Users.Find(x => x.Id.Equals(new ObjectId(user1.id))).FirstOrDefault();
+            ViewBag.currentUser = User.Identity.GetUserId();
+            ViewBag.allUser = allUser;
+            return View(user1);
         }
 
         [HttpPost]

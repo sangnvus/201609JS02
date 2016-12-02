@@ -14,8 +14,9 @@
     <!-------------------Dưới thanh bar-------------------------->
     <!-------------------Cover & avatar------------------------->
 
+    <div class="hidden" id="GroupHandleRequestUrl" data-url="@Url.Action("GroupRequestHandle", "Groups")"></div>
+    <div class="hidden" id="ImageChangeUrl" data-url="@Url.Action("ChangeImage", "Groups")" data-id="@Model.Id"></div>
     <div class="col-md-12 avatar-cover" style="padding:0; height: 410px;">
-        @*<img class="cover-img" src="AnhCoverSach/coversach2.jpg" alt="Trolltunga Norway">*@
         @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
             .Height(350).Width(1349).Crop("fill")).BuildImageTag(Model.CoverImg,
                 new CloudinaryDotNet.StringDictionary("class=cover-img")))
@@ -66,7 +67,10 @@
                 }
                 else
                 {
-                    <button class="button buttonRe" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '2')">Đã Tham gia</button>
+                    if (Model.GroupMembers.Find(x => x.UserId.Equals(currentUserId)).RoleInGroup != "creator")
+                    {
+                        <button class="button buttonRe" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '2')">Đã Tham gia</button>
+                    }
                 }
                 <button class="button buttonRe" data-toggle="modal" data-target="#ModalReport">Báo cáo</button>
                 <div id="ModalReport" class="modal fade" role="dialog">
@@ -135,15 +139,10 @@
                                                 <button id="buttonCancel" class="btn btn-default" data-dismiss="modal">Hủy</button>
                                                 <button id="buttonPost" class="btn btn-default">Gửi</button>
                                             </div>
-
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -181,43 +180,6 @@
                                 <div class="col-md-12">
                                     <div class="col-md-1">
                                         <img src="/Anhtacgia/JKRowling_tacgia.jpg" style="width:20px;height:20px" />
-                                    </div>
-                                    <div class="col-md-8">
-                                        <li>
-                                            <span>Hội yêu thích truyện Harry Potter</span>
-                                        </li>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p>12</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="col-md-1">
-                                        <img src="/Anhtacgia/James%20Patterson_tacgia.jpg" style="width:20px;height:20px" />
-                                    </div>
-                                    <div class="col-md-8">
-                                        <li>
-                                            <span>Hội yêu thích truyện Harry Potter</span>
-                                        </li>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p>12</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-
-                        <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="col-md-1">
-                                        <img src="/Anhtacgia/nguy%E1%BB%85n%20nh%E1%BA%ADt%20%C3%A1nh_tacgia.jpg" style="width:20px;height:20px" />
                                     </div>
                                     <div class="col-md-8">
                                         <li>
@@ -843,94 +805,5 @@
 </html>
 @section scripts {
     <link rel="stylesheet" href="~/Content/Trangnhom.css">
+    <script src="~/Scripts/Custom/group.js"></script>
 }
-<script>
-    function GroupRequestHandle(groupId, userId, option) {
-        var formData = new FormData();
-        formData.append("groupId", groupId);
-        formData.append("userId", userId);
-        formData.append("option", option);
-        $.ajax({
-            type: "POST",
-            url: "@Url.Action("GroupRequestHandle", "Groups")",
-            data: formData,
-        dataType: 'json',
-        contentType: false,
-        processData: false,
-
-        success: function (result) {
-            if (result != "") {
-                window.alert(result);
-            }
-            else {
-                window.location.reload();
-            }
-        }
-    });
-    };
-
-    $(document).ready(function () {
-        //Change Avatar
-        $("#imgInpAva").change(function () {
-            var avatarImg = this;
-            if (avatarImg.files && avatarImg.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('.avatar-img').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(avatarImg.files[0]);
-            }
-            var formData = new FormData();
-            formData.append("id", '@Model.Id');
-            formData.append("file", avatarImg.files[0]);
-            formData.append("option", 1);
-            $.ajax({
-                type: "POST",
-                url: "@Url.Action("ChangeImage", "Groups")",
-                data: formData,
-            dataType: 'json',
-            contentType: false,
-            processData: false,
-
-            success: function (result) {
-                alert(result);
-            },
-            error: function (err) {
-                alert(err.statusText);
-            }
-        });
-        });
-        //Change Cover
-        $("#imgInpCover").change(function () {
-            var coverImg = this;
-            if (coverImg.files && coverImg.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('.cover-img').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(coverImg.files[0]);
-            }
-            var formData = new FormData();
-            formData.append("id", '@Model.Id');
-            formData.append("file", coverImg.files[0]);
-            formData.append("option", 2);
-            $.ajax({
-                type: "POST",
-                url: "@Url.Action("ChangeImage", "Groups")",
-                data: formData,
-            dataType: 'json',
-            contentType: false,
-            processData: false,
-
-            success: function (result) {
-                alert(result);
-            },
-            error: function (err) {
-                alert(err.statusText);
-            }
-        });
-    });
-    });
-</script>

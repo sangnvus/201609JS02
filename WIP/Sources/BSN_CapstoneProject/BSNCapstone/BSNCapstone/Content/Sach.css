@@ -91,7 +91,7 @@
 /***********************************POST*************************************************/
 
 .post-card {
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.42);
     border-radius: 5px;
 }
 
@@ -220,4 +220,11 @@ label {
 
 .danhgia {
     padding-left: 10%;
+}
+
+/*Booktag*/
+.tag {
+    border: 1px solid;
+    border-radius: 10%;
+    color: #0058ff;
 }

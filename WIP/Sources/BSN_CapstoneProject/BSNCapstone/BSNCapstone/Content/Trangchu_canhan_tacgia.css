@@ -9,7 +9,7 @@ body {
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
-     background-color: #2f2f2f;a
+     background-color: #2f2f2f;
 }
 /* Set chiều cao của trang */
 
@@ -151,7 +151,7 @@ label {
 
 /*****************************BUTTON POST************************/
 
-#btnShare {
+#buttonShare {
     color: white;
 }
 /***********************************POST*************************************************/
@@ -163,8 +163,7 @@ label {
 .post-card {
     border: 1px solid #ccc;
     border-radius: 5px;
-   background-color: white;
-
+    background-color: white;
 }
 
 .write-post {
@@ -414,11 +413,12 @@ p1 {
 .post-card {
     border: 1px solid #ccc;
     border-radius: 5px;
-   
 }
-#post{
+
+#post {
     background-color: white;
 }
+
 .write-post {
     width: calc(100% - 2px);
     padding: 10px;
@@ -748,7 +748,7 @@ p1 {
 
 .dropdown-menu {
 	position: absolute;
-	top: 50px;
+	top: 25px;
 	/*overflow-y: scroll;*/
 	max-height: 400px;
 	width: 200px;

@@ -71,35 +71,6 @@ namespace BSNCapstone.Controllers
         }
 
         //
-        //GET: /Groups/SetupMember/
-        //[HttpPost]
-        //public ActionResult SetupMember(string groupId, string userId, int option)
-        //{
-        //    var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(groupId))).FirstOrDefault();
-        //    var updatedGroup = new Group();
-        //    switch (option)
-        //    {
-        //        case 1: // Thêm user vs role admin
-        //            var filter1 = Builders<Group>.Filter.Where(x => x.Id.Equals(new ObjectId(groupId)) && x.GroupMembers.Any(i => i.UserId.Equals(userId)));
-        //            var update1 = Builders<Group>.Update.Set(x => x.GroupMembers[-1].RoleInGroup, "admin");
-        //            Context.Groups.UpdateOneAsync(filter1, update1);
-        //            break;
-        //        case 2: // Chuyển role admin về user
-        //            var filter2 = Builders<Group>.Filter.Where(x => x.Id.Equals(new ObjectId(groupId)) && x.GroupMembers.Any(i => i.UserId.Equals(userId)));
-        //            var update2 = Builders<Group>.Update.Set(x => x.GroupMembers[-1].RoleInGroup, "user");
-        //            Context.Groups.UpdateOneAsync(filter2, update2);
-        //            break;
-        //        case 3: // Xóa user/admin khỏi nhóm
-        //            var filter3 = Builders<Group>.Filter.Where(x => x.Id.Equals(new ObjectId(groupId)));
-        //            var update3 = Builders<Group>.Update.PullFilter(x => x.GroupMembers, i => i.UserId.Equals(userId));
-        //            Context.Groups.UpdateOneAsync(filter3, update3);
-        //            break;
-        //    }
-        //    updatedGroup = Context.Groups.Find(x => x.Id.Equals(new ObjectId(groupId))).FirstOrDefault();
-        //    return RedirectToAction("Members", updatedGroup);
-        //}
-
-        //
         // POST: /Groups/JoinLeaveGroup
         public ActionResult GroupRequestHandle(string groupId, string userId, int option)
         {
@@ -199,26 +170,9 @@ namespace BSNCapstone.Controllers
             };
             ViewBag.currentUser = User.Identity.GetUserId();
             ViewBag.cloudinary = cloudinary;
-            //var listMember = new List<GroupMembersViewModel>();
-            //listMember = group.GroupMembers;
-            //var listRequest = new List<string>();
-            //listRequest = group.ListJoinRequest;
-            //ViewBag.listMember = listMember;
-            //ViewBag.listRequest = listRequest;
             ViewBag.group = group;
             var allUser = Context.Users.Find(_ => true).ToList();
             ViewBag.allUser = allUser;
-            //var groupMembersViewModel = new List<GroupMembersViewModel>();
-            //foreach (var user in allUser)
-            //{
-            //    groupMembersViewModel.Add(new GroupMembersViewModel()
-            //    {
-            //        UserId = user.Id,
-            //        UserName = user.UserName,
-            //        IsSelected = group.GroupMembers.Where(x => x.UserId == user.Id).Any()
-            //    });
-            //}
-            //group.GroupMembers = groupMembersViewModel;
             return View(groupSetting);
         }
 
@@ -238,7 +192,7 @@ namespace BSNCapstone.Controllers
                     Set(x => x.GroupType, groupSetting.GroupType);
                 Context.Groups.UpdateOneAsync(filter, update);
                 var editGroup = Context.Groups.Find(x => x.Id.Equals(new ObjectId(groupSetting.Id))).FirstOrDefault();
-                return RedirectToAction("Setting", "Groups", editGroup.Id);
+                return RedirectToAction("MainPage", "Groups", editGroup.Id);
             }
             var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(groupSetting.Id))).FirstOrDefault();
             ViewBag.cloudinary = cloudinary;

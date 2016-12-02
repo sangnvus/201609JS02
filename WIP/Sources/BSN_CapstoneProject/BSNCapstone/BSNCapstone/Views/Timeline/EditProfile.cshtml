@@ -4,13 +4,14 @@
     var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
     var user = (BSNCapstone.Models.ApplicationUser)ViewBag.user;
     var currentUserId = ViewBag.currentUser;
+    var allUser = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUser;
 }
 
 <!DOCTYPE html>
 <html lang="en">
 <body>
     <!-------------------Cover & avatar------------------------->
-
+    <div class="hidden" id="ImageChangeUrl" data-url="@Url.Action("ChangeImage", "Groups")" data-id="@user.Id"></div>
     <div class="col-md-12 avatar-cover" style="padding:0; height: 410px;">
         @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
             .Height(350).Width(1349).Crop("fill")).BuildImageTag(user.Cover,
@@ -123,7 +124,7 @@
         </div>
     </div>
     <!-----------------------UNDER cover & ava--------------------------------->
-    <div class="tencanhan"><a href="@Url.Action("Details", "Timeline", new { id = @Model.id })"><b>@Model.UserName</b></a></div>
+    <div class="tencanhan"><a href="@Url.Action("Details", "Timeline", new { id = @Model.id })"><b>@user.UserName</b></a></div>
     <div class="col-ms-12">
         <!------------LEFT SIDE--------------->
         <div class="col-md-2 col-sm-4 col-xs-12 sidenav">
@@ -132,28 +133,26 @@
             </div>
             <br>
             <div class="row">
-                <div class="col-md-6 " style="padding-left:5px;">
-                    <img src="/Anhtacgia/James%20Patterson_tacgia.jpg" class="img-rounded" alt="" width="90" height="117">
-                    <ul class="list-group">
-                        <li>
-                            <span>
-                                <i data-toggle="tooltip" title="James Patterson " id="tacgia"><strong>James Patterson </strong> </i>
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-6" style="padding-left:5px;">
-                    <img src="/Anhtacgia/Jeff%20Kinney_tacgia.jpg" class="img-rounded" alt="" width="90" height="117">
-                    <ul class="list-group">
-                        <li>
-                            <span>
-                                <i data-toggle="tooltip" title="Jeff Kinney" id="tacgia"><strong>Jeff Kinney </strong> </i>
-                            </span>
-                        </li>
-                    </ul>
-                </div>
+                @foreach (var item in user.Following)
+                {
+                    <div class="col-md-6 " style="padding-left:5px;">
+                        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                            .Height(117).Width(90).Crop("fill")).BuildImageTag(allUser.Find(x => x.Id.Equals(item)).Avatar,
+                                new CloudinaryDotNet.StringDictionary("class=avatar-img")))
+                        <ul class="list-group">
+                            <li>
+                                <span>
+                                    <i data-toggle="tooltip" title="@allUser.Find(x => x.Id.Equals(item)).UserName" id="tacgia">
+                                        <strong>
+                                            @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(allUser.Find(x => x.Id.Equals(item)).UserName.ToLower()) 
+                                        </strong> 
+                                    </i>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                }
             </div>
-
         </div>
         <!--CENTER-->
         <div class="container col-md-6">
@@ -162,47 +161,40 @@
                 <div class="divider-horizontal"></div>
                 <br>
                 <div class="col-md-12">
-                    <div class="col-md-4">
-                        <div class="row">
-                            <div class="thumbnail" style="height: 300px;">
-                                <img src="Anhtacgia/nguy%E1%BB%85n%20nh%E1%BA%ADt%20%C3%A1nh_tacgia.jpg" alt="">
-                                <div class="caption">
-                                    <a href="#">Nguyễn Nhật Ánh</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         @using (Html.BeginForm())
                         {
                             @Html.AntiForgeryToken()
                             <form class="form-horizontal">
                             <div class="form-group">
-                                @Html.LabelFor(model => model.UserName, new { @class = "col-sm-5 control-label" })
-                                @Html.TextBoxFor(model => model.UserName, new { @placeholder = "Họ tên", @class = "form-control", @id = "name", @style = "width: 55%;" })
-                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.UserName, new { @class = "col-sm-4 control-label" })
+                                @Html.TextBoxFor(model => model.UserName, new { @placeholder = "Họ tên", @class = "form-control", @id = "name", @style = "width: 60%;" })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger", @style = "padding-left: 40%;" })
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-5 control-label">Giới tính</label>
+                                @Html.LabelFor(model => model.Gender, new { @class = "col-sm-4 control-label" })
                                 <label class="radio-inline" style="margin-left:30px;">
-                                    <input type="radio" name="gender" id="male" value="1"> Nam
+                                    @Html.RadioButtonFor(model => model.Gender, "Male") Nam
                                 </label>
                                 <label class="radio-inline" style="margin-left:30px;">
-                                    <input type="radio" name="gender" id="female" value="2"> Nữ
+                                    @Html.RadioButtonFor(model => model.Gender, "Female") Nữ
                                 </label>
+                                <div>
+                                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger", @style = "padding-left: 40%;" })
+                                </div>
                             </div>
                             <div class="form-group">
-                                @Html.LabelFor(model => model.DOB, new { @class = "col-sm-5 control-label" })
-                                @Html.TextBoxFor(model => model.DOB, new { @placeholder = "Ngày sinh", @class = "form-control", @style = "width: 55%;" })
-                                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.DOB, new { @class = "col-sm-4 control-label" })
+                                @Html.TextBoxFor(model => model.DOB, new { @placeholder = "Ngày sinh", @class = "form-control", @style = "width: 60%;" })
+                                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger", @style = "padding-left: 40%;" })
                             </div>
                             <div class="form-group">
-                                @Html.LabelFor(model => model.Address, new { @class = "col-sm-5 control-label" })
-                                @Html.TextBoxFor(model => model.Address, new { @placeholder = "Địa chỉ", @class = "form-control", @style = "width: 55%;" })
-                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.Address, new { @class = "col-sm-4 control-label" })
+                                @Html.TextBoxFor(model => model.Address, new { @placeholder = "Địa chỉ", @class = "form-control", @style = "width: 60%;" })
+                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger", @style = "padding-left: 40%;" })
                             </div>
                             <div class="form-inline" style="position:relative;left:50%;margin-top:20px;">
-                                <button type="submit" class="btn btn-default">Sửa</button>
+                                <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Details", "Timeline", new { id = user.Id })'">Hủy</button>
                                 <button type="submit" class="btn btn-info">Lưu</button>
                             </div>
                         </form>   
@@ -285,71 +277,5 @@
 </html>
 @section scripts {
     <link rel="stylesheet" href="~/Content/Trangcaidat.css">
+    <script src="~/Scripts/Custom/group.js"></script>
 }
-
-<script>
-    $(document).ready(function () {
-        //Change Avatar
-        $("#imgInpAva").change(function () {
-            var avatarImg = this;
-            if (avatarImg.files && avatarImg.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('.avatar-img').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(avatarImg.files[0]);
-            }
-            var formData = new FormData();
-            formData.append("id", '@Model.id');
-            formData.append("file", avatarImg.files[0]);
-            formData.append("option", 1);
-            $.ajax({
-                type: "POST",
-                url: "@Url.Action("ChangeImage", "Timeline")",
-                data: formData,
-            dataType: 'json',
-            contentType: false,
-            processData: false,
-
-            success: function (result) {
-                alert(result);
-            },
-            error: function (err) {
-                alert(err.statusText);
-            }
-        });
-    });
-    //Change Cover
-    $("#imgInpCover").change(function () {
-        var coverImg = this;
-        if (coverImg.files && coverImg.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('.cover-img').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(coverImg.files[0]);
-        }
-        var formData = new FormData();
-        formData.append("id", '@Model.id');
-        formData.append("file", coverImg.files[0]);
-        formData.append("option", 2);
-        $.ajax({
-            type: "POST",
-            url: "@Url.Action("ChangeImage", "Timeline")",
-            data: formData,
-        dataType: 'json',
-        contentType: false,
-        processData: false,
-
-        success: function (result) {
-            alert(result);
-        },
-        error: function (err) {
-            alert(err.statusText);
-        }
-    });
-    });
-    });
-</script>

@@ -74,10 +74,13 @@ namespace BSNCapstone.Models
 
         public double AvarageRating { get; set; }
 
+        public List<BookCommentViewModel> Comments { get; set; }
+
         public Book()
         {
             //DangVH. Update. Start (14/11/2016)
             //Categories = new List<BookCategoriesViewModel>();
+            Comments = new List<BookCommentViewModel>();
             Publishers = new List<string>();
             Categories = new List<string>();
             RateTime = 0;

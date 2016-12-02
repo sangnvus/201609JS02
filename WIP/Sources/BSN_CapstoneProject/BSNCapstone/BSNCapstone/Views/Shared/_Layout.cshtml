@@ -8,6 +8,7 @@
     <script src="~/Scripts/jquery.min.js"></script>    
     <script src="~/Scripts/capstone-rename-later-v1.0.js"></script>
     <script src="~/Scripts/messenger.js"></script>
+    <script src="~/Scripts/Custom/group-add.js"></script>
     <style>
         #logoutLi:hover {
             text-decoration: none;
@@ -98,7 +99,7 @@
                                     </div>
                                     <h4><b>Miêu tả về nhóm</b></h4>
                                     <div class="form-group">
-                                        <textarea rows="4" style="resize:none; width:100%;" placeholder="Miêu tả"></textarea>
+                                        <textarea rows="4" style="resize:none; width:100%;" placeholder="Miêu tả" id="groupdesc"></textarea>
                                     </div>
                                     <h4><b>Chọn quyền riêng tư</b></h4>
                                     <span id="grouptype-error" style="color: red;"></span>
@@ -117,8 +118,8 @@
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" name="submit" class="btn btn-primary" onclick="CreateGroup()">Thêm</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" name="submit" class="btn btn-primary" onclick="CreateGroup()" data-url="@Url.Action("Create", "Groups")" id="CreateGroupButton">Thêm</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                             </div>
                         </div>
 
@@ -136,78 +137,3 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
-<script>
-    // Create Group
-    function CreateGroup() {
-        var type = $('input[type=radio][name=grouptype]:checked').val();
-        var formData = new FormData();
-        formData.append("groupName", $("#groupname").val());
-        formData.append("groupTag", $("#grouptag").val());
-        formData.append("groupDesc", $("#groupdesc").val());
-        formData.append("groupType", type);
-        $.ajax({
-            type: "POST",
-            url: '@Url.Action("Create", "Groups")',
-            data: formData,
-            dataType: 'json',
-            contentType: false,
-            processData: false,
-
-            success: function (result) {
-                console.log(result.redirectUrl);
-                document.getElementById('groupname-error').innerHTML = null;
-                document.getElementById('groupname').style.border = "1px solid #ccc";
-                document.getElementById('groupname').style.borderRadius = "4px";
-                document.getElementById('grouptag-error').innerHTML = null;
-                document.getElementById('grouptag').style.border = "1px solid #ccc";
-                document.getElementById('grouptag').style.borderRadius = "4px";
-                document.getElementById('grouptype-error').innerHTML = null;
-                $.each(result, function (index, x) {
-                    if (x == "Tên nhóm đã tồn tại") {
-                        document.getElementById('groupname-error').innerHTML = x;
-                        document.getElementById('groupname').style.border = "1px solid red";
-                    }
-                    if (x == "Bạn phải điền tên nhóm") {
-                        document.getElementById('groupname-error').innerHTML = x;
-                        document.getElementById('groupname').style.border = "1px solid red";
-                    }
-                    if (x == "Bạn phải chọn thẻ nhóm") {
-                        document.getElementById('grouptag-error').innerHTML = x;
-                        document.getElementById('grouptag').style.border = "1px solid red";
-                    }
-                    if (x == "Bạn phải chọn thể loại nhóm") {
-                        document.getElementById('grouptype-error').innerHTML = x;
-                    }
-                    if (result.redirectUrl == x) {
-                        window.location.href = x;
-                    }
-                });
-            },
-
-            error: function (err) {
-                alert(err.statusText);
-            }
-        });
-    };
-
-    //Remove all value and effect when close modal
-    $(document).ready(function () {
-        $('#createGroupModal').on('hidden.bs.modal', function (e) {
-            console.log("123");
-            $(this)
-                .find("input,textarea,select,span")
-                    .val('')
-                    .end()
-                .find("input[type=checkbox], input[type=radio]")
-                    .prop("checked", "")
-                    .end();
-            document.getElementById('groupname-error').innerHTML = null;
-            document.getElementById('groupname').style.border = "1px solid #ccc";
-            document.getElementById('groupname').style.borderRadius = "4px";
-            document.getElementById('grouptag-error').innerHTML = null;
-            document.getElementById('grouptag').style.border = "1px solid #ccc";
-            document.getElementById('grouptag').style.borderRadius = "4px";
-            document.getElementById('grouptype-error').innerHTML = null;
-        })
-    });
-</script>
