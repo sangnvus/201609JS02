@@ -8,7 +8,7 @@
     var randomAuthor = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.randomAuthor;
     var randomPublisher = (List<BSNCapstone.Models.Publisher>)ViewBag.randomPublisher;
     var listGroup = (List<BSNCapstone.Models.Group>)ViewBag.listGroup;
- }
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,26 +40,26 @@
                         @foreach (var group in listGroup)
                         {
                             <a href="@Url.Action("MainPage", "Groups", new { id = @group.Id })" data-toggle="tooltip" title="@group.GroupName">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="col-md-1">
-                                        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-1">
+                                            @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                             .Height(20).Width(20).Crop("fill")).BuildImageTag(group.AvaImg,
                                                 new CloudinaryDotNet.StringDictionary("class=img-rounded")))
-                                    </div>
-                                    <div class="col-md-8">
-                                        <li>
-                                            <span>
-                                                @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@group.GroupName.ToLower())
-                                            </span>
-                                        </li>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p>12</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <li>
+                                                <span>
+                                                    @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@group.GroupName.ToLower())
+                                                </span>
+                                            </li>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p>12</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
                         }
                     </ul>
                 </div>
@@ -99,8 +99,8 @@
                                     <a href="@Url.Action("Details", "Books", new { id = @book.BookId })">@book.BookName.ToUpper()</a>
                                 </strong>
                                 <br><i data-toggle="tooltip" title="@book.AuthorName" class="authorname">
-                                        <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@book.AuthorName.ToLower())</strong> 
-                                    </i>
+                                    <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@book.AuthorName.ToLower())</strong>
+                                </i>
                             </span>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
                 <div class="row">
                     <!---------PHẦN NHẬP NỘI DUNG BÀI POST VÀ TAG SÁCH------------>
                     <div class="col-md-12">
-                        <div class="post-card" style="padding-top: 2px;">
+                        <div class="post-card" style="background-color: white;">
                             <!--TextBox để nhập nội dung post-->
                             <textarea class="write-post" placeholder="Bạn đang nghĩ gì ?"
                                       id="txtPostContent" data-bind="value: newMessage"></textarea>
@@ -142,11 +142,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <!------------------------HIỂN THỊ CÁC BÀI POST-------------------------->
-                <ul id="msgHolder" data-bind="foreach: posts">
-                    <div class="col-md-12" style="margin-top: 5px; padding-top:5%;">
-                        <div class="post-card" style="padding-top: 5%; padding: 5px 15px">
+
+                    <!------------------------HIỂN THỊ CÁC BÀI POST-------------------------->
+
+                    <div class="col-md-12" style="margin-top: 7px; " id="msgHolder" data-bind="foreach: posts">
+                        <div class="post-card" style="padding-top: 5%;  padding: 5px 15px">
                             <div class="row">
                                 <div class="col-md-12">
                                     <!--Hiển thị thông tin người dùng-->
@@ -156,15 +156,14 @@
                                             <div class="owner-avatar">
                                                 <img data-bind="attr: { src : PostedByAvatar }" />
                                             </div>
-
                                             <div class="owner-info">
                                                 <!--Tên người dùng-->
                                                 <div class="row">
-                                                    <div class="col-md-12">
+                                                    <div class="col-md-6">
                                                         <a class="owner-name" data-bind="text : PostedBy"></a>
                                                     </div>
                                                     <!--Drop down list gồm chức năng sửa và xóa post-->
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 pull-right">
                                                         <button type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             <span class="fa fa-angle-down"></span>
                                                         </button>
@@ -197,7 +196,7 @@
                                         <div class="col-md-6 col-sm-12">
                                         </div>
                                         <!--Các button để tương tác với post-->
-                                        <div style="text-align: left;">
+                                        <div class="col-md-6 col-sm-12" style="text-align: right;">
                                             <ul class="interaction-list">
                                                 <!--Nút thích-->
                                                 <li>
@@ -208,19 +207,17 @@
                                                         <span>Thích</span>
                                                     </button>
                                                 </li>
-                                                <!--Nút chia sẻ-->
-                                                <li>
-                                                    <button class="post-interaction-btn" data-toggle="modal" data-target="#ModalShare" style="color:chocolate">
-                                                        <i class="glyphicon glyphicon-share"></i><span>Chia sẻ</span>
-                                                    </button>
-                                                </li>
+
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="divider-horizontal"></div>
 
                                     <!--Notify của phần comment-->
-                                    <a data-bind="click: loadNewComments">load new cmt</a>
+                                    <div class="col=md-12">
+                                        <a data-bind="click: loadNewComments">load new cmt</a>
+                                    </div>
+
 
                                     <!--Ô ĐỂ NHẬP BÌNH LUẬN-->
                                     <div>
@@ -232,10 +229,15 @@
                                                         <img src="/Images/profileimages/user.png" style="width:40px;height:40px" />
                                                     </div>
                                                     <div class="owner-info">
-                                                        <!--Textbox để viết bình luận-->
-                                                        <textarea class="form-control" data-bind="value: newCommentMessage" placeholder="Viết bình luận..."></textarea>
-                                                        <!--Button để bình luận-->
-                                                        <input type="button" class="btn btn-warning" value="Bình luận" data-bind="click: addComment" />
+                                                        <div class="pull-left form-inline">
+                                                            <!--Textbox để viết bình luận-->
+                                                            <input type="text" class="form-control" style="width:150%;height:30px" data-bind="value: newCommentMessage" placeholder="Viết bình luận..."></input>
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <!--Button để bình luận-->
+                                                            <input type="button" class="btn btn-warning" value="Bình luận" data-bind="click: addComment" />
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -251,15 +253,21 @@
 
                                                         @*<div class="row">*@
                                                         <div class="owner-info">
-                                                            <!--Tên người cmt-->
-                                                            <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>
-                                                            <!--Nội dung cmt-->
-                                                            <span data-bind="    html: Message"></span>
+                                                            <div class="row">
+                                                                <div class="col-md-1">
+                                                                    <!--Tên người cmt-->
+                                                                    <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>
+                                                                </div>
+                                                                <div class="col-md-11">
+                                                                    <!--Nội dung cmt-->
+                                                                    <span data-bind="    html: Message"></span>
+                                                                </div>
 
+                                                            </div>
                                                         </div>
                                                         <!--Drop down list gồm chức năng sửa và xóa cmt-->
-                                                        <div>
-                                                            <button type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <div class="pull-right">
+                                                            <button style="background-color: #f1f1f1;" type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                 <span class="fa fa-angle-down"></span>
                                                             </button>
                                                             <ul class="dropdown-menu">
@@ -273,7 +281,7 @@
                                                         </div>
                                                         @*</div>*@
                                                         <!--Các chức năng tương tác với comment-->
-                                                        <ul class="interaction-list">
+                                                        <ul class="interaction-list" style="padding-left: 8%;">
                                                             <li>
                                                                 <button class="post-interaction-btn">
                                                                     <i class="glyphicon glyphicon-thumbs-up"></i>
@@ -298,8 +306,11 @@
                             </div>
                         </div>
                     </div>
-                </ul>
+
+                </div>
+
             </div>
+
 
             <!--------------------------------Phần bên phải------------------------------------->
             @*HaiCM. Create. Start. 19-11-2016*@
@@ -340,52 +351,51 @@
                                         <a href="@Url.Action("Details", "Books", new { id = @hotBook.BookId })">@hotBook.BookName.ToUpper()</a>
                                     </strong>
                                     <br><i data-toggle="tooltip" title="@hotBook.AuthorName" class="authorname">
-                                            <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@hotBook.AuthorName.ToLower())</strong> 
-                                        </i>
+                                        <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@hotBook.AuthorName.ToLower())</strong>
+                                    </i>
                                 </span>
                             </div>
                         </div>
                     }
                     <!--VÒNG FOR KẾT THÚC Ở ĐÂY-->
-                        <div id="myRecommendation" class="modal fade" role="dialog">
-                            <div class="modal-dialog modal-lg">
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div style="background-color: #F7E8AF;" class="modal-header clearfix">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <h3 class="modal-title"><a style="padding-left: 18%;" href="http://127.0.0.1:7211/Sach.html" class="modal-title on-story-details"><b>TOTTO CHAN BÊN CỬA SỔ</b></a></h3>
-                                            </div>
-                                            <div class="col-md-6">
+                    <div id="myRecommendation" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div style="background-color: #F7E8AF;" class="modal-header clearfix">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h3 class="modal-title"><a style="padding-left: 18%;" href="http://127.0.0.1:7211/Sach.html" class="modal-title on-story-details"><b>TOTTO CHAN BÊN CỬA SỔ</b></a></h3>
+                                        </div>
+                                        <div class="col-md-6">
 
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            </div>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div>
                                     </div>
-                                    <div class="modal-body clearfix">
-                                        <div class="content">
-                                            <div class="row">
-                                                <div class="col-md-1" style="margin-top: 5px;">
-                                                    <img src="/AnhAvaNguoiDung/avaVan.jpg" style="width:50px;height:50px" />
-                                                </div>
-                                                <div class="col-md-11">
-                                                    <div class="post-card" style="padding-top: 2px;">
-                                                        <textarea class="write-post" placeholder="Bạn đang nghĩ gì ?"></textarea>
-                                                        <div class="divider-horizontal"></div>
-                                                        <div class="row" style="padding: 5px 15px;">
-                                                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                                                <div class="tag-area">
-                                                                    <ul class="list-book-tag">
-                                                                        <li>
-                                                                            <span>#Tottochanbencuaso</span>
-                                                                            <i class="glyphicon glyphicon-remove"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
+                                </div>
+                                <div class="modal-body clearfix">
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-md-1" style="margin-top: 5px;">
+                                                <img src="/AnhAvaNguoiDung/avaVan.jpg" style="width:50px;height:50px" />
+                                            </div>
+                                            <div class="col-md-11">
+                                                <div class="post-card" style="padding-top: 2px;">
+                                                    <textarea class="write-post" placeholder="Bạn đang nghĩ gì ?"></textarea>
+                                                    <div class="divider-horizontal"></div>
+                                                    <div class="row" style="padding: 5px 15px;">
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="tag-area">
+                                                                <ul class="list-book-tag">
+                                                                    <li>
+                                                                        <span>#Tottochanbencuaso</span>
+                                                                        <i class="glyphicon glyphicon-remove"></i>
+                                                                    </li>
+                                                                </ul>
                                                             </div>
-                                                            <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
-                                                                <button id="buttonPost" style="background-color: #224A86" class="btn btn-default">Đăng</button>
-                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
+                                                            <button id="buttonPost" style="background-color: #224A86" class="btn btn-default">Đăng</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -396,17 +406,18 @@
                             </div>
                         </div>
                     </div>
-                    <br>
-                    <br>
-                    <!-- Kết thúc phần trending now -->
-                    <!--  Bắt đầu phần tác giả -->
-                    <div class="row">
-                        <div class="text-left" class="panel-heading">
-                            <h5><strong>TÁC GIẢ</strong></h5>
-                        </div>
-                        @foreach (var author in randomAuthor)
-                        {
-                            <div class="col-md-6" style="padding-left:10px;">
+                </div>
+                <br>
+                <br>
+                <!-- Kết thúc phần trending now -->
+                <!--  Bắt đầu phần tác giả -->
+                <div class="row">
+                    <div class="text-left" class="panel-heading">
+                        <h5><strong>TÁC GIẢ</strong></h5>
+                    </div>
+                    @foreach (var author in randomAuthor)
+                    {
+                        <div class="col-md-6" style="padding-left:10px;">
                             <div class="col-md-6" style="padding-left:0;">
                                 @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                     .Height(117).Width(90).Crop("fill")).BuildImageTag(author.Avatar,
@@ -423,47 +434,53 @@
                                             <a href="@Url.Action("Details", "Timeline", new { id = @author.Id })">
                                                 @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.UserName.ToLower())
                                             </a>
-                                        </strong> 
+                                        </strong>
                                     </i>
                                 </ul>
                             </div>
                         </div>
-                        }
-                    </div>
-                    <!--  Kết thúc phần tác giả -->
-                    <!--  Bắt đầu phần nhà xuất bản -->
-                    <br>
-                    <div class="text-left" class="panel-heading">
-                        <h5><strong>NHÀ XUẤT BẢN</strong></h5>
-                    </div>
-                    <div class="row">
-                        @foreach (var publisher in randomPublisher)
-                        {
-                            <div class="col-md-6" style="padding-left:10px; margin-top:10px;">
-                                <div class="col-md-6" style="padding-left:0">
-                                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                    }
+                </div>
+                <!--  Kết thúc phần tác giả -->
+                <!--  Bắt đầu phần nhà xuất bản -->
+                <br>
+                <div class="text-left" class="panel-heading">
+                    <h5><strong>NHÀ XUẤT BẢN</strong></h5>
+                </div>
+                <div class="row">
+                    @foreach (var publisher in randomPublisher)
+                    {
+                        <div class="col-md-6" style="padding-left:10px; margin-top:10px;">
+                            <div class="col-md-6" style="padding-left:0">
+                                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                         .Height(117).Width(90).Crop("fill")).BuildImageTag(publisher.ImagePublicId,
                                             new CloudinaryDotNet.StringDictionary("class=img-rounded")))
-                                </div>
-                                <ul class="list-group">
-                                    <h6 data-toggle="tooltip" title="@publisher.Name">@publisher.Name</h6>
-                                </ul>
-                                <fieldset class="pull-right">
-                                    <i id="star" class="glyphicon glyphicon-star"></i>
-                                    <i id="star" class="glyphicon glyphicon-star"></i>
-                                    <i id="star" class="glyphicon glyphicon-star"></i>
-                                    <i id="star" class="glyphicon glyphicon-star"></i>
-                                    <i id="star" class="glyphicon glyphicon-star"></i>
-                                </fieldset>
                             </div>
-                        }
-                    </div>
-                    <!--  Kết thúc phần tác giả  -->
+                            <ul class="list-group">
+                                <h6 data-toggle="tooltip" title="@publisher.Name">@publisher.Name</h6>
+                            </ul>
+                            <fieldset class="pull-right">
+                                <i id="star" class="glyphicon glyphicon-star"></i>
+                                <i id="star" class="glyphicon glyphicon-star"></i>
+                                <i id="star" class="glyphicon glyphicon-star"></i>
+                                <i id="star" class="glyphicon glyphicon-star"></i>
+                                <i id="star" class="glyphicon glyphicon-star"></i>
+                            </fieldset>
+                        </div>
+                    }
                 </div>
+                <!--  Kết thúc phần tác giả  -->
             </div>
-            @*HaiCM. Create. End. 19-11-2016*@
-            <!--------------------------------Hết phần bên phải------------------------------------->
+
+            <!--
+                            <p class="text-right">
+                                <button type="button" class="btn btn-link">Xem thêm </button>
+                            </p>
+            -->
         </div>
+        @*HaiCM. Create. End. 19-11-2016*@
+        <!--------------------------------Hết phần bên phải------------------------------------->
+    </div>
 </body>
 </html>
 
