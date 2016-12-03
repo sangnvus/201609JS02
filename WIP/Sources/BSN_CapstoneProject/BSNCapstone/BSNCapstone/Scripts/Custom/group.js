@@ -1,4 +1,23 @@
-﻿function GroupRequestHandle(groupId, userId, option) {
+﻿function Lock(groupId) {
+    var url = $("#LockButton").data('url');
+    console.log("abc");
+    var formData = new FormData();
+    formData.append("id", groupId);
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: formData,
+        dataType: 'json',
+        contentType: false,
+        processData: false,
+
+        success: function (result) {
+            window.location.reload();
+        }
+    });
+};
+
+function GroupRequestHandle(groupId, userId, option) {
     var url = $("#GroupHandleRequestUrl").data('url');
     var formData = new FormData();
     formData.append("groupId", groupId);

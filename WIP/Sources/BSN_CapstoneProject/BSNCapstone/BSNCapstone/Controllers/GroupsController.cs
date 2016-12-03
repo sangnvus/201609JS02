@@ -20,11 +20,15 @@ namespace BSNCapstone.Controllers
         private readonly CloudinaryDotNet.Cloudinary cloudinary = ImageUploadHelper.GetCloudinaryAccount();
         //
         // GET: /Groups/
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             ViewBag.groupNumber = GroupsControllerHelper.GetGroupNumber();
             ViewBag.groupJustCreated = GroupsControllerHelper.GetGroupJustCreatedNumber();
             var groups = Context.Groups.Find(_ => true).ToEnumerable();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                groups = groups.Where(x => x.GroupName.Contains(searchString) || x.Tag.Contains(searchString));
+            }
             return View(groups);
         }
 
@@ -55,7 +59,14 @@ namespace BSNCapstone.Controllers
             ViewBag.cloudinary = cloudinary;
             ViewBag.currentUser = User.Identity.GetUserId();
             var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
-            return View(group);
+            if (group.Locked == true)
+            {
+                return RedirectToAction("LockedPage", "Home");
+            }
+            else
+            {
+                return View(group);
+            }
         }
 
         //

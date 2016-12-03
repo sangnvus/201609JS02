@@ -45,10 +45,13 @@ namespace BSNCapstone.Models
 
        public List<string> Interacbook { get; set; }
 
+       public bool AuthorConfirmed { get; set; }
+
        public ApplicationUser()
        {
            Follower = new List<string>();
            Following = new List<string>();
+           AuthorConfirmed = false;
        }
     }
 

@@ -1,7 +1,7 @@
 ﻿@model BSNCapstone.Models.Book
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
     <!--DangVH. Create. Start (02/11/2016)-->
     var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
     <!--DangVH. Create. End (02/11/2016)-->
@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+@*<head>
     <title>Admin-Book</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,155 +26,121 @@
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <link rel="stylesheet" href="~/Content/font-awesome.css">
-</head>
+</head>*@
 
 <body>
-    <!--------------DƯỚI NAV----------------->
-    <div class="col-md-12">
-        <!------BÊN TRÁI------>
-        <div class="col-md-2">
-            <div class="row">
-                <div class="thumbnail">
-                    <img src="Anhtacgia/nguy%E1%BB%85n%20nh%E1%BA%ADt%20%C3%A1nh_tacgia.jpg" alt="Quản trị viên">
-                    <div class="caption">
-                        <h4>HảiCM (Admin)</h4>
-                    </div>
-                </div>
+    <!------BÊN PHẢI------>
+    <div class="col-md-10">
+
+        <div class="box">
+            <div class="box-icon">
+                <span class="fa fa-book fa-4x"></span>
             </div>
-            <div class="btn-group-vertical" role="group" aria-label="group">
-                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Dashboard.html'">Tổng quan</button>
-                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-User.html'">Quản lý người dùng</button>
-                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Author.html'">Quản lý tác giả</button>
-                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Group.html'">Quản lý Nhóm</button>
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-default dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Quản lý sách <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li class="active"><a href="TrangAdmin-Book.html">Thống kê sách</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="TrangAdmin-Requestbook.html">Yêu cầu thêm sách</a></li>
-                    </ul>
-                </div>
-                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Slider.html'">Quản lý Slider</button>
-                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-NXB.html'">Quản lý Nhà xuất bản</button>
-                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Report.html'">Quản lý Phản hồi</button>
+            <div class="info">
+                <h4 class="text-center">Tổng số sách</h4>
+                <p>@bookNumber</p>
             </div>
         </div>
-        <!------BÊN PHẢI------>
-        <div class="col-md-10">
 
-            <div class="box">
-                <div class="box-icon">
-                    <span class="fa fa-book fa-4x"></span>
+        <div class="slide-tab">
+            <div class="form-inline">
+                <label>Sửa Sách</label>
+                <div class="form-group add">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Thêm thể loại</button>
                 </div>
-                <div class="info">
-                    <h4 class="text-center">Tổng số sách</h4>
-                    <p>@bookNumber</p>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog addCategory">
+                        <!---Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Thêm thể loại</h4>
+                            </div>
+                            <div class="midle-modal">
+                                <div class="row content col-xs-12 form-area" style="margin-top:10px;">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="categoryname" name="categoryname" placeholder="Tên thể loại" required>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="createCategory" name="submit" class="btn btn-primary">Thêm</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="slide-tab">
-                <div class="form-inline">
-                    <label>Sửa Sách</label>
-                    <div class="form-group add">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Thêm thể loại</button>
-                    </div>
-                    <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog addCategory">
-                            <!---Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Thêm thể loại</h4>
-                                </div>
-                                <div class="midle-modal">
-                                    <div class="row content col-xs-12 form-area" style="margin-top:10px;">
-                                        <form role="form">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="categoryname" name="categoryname" placeholder="Tên thể loại" required>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" id="createCategory" name="submit" class="btn btn-primary">Thêm</button>
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>
-                                </div>
-                            </div>
+            <div class="divider-horizontal"></div>
+            <div class="form-area-editbook" style="margin-top:10px;">
+                @using (Html.BeginForm("Edit", "Books", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.Id)
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BookName, new { @class = "control-label col-md-2" })
+                        <div>
+                            @Html.TextBoxFor(model => model.BookName, new { @class = "form-control", @style = "width: 40%;" })
+                            @Html.ValidationMessageFor(model => model.BookName, "", new { @class = "text-danger", @style = "margin-left: 26.3%;" })
                         </div>
                     </div>
-                </div>
-                <div class="divider-horizontal"></div>
-                <div class="form-area-editbook" style="margin-top:10px;">
-                    @using (Html.BeginForm("Edit", "Books", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true)
-                        @Html.HiddenFor(model => model.Id)
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.BookName, new { @class = "control-label col-md-2" })
-                            <div>
-                                @Html.TextBoxFor(model => model.BookName, new { @class = "form-control", @style = "width: 40%;" })
-                                @Html.ValidationMessageFor(model => model.BookName, "", new { @class = "text-danger" })
-                            </div>
+                    <!--DangVH. Create. Start (02/11/2016)-->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ImgPublicId, new { @class = "control-label col-md-2" })
+                        <div>
+                            @Html.HiddenFor(model => model.ImgPublicId)
+                            @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                            .Height(130).Width(130).Crop("fill")).BuildImageTag(Model.ImgPublicId,
+                            new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
+                            <input type="file" id="ImgPublicId" name="img" style="color: black; float: left; margin-bottom: 20px; margin-left: 26.3%;">
                         </div>
-                        <!--DangVH. Create. Start (02/11/2016)-->
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ImgPublicId, new { @class = "control-label col-md-2" })
-                            <div>
-                                @Html.HiddenFor(model => model.ImgPublicId)
-                                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
-                                .Height(130).Width(130).Crop("fill")).BuildImageTag(Model.ImgPublicId,
-                                new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
-                                <input type="file" id="ImgPublicId" name="img" style="color: black; float: left; margin-bottom: 20px; margin-left: 26.3%;">
-                            </div>
+                    </div>
+                    <!--DangVH. Create. End (02/11/2016)-->
+                    <div class="form-group" style="clear:both;">
+                        @Html.LabelFor(model => model.Authors, new { @class = "control-label col-md-2" })
+                        <div>
+                            @Html.TextBoxFor(model => model.Authors, new { @class = "form-control", @style = "width: 40%;"})
+                            @Html.ValidationMessageFor(model => model.Authors, "", new { @class = "text-danger", @style = "margin-left: 26.3%;" })
                         </div>
-                        <!--DangVH. Create. End (02/11/2016)-->
-                        <div class="form-group" style="clear:both;">
-                            @Html.LabelFor(model => model.Authors, new { @class = "control-label col-md-2" })
-                            <div>
-                                @Html.TextBoxFor(model => model.Authors, new { @class = "form-control", @style = "width: 40%;"})
-                                @Html.ValidationMessageFor(model => model.Authors, "", new { @class = "text-danger" })
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ReleaseDay, new { @class = "control-label col-md-2" })
+                        <div>
+                            @Html.EditorFor(model => model.ReleaseDay, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ReleaseDay, "", new { @class = "text-danger" })
                         </div>
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ReleaseDay, new { @class = "control-label col-md-2" })
-                            <div>
-                                @Html.EditorFor(model => model.ReleaseDay, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ReleaseDay, "", new { @class = "text-danger" })
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Publishers, new { @class = "control-label col-md-2" })
+                        <div>
+                            @Html.ListBox("Publishers", ViewBag.publisherId as MultiSelectList, new { @class = "chzn-select", @data_placeholder = "Chọn NXB...", @style = "width: 40%;" })
+                            <br />
+                            @Html.ValidationMessageFor(model => model.Publishers, "", new { @class = "text-danger" })
                         </div>
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Publishers, new { @class = "control-label col-md-2" })
-                            <div>
-                                @Html.ListBox("Publishers", ViewBag.publisherId as MultiSelectList, new { @class = "chzn-select", @data_placeholder = "Chọn NXB...", @style = "width: 40%;" })
-                                @Html.ValidationMessageFor(model => model.Publishers, "", new { @class = "text-danger" })
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Categories, new { @class = "control-label col-md-2" })
+                        <div>
+                            @Html.ListBox("Categories", ViewBag.categoryId as MultiSelectList, new { @class = "chzn-select", @data_placeholder = "Chọn thể loại...", @style = "width: 40%;" })
+                            <br />
+                            @Html.ValidationMessageFor(model => model.Categories, "", new { @class = "text-danger" })
                         </div>
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Categories, new { @class = "control-label col-md-2" })
-                            <div>
-                                @*@Html.EditorFor(model => model.Categories, new { @class = "form-control" })*@
-                                @Html.ListBox("Categories", ViewBag.categoryId as MultiSelectList, new { @class = "chzn-select", @data_placeholder = "Chọn thể loại...", @style = "width: 40%;" })
-                                @Html.ValidationMessageFor(model => model.Categories, "", new { @class = "text-danger" })
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+                        <div>
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @style = "resize: none; width: 40%;" })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                         </div>
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
-                            <div>
-                                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @style = "resize: none; width: 40%;" })
-                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                            </div>
-                            @Html.HiddenFor(model => model.RatingPoint)
-                            @Html.HiddenFor(model => model.RateTime)
-                        </div>
-                        <div class="form-group" style="margin-top: 10px; text-align: center;">
-                            <input type="submit" value="Lưu" class="btn btn-primary" />
-                            <button type="button" id="cancel" name="cancel" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Books")'">Hủy</button>
-                        </div>
-                    }
-                </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 10px; text-align: center;">
+                        <input type="submit" value="Lưu" class="btn btn-primary" />
+                        <button type="button" id="cancel" name="cancel" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Books")'">Hủy</button>
+                    </div>
+                }
             </div>
         </div>
     </div>

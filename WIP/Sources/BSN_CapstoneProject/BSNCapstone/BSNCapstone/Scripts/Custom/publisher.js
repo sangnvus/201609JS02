@@ -1,4 +1,5 @@
 ﻿function UploadPublisher() {
+    var url = $("#UploadPublisher").data('url');
     var formData = new FormData();
     var totalFiles = document.getElementById("pubImage").files.length;
     for (var i = 0; i < totalFiles; i++) {
@@ -10,7 +11,7 @@
     formData.append("pubPhoneNo", $("#pubPhoneNo").val());
     $.ajax({
         type: "POST",
-        url: "Upload/Publisher",
+        url: url,
         data: formData,
         dataType: 'json',
         contentType: false,
@@ -27,13 +28,14 @@
 }
 
 function DeletePublisher(id, i) {
+    var url = $("#DeletePublisher").data('url');
     var deleteConfirm = confirm("Bạn có chắc chắn muốn xóa nhà xuất bản này? ");
     if (deleteConfirm) {
         var formData = new FormData();
         formData.append("id", id);
         $.ajax({
             type: "POST",
-            url: "Delete/Publisher",
+            url: url,
             data: formData,
             dataType: 'json',
             contentType: false,

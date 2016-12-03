@@ -162,7 +162,7 @@ namespace BSNCapstone.App_Start
                 //{
                 //    return client.SendMailAsync(email);
                 //}
-
+                
                 var client = new SmtpClient();
                 client.SendCompleted += (s, e) =>
                 {

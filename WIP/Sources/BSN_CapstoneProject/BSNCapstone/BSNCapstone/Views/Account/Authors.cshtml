@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BSNCapstone.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Admin-Tác giả";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
+}
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+<body>
+    <!------BÊN PHẢI------>
+    <div class="col-md-10">
+        <div class="slide-tab">
+            <div class="form-inline">
+                <label>Danh sách Tác giả</label>
+                <div class="form-group add">
+                @using (Html.BeginForm("Authors", "Account", FormMethod.Get, new { @class = "searchForm" }))
+                {
+                    @Html.TextBox("searchString")
+                    <input type="submit" value="Tìm" />
+                }
+                    @*<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Tìm kiếm..." />*@
+                </div>
+            </div>
+            <div class="divider-horizontal"></div>
+            <div class="table">
+                <table class="table table-striped table-bordered table-hover" id="dev-table">
+                    <thead>
+                        <tr>
+                            <th style="width:1px">#</th>
+                            <th>Tên tác giả</th>
+                            <th>Email</th>
+                            <th>Hình ảnh</th>
+                            <th style="width:130px">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var item in Model) {
+                            <tr class="tab-content">
+                                <th>1</th>
+                                <th>@Html.DisplayFor(modelItem => item.UserName)</th>
+                                <th>@Html.DisplayFor(modelItem => item.Email)</th>
+                                <th>
+                                    @cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                        .Height(130).Width(130).Crop("fill")).BuildImageTag(item.SSNImgId,
+                                            new CloudinaryDotNet.StringDictionary("class=thumbnail inline"))
+                                </th>
+                                <th>
+                                    <div class="hidden" id="AuthorConfirm" data-url="@Url.Action("AuthorConfirm", "Account")"></div>
+                                    @if (item.AuthorConfirmed == false)
+                                    {
+                                                
+                                        <button type="submit" class="btn btn-default" onclick="AuthorConfirm('@item.Id')">Xác nhận</button>
+                                    }
+                                    else
+                                    {
+                                        <button type="submit" class="btn btn-default">Đã Xác nhận</button>
+                                    }
+                                </th>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-------NÚT SANG TRANG------->
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    <script src="~/Scripts/Custom/account-manage.js"></script>
+}

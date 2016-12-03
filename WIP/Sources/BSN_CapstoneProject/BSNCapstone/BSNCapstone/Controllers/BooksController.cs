@@ -43,7 +43,7 @@ namespace BSNCapstone.Controllers
         public ActionResult Index(string searchString)
         {
             //DangVH. Create. Start (02/11/2016)
-            ViewBag.currentUser = User.Identity.GetUserName();
+            ViewBag.currentUser = Context.Users.Find(x => x.Id.Equals(new ObjectId(User.Identity.GetUserId()))).FirstOrDefault();
             ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
             //DangVH. Create. End (02/11/2016)
             ViewBag.allCategories = BooksControllerHelper.ListAllCategory();
@@ -131,6 +131,14 @@ namespace BSNCapstone.Controllers
                     ModelState.AddModelError("BookName", "Tên sách đã tồn tại");
                 }
             }
+            if (book.Categories.Count == 0)
+            {
+                ModelState.AddModelError("Categories", "Thể loại sách bắt buộc");
+            }
+            if (book.Publishers.Count == 0)
+            {
+                ModelState.AddModelError("Publishers", "Nhà xuất bản bắt buộc");
+            }
             if (ModelState.IsValid)
             {
                 var uploadResult = ImageUploadHelper.GetUploadResult(file);
@@ -192,13 +200,24 @@ namespace BSNCapstone.Controllers
         public ActionResult Edit(Book book)
         {
             var listBook = Context.Books.Find(_ => true).ToList();
-            foreach (var eachBook in listBook)
+            if (book.BookName != null)
             {
-                if (eachBook.BookName.ToLower().Equals(book.BookName.ToLower()) && 
-                    listBook.Find(x => x.BookName.ToLower().Equals(book.BookName.ToLower())).Id != book.Id)
+                foreach (var eachBook in listBook)
                 {
-                    ModelState.AddModelError("BookName", "Tên sách đã tồn tại");
+                    if (eachBook.BookName.ToLower().Equals(book.BookName.ToLower()) &&
+                        listBook.Find(x => x.BookName.ToLower().Equals(book.BookName.ToLower())).Id != book.Id)
+                    {
+                        ModelState.AddModelError("BookName", "Tên sách đã tồn tại");
+                    }
                 }
+            }
+            if (book.Categories.Count == 0)
+            {
+                ModelState.AddModelError("Categories", "Thể loại sách bắt buộc");
+            }
+            if (book.Publishers.Count == 0)
+            {
+                ModelState.AddModelError("Publishers", "Nhà xuất bản bắt buộc");
             }
             if (ModelState.IsValid)
             {

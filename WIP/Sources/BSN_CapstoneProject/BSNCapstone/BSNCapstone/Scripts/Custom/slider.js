@@ -1,4 +1,5 @@
 ﻿function Upload() {
+    var url = $("#Upload").data('url');
     var formData = new FormData();
     var totalFiles = document.getElementById("slide").files.length;
     for (var i = 0; i < totalFiles; i++) {
@@ -8,7 +9,7 @@
     formData.append("desc", $("#description").val());
     $.ajax({
         type: "POST",
-        url: "Upload/Slider",
+        url: url,
         data: formData,
         dataType: 'json',
         contentType: false,
@@ -26,13 +27,14 @@
 
 
 function Delete(id, i) {
+    var url = $("Delete").data('url');
     var deleteConfirm = confirm("Bạn có chắc chắn muốn xóa slide này không? ");
     if (deleteConfirm) {
         var formData = new FormData();
         formData.append("id", id);
         $.ajax({
             type: "POST",
-            url: "DeleteConfirmed/Slider",
+            url: url,
             data: formData,
             dataType: 'json',
             contentType: false,

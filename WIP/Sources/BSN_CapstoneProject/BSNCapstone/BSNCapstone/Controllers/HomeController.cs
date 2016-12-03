@@ -61,6 +61,8 @@ namespace BSNCapstone.Controllers
             return View(user);
         }
 
-
+        public ActionResult LockedPage() {
+            return View();
+        }
     }
 }

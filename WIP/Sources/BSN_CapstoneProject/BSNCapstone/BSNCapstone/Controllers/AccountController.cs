@@ -12,6 +12,7 @@ using BSNCapstone.Models;
 using BSNCapstone.App_Start;
 using BSNCapstone.ControllerHelpers;
 using BSNCapstone.ViewModels;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace BSNCapstone.Controllers
@@ -145,7 +146,12 @@ namespace BSNCapstone.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Register.UserName, Email = model.Register.Email,Avatar=Common.Constant.DefaultAvatarLink,Cover = Common.Constant.DefaultCoverLink};
+                var user = new ApplicationUser { 
+                    UserName = model.Register.UserName, 
+                    Email = model.Register.Email,
+                    Avatar=Common.Constant.DefaultAvatarLink,
+                    Cover = Common.Constant.DefaultCoverLink
+                };
                 var result = await UserManager.CreateAsync(user, model.Register.Password);
                 if (result.Succeeded)
                  {
@@ -181,8 +187,13 @@ namespace BSNCapstone.Controllers
                 var file = Request.Files[0];
             
                 var uploadResult = ImageUploadHelper.GetUploadResult(file);
-
-                var user = new ApplicationUser { UserName = model.AuthorRegister.UserName, Email = model.AuthorRegister.Email, SSNImgId = uploadResult.PublicId, Avatar = Common.Constant.DefaultAvatarLink, Cover = Common.Constant.DefaultCoverLink};
+                var user = new ApplicationUser { 
+                    UserName = model.AuthorRegister.UserName, 
+                    Email = model.AuthorRegister.Email, 
+                    SSNImgId = uploadResult.PublicId, 
+                    Avatar = Common.Constant.DefaultAvatarLink, 
+                    Cover = Common.Constant.DefaultCoverLink
+                };
                 var result = await UserManager.CreateAsync(user, model.AuthorRegister.Password);
                 if (result.Succeeded)
                 {
@@ -628,5 +639,51 @@ namespace BSNCapstone.Controllers
             }
         }
         #endregion
+
+        //GET: /Account/Users
+        public ActionResult Users(string searchString)
+        {
+            var users = Context.Users.Find(x => x.Roles.Contains("user")).ToEnumerable();
+            ViewBag.cloudiray = cloudinary;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                users = users.Where(x => x.UserName.Contains(searchString) || x.Email.Contains(searchString));
+            }
+            return View(users);
+        }
+
+
+        //GET: /Account/Authors
+        public ActionResult Authors(string searchString)
+        {
+            var authors = Context.Users.Find(x => x.Roles.Contains("author")).ToEnumerable();
+            ViewBag.cloudinary = cloudinary;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                authors = authors.Where(x => x.UserName.Contains(searchString) || x.Email.Contains(searchString));
+            }
+            return View(authors);
+        }
+
+        ////POST: /Account/AuthorConfirm/id
+        //[HttpPost]
+        //public async Task<ActionResult> AuthorConfirm(string id)
+        //{
+        //    var update = new BsonDocument("$set", new BsonDocument("AuthorConfirmed", true));
+        //    var result = await Context.Users.UpdateOneAsync(x => x.Id.Equals(new ObjectId(id)), update);
+        //    Console.Write(result);
+        //    var confirmedAuthor = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+        //    if (confirmedAuthor.AuthorConfirmed == true)
+        //    {
+        //        var code = await UserManager.GenerateEmailConfirmationTokenAsync(confirmedAuthor.Id);
+        //        var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = confirmedAuthor.Id, code = code }, protocol: Request.Url.Scheme);
+        //        await UserManager.SendEmailAsync(confirmedAuthor.Id, "[BookAholic]Xác Nhận Tài Khoản", "Chào mừng bạn đã đến với mạng xã hội sách BookAholic <p> Xin vui lòng click vào link để xác nhận tài khoản của bạn</p>: <a href=\"" + callbackUrl + "\">Xác Nhận tài khoản</a>");
+        //        //ViewBag.Link = callbackUrl;
+        //        //ViewBag.Message = "Kiểm tra Email để xác nhận tài khoản của bạn, bạn phải xác nhận tài khoản trước khi Đăng Nhập";
+        //        //return View("DisplayEmail");
+        //        return Json("a");
+        //    }
+        //    return Json("Successed");
+        //}
     }
 }

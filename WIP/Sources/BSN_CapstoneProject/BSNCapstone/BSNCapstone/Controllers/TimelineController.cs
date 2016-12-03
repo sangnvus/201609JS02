@@ -75,13 +75,20 @@ namespace BSNCapstone.Controllers
         public async Task<ActionResult> EditProfile(UserProfile user1)
         {
             var allUser = Context.Users.Find(_ => true).ToList();
-            foreach (var user in allUser)
+            if (user1.UserName != null)
             {
-                if (user.UserName.ToLower().Equals(user1.UserName.ToLower()) &&
-                    allUser.Find(x => x.UserName.ToLower().Equals(user1.UserName.ToLower())).Id != user1.id)
+                foreach (var user in allUser)
                 {
-                    ModelState.AddModelError("UserName", "Tên đã tồn tại");
+                    if (user.UserName.ToLower().Equals(user1.UserName.ToLower()) &&
+                        allUser.Find(x => x.UserName.ToLower().Equals(user1.UserName.ToLower())).Id != user1.id)
+                    {
+                        ModelState.AddModelError("UserName", "Tên đã tồn tại");
+                    }
                 }
+            }
+            if (user1.DOB == null)
+            {
+                ModelState.AddModelError("DOB", "Ngày sinh không được để trống");
             }
             if (ModelState.IsValid)
             {

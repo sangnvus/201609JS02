@@ -1,0 +1,81 @@
+﻿@using Microsoft.AspNet.Identity
+@using BSNCapstone.ControllerHelpers
+@using BSNCapstone.App_Start
+@using MongoDB.Driver
+@{
+    CloudinaryDotNet.Cloudinary cloudinary = ImageUploadHelper.GetCloudinaryAccount();
+    ApplicationIdentityContext Context = ApplicationIdentityContext.Create();
+    var user = Context.Users.Find(x => x.Id.Equals(User.Identity.GetUserId())).FirstOrDefault();
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/capstone-rename-later-v1.0.js"></script>
+    <link rel="stylesheet" href="~/Content/TrangAdmin.css">
+    <link rel="stylesheet" href="~/Content/datatables.css">
+    <link rel="stylesheet" href="~/Content/pagination.css">
+    <link rel="stylesheet" href="~/Content/font-awesome.css">
+    <link rel="stylesheet" href="~/Content/bootstrap.css">
+    <script src="~/Scripts/jquery.dataTables.js"></script>
+    <script src="~/Scripts/datatables-bs3.js"></script>
+    <script src="~/Scripts/advanced-tables-demo.js"></script>
+    <script src="~/Scripts/filter.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+</head>
+<body>
+        <!-- Navigation -->
+        <nav class="thanhbar" style="height:11%; background: #2f2f2f">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <img src="logo.png" alt="Bookaholic.com" style="width:160px; height:35px;margin-top:5%" onclick="window.location='../Interface_v1.1/DangKy.html'">
+                </div>
+            </div>
+        </nav> 
+    <div class="col-md-12">
+        <div class="col-md-2">
+            <div class="row">
+                <div class="thumbnail">
+                    @cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                        .Height(200).Width(200).Crop("fill")).BuildImageTag(user.Avatar,
+                            new CloudinaryDotNet.StringDictionary("class=thumbnail inline"))
+                    <div class="caption">
+                        <h4>@user.UserName.ToUpper()</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group-vertical" role="group" aria-label="group">
+                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Dashboard.html'">Tổng quan</button>
+                <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Users", "Account")'">Quản lý người dùng</button>  
+                <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Authors", "Account")'">Quản lý tác giả</button>
+                <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Index", "Groups")'">Quản lý nhóm</button>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Quản lý sách <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("Index", "Books")">Thống kê sách</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="TrangAdmin-Requestbook.html">Yêu cầu thêm sách</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="@Url.Action("Create", "Books")">Thêm sách</a></li>
+                    </ul>
+                </div>
+                <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Index", "Slider")'">Quản lý Slider</button>
+                <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Index", "Publisher")'">Quản lý Nhà xuất bản</button>
+                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Report.html'">Quản lý Phản hồi</button>
+            </div>
+        </div>        
+        @RenderBody()
+    </div>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -269,6 +269,7 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Scripts\capstone-rename-later-v1.0.js" />
+    <Content Include="Scripts\Custom\account-manage.js" />
     <Content Include="Scripts\Custom\book.js" />
     <Content Include="Scripts\Custom\follow-handle.js" />
     <Content Include="Scripts\Custom\group-add.js" />
@@ -367,6 +368,10 @@
     <Content Include="Views\Timeline\EditProfile.cshtml" />
     <Content Include="Views\Timeline\Index.cshtml" />
     <Content Include="Views\Timeline\Details.cshtml" />
+    <Content Include="Views\Home\LockedPage.cshtml" />
+    <Content Include="Views\Account\Authors.cshtml" />
+    <Content Include="Views\Account\Users.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
