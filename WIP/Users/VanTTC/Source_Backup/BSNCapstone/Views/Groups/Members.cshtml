@@ -1,0 +1,273 @@
+﻿@model BSNCapstone.Models.Group
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Trang thành viên nhóm";
+    var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
+    var allUser = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUser;
+    string currentUserId = ViewBag.currentUser;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <!-------------------Dưới thanh bar-------------------------->
+    <!-------------------Cover & avatar------------------------->
+    <div class="hidden" id="GroupHandleRequestUrl" data-url="@Url.Action("GroupRequestHandle", "Groups")"></div>
+    <div class="hidden" id="ImageChangeUrl" data-url="@Url.Action("ChangeImage", "Groups")" data-id="@Model.Id"></div>
+    <div class="col-md-12 avatar-cover" style="padding:0; height: 410px;">
+        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+            .Height(350).Width(1349).Crop("fill")).BuildImageTag(Model.CoverImg,
+                new CloudinaryDotNet.StringDictionary("class=cover-img")))
+        @foreach (var member in Model.GroupMembers)
+        {
+            if (member.UserId.Equals(currentUserId) && member.RoleInGroup != "user")
+            {
+                <div class="change-cover">
+                    <span class="btn btn-file">
+                        <i class="glyphicon glyphicon-camera" style="color: white;"></i>
+                            <span style="color: white;">Thay đổi ảnh bìa</span>
+                        <input type="file" id="imgInpCover" accept=".jpg, .jpeg, .png, .bmp">
+                    </span>
+                </div>
+            }
+        }
+        <div class="row">
+            <div class="avatar">
+                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                        .Height(200).Width(200).Crop("mpad")).BuildImageTag(Model.AvaImg,
+                            new CloudinaryDotNet.StringDictionary("class=avatar-img")))
+                @foreach (var member in Model.GroupMembers)
+                {
+                    if (member.UserId.Equals(currentUserId) && member.RoleInGroup != "user")
+                    {
+                        <div class="change-avatar">
+                            <span class="btn btn-file">
+                                <i class="glyphicon glyphicon-camera" style="color: white;"></i>
+                                    <span style="color: white;">Thay đổi ảnh cá nhân</span>
+                                <input type="file" id="imgInpAva" accept=".jpg, .jpeg, .png, .bmp">
+                            </span>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        @*<div>
+                <i class="glyphicon glyphicon-tag grouptag"></i><span class="grouptag" style="top:-33px;"> [Harry Potter & the Deathly Hallows]   </span>
+            </div>*@
+        <div class="cover-interaction">
+            <button class="button buttonRe" onclick="location.href='@Url.Action("Setting", "Groups", new { id = Model.Id })'">Cài đặt</button>
+            @if (Model.GroupMembers.Find(x => x.UserId.Equals(currentUserId)) == null)
+            {
+                <button class="button buttonRe" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '1')">Tham gia</button>
+            }
+            else
+            {
+                if (Model.GroupMembers.Find(x => x.UserId.Equals(currentUserId)).RoleInGroup != "creator")
+                {
+                    <button class="button buttonRe" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '2')">Đã Tham gia</button>
+                }
+            }
+            <button class="button buttonRe" data-toggle="modal" data-target="#ModalReport">Báo cáo</button>
+            <div id="ModalReport" class="modal fade" role="dialog">
+                <div class="modal-dialog ">
+                    <!-- Modal content-->
+                    <div class="modal-content ">
+                        <div style="background-color: #F7E8AF;" class="modal-header clearfix">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4 class="modal-title"><b>Giúp chúng tôi hiểu điều đang xảy ra</b></h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body clearfix">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-md-1" style="margin-top: 5px;">
+                                        <img src="/AnhAvaNguoiDung/avaVan.jpg" style="width:50px;height:50px" />
+                                    </div>
+                                    <div class="col-md-11" class="radio">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optradio"> Nhóm này đang quấy rối tôi
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optradio">Nhóm này đang quấy rối một người bạn
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optradio">Nội dung khiêu dâm
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optradio">Spam hoặc lừa đảo
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optradio">Hành vi bạo lực hoặc gây hại
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optradio">Ngôn ngữ kích động thù địch
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optradio">Nhóm này để bán ma túy, súng hoặc các hàng hóa được kiểm soát khác
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optradio"><input type="text" id="Othercomment" class="form-control" placeholder="Ý kiến khác">
+                                            </label>
+                                        </div>
+                                        <div class="divider-horizontal"></div>
+                                        <div class="BT">
+                                            <button id="buttonCancel" class="btn btn-default">Hủy</button>
+                                            <button id="buttonPost" class="btn btn-default">Gửi</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--------------- hết Báo cáo -------------------------------------->
+        </div>
+
+    </div>
+
+    <ul class="nav nav-tabs" style="bottom: 36%;">
+        <li role="presentation">@Html.ActionLink("Thảo luận", "MainPage", "Groups", new { id = Model.Id })</li>
+        <li role="presentation" class="active">@Html.ActionLink("Thành viên", "Members", "Groups", new { id = Model.Id })</li>
+    </ul>
+    <div class="container pills">
+        <ul class="nav nav-pills">
+            <li class="active"><a data-toggle="pill" href="#NomalMembers">Thành viên thường</a></li>
+            <li><a data-toggle="pill" href="#Admins">Quản trị viên</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="NomalMembers" class="tab-pane fade in active">
+                <div class="col-md-12 listthanhvien">
+                    @if (Model.GroupMembers.Find(x => x.UserId.Equals(currentUserId)) != null)
+                    {
+                        foreach (var member in Model.GroupMembers)
+                        {
+                            if (member.RoleInGroup == "user")
+                            {
+                                <div class="col-md-4 avatarthanhvien">
+                                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                        .Height(130).Width(130).Crop("fill")).BuildImageTag(allUser.Find(x => x.Id.Equals(member.UserId)).Avatar,
+                                            new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
+                                    <a href="@Url.Action("Details", "Timeline", new { id = member.UserId })">
+                                        <b>@allUser.Where(x => x.Id.Equals(member.UserId)).FirstOrDefault().UserName</b>
+                                    </a>
+                                    @if (Model.GroupMembers.Where(x => x.UserId.Equals(currentUserId)).FirstOrDefault().RoleInGroup != "user")
+                                    {
+                                        <a type="button" class="glyphicon glyphicon-cog" data-toggle="dropdown"></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#" onclick="GroupRequestHandle('@Model.Id', '@member.UserId', '7')">Thêm với tư cách quản lí</a></li>
+                                            <li><a href="#" onclick="GroupRequestHandle('@Model.Id', '@member.UserId', '9')">Xóa khỏi nhóm</a></li>
+                                        </ul>
+                                    }
+                                </div>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (var member in Model.GroupMembers)
+                        {
+                            if (member.RoleInGroup == "user")
+                            {
+                                <div class="col-md-4 avatarthanhvien">
+                                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                        .Height(130).Width(130).Crop("fill")).BuildImageTag(allUser.Find(x => x.Id.Equals(member.UserId)).Avatar,
+                                            new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
+                                    <img src="Anhtacgia/James%20Patterson_tacgia.jpg" alt="username">
+                                    <a href="@Url.Action("Details", "Timeline", new { id = member.UserId })">
+                                        <b>@allUser.Where(x => x.Id.Equals(member.UserId)).FirstOrDefault().UserName</b>
+                                    </a>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+            <div id="Admins" class="tab-pane fade">
+                <div class="col-md-12 listadmin">
+                    @if (Model.GroupMembers.Find(x => x.UserId.Equals(currentUserId)) != null)
+                    {
+                        foreach (var member in Model.GroupMembers)
+                        {
+                            if (member.RoleInGroup != "user")
+                            {
+                                <div class="col-md-4 avatarthanhvien">
+                                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                        .Height(130).Width(130).Crop("fill")).BuildImageTag(allUser.Find(x => x.Id.Equals(member.UserId)).Avatar,
+                                            new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
+                                    <a href="@Url.Action("Details", "Timeline", new { id = member.UserId })">
+                                        <b>@allUser.Where(x => x.Id.Equals(member.UserId)).FirstOrDefault().UserName</b>
+                                    </a>
+                                    @if (Model.GroupMembers.Where(x => x.UserId.Equals(currentUserId)).FirstOrDefault().RoleInGroup != "user")
+                                    {
+                                        if (!member.RoleInGroup.Equals("creator"))
+                                        {
+                                            <a type="button" class="glyphicon glyphicon-cog" data-toggle="dropdown"></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#" onclick="GroupRequestHandle('@Model.Id', '@member.UserId', '8')">Xóa với tư cách quản lí</a></li>
+                                                <li><a href="#" onclick="GroupRequestHandle('@Model.Id', '@member.UserId', '9')">Xóa khỏi nhóm</a></li>
+                                            </ul>
+                                        }
+                                    }
+                                </div>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (var member in Model.GroupMembers)
+                        {
+                            if (member.RoleInGroup != "user")
+                            {
+                                <div class="col-md-4 avatarthanhvien">
+                                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                        .Height(130).Width(130).Crop("fill")).BuildImageTag(allUser.Find(x => x.Id.Equals(member.UserId)).Avatar,
+                                            new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
+                                    <a href="@Url.Action("Details", "Timeline", new { id = member.UserId })">
+                                        <b>@allUser.Where(x => x.Id.Equals(member.UserId)).FirstOrDefault().UserName</b>
+                                    </a>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----------------------Dưới cover & ava--------------------------------->
+    <div class="tennhom">
+        @Html.ActionLink(@Model.GroupName, "MainPage", new { id = Model.Id })
+        <i class="glyphicon glyphicon-lock" style="font-size:50%;"></i><span class="" style="top:-33px;font-size:60%;">@Html.DisplayFor(m => m.GroupType)</span>
+    </div>
+    <!-----------------------List thành viên--------------------------------->
+    <!-----------------------Hết List thành viên--------------------------------->
+
+</body>
+
+</html>
+@section scripts {
+    <link rel="stylesheet" href="~/Content/Trangnhom.css">
+    <script src="~/Scripts/Custom/group.js"></script>
+}
