@@ -1,0 +1,410 @@
+﻿@model BSNCapstone.Models.Book
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Sách - " + Model.BookName.First().ToString().ToUpper() + Model.BookName.Substring(1); 
+    var allCategories = ((List<BSNCapstone.Models.Category>)ViewBag.allCategories);
+    var allPublishers = ((List<BSNCapstone.Models.Publisher>)ViewBag.allPublishers);
+    <!--DangVH. Create. Start (02/11/2016)-->
+    var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
+    <!--DangVH. Create. End (02/11/2016)-->
+    double avarageRatingPoint = ViewBag.avarageRatingPoint;
+    var listSameBook = (List<BSNCapstone.ViewModels.BooksSuggestViewModel>)ViewBag.listSameBook;
+    var currentUser = (BSNCapstone.Models.ApplicationUser)ViewBag.currentUser;
+    var allUser = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUser;
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="container-fluid">
+        <div class="col-md-8 gioithieusach">
+            <div class="row content" class="contentbook">
+                <div class="col-md-7 pull-right book">
+                    <h4><strong style="color:#4693B8">@Model.BookName.ToUpper()</strong></h4>
+                    <p>Tác giả: <strong><i>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@Model.Authors.ToLower())</i></strong></p>
+                    <p>
+                        Nhà xuất bản: @{foreach (var item in allPublishers)
+                        {
+                            foreach (var publisher in Model.Publishers)
+                            {
+                                if (item.Id == publisher)
+                                {
+
+                                    if (Model.Publishers.Last() == publisher)
+                                    {
+                                        <strong><i>@Html.DisplayFor(publisherItem => item.Name) </i></strong>
+                                    }
+                                    else
+                                    {
+                                        <strong><i>@Html.DisplayFor(publisherItem => item.Name), </i></strong>
+                                    }
+                                }
+                            }
+                        }
+                        }
+                    </p>
+                    <p>
+                        Thể loại: @foreach (var item in allCategories)
+                        {
+                            foreach (var category in Model.Categories)
+                            {
+                                if (item.Id == category)
+                                {
+                                    if (Model.Categories.Last() == category)
+                                    {
+                                        <strong><i>@Html.DisplayFor(categoryItem => item.CategoryName)</i></strong>
+                                    }
+                                    else
+                                    {
+                                        <strong><i>@Html.DisplayFor(categoryItem => item.CategoryName), </i></strong>
+                                    }
+                                }
+                            }
+                        }
+                    </p>
+                    <p>Đánh giá: <strong><i>@avarageRatingPoint</i></strong> <i style="color:yellow" class="glyphicon glyphicon-star"></i></p>
+                    <p2>
+                        <strong>@Html.DisplayFor(model => model.BookName)</strong> – @Html.DisplayFor(model => model.Description)
+                    </p2>
+                    <p class="text-right">
+                        <a data-toggle="modal" data-target="#myModal">Xem thêm </a>
+                    </p>
+                    <div id="myModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-lg">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+
+                                <div class="modal-header clearfix">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body clearfix">
+                                    <div class="content">
+                                        <h3 class="modal-title"><a href="@Url.Action("Details", "Books", new { id = @Model.Id })" class="modal-title on-story-details">@Model.BookName</a></h3>
+                                        <p class="description">
+                                            @Model.Description
+                                        </p>
+                                        <div class="info">
+                                            <div class="taglist">
+                                                @foreach (var item in allCategories)
+                                                {
+                                                    foreach (var category in Model.Categories)
+                                                    {
+                                                        if (item.Id == category)
+                                                        {
+                                                            <span class="tag"> #@item.CategoryName</span>
+                                                        }
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cover cover-reading-list col-md-5 pull-left">
+                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                        .Height(381).Width(256).Crop("fill")).BuildImageTag(Model.ImgPublicId,
+                            new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
+                </div>
+            </div>
+            <!---------------HIỂN THỊ RATING ----------------->
+            <div class="hidden" id="RatingBook" data-url="@Url.Action("RatingBook", "Books")" data-id="@Model.Id"></div>
+            <div class="row" class="danhgia">
+                <div class="col-md-10">
+                    <fieldset class="rating" id="ratingbook">
+                        <input type="radio" id="star5" name="rating" value="5" />
+                        <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                        <input type="radio" id="star4" name="rating" value="4" />
+                        <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                        <input type="radio" id="star3" name="rating" value="3" />
+                        <label class="full" for="star3" title="Meh - 3 stars"></label>
+                        <input type="radio" id="star2" name="rating" value="2" />
+                        <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                        <input type="radio" id="star1" name="rating" value="1" />
+                        <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                    </fieldset>
+                </div>
+            </div>
+
+            <!------------------COMMENT--------------->
+            <br>
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="hidden" id="UserComment" data-url="@Url.Action("CommentBook", "Books")" data-id="@currentUser.Id"></div>
+                    <div class="col-md-1" style="margin-top: 5px;">
+                        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                            .Height(50).Width(50).Crop("fill")).BuildImageTag(currentUser.Avatar,
+                                new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
+                    </div>
+                    <div class="col-md-11" style="margin-top: 5px;">
+                        <form>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" id="comment" style="resize:none;" placeholder="Nhận xét"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--------------------------------COMMENT CỦA NG KHÁC -------------------------->
+                <br>
+                @foreach (var comment in Model.Comments)
+                {
+                    <div class="row">
+                        <div class="col-md-1" style="margin-top: 5px;">
+                            @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                            .Height(50).Width(50).Crop("fill")).BuildImageTag(allUser.Find(x => x.Id.Equals(comment.UserId)).Avatar,
+                                new CloudinaryDotNet.StringDictionary("class=thumbnail inline")))
+                        </div>
+                        <div class="col-md-11" style="margin-top: 5px;">
+                            <div class="post-card" style="padding: 5px 15px;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!-- Post Content -->
+                                        <div class="row">
+                                            <!-- Post Owner -->
+                                            <div class="col-md-12">
+                                                <div class="owner-info">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <a class="owner-name" href="@Url.Action("Details", "Timeline", new { id = comment.UserId})">
+                                                                @allUser.Find(x => x.Id.Equals(comment.UserId)).UserName.First().ToString().ToUpper()@String.Join("", allUser.Find(x => x.Id.Equals(comment.UserId)).UserName.Skip(1))
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label class="post-time"><i class="glyphicon glyphicon-time"></i><span>@comment.CreatedTime</span></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="post-content">@foreach (var line in comment.LinesDescription)
+                                                                {
+                                                                    @line <br />
+                                                                }
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                }
+            </div>
+        </div>
+        <!--  Bắt đầu phần bên phải -->
+        <div class="col-md-4 sidenav">
+            <!--phần sách tương tự -->
+            <div class="text-center" class="panel-heading">
+                <h4><strong>SÁCH TƯƠNG TỰ</strong></h4>
+            </div>
+            <br>
+            <div class="row">
+                @foreach (var book in listSameBook)
+                {
+                    <div class="col-md-3">
+                        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                            .Height(130).Width(100).Crop("fill")).BuildImageTag(book.ImgPublicId,
+                                new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                    </div>
+                    <div class="col-md-3">
+                        <fieldset class="rating">
+                            <input type="radio" id="star5" name="rating" value="5" />
+                            <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                            <input type="radio" id="star4" name="rating" value="4" />
+                            <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                            <input type="radio" id="star3" name="rating" value="3" />
+                            <label class="full" for="star3" title="Meh - 3 stars"></label>
+                            <input type="radio" id="star2" name="rating" value="2" />
+                            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                            <input type="radio" id="star1" name="rating" value="1" />
+                            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                        </fieldset>
+                        <p>@book.RateTime đánh giá</p>
+                        <br>
+                        <br>
+                        <button class="button buttonRe">Nhận xét</button>
+                    </div>
+                }
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <ul class="list-group">
+                                <li>
+                                    <span>
+                                        <strong data-toggle="tooltip" title="NHÀ GIẢ KIM">NHÀ GIẢ KIM</strong>
+                                        <br><i data-toggle="tooltip" title="Paulo Coelho" class="authorname"><strong>Paulo Coelho </strong> </i>
+                                    </span>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <ul class="list-group">
+                                <li>
+                                    <span>
+                                        <strong data-toggle="tooltip" title="NGÀY XƯA CÓ MỘT CHUYỆN TÌNH">NGÀY XƯA CÓ MỘT CHUYỆN TÌNH</strong>
+                                        <br><i data-toggle="tooltip" title="Nguyễn Nhật Ánh" class="authorname"><strong>Nguyễn Nhật Ánh </strong> </i>
+                                    </span>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <ul class="list-group">
+                                <li>
+                                    <span>
+                                        <strong id="tensach">TRÊN ĐƯỜNG BĂNG</strong>
+
+                                    </span>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <ul class="list-group">
+                                <li>
+                                    <span>
+                                        <strong id="tensach">Totto chan bên cửa sổ</strong>
+
+                                    </span>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <p class="text-right">
+                    <button type="button" class="btn btn-link">Xem thêm </button>
+                </p>
+
+                <br>
+                <br>
+                <div class="text-center" class="panel-heading">
+                    <h4><strong>DANH SÁCH NHÓM</strong></h4>
+                </div>
+                <br>
+                <!--  Bắt đầu phần group list của tác giả  -->
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="nhagiakim.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+                    </div>
+                    <div class="col-md-3">
+                        <br>
+                        <button class="button buttonJoin">Tham gia</button>
+                        <button class="button buttonFoll">+Theo dõi</button>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="ngayxuacomotchuyentinh.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+
+                    </div>
+                    <div class="col-md-3">
+                        <br>
+                        <button class="button buttonJoin">Tham gia</button>
+                        <button class="button buttonFoll">+Theo dõi</button>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <ul class="list-group">
+                                <li>
+                                    <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
+                                        <span>Hội yêu thích truyện Harry Potter</span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <ul class="list-group">
+                                <li>
+                                    <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
+                                        <span>Hội yêu thích truyện Harry Potter</span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="trenduongbang.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+
+                    </div>
+                    <div class="col-md-3">
+                        <br>
+                        <button class="button buttonJoin">Tham gia</button>
+                        <button class="button buttonFoll">+Theo dõi</button>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="tottochanbencuaso.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
+
+                    </div>
+                    <div class="col-md-3">
+                        <br>
+                        <button class="button buttonJoin">Tham gia</button>
+                        <button class="button buttonFoll">+Theo dõi</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <ul class="list-group">
+                                <li>
+                                    <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
+                                        <span>Hội yêu thích truyện Harry Potter</span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <ul class="list-group">
+                                <li>
+                                    <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
+                                        <span>Hội yêu thích truyện Harry Potter</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-right">
+                    <button type="button" class="btn btn-link">Xem thêm </button>
+                </p>
+                <br>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+@section scripts {
+    <link rel="stylesheet" href="~/Content/Sach.css">
+    <script src="~/Scripts/Custom/book.js"></script>
+}
