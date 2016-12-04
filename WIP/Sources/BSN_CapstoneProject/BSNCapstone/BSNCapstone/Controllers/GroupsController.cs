@@ -18,6 +18,24 @@ namespace BSNCapstone.Controllers
     {
         private readonly ApplicationIdentityContext Context = ApplicationIdentityContext.Create();
         private readonly CloudinaryDotNet.Cloudinary cloudinary = ImageUploadHelper.GetCloudinaryAccount();
+        //Lấy giá trị cho Multiselectlist
+        private MultiSelectList GetUserForAdd(string[] selectedValues, string groupId)
+        {
+            var groupMembers = Context.Groups.Find(x => x.Id.Equals(new ObjectId(groupId))).FirstOrDefault().GroupMembers;
+            List<ApplicationUser> userForAdd = new List<ApplicationUser>();
+            var userId = User.Identity.GetUserId();
+            var followers = Context.Users.Find(x => x.Id.Equals(new ObjectId(userId))).FirstOrDefault().Follower;
+            foreach (var item in followers)
+            {
+                if (groupMembers.Find(x => x.UserId.Equals(item)) == null)
+                {
+                    userForAdd.Add(Context.Users.Find(x => x.Id.Equals(new ObjectId(item))).FirstOrDefault());
+                }
+            }
+            Console.Write(userForAdd);
+            return new MultiSelectList(userForAdd, "Id", "UserName", selectedValues);
+        }
+
         //
         // GET: /Groups/
         public ActionResult Index(string searchString)
@@ -74,10 +92,11 @@ namespace BSNCapstone.Controllers
         public ActionResult Members(string id)
         {
             var allUser = Context.Users.Find(_ => true).ToList();
+            var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
             ViewBag.allUser = allUser;
             ViewBag.currentUser = User.Identity.GetUserId();
+            ViewBag.userForAdd = GetUserForAdd(null, group.Id);
             ViewBag.cloudinary = cloudinary;
-            var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
             return View(group);
         }
 
@@ -370,6 +389,30 @@ namespace BSNCapstone.Controllers
         public ActionResult Report()
         {
             return Json("");
+        }
+
+        [HttpPost]
+        public ActionResult AddNewMember(string addUser, string groupId)
+        {
+            if (addUser == "")
+            {
+                return Json("Không có người dùng nào được thêm vào nhóm.");
+            }
+            else
+            {
+                var filter = Builders<Group>.Filter.Where(x => x.Id.Equals(new ObjectId(groupId)));
+                var newMembers = addUser.Split(new[] { "," }, StringSplitOptions.None).ToList();
+                foreach (var member in newMembers)
+                {
+                    var update = Builders<Group>.Update.Push(x => x.GroupMembers, new GroupMembersViewModel()
+                    {
+                        UserId = member.ToString(),
+                        RoleInGroup = "user"
+                    });
+                    Context.Groups.UpdateOneAsync(filter, update);
+                }
+            }
+            return Json("Thêm thành công.");
         }
     }
 }

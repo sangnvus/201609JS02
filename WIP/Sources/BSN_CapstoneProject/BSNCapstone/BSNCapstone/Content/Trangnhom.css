@@ -255,7 +255,7 @@ img {
     text-align: center;
 }
 
-.pills li {
+.pills li.x{
     background-color: ghostwhite;
     width: 170px;
     margin-right: 2px;
@@ -263,7 +263,7 @@ img {
     left: -15px;
 }
 
-.pills li.active {
+.pills li.x.active {
     text-decoration: underline;
     font-weight: bold;
 }
@@ -602,6 +602,25 @@ label {
 .BT{
     text-align: right;
 }
+
+#myModel p1 {
+    tab-size: 60px;
+}
+
+#themthanhvien {
+    color: white;
+}
+
+.them {
+    font-size: 100%;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
 /************Upload Image Button**************/
 .upload-image {
     position: relative;

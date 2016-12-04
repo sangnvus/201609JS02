@@ -42,6 +42,29 @@ function GroupRequestHandle(groupId, userId, option) {
 });
 };
 
+
+function AddMember() {
+    var url = $("#AddNewMember").data('url');
+    var groupId = $("#AddNewMember").data('groupId');
+    var user = $("#addMemberSelect").val();
+    var formData = new FormData();
+    formData.append("addUser", user);
+    formData.append("groupId", groupId);
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: formData,
+        dataType: 'json',
+        contentType: false,
+        processData: false,
+
+        success: function (result) {
+            alert(result);
+            window.location.reload();
+        }
+    });
+}
+
 $(document).ready(function () {
     //Change Avatar
     var groupId = $("#ImageChangeUrl").data('id');
