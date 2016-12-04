@@ -9,7 +9,6 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity;
 using MongoDB.Driver;
-using BSNCapstone.Models;
 using BSNCapstone.ViewModels;
 
 namespace BSNCapstone.Controllers

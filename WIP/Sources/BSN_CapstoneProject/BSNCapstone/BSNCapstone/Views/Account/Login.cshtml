@@ -10,15 +10,11 @@
     <title>Đăng ký</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="~/Scripts/jquery.min.js"></script>
     <link href="~/Content/DangkySlide-Tgdk.css" rel="stylesheet">
-    <!-----Sử dụng DangkySlide-tgdk.css------>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
-    </script><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="~/Scripts/capstone-rename-later-v1.0.js"></script>
+    <link rel="stylesheet" href="~/Content/bootstrap.css">
+    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
     <!-- Custom CSS -->
-    <link href="css/full-slider.css" rel="stylesheet">
 </head>
 
 <body>
@@ -169,18 +165,13 @@
             <span class="icon-next"></span>
         </a>
     </header>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
     <script>
         $('.carousel').carousel({
             interval: 3000 //changes the speed
         })
     </script>
 </body>
-<!-- Script Area -->
-@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>*@
-<!-- sau khi doi ten nho doi ten day nua nha. -->
 </html>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
