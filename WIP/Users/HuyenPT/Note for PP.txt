@@ -1,9 +1,0 @@
-2.4 Standard Ojective
-+  Leakage: Wdef/mm??
-+ Time cho research technology hoi ngan
-2.5 Iterative and Incremental Model
-=> Image
-3.1.2 Prj Life cycle la cho prj cua minh hay prj chung chung?
-3.3.2 Supervisor review goi la gi
-
-4.3.1 de desc va stage giong nhau co OK ko?
