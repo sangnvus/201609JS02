@@ -35,12 +35,10 @@ namespace BSNCapstone.Controllers
 
         public ActionResult Index()
         {
-            List<Book> ListBook = Context.Books.AsQueryable<Book>().OrderByDescending(x=>x.ReleaseDay).Take(4).ToList();
-            //var userid = User.Identity.GetUserId();
-            //ApplicationUser currentUser = UserManager.FindByIdAsync(userid);
             var user = UserManager.FindById(User.Identity.GetUserId());
             ViewBag.listHotBook = BooksControllerHelper.SuggestBook("", 1);
             ViewBag.listNewBook = BooksControllerHelper.SuggestBook("", 3);
+            ViewBag.allAuthors = Context.Users.Find(x => x.Roles.Contains("author")).ToList();
             ViewBag.cloudinary = cloudinary;
             var listGroup = new List<Group>();
             foreach (var group in Context.Groups.Find(_ => true).ToList())
@@ -54,7 +52,7 @@ namespace BSNCapstone.Controllers
                 }
             }
             Random random = new Random((int)(DateTime.Now.Ticks));
-            ViewBag.randomAuthor = Context.Users.Find(_ => true).ToList().OrderBy(x => random.Next()).Take(2).ToList();
+            ViewBag.randomAuthor = Context.Users.Find(x => x.Roles.Contains("author")).ToList().OrderBy(x => random.Next()).Take(2).ToList();
             ViewBag.randomPublisher = Context.Publishers.Find(_ => true).ToList().OrderBy(x => random.Next()).Take(2).ToList();
             ViewBag.listGroup = listGroup;
             return View(user);

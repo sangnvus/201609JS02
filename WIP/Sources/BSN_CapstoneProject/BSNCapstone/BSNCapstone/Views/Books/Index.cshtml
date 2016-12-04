@@ -5,6 +5,7 @@
     int bookNumber = ViewBag.bookNumber;
     var allCategories = ((List<BSNCapstone.Models.Category>)ViewBag.allCategories);
     var allPublishers = ((List<BSNCapstone.Models.Publisher>)ViewBag.allPublishers);
+    var allAuthors = ((List<BSNCapstone.Models.ApplicationUser>)ViewBag.allAuthors);
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +83,15 @@
                                             @Html.DisplayFor(modelItem => item.BookName)
                                         </td>
                                         <td style="vertical-align: middle">
-                                            @Html.DisplayFor(modelItem => item.Authors)
+                                            @foreach (var author in item.Authors)
+                                            {
+                                                <p>
+                                                    @if (allAuthors.Find(x => x.Id.Equals(author)) != null)
+                                                    {
+                                                        @Html.DisplayFor(authorItem => allAuthors.Where(x => x.Id.Equals(author)).First().UserName)
+                                                    }
+                                                </p>
+                                            }
                                         </td>
                                         <td style="vertical-align: middle">
                                             @foreach (var category in item.Categories)

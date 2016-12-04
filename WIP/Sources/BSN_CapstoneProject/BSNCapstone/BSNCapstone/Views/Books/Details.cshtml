@@ -22,7 +22,22 @@
             <div class="row content" class="contentbook">
                 <div class="col-md-7 pull-right book">
                     <h4><strong style="color:#4693B8">@Model.BookName.ToUpper()</strong></h4>
-                    <p>Tác giả: <strong><i>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@Model.Authors.ToLower())</i></strong></p>
+                    <p>
+                        Tác giả: @foreach (var author in Model.Authors)
+                        {
+                            if (allUser.Find(x => x.Id.Equals(author)) != null)
+                            {
+                                if (Model.Authors.Last() == author)
+                                {
+                                    <strong><i>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(allUser.Find(x => x.Id.Equals(author)).UserName.ToLower()) </i></strong>
+                                }
+                                else
+                                {
+                                    <strong><i>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(allUser.Find(x => x.Id.Equals(author)).UserName.ToLower()), </i></strong>
+                                }
+                            }     
+                        }
+                    </p>
                     <p>
                         Nhà xuất bản: @{foreach (var item in allPublishers)
                         {

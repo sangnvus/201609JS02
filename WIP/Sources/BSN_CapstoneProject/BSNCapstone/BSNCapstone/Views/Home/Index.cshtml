@@ -8,6 +8,7 @@
     var randomAuthor = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.randomAuthor;
     var randomPublisher = (List<BSNCapstone.Models.Publisher>)ViewBag.randomPublisher;
     var listGroup = (List<BSNCapstone.Models.Group>)ViewBag.listGroup;
+    var allAuthors = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allAuthors;
  }
 
 <!DOCTYPE html>
@@ -98,9 +99,21 @@
                                 <strong data-toggle="tooltip" title="@book.BookName">
                                     <a href="@Url.Action("Details", "Books", new { id = @book.BookId })">@book.BookName.ToUpper()</a>
                                 </strong>
-                                <br><i data-toggle="tooltip" title="@book.AuthorName" class="authorname">
-                                        <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@book.AuthorName.ToLower())</strong> 
-                                    </i>
+                                <br>@foreach (var author in book.AuthorName)
+                                    {
+                                        if (book.AuthorName.Last() == author)
+                                        {
+                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName" class="authorname">
+                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName.ToLower()) </strong>
+                                            </i>
+                                        }
+                                        else
+                                        {
+                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName" class="authorname">
+                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName.ToLower()), </strong>
+                                            </i>
+                                        }
+                                    }
                             </span>
                         </div>
                     </div>
@@ -341,9 +354,22 @@
                                     <strong data-toggle="tooltip" title="@hotBook.BookName">
                                         <a href="@Url.Action("Details", "Books", new { id = @hotBook.BookId })">@hotBook.BookName.ToUpper()</a>
                                     </strong>
-                                    <br><i data-toggle="tooltip" title="@hotBook.AuthorName" class="authorname">
-                                            <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@hotBook.AuthorName.ToLower())</strong> 
-                                        </i>
+                                    <br>
+                                    @foreach (var author in hotBook.AuthorName)
+                                    {
+                                        if (hotBook.AuthorName.Last() == author)
+                                        {
+                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName" class="authorname">
+                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName.ToLower()) </strong>
+                                            </i>
+                                        }
+                                        else
+                                        {
+                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName" class="authorname">
+                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName.ToLower()), </strong>
+                                            </i>
+                                        }
+                                    }
                                 </span>
                             </div>
                         </div>

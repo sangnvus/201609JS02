@@ -25,7 +25,7 @@ namespace BSNCapstone.Models
         //DangVH. Update. Start (14/11/2016)
         //[Display(Name = "Authors")]
         [Display(Name = "Tác giả")]
-        public string Authors { get; set; }
+        public List<string> Authors { get; set; }
         //DangVH. Update. End (14/11/2016)
 
         [Required(ErrorMessage = "Nhà xuất bản bắt buộc")]
@@ -76,6 +76,8 @@ namespace BSNCapstone.Models
 
         public List<BookCommentViewModel> Comments { get; set; }
 
+        public bool Requested { get; set; }
+
         public Book()
         {
             //DangVH. Update. Start (14/11/2016)
@@ -83,6 +85,7 @@ namespace BSNCapstone.Models
             Comments = new List<BookCommentViewModel>();
             Publishers = new List<string>();
             Categories = new List<string>();
+            Authors = new List<string>();
             RateTime = 0;
             RatingPoint = 0;
             AvarageRating = 0;

@@ -22,17 +22,22 @@ namespace BSNCapstone.Controllers
 
         //DangVH. Create. Start (14/11/2016)
         //Lấy giá trị cho multiselectlist 
-        private MultiSelectList GetPubsCats(string[] selectedValues, int option)
+        private MultiSelectList GetPubsCatsAus(string[] selectedValues, int option)
         {
             if (option == 1)
             {
                 var publishers = Context.Publishers.Find(_ => true).ToEnumerable();
                 return new MultiSelectList(publishers, "Id", "Name", selectedValues);
             }
-            else
+            else if (option == 2)
             {
                 var categories = Context.Categories.Find(_ => true).ToEnumerable();
                 return new MultiSelectList(categories, "Id", "CategoryName", selectedValues);
+            }
+            else
+            {
+                var authors = Context.Users.Find(x => x.Roles.Contains("author")).ToEnumerable();
+                return new MultiSelectList(authors, "Id", "UserName", selectedValues);
             }
         }
         //DangVH. Create. End (14/11/2016)
@@ -48,11 +53,18 @@ namespace BSNCapstone.Controllers
             //DangVH. Create. End (02/11/2016)
             ViewBag.allCategories = BooksControllerHelper.ListAllCategory();
             ViewBag.allPublishers = Context.Publishers.Find(_ => true).ToList();
+            ViewBag.allAuthors = Context.Users.Find(x => x.Roles.Contains("author")).ToList();
             var books = Context.Books.Find(_ => true).ToEnumerable();
             //DangVH. Create. Start (02/11/2016)
             if (!string.IsNullOrEmpty(searchString))
             {
-                books = books.Where(x => x.BookName.Contains(searchString) || x.Authors.Contains(searchString));
+                var authors = Context.Users.Find(x => x.Roles.Contains("author")).ToList().Where(x => x.UserName.Contains(searchString)).ToList();
+                List<string> searchAuthors = new List<string>();
+                foreach (var author in authors)
+                {
+                    searchAuthors.Add(author.Id);
+                }
+                books = books.Where(x => x.BookName.Contains(searchString) || x.Authors.Intersect(searchAuthors).Any());
             }
             //DangVH. Create. End (02/11/2016)
             return View(books);
@@ -108,8 +120,9 @@ namespace BSNCapstone.Controllers
         public ActionResult Create()
         {
             ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
-            ViewBag.CategoryId = GetPubsCats(null, 2);
-            ViewBag.PublisherId = GetPubsCats(null, 1);
+            ViewBag.CategoryId = GetPubsCatsAus(null, 2);
+            ViewBag.PublisherId = GetPubsCatsAus(null, 1);
+            ViewBag.AuthorId = GetPubsCatsAus(null, 3);
             return View();
         }
 
@@ -130,6 +143,10 @@ namespace BSNCapstone.Controllers
                 {
                     ModelState.AddModelError("BookName", "Tên sách đã tồn tại");
                 }
+            } 
+            if (book.Authors.Count == 0)
+            {
+                ModelState.AddModelError("Authors", "Tác giả bắt buộc");
             }
             if (book.Categories.Count == 0)
             {
@@ -145,22 +162,22 @@ namespace BSNCapstone.Controllers
                 var addBook = new Book()
                 {
                     BookName = book.BookName,
-                    Authors = book.Authors,
-                    //DangVH. Delete. Start (14/11/2016)
-                    //Publishers = book.Publishers,
-                    //DangVH. Delete. End (14/11/2016)
                     ReleaseDay = book.ReleaseDay.ToLocalTime(),
                     Description = book.Description,
-                    ImgPublicId = uploadResult.PublicId
+                    ImgPublicId = uploadResult.PublicId,
+                    Requested = false
                 };
                 foreach (var publisherId in book.Publishers)
                 {
                     addBook.Publishers.Add(publisherId);
                 }
-
                 foreach (var categoryId in book.Categories)
                 {
                     addBook.Categories.Add(categoryId);
+                }
+                foreach (var authorId in book.Authors)
+                {
+                    addBook.Authors.Add(authorId);
                 }
                 //DangVH. Create. End (14/11/2016)
                 Context.Books.InsertOneAsync(addBook);
@@ -171,8 +188,10 @@ namespace BSNCapstone.Controllers
             ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
             var selectedPublisherValue = book.Publishers.ToString();
             var selectedCategoryValue = book.Categories.ToString();
-            ViewBag.publisherId = GetPubsCats(selectedPublisherValue.Split(','), 1);
-            ViewBag.categoryId = GetPubsCats(selectedCategoryValue.Split(','), 2);
+            var selectedAuthorValue = book.Authors.ToString();
+            ViewBag.publisherId = GetPubsCatsAus(selectedPublisherValue.Split(','), 1);
+            ViewBag.categoryId = GetPubsCatsAus(selectedCategoryValue.Split(','), 2);
+            ViewBag.authorId = GetPubsCatsAus(selectedAuthorValue.Split(','), 3);
             //DangVH. Update. End (14/11/2016)
             return View(book);
         }
@@ -187,8 +206,10 @@ namespace BSNCapstone.Controllers
             var book = Context.Books.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
             var selectedPublisherValue = book.Publishers.ToString();
             var selectedCategoryValue = book.Categories.ToString();
-            ViewBag.publisherId = GetPubsCats(selectedPublisherValue.Split(','), 1);
-            ViewBag.categoryId = GetPubsCats(selectedCategoryValue.Split(','), 2);
+            var selectedAuthorValue = book.Authors.ToString();
+            ViewBag.publisherId = GetPubsCatsAus(selectedPublisherValue.Split(','), 1);
+            ViewBag.categoryId = GetPubsCatsAus(selectedCategoryValue.Split(','), 2);
+            ViewBag.authorId = GetPubsCatsAus(selectedAuthorValue.Split(','), 3);
             ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
             //DangVH. Create. End (14/11/2016)
             return View(book);
@@ -211,6 +232,10 @@ namespace BSNCapstone.Controllers
                     }
                 }
             }
+            if (book.Authors.Count == 0)
+            {
+                ModelState.AddModelError("Authors", "Tác giả bắt buộc");
+            }
             if (book.Categories.Count == 0)
             {
                 ModelState.AddModelError("Categories", "Thể loại sách bắt buộc");
@@ -229,7 +254,6 @@ namespace BSNCapstone.Controllers
                     //DangVH. Create. End (02/11/2016)
                     var editBook = Context.Books.Find(x => x.Id.Equals(new ObjectId(book.Id))).FirstOrDefault();
                     editBook.BookName = book.BookName;
-                    editBook.Authors = book.Authors;
                     editBook.ReleaseDay = book.ReleaseDay.ToLocalTime();
                     editBook.Description = book.Description;
                     if (file.ContentLength == 0)
@@ -240,17 +264,20 @@ namespace BSNCapstone.Controllers
                     {
                         editBook.ImgPublicId = uploadResult.PublicId;
                     }
+                    editBook.Authors.Clear();
                     editBook.Categories.Clear();
-                    //DangVH. Create. Start (14/11/2016)
                     editBook.Publishers.Clear();
                     foreach (var publisherId in book.Publishers)
                     {
                         editBook.Publishers.Add(publisherId);
                     }
-
                     foreach (var categoryId in book.Categories)
                     {
                         editBook.Categories.Add(categoryId);
+                    }
+                    foreach (var authorId in book.Authors) 
+                    {
+                        editBook.Authors.Add(authorId);
                     }
                     //DangVH. Create. End (14/11/2016)
                     Context.Books.ReplaceOneAsync(x => x.Id.Equals(new ObjectId(book.Id)), editBook);
@@ -260,8 +287,10 @@ namespace BSNCapstone.Controllers
             ViewBag.bookNumber = BooksControllerHelper.GetBookNumber(); 
             var selectedPublisherValue = book.Publishers.ToString();
             var selectedCategoryValue = book.Categories.ToString();
-            ViewBag.publisherId = GetPubsCats(selectedPublisherValue.Split(','), 1);
-            ViewBag.categoryId = GetPubsCats(selectedCategoryValue.Split(','), 2);
+            var selectedAuthorValue = book.Authors.ToString();
+            ViewBag.publisherId = GetPubsCatsAus(selectedPublisherValue.Split(','), 1);
+            ViewBag.categoryId = GetPubsCatsAus(selectedCategoryValue.Split(','), 2);
+            ViewBag.AuthorId = GetPubsCatsAus(selectedCategoryValue.Split(','), 3);
             ViewBag.cloudinary = cloudinary;
             return View(book);
         }
