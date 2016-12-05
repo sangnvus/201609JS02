@@ -374,6 +374,7 @@
     <Content Include="Views\Account\Authors.cshtml" />
     <Content Include="Views\Account\Users.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Books\BookRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
