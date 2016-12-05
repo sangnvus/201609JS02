@@ -152,6 +152,7 @@ namespace BSNCapstone.Controllers
                     Avatar=Common.Constant.DefaultAvatarLink,
                     Cover = Common.Constant.DefaultCoverLink
                 };
+                user.Roles.Add("user");
                 var result = await UserManager.CreateAsync(user, model.Register.Password);
                 if (result.Succeeded)
                  {
@@ -194,17 +195,24 @@ namespace BSNCapstone.Controllers
                     Avatar = Common.Constant.DefaultAvatarLink, 
                     Cover = Common.Constant.DefaultCoverLink
                 };
+                user.Roles.Add("author");
                 var result = await UserManager.CreateAsync(user, model.AuthorRegister.Password);
                 if (result.Succeeded)
                 {
-                    var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    await UserManager.SendEmailAsync(user.Id, "[BookAholic]Xác Nhận Tài Khoản", "Chào mừng bạn đã đến với mạng xã hội sách BookAholic <p> Xin vui lòng click vào link để xác nhận tài khoản của bạn</p>: <a href=\"" + callbackUrl + "\">Xác Nhận tài khoản</a>");
-                    ViewBag.Link = callbackUrl;
-
-                    ViewBag.Message = "Kiểm tra Email để xác nhận tài khoản của bạn, bạn phải xác nhận tài khoản trước khi Đăng Nhập";
-                    return View("DisplayEmail");
+                    ViewBag.Message = "Cảm ơn bạn đã đăng kí, chúng tôi sẽ xác nhận và liên hệ lại qua Email mà bạn đã đăng kí";
+                    ViewBag.sliders = Context.Sliders.Find(_ => true).ToList();
+                    ViewBag.cloudinary = cloudinary;
+                    return View();
                 }
+                //{
+                //    var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                //    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                //    await UserManager.SendEmailAsync(user.Id, "[BookAholic]Xác Nhận Tài Khoản", "Chào mừng bạn đã đến với mạng xã hội sách BookAholic <p> Xin vui lòng click vào link để xác nhận tài khoản của bạn</p>: <a href=\"" + callbackUrl + "\">Xác Nhận tài khoản</a>");
+                //    ViewBag.Link = callbackUrl;
+
+                //    ViewBag.Message = "Kiểm tra Email để xác nhận tài khoản của bạn, bạn phải xác nhận tài khoản trước khi Đăng Nhập";
+                //    return View("DisplayEmail");
+                //}
                 AddErrors(result);
             }
             ViewBag.sliders = Context.Sliders.Find(_ => true).ToList();
@@ -643,7 +651,7 @@ namespace BSNCapstone.Controllers
         //GET: /Account/Users
         public ActionResult Users(string searchString)
         {
-            var users = Context.Users.Find(x => x.Roles.Contains("user")).ToEnumerable();
+            var users = Context.Users.Find(x => x.EmailConfirmed.Equals(true)).ToEnumerable();
             ViewBag.cloudiray = cloudinary;
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -665,25 +673,21 @@ namespace BSNCapstone.Controllers
             return View(authors);
         }
 
-        ////POST: /Account/AuthorConfirm/id
-        //[HttpPost]
-        //public async Task<ActionResult> AuthorConfirm(string id)
-        //{
-        //    var update = new BsonDocument("$set", new BsonDocument("AuthorConfirmed", true));
-        //    var result = await Context.Users.UpdateOneAsync(x => x.Id.Equals(new ObjectId(id)), update);
-        //    Console.Write(result);
-        //    var confirmedAuthor = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
-        //    if (confirmedAuthor.AuthorConfirmed == true)
-        //    {
-        //        var code = await UserManager.GenerateEmailConfirmationTokenAsync(confirmedAuthor.Id);
-        //        var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = confirmedAuthor.Id, code = code }, protocol: Request.Url.Scheme);
-        //        await UserManager.SendEmailAsync(confirmedAuthor.Id, "[BookAholic]Xác Nhận Tài Khoản", "Chào mừng bạn đã đến với mạng xã hội sách BookAholic <p> Xin vui lòng click vào link để xác nhận tài khoản của bạn</p>: <a href=\"" + callbackUrl + "\">Xác Nhận tài khoản</a>");
-        //        //ViewBag.Link = callbackUrl;
-        //        //ViewBag.Message = "Kiểm tra Email để xác nhận tài khoản của bạn, bạn phải xác nhận tài khoản trước khi Đăng Nhập";
-        //        //return View("DisplayEmail");
-        //        return Json("a");
-        //    }
-        //    return Json("Successed");
-        //}
+        //POST: /Account/AuthorConfirm/id
+        [HttpPost]
+        public async Task<ActionResult> AuthorConfirm(string id)
+        {
+            var update = new BsonDocument("$set", new BsonDocument("AuthorConfirmed", true));
+            var result = await Context.Users.UpdateOneAsync(x => x.Id.Equals(new ObjectId(id)), update);
+            Console.Write(result);
+            var confirmedAuthor = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+            if (confirmedAuthor.AuthorConfirmed == true)
+            {
+                var code = await UserManager.GenerateEmailConfirmationTokenAsync(confirmedAuthor.Id);
+                var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = confirmedAuthor.Id, code = code }, protocol: Request.Url.Scheme);
+                await UserManager.SendEmailAsync(confirmedAuthor.Id, "[BookAholic]Xác Nhận Tài Khoản", "Chào mừng bạn đã đến với mạng xã hội sách BookAholic <p> Xin vui lòng click vào link để xác nhận tài khoản của bạn</p>: <a href=\"" + callbackUrl + "\">Xác Nhận tài khoản</a>");
+            }
+            return Json("Successed");
+        }
     }
 }

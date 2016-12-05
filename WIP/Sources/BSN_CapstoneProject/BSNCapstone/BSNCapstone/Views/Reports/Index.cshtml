@@ -1,0 +1,128 @@
+﻿@model BSNCapstone.ViewModels.ReportContentViewModel
+
+@{
+    ViewBag.Title = "Admin-Báo cáo";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var allUser = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUser;
+    var allGroup = (List<BSNCapstone.Models.Group>)ViewBag.allGroup;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <!------BÊN PHẢI------>
+    <div class="col-md-10">
+        <div class="slide-tab">
+            <div class="tabbable-panel">
+                <div class="tabbable-line">
+                    <ul class="nav nav-tabs ">
+                        <li class="active">
+                            <a href="#reportuser" data-toggle="tab">
+                                Phản hồi người dùng
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#reportgroup" data-toggle="tab">
+                                Phản hồi nhóm
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="reportuser">
+                            <div class="form-inline">
+                                <div class="form-group add">
+                                    <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Tìm kiếm..." />
+                                </div>
+                            </div>
+                            <div class="divider-horizontal"></div>
+                            <div class="table">
+                                <table class="table table-striped table-bordered table-hover" id="dev-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:1px">#</th>
+                                            <th style="width:170px">Người phản hồi</th>
+                                            <th style="width:180px">Người bị phản hồi</th>
+                                            <th>Lí do</th>
+                                            <th style="width:200px">Email người bị phản hồi</th>
+                                            <th style="width:170px">Hành động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var user in Model.ListReportUser)
+                                        {
+                                            <tr class="tab-content">
+                                                <td></td>
+                                                <td>@allUser.Find(x => x.Id.Equals(user.UserId)).UserName</td>
+                                                <td>@allUser.Find(x => x.Id.Equals(user.ReportedUserId)).UserName</td>
+                                                <td>@user.Content</td>
+                                                <td>@allUser.Find(x => x.Id.Equals(user.ReportedUserId)).Email</td>
+                                                <td>
+                                                    <button id="LockButton" type="submit" class="btn btn-default" onclick="Lock('@user.ReportedUserId', '2', '@user.Id')" data-url="@Url.Action("Lock", "Timeline")">Xử lí</button>
+                                                    <button id="RejectButton" type="submit" class="btn btn-default" onclick="Reject()" data-url="@Url.Action("Reject", "Reports")" data-reportid="@user.Id">Từ chối</button>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="reportgroup">
+                            <div class="form-inline">
+                                <div class="form-group add">
+                                    <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Tìm kiếm..." />
+                                </div>
+                            </div>
+                            <div class="divider-horizontal"></div>
+                            <div class="table">
+                                <table class="table table-striped table-bordered table-hover" id="dev-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:1px">#</th>
+                                            <th style="width:150px">Người phản hồi</th>
+                                            <th style="width:150px">Nhóm bị phản hồi</th>
+                                            <th>Lí do</th>
+                                            <th style="width:150px">Quản trị viên</th>
+                                            <th style="width:150px">Email QTV</th>
+                                            <th style="width:170px">Hành động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var group in Model.ListReportGroup)
+                                        {
+                                            <tr class="tab-content">
+                                                <td></td>
+                                                <td>@allUser.Find(x => x.Id.Equals(group.UserId)).UserName</td>
+                                                <td>@allGroup.Find(x => x.Id.Equals(group.ReportedGroupId)).GroupName</td>
+                                                <td>@group.Content</td>
+                                                <td>
+                                                    @{
+                                                        var beReportedGroup = allGroup.Find(x => x.Id.Equals(group.ReportedGroupId));
+                                                        var creatorId = beReportedGroup.GroupMembers.Find(x => x.RoleInGroup.Equals("creator")).UserId;
+                                                    }
+                                                    @allUser.Find(x => x.Id.Equals(creatorId)).UserName;
+                                                </td>
+                                                <td>@allUser.Find(x => x.Id.Equals(creatorId)).Email</td>
+                                                <td>
+                                                    <button id="LockButton" type="submit" class="btn btn-default" onclick="Lock('@group.ReportedGroupId', '2', '@group.Id')" data-url="@Url.Action("Lock", "Groups")">Xử lí</button>
+                                                    <button id="RejectButton" type="submit" class="btn btn-default" onclick="Reject()" data-url="@Url.Action("Reject", "Reports")" data-reportid="@group.Id">Từ chối</button>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+@section Scripts {
+    <script src="~/Scripts/Custom/group.js"></script>
+    <script src="~/Scripts/Custom/report-action.js"></script>
+}

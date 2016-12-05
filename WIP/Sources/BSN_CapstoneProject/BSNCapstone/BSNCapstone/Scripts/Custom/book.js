@@ -59,19 +59,19 @@ function DeleteConfirm(id, i) {
             type: "POST",
             url: url,
             data: formData,
-        dataType: 'json',
-        contentType: false,
-        processData: false,
+            dataType: 'json',
+            contentType: false,
+            processData: false,
 
-        success: function (result) {
-            alert(result);
-            $('table tbody tr#' + i).fadeOut('slow', function () { $(this).remove(); })
-        },
-        error: function (err) {
-            alert(err.statusText);
-        }
-    });
-}
+            success: function (result) {
+                alert(result);
+                $('table tbody tr#' + i).fadeOut('slow', function () { $(this).remove(); })
+            },
+            error: function (err) {
+                alert(err.statusText);
+            }
+        });
+    }
 };
 
 $(document).ready(function () {

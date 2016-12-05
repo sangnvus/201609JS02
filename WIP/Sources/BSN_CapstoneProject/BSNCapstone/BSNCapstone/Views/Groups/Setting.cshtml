@@ -4,8 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Trang cài đặt nhóm";
     var currentUserId = ViewBag.currentUser;
-    //var listMember = (List<BSNCapstone.ViewModels.GroupMembersViewModel>)ViewBag.listMember;
-    //var listRequest = (List<string>)ViewBag.listRequest;
     var allUser = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUser;
     var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
     var group = (BSNCapstone.Models.Group)ViewBag.group;
@@ -13,14 +11,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-@*<head>
-    <title>Trang cài đặt nhóm</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="~/Content/Trangnhom-caidat.css">
-    <script src="~/Scripts/capstone-rename-later-v1.0.js"></script>
-</head>*@
 
 <body>
     <!-------------------Dưới thanh bar-------------------------->

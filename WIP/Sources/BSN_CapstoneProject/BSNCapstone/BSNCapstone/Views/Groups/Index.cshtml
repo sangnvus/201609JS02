@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<BSNCapstone.Models.Group>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Admin-Nhóm";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     int numberOfGroup = ViewBag.groupNumber;
     int numberOfGroupJustCreated = ViewBag.groupJustCreated;
@@ -99,7 +99,10 @@
                                     }
                                 </td>
                                 <td>
-                                    <button type="submit" id="LockButton" class="btn btn-default" onclick="Lock('@item.Id')" data-url="@Url.Action("Lock", "Groups")">Khóa</button>
+                                    @if (item.Locked == true)
+                                    {
+                                        <button type="submit" id="LockButton" class="btn btn-default" onclick="Lock('@item.Id', '1', '')" data-url="@Url.Action("Lock", "Groups")">Mở Khóa</button>    
+                                    }
                                 </td>
                             </tr>
                         }

@@ -36,6 +36,16 @@ namespace BSNCapstone.Controllers
             return new MultiSelectList(userForAdd, "Id", "UserName", selectedValues);
         }
 
+        private List<string> GroupReportContent()
+        {
+            List<string> list = new List<string>();
+            foreach (var x in ReportContentViewModel.EnumToList<ReportContentViewModel.ReportGroup>())
+            {
+                list.Add(ReportContentViewModel.GetEnumDescription(x));
+            }
+            return list;
+        }
+
         //
         // GET: /Groups/
         public ActionResult Index(string searchString)
@@ -53,17 +63,22 @@ namespace BSNCapstone.Controllers
         //
         // POST: /Groups/Lock
         [HttpPost]
-        public ActionResult Lock(string id)
+        public ActionResult Lock(string id, int option, string reportId)
         {
-            var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
             bool updateStatus = true;
-            if (group.Locked != true)
+            if (option == 1)
+            {
+                updateStatus = false;
+            }
+            else if (option == 2)
             {
                 updateStatus = true;
+                var reportUpdate = new BsonDocument("$set", new BsonDocument("Status", false));
+                Context.Reports.UpdateOneAsync(x => x.Id.Equals(new ObjectId(reportId)), reportUpdate);
             }
             else
             {
-                updateStatus = false;
+                updateStatus = true;
             }
             var update = new BsonDocument("$set", new BsonDocument("Locked", updateStatus));
             Context.Groups.UpdateOneAsync(x => x.Id.Equals(new ObjectId(id)), update);
@@ -76,6 +91,8 @@ namespace BSNCapstone.Controllers
         {
             ViewBag.cloudinary = cloudinary;
             ViewBag.currentUser = User.Identity.GetUserId();
+            ViewBag.allUser = Context.Users.Find(_ => true).ToList();
+            ViewBag.groupReport = GroupReportContent();
             var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
             if (group.Locked == true)
             {

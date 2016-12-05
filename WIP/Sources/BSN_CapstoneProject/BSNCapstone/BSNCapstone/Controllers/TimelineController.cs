@@ -12,6 +12,7 @@ using MongoDB.Driver;
 using System.Threading.Tasks;
 using System.Globalization;
 using Microsoft.AspNet.Identity;
+using BSNCapstone.ViewModels;
 
 namespace BSNCapstone.Controllers
 {
@@ -33,15 +34,15 @@ namespace BSNCapstone.Controllers
             }
         }
 
-        // GET: Timeline
-        //public ActionResult Index(string id)
-        //{
-        //    var user = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
-        //    return View(user);
-        //}
-
         public ActionResult Details(string id) 
         {
+            List<string> list = new List<string>();
+            foreach (var x in ReportContentViewModel.EnumToList<ReportContentViewModel.ReportUser>())
+            {
+                list.Add(ReportContentViewModel.GetEnumDescription(x));
+            }
+            Console.Write(list);
+            ViewBag.reportContentList = list;
             var user = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
             ViewBag.currentUser = User.Identity.GetUserId();
             ViewBag.cloudinary = cloudinary;
@@ -168,6 +169,29 @@ namespace BSNCapstone.Controllers
                     break;
             }
             return Json(message);
+        }
+
+        [HttpPost]
+        public ActionResult Lock(string id, int option, string reportId)
+        {
+            bool updateStatus = true;
+            if (option == 1)
+            {
+                updateStatus = false;
+            }
+            else if (option == 2)
+            {
+                updateStatus = true;
+                var reportUpdate = new BsonDocument("$set", new BsonDocument("Status", false));
+                Context.Reports.UpdateOneAsync(x => x.Id.Equals(new ObjectId(reportId)), reportUpdate);
+            }
+            else
+            {
+                updateStatus = true;
+            }
+            var update = new BsonDocument("$set", new BsonDocument("Locked", updateStatus));
+            Context.Users.UpdateOneAsync(x => x.Id.Equals(new ObjectId(id)), update);
+            return Json("");
         }
     }
 }

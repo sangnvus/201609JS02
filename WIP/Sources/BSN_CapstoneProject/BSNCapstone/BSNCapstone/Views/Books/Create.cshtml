@@ -67,7 +67,7 @@
                         @Html.ValidationMessageFor(model => model.BookName, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
-                        @Html.TextBoxFor(model => model.Authors, new { @class = "form-control", @placeholder = "Tác giả" })
+                        @Html.ListBox("Authors", ViewBag.authorId as MultiSelectList, new { @class = "chzn-select", @style = "width: 100%;", @data_placeholder = "Chọn tác giả..." })
                         @Html.ValidationMessageFor(model => model.Authors, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
