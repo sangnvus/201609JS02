@@ -54,7 +54,7 @@ namespace BSNCapstone.Controllers
             ViewBag.allCategories = BooksControllerHelper.ListAllCategory();
             ViewBag.allPublishers = Context.Publishers.Find(_ => true).ToList();
             ViewBag.allAuthors = Context.Users.Find(x => x.Roles.Contains("author")).ToList();
-            var books = Context.Books.Find(_ => true).ToEnumerable();
+            var books = Context.Books.Find(x => x.Requested.Equals(false)).ToEnumerable();
             //DangVH. Create. Start (02/11/2016)
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -256,6 +256,7 @@ namespace BSNCapstone.Controllers
                     editBook.BookName = book.BookName;
                     editBook.ReleaseDay = book.ReleaseDay.ToLocalTime();
                     editBook.Description = book.Description;
+                    editBook.Requested = false;
                     if (file.ContentLength == 0)
                     {
                         editBook.ImgPublicId = book.ImgPublicId;
@@ -339,6 +340,84 @@ namespace BSNCapstone.Controllers
             var update = Builders<Book>.Update.Push(x => x.Comments, comment);
             Context.Books.UpdateOneAsync(filter, update);
             return Json("Bình luận thành công");
+        }
+
+        //GET: /Books/BookRequest
+        public ActionResult BookRequest(string searchString)
+        {
+            var booksRequested = Context.Books.Find(x => x.Requested.Equals(true)).ToEnumerable();
+            ViewBag.numberOfBook = BooksControllerHelper.GetBookNumber();
+            ViewBag.allCategories = Context.Categories.Find(_ => true).ToList();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                booksRequested = booksRequested.Where(x => x.BookName.Contains(searchString) || x.RequestedBookAuthor.Contains(searchString));
+            }
+            return View(booksRequested);
+        }
+
+        [HttpPost]
+        public ActionResult RequestAddBook(string bookName, string author, string categories)
+        {
+            try
+            {
+                var books = Context.Books.Find(_ => true).ToList();
+                List<string> errorMessage = new List<string>();
+                if (bookName == "" || bookName == null)
+                {
+                    var message = "Tên sách không được để trống";
+                    errorMessage.Add(message);
+                }
+                if (author == "" || author == null)
+                {
+                    var message = "Tác giả không được để trống";
+                    errorMessage.Add(message);
+                }
+                if (categories == "")
+                {
+                    var message = "Thể loại không được để trống";
+                    errorMessage.Add(message);
+                }
+                foreach (var book in books) 
+                {
+                    if (book.BookName.ToLower().Equals(bookName.ToLower())) 
+                    {
+                        var message = "Sách đã tồn tại";
+                        errorMessage.Add(message);
+                    }
+                }
+                if (errorMessage.Count == 0)
+                {
+                    var requestBook = new Book() 
+                    {
+                        BookName = bookName,
+                        RequestedBookAuthor = author,
+                        Requested = true
+                    };
+                    //var authors = Context.Users.Find(x => x.Roles.Contains("author")).ToList();
+                    //if (authors.Find(x => x.UserName.ToLower().Contains(author.ToLower())) == null)
+                    //{
+                    //    requestBook.Authors.Add((authors.Find(x => x.UserName.ToLower().Contains(author.ToLower()))).Id);
+                    //}
+                    var requestCategories = categories.Split(',').ToList();
+                    foreach (var category in requestCategories)
+                    {
+                        requestBook.Categories.Add(category);
+                    }
+                    Context.Books.InsertOneAsync(requestBook);
+                    return Json(new
+                    {
+                        successed = "Yêu cầu thành công"
+                    });
+                }
+                else
+                {
+                    return Json(errorMessage, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message);
+            }
         }
     }
 }

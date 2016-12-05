@@ -78,6 +78,8 @@ namespace BSNCapstone.Models
 
         public bool Requested { get; set; }
 
+        public string RequestedBookAuthor { get; set; }
+
         public Book()
         {
             //DangVH. Update. Start (14/11/2016)
@@ -86,6 +88,7 @@ namespace BSNCapstone.Models
             Publishers = new List<string>();
             Categories = new List<string>();
             Authors = new List<string>();
+            RequestedBookAuthor = "";
             RateTime = 0;
             RatingPoint = 0;
             AvarageRating = 0;

@@ -130,7 +130,7 @@
                                         </td>
                                         <td style="vertical-align: middle">
                                             <button type="button" class="btn btn-info fa fa-pencil-square-o" onclick="location.href='@Url.Action("Edit", "Books", new { id = item.Id })'">Sửa</button>
-                                            <button type="submit" class="btn btn-danger fa fa-close" onclick="DeleteConfirm('@item.Id', '@i')">Xóa</button>
+                                            <button type="submit" class="btn btn-danger fa fa-close" id="DeleteConfirmButton" onclick="DeleteConfirm('@item.Id', '@i')" data-url="@Url.Action("DeleteConfirm", "Books")">Xóa</button>
                                         </td>
                                     </tr>
                                     i++;
@@ -144,31 +144,7 @@
     </div>
 </body>
 </html>
-<!--Modal popup-->
-<script type="text/javascript">
-    // DELETE IMAGE
-    function DeleteConfirm(id, i) {
-        var deleteConfirm = confirm("Bạn có chắc muốn xóa quyển sách này ko?");
-        if (deleteConfirm) {
-            var formData = new FormData();
-            formData.append("id", id);
-            $.ajax({
-                type: "POST",
-                url: "@Url.Action("DeleteConfirm", "Books")",
-                data: formData,
-            dataType: 'json',
-            contentType: false,
-            processData: false,
-
-                success: function (result) {
-                    alert(result);
-                    $('table tbody tr#' + i).fadeOut('slow', function () { $(this).remove(); })
-                },
-                error: function (err) {
-                    alert(err.statusText);
-                }
-            });
-        }
-    };
-</script>
+@section Scripts {
+    <script src="~/Scripts/Custom/book.js"></script>
+}
 
