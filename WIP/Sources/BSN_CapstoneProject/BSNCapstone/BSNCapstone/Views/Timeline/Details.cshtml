@@ -5,6 +5,7 @@
     var currentUserId = ViewBag.currentUser;
     var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
     var allUser = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUser;
+    var reportContentList = (List<string>)ViewBag.reportContentList;
 }
 
 <!DOCTYPE html>
@@ -80,48 +81,28 @@
                                 <div class="content">
                                     <div class="row">
                                         <div class="col-md-1" style="margin-top: 5px;">
-                                            <img src="/AnhAvaNguoiDung/avaVan.jpg" style="width:50px;height:50px" />
+                                            @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                                .Height(50).Width(50).Crop("fill")).BuildImageTag(allUser.Find(x => x.Id.Equals(currentUserId)).Avatar,
+                                                    new CloudinaryDotNet.StringDictionary("class=reportAva")))
                                         </div>
                                         <div class="col-md-11" class="radio">
                                             <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optradio"> Người này đang làm phiền tôi
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optradio">Họ đang mạo danh tôi hoặc người mà tôi biết
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optradio">Họ đang chia sẻ bài viết không phù hợp hoặc phản cảm
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optradio">Đây là tài khoản giả mạo
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optradio">Trang cá nhân này đại diện cho một doanh nghiệp hoặc tổ chức
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optradio">Họ đang sử dụng tên khác so với thực tế
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optradio">
-                                                    <input type="text" id="Othercomment" class="form-control" placeholder="Ý kiến khác">
-                                                </label>
+                                                @foreach (var reportContent in reportContentList)
+                                                {
+                                                    <label style="display: block;">
+                                                        <input type="radio" name="optradio" value="@reportContent"> @reportContent
+                                                    </label>
+                                                }
                                             </div>
                                             <div class="divider-horizontal"></div>
-                                            <button id="buttonCancel" class="btn btn-default">Hủy</button>
-                                            <button id="buttonPost" class="btn btn-default">Gửi</button>
+                                            <button id="buttonPost" class="btn btn-default" onclick="PostReport()"
+                                                    data-url="@Url.Action("GetReport", "Reports")"
+                                                    data-userid="@currentUserId"
+                                                    data-bereportedid="@Model.Id" 
+                                                    data-option="1">
+                                                Gửi
+                                            </button>
+                                            <button id="buttonCancel" class="btn btn-default" data-dismiss="modal">Hủy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -455,4 +436,5 @@
     <link rel="stylesheet" href="~/Content/Trangchu_canhan_tacgia.css">
     <link href="rateit/src/rateit.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="~/Content/font-awesome.css">
+    <script src="~/Scripts/Custom/report-action.js"></script>
 }

@@ -12,8 +12,9 @@
     <title>Tác giả đăng ký</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="~/Scripts/jquery.min.js"></script>
     <link href="~/Content/DangkySlide-Tgdk.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/bootstrap.css">
     <!-----Sử dụng DangkySlide-tgdk.css------>
 </head>
 
@@ -22,8 +23,7 @@
     <nav style="background-color: black; height:11%;">
         <div class="container-fluid">
             <div class="navbar-header">
-                <img src="logo.png" alt="Bookaholic.com" style="width:180px; height:50px;margin-top:5%" href="DangKy.html">
-                <span style="color: white">@ViewBag.message</span>
+                <img src="logo.png" alt="Bookaholic.com" style="width:180px; height:50px;margin-top:5%" onclick="window.location.href='@Url.Action("Login", "Account")'">
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse">
@@ -101,6 +101,7 @@
         </div>
         <div class="dangnhap container-fluid text-left" style="margin-top: 10%;">
             <!--DangVH. Create. Start (16/11/2016)-->
+            <span style="color: white; position: absolute; top: -40%; right: 30%">@ViewBag.Message</span>
             <span style="color:whitesmoke; font-size:200%;position:absolute;top:-27%;right:42%">TÁC GIẢ ĐĂNG KÝ</span>
             <!--DangVH. Create. End (16/11/2016)-->
             <div class="row content">
@@ -123,7 +124,7 @@
                     <div class="form-group">
                         <input type="file" id="ImgPublicId" name="img" style="color:black">
                         <br>
-                        <p class="help-block">Thêm ảnh chụp chứng minh nhân dân</p>
+                        <p class="help-block" style="text-align: center;">Thêm ảnh chụp chứng minh nhân dân</p>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-2" style="left:-5.5%;">
@@ -140,21 +141,14 @@
             <span class="icon-next"></span>
         </a>
     </header>
-    <script src="js/jquery.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Script to Activate the Carousel -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
     <script>
         $('.carousel').carousel({
             interval: 3000 //changes the speed
         })
     </script>
 </body>
-<!-- Script Area -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- sau khi doi ten nho doi ten day nua nha. -->
-
-
-
 </html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

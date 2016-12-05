@@ -1,8 +1,10 @@
-﻿function Lock(groupId) {
+﻿function Lock(groupId, option, reportId) {
     var url = $("#LockButton").data('url');
     console.log("abc");
     var formData = new FormData();
     formData.append("id", groupId);
+    formData.append("option", option);
+    formData.append("reportId", reportId);
     $.ajax({
         type: "POST",
         url: url,

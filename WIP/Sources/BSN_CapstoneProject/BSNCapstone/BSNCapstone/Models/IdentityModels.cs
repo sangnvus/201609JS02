@@ -47,11 +47,17 @@ namespace BSNCapstone.Models
 
        public bool AuthorConfirmed { get; set; }
 
+       public bool Locked { get; set; }
+
+       public DateTime CreatedTime { get; set; }
+
        public ApplicationUser()
        {
            Follower = new List<string>();
            Following = new List<string>();
            AuthorConfirmed = false;
+           Locked = false;
+           CreatedTime = DateTime.Now.AddHours(7);
        }
     }
 

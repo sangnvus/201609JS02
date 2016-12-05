@@ -54,11 +54,11 @@ namespace BSNCapstone.ControllerHelpers
         public static List<BooksSuggestViewModel> SuggestBook(string bookId, int option)
         {
             var Context = BooksControllerHelper.Context();
-            List<Book> listBook = Context.Books.Find(_ => true).ToList();
+            List<Book> listBook = Context.Books.Find(x => x.Requested != true).ToList();
             List<BooksSuggestViewModel> suggestBooks = new List<BooksSuggestViewModel>();
             switch (option)
             {
-                case 1:
+                case 1: //Những sách có lượt truy cập lớn nhất
                     DateTime startTime = DateTime.Now.AddDays(-1);
                     DateTime endTime = DateTime.Now;
                     List<BooksSuggestViewModel> newList = new List<BooksSuggestViewModel>();
@@ -116,7 +116,7 @@ namespace BSNCapstone.ControllerHelpers
                     suggestBooks = suggestBooks.GroupBy(x => x.BookId).Select(y => y.First()).ToList().Take(4).ToList();
                     Console.Write(suggestBooks);
                     break;
-                case 2:
+                case 2: //Những sách được đánh giá cao nhất
                     listBook = listBook.OrderByDescending(x => x.AvarageRating).Take(4).ToList();
                     foreach (var book in listBook)
                     {
@@ -130,7 +130,7 @@ namespace BSNCapstone.ControllerHelpers
                         });
                     }
                     break;
-                case 3:
+                case 3: //Những sách mới xuất bản
                     listBook = listBook.OrderByDescending(x => x.ReleaseDay).Take(4).ToList();
                     foreach (var book in listBook)
                     {
@@ -144,7 +144,7 @@ namespace BSNCapstone.ControllerHelpers
                         });
                     }
                     break;
-                case 4:
+                case 4: //Những sách có cùng thể loại
                     var modelBook = Context.Books.Find(x => x.Id.Equals(new ObjectId(bookId))).FirstOrDefault();
                     foreach (var book in listBook)
                     {
