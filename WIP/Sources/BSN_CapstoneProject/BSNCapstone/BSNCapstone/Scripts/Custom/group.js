@@ -29,19 +29,19 @@ function GroupRequestHandle(groupId, userId, option) {
         type: "POST",
         url: url,
         data: formData,
-    dataType: 'json',
-    contentType: false,
-    processData: false,
+        dataType: 'json',
+        contentType: false,
+        processData: false,
 
-    success: function (result) {
-        if (result != "") {
-            window.alert(result);
+        success: function (result) {
+            if (result != "") {
+                window.alert(result);
+            }
+            else {
+                window.location.reload();
+            }
         }
-        else {
-            window.location.reload();
-        }
-    }
-});
+    });
 };
 
 

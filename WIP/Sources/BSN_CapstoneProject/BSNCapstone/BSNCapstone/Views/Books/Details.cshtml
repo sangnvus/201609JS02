@@ -222,12 +222,12 @@
             <div class="row">
                 @foreach (var book in listSameBook)
                 {
-                    <div class="col-md-3">
-                        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
-                            .Height(130).Width(100).Crop("fill")).BuildImageTag(book.ImgPublicId,
-                                new CloudinaryDotNet.StringDictionary("class=img-rounded")))
-                    </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6" style="padding-left:10px;">
+                        <div class="col-md-6" style="padding-left:0px;">
+                            @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                .Height(117).Width(90).Crop("fill")).BuildImageTag(book.ImgPublicId,
+                                    new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                        </div>
                         <fieldset class="rating">
                             <input type="radio" id="star5" name="rating" value="5" />
                             <label class="full" for="star5" title="Awesome - 5 stars"></label>
@@ -240,76 +240,39 @@
                             <input type="radio" id="star1" name="rating" value="1" />
                             <label class="full" for="star1" title="Sucks big time - 1 star"></label>
                         </fieldset>
-                        <p>@book.RateTime đánh giá</p>
+                        <h5 style="float:right;">@book.RateTime lượt đánh giá</h5>
                         <br>
                         <br>
-                        <button class="button buttonRe">Nhận xét</button>
+                        <button class="button buttonRe" style="margin-left:15px;">Nhận xét</button>
+                        <div class="col-md-12 list-group">
+                            <span>
+                                <strong data-toggle="tooltip" title="@book.BookName">
+                                    <a href="@Url.Action("Details", "Books", new { id = @book.BookId })">@book.BookName.ToUpper()</a>
+                                </strong>
+                                <br>
+                                @foreach (var author in book.AuthorName)
+                                {
+                                    if (book.AuthorName.Last() == author)
+                                    {
+                                        <i data-toggle="tooltip" title="@allUser.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName" class="authorname">
+                                            <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allUser.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName.ToLower()) </strong>
+                                        </i>
+                                    }
+                                    else
+                                    {
+                                        <i data-toggle="tooltip" title="@allUser.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName" class="authorname">
+                                            <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allUser.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName.ToLower()), </strong>
+                                        </i>
+                                    }
+                                }
+                            </span>
+                        </div>
                     </div>
                 }
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <ul class="list-group">
-                                <li>
-                                    <span>
-                                        <strong data-toggle="tooltip" title="NHÀ GIẢ KIM">NHÀ GIẢ KIM</strong>
-                                        <br><i data-toggle="tooltip" title="Paulo Coelho" class="authorname"><strong>Paulo Coelho </strong> </i>
-                                    </span>
-                                </li>
-                            </ul>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <ul class="list-group">
-                                <li>
-                                    <span>
-                                        <strong data-toggle="tooltip" title="NGÀY XƯA CÓ MỘT CHUYỆN TÌNH">NGÀY XƯA CÓ MỘT CHUYỆN TÌNH</strong>
-                                        <br><i data-toggle="tooltip" title="Nguyễn Nhật Ánh" class="authorname"><strong>Nguyễn Nhật Ánh </strong> </i>
-                                    </span>
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <ul class="list-group">
-                                <li>
-                                    <span>
-                                        <strong id="tensach">TRÊN ĐƯỜNG BĂNG</strong>
-
-                                    </span>
-                                </li>
-                            </ul>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <ul class="list-group">
-                                <li>
-                                    <span>
-                                        <strong id="tensach">Totto chan bên cửa sổ</strong>
-
-                                    </span>
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-                <p class="text-right">
-                    <button type="button" class="btn btn-link">Xem thêm </button>
-                </p>
-
-                <br>
-                <br>
+            </div>
+            <br>
+            <br>
+            <div class="row">
                 <div class="text-center" class="panel-heading">
                     <h4><strong>DANH SÁCH NHÓM</strong></h4>
                 </div>

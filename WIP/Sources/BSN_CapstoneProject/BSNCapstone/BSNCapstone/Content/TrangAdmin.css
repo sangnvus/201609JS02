@@ -278,3 +278,12 @@
     width: 1000px;
     height: 500px;
 }
+
+/**/
+.morecontent span{
+    display: none;
+}
+
+.morelink {
+    display: block;
+}

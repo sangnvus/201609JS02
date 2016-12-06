@@ -7,6 +7,7 @@
     var allUser = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUser;
     var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
     var group = (BSNCapstone.Models.Group)ViewBag.group;
+    var reportContentList = (List<string>)ViewBag.groupReport;
 }
 
 <!DOCTYPE html>
@@ -71,7 +72,57 @@
                             <button class="button buttonRe" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '2')">Rời nhóm</button>
                         }
                     }
-                    <button class="button buttonRe">Báo cáo</button>
+                    <button class="button buttonRe" data-toggle="modal" data-target="#ModalReport">Báo cáo</button>
+                    <div id="ModalReport" class="modal fade" role="dialog">
+                        <div class="modal-dialog ">
+                            <!-- Modal content-->
+                            <div class="modal-content ">
+                                <div style="background-color: #F7E8AF;" class="modal-header clearfix">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <h4 class="modal-title"><b>Giúp chúng tôi hiểu điều đang xảy ra</b></h4>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-body clearfix">
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-md-1" style="margin-top: 5px;">
+                                                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                            .Height(50).Width(50).Crop("fill")).BuildImageTag(allUser.Find(x => x.Id.Equals(currentUserId)).Avatar,
+                                                new CloudinaryDotNet.StringDictionary("class=reportAva")))
+                                            </div>
+                                            <div class="col-md-11" class="radio">
+                                                <div class="radio">
+                                                    @foreach (var report in reportContentList)
+                                                    {
+                                                        <label style="display: block;">
+                                                            <input type="radio" name="optradio" value="@report"> @report
+                                                        </label>
+                                                    }
+                                                </div>
+                                                <div class="divider-horizontal"></div>
+                                                <span id="reportMessage" style="float: left; margin-left: 5%; color: red;"></span>
+                                                <div class="BT">
+                                                    <button id="buttonPost" class="btn btn-default" onclick="PostReport()"
+                                                            data-url="@Url.Action("GetReport", "Reports")"
+                                                            data-userid="@currentUserId"
+                                                            data-bereportedid="@Model.Id"
+                                                            data-option="2">
+                                                        Gửi
+                                                    </button>
+                                                    <button id="buttonCancel" class="btn btn-default" data-dismiss="modal">Hủy</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -235,4 +286,5 @@
     <link rel="stylesheet" href="~/Content/Trangnhom-caidat.css">
     <script src="~/Scripts/capstone-rename-later-v1.0.js"></script>
     <script src="~/Scripts/Custom/group.js"></script>
+    <script src="~/Scripts/Custom/report-action.js"></script>
 }

@@ -52,7 +52,7 @@
                             <thead>
                                 <tr>
                                     <th style="width:1px">#</th>
-                                    <th>
+                                    <th style="width: 10%;">
                                         @Html.DisplayNameFor(model => model.BookName)
                                     </th>
                                     <th>
@@ -64,13 +64,13 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.ReleaseDay)
                                     </th>
-                                    <th>
+                                    <th style="width: 15%;">
                                         @Html.DisplayNameFor(model => model.Publishers)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.Description)
                                     </th>
-                                    <th style="width:130px">Hành động</th>
+                                    <th style="width: 15%;">Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -79,10 +79,10 @@
                                 {
                                     <tr id="@i">
                                         <td>@i</td>
-                                        <td style="vertical-align: middle">
+                                        <td>
                                             @Html.DisplayFor(modelItem => item.BookName)
                                         </td>
-                                        <td style="vertical-align: middle">
+                                        <td>
                                             @foreach (var author in item.Authors)
                                             {
                                                 <p>
@@ -93,7 +93,7 @@
                                                 </p>
                                             }
                                         </td>
-                                        <td style="vertical-align: middle">
+                                        <td>
                                             @foreach (var category in item.Categories)
                                             {
                                                 <p>
@@ -108,10 +108,10 @@
                                                 </p>
                                             }
                                         </td>
-                                        <td style="vertical-align: middle">
+                                        <td>
                                             @Html.DisplayFor(modelItem => item.ReleaseDay)
                                         </td>
-                                        <td style="vertical-align: middle">
+                                        <td>
                                             @foreach (var publisher in item.Publishers)
                                             {
                                                 <p>
@@ -125,10 +125,12 @@
                                                 </p>
                                             }
                                         </td>
-                                        <td style="vertical-align: middle">
-                                            @Html.DisplayFor(modelItem => item.Description)
+                                        <td>
+                                            <div class="more">
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </div>
                                         </td>
-                                        <td style="vertical-align: middle">
+                                        <td>
                                             <button type="button" class="btn btn-info fa fa-pencil-square-o" onclick="location.href='@Url.Action("Edit", "Books", new { id = item.Id })'">Sửa</button>
                                             <button type="submit" class="btn btn-danger fa fa-close" id="DeleteConfirmButton" onclick="DeleteConfirm('@item.Id', '@i')" data-url="@Url.Action("DeleteConfirm", "Books")">Xóa</button>
                                         </td>
@@ -147,4 +149,36 @@
 @section Scripts {
     <script src="~/Scripts/Custom/book.js"></script>
 }
+<script>
+    $(document).ready(function () {
+        var showChar = 200;
+        var ellipsestext = "...";
+        var moretext = "More";
+        var lesstext = "Less";
+        $('.more').each(function () {
+            var content = $.trim($(this).html());
+            if (content.length > 500) {
+                var c = content.substr(0, showChar);
+                console.log(c);
+                var h = content.substr(showChar - 1, content.length - showChar);
+                var html = c + '<span class="moreelipses">' + ellipsestext +
+                        '</span>&nbsp;<span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+                $(this).html(html);
+            }
+        });
+        $(".morelink").click(function () {
+            if ($(this).hasClass("less")) {
+                $(this).removeClass("less");
+                $(this).html(moretext);
+            } else {
+                $(this).addClass("less");
+                $(this).html(lesstext);
+            }
+            console.log("abc");
+            $(this).parent().prev().toggle();
+            $(this).prev().toggle();
+            return false;
+        });
+    });
+</script>
 

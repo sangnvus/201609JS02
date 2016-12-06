@@ -5,6 +5,7 @@
     ViewBag.Title = "Trang thành viên nhóm";
     var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
     var allUser = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUser;
+    var reportContentList = (List<string>)ViewBag.groupReport;
     string currentUserId = ViewBag.currentUser;
 }
 
@@ -88,53 +89,30 @@
                             <div class="content">
                                 <div class="row">
                                     <div class="col-md-1" style="margin-top: 5px;">
-                                        <img src="/AnhAvaNguoiDung/avaVan.jpg" style="width:50px;height:50px" />
+                                        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                            .Height(50).Width(50).Crop("fill")).BuildImageTag(allUser.Find(x => x.Id.Equals(currentUserId)).Avatar,
+                                                new CloudinaryDotNet.StringDictionary("class=reportAva")))
                                     </div>
                                     <div class="col-md-11" class="radio">
                                         <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optradio"> Nhóm này đang quấy rối tôi
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optradio">Nhóm này đang quấy rối một người bạn
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optradio">Nội dung khiêu dâm
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optradio">Spam hoặc lừa đảo
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optradio">Hành vi bạo lực hoặc gây hại
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optradio">Ngôn ngữ kích động thù địch
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optradio">Nhóm này để bán ma túy, súng hoặc các hàng hóa được kiểm soát khác
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optradio"><input type="text" id="Othercomment" class="form-control" placeholder="Ý kiến khác">
-                                            </label>
+                                            @foreach (var report in reportContentList)
+                                            {
+                                                <label style="display: block;">
+                                                    <input type="radio" name="optradio" value="@report"> @report
+                                                </label>
+                                            }
                                         </div>
                                         <div class="divider-horizontal"></div>
+                                        <span id="reportMessage" style="float: left; margin-left: 5%; color: red;"></span>
                                         <div class="BT">
-                                            <button id="buttonCancel" class="btn btn-default">Hủy</button>
-                                            <button id="buttonPost" class="btn btn-default">Gửi</button>
+                                            <button id="buttonPost" class="btn btn-default" onclick="PostReport()"
+                                                    data-url="@Url.Action("GetReport", "Reports")"
+                                                    data-userid="@currentUserId"
+                                                    data-bereportedid="@Model.Id"
+                                                    data-option="2">
+                                                Gửi
+                                            </button>
+                                            <button id="buttonCancel" class="btn btn-default" data-dismiss="modal">Hủy</button>
                                         </div>
                                     </div>
                                 </div>
@@ -325,5 +303,6 @@
 @section scripts {
     <link rel="stylesheet" href="~/Content/Trangnhom.css">
     <script src="~/Scripts/Custom/group.js"></script>
+    <script src="~/Scripts/Custom/report-action.js"></script>
 }
 

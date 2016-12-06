@@ -22,7 +22,7 @@ namespace BSNCapstone.ControllerHelpers
 
         public static int GetBookNumber()
         {
-            return (int)BooksControllerHelper.Context().Books.Find(_ => true).Count();
+            return (int)BooksControllerHelper.Context().Books.Find(x => x.Requested.Equals(false)).Count();
         }
         //DangVH. Create. End (02/11/2016)
 

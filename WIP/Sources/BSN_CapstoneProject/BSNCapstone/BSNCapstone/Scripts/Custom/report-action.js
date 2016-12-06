@@ -19,7 +19,7 @@
         processData: false,
 
         success: function (result) {
-            alert(result);
+            $("#reportMessage").html(result);
         }
     });
 }
@@ -42,3 +42,17 @@ function Reject() {
         }
     });
 }
+
+$(document).ready(function () {
+    $('#ModalReport').on('hidden.bs.modal', function (e) {
+        console.log("123");
+        $(this)
+            .find("input,textarea,select,span")
+                .val('')
+                .end()
+            .find("input[type=checkbox], input[type=radio]")
+                .prop("checked", "")
+                .end();
+        $("#reportMessage").html("");
+    })
+});

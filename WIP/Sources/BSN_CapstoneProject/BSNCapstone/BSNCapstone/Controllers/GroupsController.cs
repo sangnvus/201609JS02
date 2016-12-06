@@ -113,6 +113,7 @@ namespace BSNCapstone.Controllers
             ViewBag.allUser = allUser;
             ViewBag.currentUser = User.Identity.GetUserId();
             ViewBag.userForAdd = GetUserForAdd(null, group.Id);
+            ViewBag.groupReport = GroupReportContent();
             ViewBag.cloudinary = cloudinary;
             return View(group);
         }
@@ -216,6 +217,7 @@ namespace BSNCapstone.Controllers
                 GroupType = group.GroupType
             };
             ViewBag.currentUser = User.Identity.GetUserId();
+            ViewBag.groupReport = GroupReportContent();
             ViewBag.cloudinary = cloudinary;
             ViewBag.group = group;
             var allUser = Context.Users.Find(_ => true).ToList();
