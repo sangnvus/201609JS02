@@ -1,4 +1,6 @@
 ﻿using AspNet.Identity.MongoDB;
+using BSNCapstone.Models;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +14,9 @@ namespace BSNCapstone.App_Start
         {
 
             var context = ApplicationIdentityContext.Create();
-
             IndexChecks.EnsureUniqueIndexOnUserName(context.Users);
-
             IndexChecks.EnsureUniqueIndexOnRoleName(context.Roles);
-
+            context.Books.Indexes.CreateOne(Builders<Book>.IndexKeys.Ascending("BookName"));
         }
     }
 }
