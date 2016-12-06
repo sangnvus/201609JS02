@@ -215,7 +215,6 @@
                                             <li>
                                                 <button class="post-interaction-btn" data-bind="click: addPostLike" style="color:hotpink ">
                                                     <i class="glyphicon glyphicon-thumbs-up"></i>
-                                                    @*<a data-bind="text : NumOfLike" id="like-count"></a>*@
                                                     <span data-bind="text : NumOfPostLike"></span>
                                                     <span>Thích</span>
                                                 </button>
@@ -226,9 +225,9 @@
                                 <div class="divider-horizontal"></div>
 
                                 <!--Notify của phần comment-->
-                                <div class="col-md-12">
-                                    <a data-bind="click: loadNewComments">load new cmt</a>
-                                </div>
+                                <a data-bind="click: loadNewComments, visible: NewComments().length > 0">
+                                    <span data-bind="    text: NewComments().length"></span> bình luận mới
+                                </a>
                                 <!--Ô ĐỂ NHẬP BÌNH LUẬN-->
                                 <div>
                                     <div class="jumbotron">
@@ -260,48 +259,27 @@
                                                         <img style="width:40px;height:40px" data-bind="attr: { src: CommentedByAvatar }" />
                                                     </div>
 
-                                                    @*<div class="row">*@
                                                     <div class="owner-info">
                                                         <div class="row">
-                                                            <div class="col-md-1">
                                                                 <!--Tên người cmt-->
                                                                 <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>
-                                                            </div>
-                                                            <div class="col-md-11">
                                                                 <!--Nội dung cmt-->
-                                                                <span data-bind="    html: Message"></span>
-                                                            </div>
+                                                            <p data-bind="    html: Message"></p>
                                                         </div>
                                                     </div>
-                                                    <!--Drop down list gồm chức năng sửa và xóa cmt-->
-                                                    <div class="pull-right">
-                                                        <button style="background-color: #f1f1f1" type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <span class="fa fa-angle-down"></span>
-                                                        </button>
-                                                        <ul class="dropdown-menu">
-                                                            <li>
-                                                                <a href="#">Sửa</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">Xóa</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    @*</div>*@
+
                                                     <!--Các chức năng tương tác với comment-->
                                                     <ul class="interaction-list" style="padding-left: 8%;">
-                                                        <li>
-                                                            <button class="post-interaction-btn">
-                                                                <i class="glyphicon glyphicon-thumbs-up"></i>
-                                                                @*<i class="glyphicon glyphicon-thumbs-up" data-bind="click: addCmtLike"></i>*@
-                                                                @*<span data-bind="text : NumOfCmtLike"></span>*@
-                                                                <span>Thích</span>
-                                                            </button>
-                                                        </li>
                                                         <li>
                                                             <button class="post-interaction-btn" style="color:grey; font-size: 12px">
                                                                 <i class="glyphicon glyphicon-time"></i>
                                                                 <span data-bind="text: CommentedDate"></span>
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="post-interaction-btn" style="color:grey; font-size: 12px">
+                                                                <i class="glyphicon glyphicon-remove-sign"></i>
+                                                                <span>Xóa</span>
                                                             </button>
                                                         </li>
                                                     </ul>
