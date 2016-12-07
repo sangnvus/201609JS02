@@ -139,19 +139,32 @@
                                 <div class="col-md-6 col-sm-12 col-xs-12"></div>
                                 <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
                                     <!--Button để hiển thị ra pop-up gắn thẻ sách-->
-                                    <button id="choose-book-tag" class="btn btn-default">Gắn Thẻ sách</button>
+                                    @*<button id="choose-book-tag" class="btn btn-default">Gắn Thẻ sách</button>*@
+
+                                    <!--Vanttcadded_SearchBox-->
+                                   
+                                        <form id="searchForm"> 
+                                            <fieldset>
+                                                <div class="input">
+                                                    <input type="text" name="s" id="s" />
+                                                </div>
+                                            </fieldset>
+                                    </form>
+
+                                    <!--Vanttcadded_SearchBox-->
+
                                     <!--Button đăng bài post-->
                                     <input class="btn btn-default" type="button" style="background-color: #224A86" value="Đăng"
                                            data-url="/Index/SavePost" id="btnShare" data-bind="click: addPost" />
                                 </div>
                                 <!--Pop-up để nhập tag sách-->
-                                <div id="book-tag-select" style="display: none">
+                                @*<div id="book-tag-select" style="display: none">
                                     <div class="content">
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Nhập thẻ sách">
                                         </div>
                                     </div>
-                                </div>
+                                </div>*@
                             </div>
                         </div>
                     </div>
@@ -495,4 +508,46 @@
 
     <link rel="stylesheet" href="~/Content/Trangchu_canhan_tacgia.css">
     <link rel="stylesheet" href="~/Content/font-awesome.css">
+
+<link href="~/SearchBox/css/style.css" rel="stylesheet" />
+<script src="~/SearchBox/js/jquery.color.js"></script>
+<script src="~/SearchBox/js/script.js"></script>
+
+<script src="~/JqueryUI/js/jquery-ui.min.js"></script>
+<link href="~/Tageditor/css/jquery.tag-editor.css" rel="stylesheet" />
+<script src="~/Tageditor/js/jquery.caret.min.js"></script>
+<script src="~/Tageditor/js/jquery.tag-editor.js"></script>
+<script src="~/Tageditor/js/jquery.tag-editor.min.js"></script>
 }
+
+<script>
+    $(document).ready(function () {
+        $('#s').tagEditor({
+            autocomplete: {
+                delay: 0,
+                position: { collision: 'flip' },
+
+                source: function (request, response) {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'Home/GetListBookTag',
+                        dataType: 'Json',
+                        data: { input: request.term },
+                        error: function (xhr, textStatus, errorThrown) {
+                            alert('Error: ' + xhr.responseText);
+                        },
+                        success: function (data) {
+                            response($.map(data, function (c) {
+                                return {
+                                    label: c.BookName,
+                                    value: c.BookName
+                                }
+                            }));
+                        }
+                    });
+                },
+                forceLowercase: false,
+            }
+        })
+    })
+</script>
