@@ -24,11 +24,11 @@
     });
 }
 
-function Reject() {
+function Reject(id) {
     var formData = new FormData();
     var url = $("#RejectButton").data('url');
-    var reportId = $("#RejectButton").data('reportid');
-    formData.append("id", reportId);
+    console.log(id);
+    formData.append("id", id);
     $.ajax({
         type: "POST",
         url: url,

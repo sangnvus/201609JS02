@@ -30,14 +30,14 @@
 </head>
 <body>
         <!-- Navigation -->
-        <nav class="thanhbar" style="height:11%; background: #2f2f2f">
+        <nav class="navbar navbar-inverse navbar-fixed-top" style="background: #2f2f2f">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <img src="logo.png" alt="Bookaholic.com" style="width:160px; height:35px;margin-top:5%" onclick="window.location='../Interface_v1.1/DangKy.html'">
                 </div>
             </div>
         </nav> 
-    <div class="col-md-12">
+    <div class="col-md-12" style="position: relative; top: 50px;">
         <div class="col-md-2">
             <div class="row">
                 <div class="thumbnail">
@@ -50,14 +50,14 @@
                 </div>
             </div>
             <div class="btn-group-vertical" role="group" aria-label="group">
-                <button type="button" class="btn btn-default" onclick="window.location.href='TrangAdmin-Dashboard.html'">Tổng quan</button>
-                <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Users", "Account")'">Quản lý người dùng</button>  
+                <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Index", "Home")'">Tổng quan</button>
+                <button type="button" id="adminUser" class="btn btn-default" onclick="window.location.href='@Url.Action("Users", "Account")'">Quản lý người dùng</button>  
                 <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Authors", "Account")'">Quản lý tác giả</button>
                 <button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Index", "Groups")'">Quản lý nhóm</button>
                 <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-default dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Quản lý sách <span class="caret"></span>
-                    </button>
+                <button type="button" id="adminBook" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Quản lý sách <span class="caret"></span>
+                </button>
                     <ul class="dropdown-menu">
                         <li><a href="@Url.Action("Index", "Books")">Thống kê sách</a></li>
                         <li role="separator" class="divider"></li>

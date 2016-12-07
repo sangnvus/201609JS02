@@ -1,0 +1,11 @@
+﻿body {
+}
+
+.modal-backdrop.in {
+    z-index: 0;
+}
+
+#logoutLi:hover {
+    text-decoration: none;
+    background-color: #f2f2f2;
+}

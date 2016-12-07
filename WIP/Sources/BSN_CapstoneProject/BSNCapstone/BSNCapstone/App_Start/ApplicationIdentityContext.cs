@@ -53,7 +53,7 @@ namespace BSNCapstone.App_Start
 
             //HuyenPT. Update. Start. 19-11-2016
             //return new ApplicationIdentityContext(users, roles, categories, books, sliders, publishers, groups, posts, comments, userprofiles);
-            return new ApplicationIdentityContext(users, roles, categories, books, sliders, publishers, groups, posts, booksStatistic, reports,authors);
+            return new ApplicationIdentityContext(users, roles, categories, books, sliders, publishers, groups, posts, booksStatistic, reports, authors);
             //HuyenPT. Update. End. 19-11-2016
 
         }
@@ -81,7 +81,7 @@ namespace BSNCapstone.App_Start
            IMongoCollection<Post> posts,
            IMongoCollection<BookStatistic> booksStatistic,
            IMongoCollection<Report> reports,
-            IMongoCollection<Author> authors
+           IMongoCollection<Author> authors
         )
         //HuyenPT. Update. End. 19-11-2016
         {

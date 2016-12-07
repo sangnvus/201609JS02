@@ -18,17 +18,11 @@
     <script src="~/Scripts/messenger.js"></script>
     <script src="~/Scripts/Custom/group-add.js"></script>
     <script src="~/Scripts/Custom/book.js"></script>
-    <style>
-        #logoutLi:hover {
-            text-decoration: none;
-            background-color: #f2f2f2;
-        }
-    </style>
+    <link href="~/Content/Layout.css" rel="stylesheet" />
 
 </head>
 <body>
-
-    <nav class="navbar navbar-default" style="background-color: black; margin-bottom: 0; border: 0; border-radius: 0;">
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: black;">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img id="logo" src="logo.png" class="img-rounded" alt="Trolltunga Norway" style="width:180px; height:40px;margin-top:-5%"> </a>
@@ -52,11 +46,12 @@
                                 <div class="chat-sidebar">
                                     <div class="sidebar-name">
                                         <!-- Pass username and display name to register popup -->
-                                        <a href="javascript:register_popup('hai', 'Hải');">    <!-------hai là id, Hải là username-->
+                                        <a href="javascript:register_popup('hai', 'Hải');">
+                                            <!-------hai là id, Hải là username-->
                                             <img width="30" height="30" src="AnhAvaNguoiDung/avaHai.jpg" />
                                             <span>Hải</span>
                                         </a>
-                                    </div>                                                           
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -65,10 +60,10 @@
                     <li><a href="#"><i class="glyphicon glyphicon-bell"></i> </a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-cog"></i><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="top: 50px; left: 10px;">
                             <li><a data-toggle="modal" data-target="#createGroupModal">Tạo nhóm</a></li>
                             <li><a data-toggle="modal" data-target="#requestAddBookModal">Yêu cầu thêm sách</a></li>
-                            <li><a href="@Url.Action("EditProfile", "Timeline", new { id = @User.Identity.GetUserId() })">Cài đặt</a></li>      
+                            <li><a href="@Url.Action("EditProfile", "Timeline", new { id = @User.Identity.GetUserId() })">Cài đặt</a></li>
                             <li id="logoutLi" style="height: 26px; margin-top: 2px;">
                                 @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                                 {
@@ -176,7 +171,9 @@
             </div>
         </div>
     </nav>
-    @RenderBody()
+    <div style="margin-top: 51px">
+        @RenderBody()
+    </div>
     <hr />    
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     @Scripts.Render("~/bundles/jquery")

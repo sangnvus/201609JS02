@@ -126,7 +126,7 @@
 
     </div>
 
-    <ul class="nav nav-tabs" style="bottom: 36%;">
+    <ul class="nav nav-tabs" style="bottom: 31%;">
         <li role="presentation">@Html.ActionLink("Thảo luận", "MainPage", "Groups", new { id = Model.Id })</li>
         <li role="presentation" class="active">@Html.ActionLink("Thành viên", "Members", "Groups", new { id = Model.Id })</li>
     </ul>
@@ -276,7 +276,7 @@
     </div>
     <!-----------------------Dưới cover & ava--------------------------------->
     <div class="tennhom">
-        @Html.ActionLink(@Model.GroupName, "MainPage", new { id = Model.Id })
+        <a href="@Url.Action("MainPage", "Groups", new { id = Model.Id })" style="color: white;">@Model.GroupName</a>
         <i class="glyphicon glyphicon-lock" style="font-size:50%;"></i><span class="" style="top:-33px;font-size:60%;">@Html.DisplayFor(m => m.GroupType)</span>
     </div>
     <!-----------------------List thành viên--------------------------------->

@@ -1,4 +1,5 @@
 ﻿function RequestAddBook() {
+    console.log("request add book");
     var url = $("#RequestAddBookButton").data('url');
     var bookName = $("#bookname").val();
     var author = $("#author").val();

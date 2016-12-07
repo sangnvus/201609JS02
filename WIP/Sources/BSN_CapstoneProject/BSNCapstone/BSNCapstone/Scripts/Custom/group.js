@@ -5,6 +5,7 @@
     formData.append("id", groupId);
     formData.append("option", option);
     formData.append("reportId", reportId);
+    console.log(reportId);
     $.ajax({
         type: "POST",
         url: url,

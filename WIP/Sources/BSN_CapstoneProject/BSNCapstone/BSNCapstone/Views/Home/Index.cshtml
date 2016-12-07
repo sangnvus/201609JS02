@@ -274,10 +274,10 @@
 
                                                     <div class="owner-info">
                                                         <div class="row">
-                                                                <!--Tên người cmt-->
-                                                                <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>
-                                                                <!--Nội dung cmt-->
-                                                            <p data-bind="    html: Message"></p>
+                                                            <!--Tên người cmt-->
+                                                            <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>
+                                                            <!--Nội dung cmt-->
+                                                            <p data-bind="    html: Message" style="font-size: 15px; margin-left: 5%;"></p>
                                                         </div>
                                                     </div>
 
@@ -311,10 +311,10 @@
             @*HaiCM. Create. Start. 19-11-2016*@
             <div class="col-md-4 sidenav">
                 <div class="text-center" class="panel-heading">
-                    <h5><strong>XU HƯỚNG HIỆN NAY</strong></h5>
+                    <h5 style="margin-top: 4%;"><strong>XU HƯỚNG HIỆN NAY</strong></h5>
                 </div>
                 <!--  Bắt đầu phần trending now -->
-                <div class="row">
+                <div class="row" style="margin-top: 6.5%;">
                     <!--VÒNG FOR BẮT ĐẦU TỪ DIV NÀY-->
                     @foreach (var hotBook in listHotBook)
                     {
@@ -530,7 +530,8 @@
                 source: function (request, response) {
                     $.ajax({
                         type: 'POST',
-                        url: 'Home/GetListBookTag',
+                        //url: 'Home/GetListBookTag',
+                        url: "@Url.Action("GetListBookTag", "Home")",
                         dataType: 'Json',
                         data: { input: request.term },
                         error: function (xhr, textStatus, errorThrown) {

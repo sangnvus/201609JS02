@@ -62,6 +62,8 @@ namespace BSNCapstone.ControllerHelpers
                     DateTime startTime = DateTime.Now.AddDays(-1);
                     DateTime endTime = DateTime.Now;
                     List<BooksSuggestViewModel> newList = new List<BooksSuggestViewModel>();
+                    //var a = listBook.Find(x => x.Id.Equals("584480a1149b05158cd4ce2f")).Authors;
+                    //Console.Write(a);
                     var b = Context.BooksStatistic.Find(x => x.EachDate.Equals(startTime.Date.AddHours(7))).ToList();
                     var c = Context.BooksStatistic.Find(x => x.EachDate.Equals(endTime.Date.AddHours(7))).ToList();
                     if (b.Count() == 0)
@@ -108,6 +110,7 @@ namespace BSNCapstone.ControllerHelpers
                                         ImgPublicId = listBook.Find(x => x.Id.Equals(b1.BookId)).ImgPublicId,
                                         RateTime = listBook.Find(x => x.Id.Equals(b1.BookId)).RateTime
                                     });
+                                    Console.Write(newList);
                                 }
                             }
                         }

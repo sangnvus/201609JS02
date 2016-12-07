@@ -211,6 +211,7 @@
     </Compile>
     <Compile Include="Hubs\PostHub.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookStatistic.cs" />
     <Compile Include="Models\Category.cs" />
@@ -251,6 +252,7 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\Image\avatar_default.png" />
     <Content Include="Content\Image\cover_default.jpg" />
+    <Content Include="Content\Layout.css" />
     <Content Include="Content\pagination.css" />
     <Content Include="Content\Sach.css" />
     <Content Include="Content\TrangAdmin.css" />
@@ -264,6 +266,13 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\ProfileImages\user.png" />
+    <Content Include="JqueryUI\css\jquery-ui.css" />
+    <Content Include="JqueryUI\css\jquery-ui.structure.css" />
+    <Content Include="JqueryUI\css\jquery-ui.structure.min.css" />
+    <Content Include="JqueryUI\css\jquery-ui.theme.css" />
+    <Content Include="JqueryUI\css\jquery-ui.theme.min.css" />
+    <Content Include="JqueryUI\js\jquery-ui.js" />
+    <Content Include="JqueryUI\js\jquery-ui.min.js" />
     <Content Include="Scripts\advanced-tables-demo.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -325,6 +334,15 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="SearchBox\css\style.css" />
+    <Content Include="SearchBox\images\bg.jpg" />
+    <Content Include="SearchBox\images\search-icon.png" />
+    <Content Include="SearchBox\js\jquery.color.js" />
+    <Content Include="SearchBox\js\script.js" />
+    <Content Include="Tageditor\css\jquery.tag-editor.css" />
+    <Content Include="Tageditor\js\jquery.caret.min.js" />
+    <Content Include="Tageditor\js\jquery.tag-editor.js" />
+    <Content Include="Tageditor\js\jquery.tag-editor.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
