@@ -148,8 +148,10 @@
                                                            id="pubEditedPhoneNo" value="@publisher.PhoneNumber">
                                                 </div>
                                                 <div class="col-sm-6" style="margin-top:1%; margin-left:180px">
+                                                    @Model.Cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                                    .Height(130).Width(130).Crop("fill")).BuildImageTag(publisher.ImagePublicId,
+                                                    new CloudinaryDotNet.StringDictionary("class=thumbnail inline"))
                                                     <input type="file" id="pubEditedImage" style="color:black">
-                                                    <p class="help-block" style="color:black">Sửa Logo NXB</p>
                                                 </div>
                                             </div>
                                         </div>

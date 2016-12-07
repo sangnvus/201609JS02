@@ -1,4 +1,5 @@
-﻿function UploadPublisher() {
+﻿
+function UploadPublisher() {
     var url = $("#UploadPublisher").data('url');
     var formData = new FormData();
     var totalFiles = document.getElementById("pubImage").files.length;
@@ -56,10 +57,14 @@ function EditPublisher(pubId) {
     var url = $("#EditPublisher").data('url');
     var formData = new FormData();
     var totalFiles = document.getElementById("pubEditedImage").files.length;
-    for (var i = 0; i < totalFiles; i++) {
+    // HuyenPT. Update. Start. 06-12-2016
+    /*for (var i = 0; i < totalFiles; i++) {
         var pubImage = document.getElementById("pubEditedImage").files[i];
         formData.append("pubEditedImage", pubImage);
-    }
+    }*/
+    var pubEditedImage = totalFiles > 0 ? document.getElementById("pubEditedImage").files[0] : null;
+    formData.append("pubEditedImage", pubEditedImage);
+    // HuyenPT. Update. End. 06-12-2016
     formData.append("pubId", pubId);
     formData.append("pubEditedName", $("#pubEditedName").val());
     formData.append("pubEditedAddress", $("#pubEditedAddress").val());

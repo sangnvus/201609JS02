@@ -66,17 +66,29 @@ namespace BSNCapstone.Controllers
         {
             try
             {
-                var uploadResult = ImageUploadHelper.GetUploadResult(pubEditedImage);
-
                 var filter = Builders<Publisher>.Filter.Eq(x => x.Id, pubId);
-                var update = Builders<Publisher>.Update.Set(x => x.ImagePublicId, uploadResult.PublicId).Set(x => x.Name, pubEditedName).Set(x => x.Address, pubEditedAddress).Set(x => x.PhoneNumber, pubEditedPhoneNo);
-                Context.Publishers.FindOneAndUpdate(filter, update);
-
+                // Check if user change image or not
+                if (pubEditedImage == null)
+                {
+                    var update = Builders<Publisher>.Update.
+                    Set(x => x.Name, pubEditedName).Set(x => x.Address, pubEditedAddress).
+                    Set(x => x.PhoneNumber, pubEditedPhoneNo);
+                    Context.Publishers.FindOneAndUpdate(filter, update);
+                }
+                else
+                {
+                    // Upload image to Cloudinary
+                    var uploadResult = ImageUploadHelper.GetUploadResult(pubEditedImage);
+                    var update = Builders<Publisher>.Update.Set(x => x.ImagePublicId, uploadResult.PublicId).
+                    Set(x => x.Name, pubEditedName).Set(x => x.Address, pubEditedAddress).
+                    Set(x => x.PhoneNumber, pubEditedPhoneNo);
+                    Context.Publishers.FindOneAndUpdate(filter, update);
+                }
                 return Json("Chỉnh sửa thông tin nhà xuất bản thành công!");
             }
-            catch (Exception ex)
+            catch
             {
-                return Json("Đã xảy ra lỗi trong quá trình xử lý" + ex.Message);
+                return Json("Rất tiếc! Đã xảy ra lỗi trong quá trình xử lý");
             }
         }
     }
