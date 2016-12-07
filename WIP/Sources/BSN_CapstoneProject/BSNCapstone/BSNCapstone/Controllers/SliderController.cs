@@ -70,15 +70,18 @@ namespace BSNCapstone.Controllers
                 Slider mongoPhoto = new Slider()
                 {
                     PublicId = uploadResult.PublicId,
-                    Desc = desc
+                    Desc = desc,
+                    // HuyenPT. Create. Start. 06-12-2016
+                    isShow = true,
+                    // HuyenPT. Create. End. 06-12-2016
                 };
                 Context.Sliders.InsertOneAsync(mongoPhoto);
 
-                return Json("File Uploaded Successfully!");
+                return Json("Đã thêm mới slide thành công!");
             }
-            catch (Exception ex)
+            catch
             {
-                return Json("Error occurred. Error details: " + ex.Message);
+                return Json("Đã xảy ra lỗi");
             }
         }
 
@@ -86,7 +89,17 @@ namespace BSNCapstone.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             Context.Sliders.DeleteOneAsync(x => x.Id.Equals(new ObjectId(id)));
-            return Json("File Delete Successfully!");
+            return Json("Xóa slide thành công!");
+        }
+
+        [HttpPost]
+        public ActionResult Show(string id)
+        {
+            var slider = Context.Sliders.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+
+            slider.isShow = slider.isShow ? false : true; ;
+            Context.Sliders.ReplaceOneAsync(x => x.Id.Equals(new ObjectId(id)), slider);
+            return Json("Đã chuyển chể độ trình chiếu thành công!");
         }
 	}
 }

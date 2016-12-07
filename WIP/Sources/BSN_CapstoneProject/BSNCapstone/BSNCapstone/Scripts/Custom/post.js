@@ -79,6 +79,15 @@ function Post(data, hub) {
             self.error(err);
         });
     }
+
+    /* Desc:
+    * gọi hàm EditPost bên hub và truyền vào Id + Message mới của post để update post tương ứng
+    */
+    self.editPost = function () {
+        self.hub.server.editPost({ "Message": self.Message(), "Id": self.PostId }).fail(function (err) {
+            self.error(err);
+        });
+    }
 }
 
 

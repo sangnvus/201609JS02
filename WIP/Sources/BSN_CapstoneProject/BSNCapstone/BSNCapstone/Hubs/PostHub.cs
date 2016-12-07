@@ -30,46 +30,36 @@ namespace BSNCapstone.Hubs
 
         public void GetPosts()
         {
-            //lấy dữ liểu posts
+            // get dữ liệu từ db
             List<Post> posts = con.Posts.Find(_ => true).SortByDescending(m => m.PostedDate).ToList();
-            //list post truyển qua view
+
+            /* Desc: lisPost
+             * lấy list dữ liệu để truyền qua view 
+             * do icolection không lấy đc phần tử nên phải chuyển qua list(ret)
+             */
             List<Object> listPost = new List<object>();
-            //list comment dùng để gán vào PostComments trong ret
-            List<Object> listComment;
-            // 22-11-2016
-            List<Object> listLike;
-            // 22-11-2016
-            //list comment lấy từ icolection<PostComments> do icolection không lấy đc phần tử nên phải chuyển qua list
-            List<Comment> listPostCmt = new List<Comment>();
-            // 22-11-2016
-            List<PostLike> listPostLike = new List<PostLike>();
-            // 22-11-2016
 
             foreach (var item in posts)
             {
-                //mỗi lần loop phải reset listComment để tránh trường hợp khi listPostCmt null -> vẫn lưu listComment cũ -> load cmt sai
-                listComment = new List<object>();
-                // 22-11-2016
-                listLike = new List<object>();
-                // 22-11-2016
-                //lấy dữ liệu comment của từng post gán vào listComment
-                listPostCmt = new List<Comment>(item.PostComments);
-                // 22-11-2016
-                listPostLike = new List<PostLike>(item.PostLikes);
-                // 22-11-2016
+                List<Comment>  listPostCmt = new List<Comment>(item.PostComments);
+                List<PostLike>  listPostLike = new List<PostLike>(item.PostLikes);
+
+                // lấy dữ liệu comment của từng post gán vào listComment để truyền vào ret
+                List<Object> listComment = new List<object>();
+
                 foreach (var cmt in listPostCmt)
                 {
                     //tạo 1 colection với các biến giống với view để hiển thị comment
-                    // HuyenPT. 06-12. Add. Start
+                    // HuyenPT. Create. Start. 06-12-2016
                     var userComment = con.Users.Find(x => x.Id == cmt.CommentedBy).FirstOrDefault().UserName;
-                    // HuyenPT. 06-12. Add. End
+                    // HuyenPT.  Create. End. 06-12-2016
                     var comment = new
                     {
                         CommentId = cmt.CommentId,
-                        // HuyenPT. 06-12. Update. Start
+                        // HuyenPT. Update. Start. 06-12-2016
                         //CommentedBy = cmt.CommentedBy,
                         CommentedBy = userComment,
-                        // HuyenPT. 06-12. Update. End
+                        // HuyenPT. Update. End. 06-12-2016
                         CommentedByAvatar = "/Images/profileimages/user.png",
                         CommentedDate = cmt.CommentedDate,
                         Message = cmt.Message,
@@ -78,21 +68,10 @@ namespace BSNCapstone.Hubs
                     listComment.Add(comment);
                 }
 
-                // 22-11-2016
-                foreach (var postlike in listPostLike)
-                {
-                    var a = new
-                    {
-                        Likedby = postlike.LikedBy
-                    };
-                    listLike.Add(a);
-                }
-                // 22-11-2016
-
                 //tạo 1 colection với các biến giống với view để hiển thị Post và comment
                 // HuyenPT. 06-12. Add. Start
                 /*
-                 * Để nếu user đã edit tên thì sẽ luôn get ra tên hiện tại
+                 * nếu user đã edit tên thì sẽ luôn get ra tên hiện tại
                  */
                 var userpost = con.Users.Find(x => x.Id == item.PostedById).FirstOrDefault();
                 // HuyenPT. 06-12. Add. End
@@ -105,7 +84,7 @@ namespace BSNCapstone.Hubs
                     PostedDate = item.PostedDate,
                     PostId = item.Id,
                     PostComments = listComment,
-                    NumOfPostLike = listLike.Count
+                    NumOfPostLike = listPostLike.Count
                 };
                 listPost.Add(ret);
             }
@@ -121,30 +100,32 @@ namespace BSNCapstone.Hubs
             {
                 Message = post.Message,
                 PostedById = Context.User.Identity.GetUserId(),
-                // HuyenPT. 06-12. Delete. Start
-                // HuyenPT. 06-12. Delete. End
-                //PostedBy = Context.User.Identity.Name,\
+                // HuyenPT. Delete. Start. 06-12-2016
+                //PostedBy = Context.User.Identity.Name,
+                // HuyenPT. 06-12. Delete. End. 06-12-2016
                 PostedDate = DateTime.Now
             };
             con.Posts.InsertOneAsync(newPost);
 
             //Hiển thị post vừa lưu
-            //Lấy info của thằng post mới nhất <vừa lưu> để truyền qua view
+            //Lấy info của post mới nhất <vừa lưu> để truyền qua view
             Post disPost = con.Posts.Find(_ => true).Limit(1).SortByDescending(m => m.PostedDate).FirstOrDefault();
+            // HuyenPT. Create. Start. 06-12-2016
             var userpost = con.Users.Find(x => x.Id == newPost.PostedById).FirstOrDefault().UserName;
+            // HuyenPT. Create. End. 06-12-2016
             var ret = new
             {
                 PostId = disPost.Id,
                 Message = disPost.Message,
-                //PostById = Context.User.Identity.GetUserId(),
-                // HuyenPT. 06-12. Delete. Start
+                // HuyenPT. Delete. Start. 06-12-2016
                 //PostedById = disPost.PostedById,
-                // HuyenPT. 06-12. Delete. End
                 //PostedBy = Context.User.Identity.Name,
-                // HuyenPT. 06-12. Edit. Start
+                // HuyenPT. Delete. End. 06-12-2016
+
+                // HuyenPT. Update. Start. 06-12-2016
                 //PostedBy = disPost.PostedBy,
                 PostedBy = userpost,
-                // HuyenPT. 06-12. Edit. End
+                // HuyenPT. Update. End. 06-12-2016
                 PostedByAvatar = "/Images/profileimages/user.png",
                 PostedDate = disPost.PostedDate
             };
@@ -169,23 +150,25 @@ namespace BSNCapstone.Hubs
             var newCmt = new Comment
             {
                 CommentId = disId,
-                // HuyenPT. 06-12. Edit. Start
+                // HuyenPT. Update. Start. 06-12-2016
                 //CommentedBy = Context.User.Identity.Name,
                 CommentedBy = Context.User.Identity.GetUserId(),
-                // HuyenPT. 06-12. Edit. End
+                // HuyenPT. Update. End. 06-12-2016
                 CommentedDate = DateTime.UtcNow,
                 Message = postcomment.Message,
                 PostId = postcomment.PostId
             };
 
-            //tìm post có id = postcomment.PostId
+            /*
+             * Add comment vào post tương ứng trong db
+             */
             var filter = Builders<Post>.Filter.Eq(x => x.Id, postcomment.PostId);
-            //update newCmt vào PostComments
             var update = Builders<Post>.Update.Push(x => x.PostComments, newCmt);
-            //tìm document phù hợp rồi update
             con.Posts.FindOneAndUpdate(filter, update);
 
-            /* Truyền cmt ra view thông qua ret */
+            /*
+             * Truyền cmt ra view thông qua ret 
+             */
             Post postCmt = con.Posts.Find(x => x.Id == postcomment.PostId).FirstOrDefault();
             Comment disCmt = new List<Comment>(postCmt.PostComments).LastOrDefault();
             // HuyenPT. 06-12. Add.  Start
@@ -197,10 +180,10 @@ namespace BSNCapstone.Hubs
             var ret = new
             {
                 CommentId = disCmt.CommentId,
-                // HuyenPT. 06-12. Edit. Start
+                // HuyenPT. Update. Start. 06-12-2016
                 //CommentedBy = Context.User.Identity.Name,
                 CommentedBy = userComment,
-                // HuyenPT. 06-12. Edit. End
+                // HuyenPT. Update. End. 06-12-2016
                 CommentedByAvatar = "/Images/profileimages/user.png",
                 CommentedDate = disCmt.CommentedDate,
                 Message = disCmt.Message,
@@ -229,21 +212,17 @@ namespace BSNCapstone.Hubs
             var newLike = new PostLike
             {
                 PostId = like.PostId,
-                // HuyenPT. 06-12. Update. Start
+                // HuyenPT. Update. Start. 06-12-2016
                 //LikedBy = Context.User.Identity.Name
                 LikedBy = Context.User.Identity.GetUserId()
-                // HuyenPT. 06-12. Update. End
+                // HuyenPT. Update. End. 06-12-2016
             };
             if (!isUnlike)
             {
-                //tìm post có id = postcomment.PostId
                 var filter = Builders<Post>.Filter.Eq(x => x.Id, like.PostId);
-                //update newLike vào PostLikes
                 var update = Builders<Post>.Update.Push(x => x.PostLikes, newLike);
-                //tìm document phù hợp rồi update
                 con.Posts.FindOneAndUpdate(filter, update);
 
-                //Hiển thị
                 //Lấy thông tin đã update trong db truyển ra view hiển thị
                 Post post = con.Posts.Find(x => x.Id == like.PostId).FirstOrDefault();
                 PostLike dislike = new List<PostLike>(post.PostLikes).FirstOrDefault();
@@ -259,15 +238,11 @@ namespace BSNCapstone.Hubs
             }
             else
             {
-                //tìm post có id = postcomment.PostId
                 var filter = Builders<Post>.Filter.Eq(x => x.Id, like.PostId);
-                //update newLike vào PostLikes
                 var update = Builders<Post>.Update.PullFilter(x => x.PostLikes,
                     Builders<PostLike>.Filter.Eq(x => x.LikedBy, newLike.LikedBy));
-                //tìm document phù hợp rồi update
                 con.Posts.FindOneAndUpdate(filter, update);
 
-                //Hiển thị
                 //Lấy thông tin đã update trong db truyển ra view hiển thị
                 Post post = con.Posts.Find(x => x.Id == like.PostId).FirstOrDefault();
                 var ret = new
@@ -285,7 +260,14 @@ namespace BSNCapstone.Hubs
         public void DeletePost(Post post)
         {
             con.Posts.FindOneAndDeleteAsync(x => x.Id.Equals(new ObjectId(post.Id)));
-            GetPosts();  //update hàm client delete post để cải thiện performance
+            GetPosts();  // chờ maitain: update hàm client delete post để cải thiện performance
+        }
+
+        public void EditPost(Post post)
+        {
+            var filter = Builders<Post>.Filter.Eq(x => x.Id, post.Id);
+            var update = Builders<Post>.Update.Set(x => x.Message, post.Message);
+            con.Posts.FindOneAndUpdate(filter, update);
         }
     }
 }

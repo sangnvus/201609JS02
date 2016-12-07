@@ -27,7 +27,7 @@
 
 
 function Delete(id, i) {
-    var url = $("Delete").data('url');
+    var url = $("#Delete").data('url');
     var deleteConfirm = confirm("Bạn có chắc chắn muốn xóa slide này không? ");
     if (deleteConfirm) {
         var formData = new FormData();
@@ -49,4 +49,26 @@ function Delete(id, i) {
             }
         })
     }
+}
+
+function Show(id) {
+    var url = $("#Show").data('url');
+    var formData = new FormData();
+    formData.append("id", id);
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: formData,
+        dataType: 'json',
+        contentType: false,
+        processData: false,
+
+        success: function (result) {
+            alert(result);
+            window.location.reload();
+        },
+        error: function (err) {
+            alert(err.statusText);
+        }
+    })
 }

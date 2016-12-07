@@ -60,5 +60,24 @@ namespace BSNCapstone.Controllers
             Context.Publishers.DeleteOneAsync(x => x.Id.Equals(new ObjectId(id)));
             return Json("File Delete Successfully!");
         }
+
+        [HttpPost]
+        public ActionResult Edit(string pubId, HttpPostedFileBase pubEditedImage, string pubEditedName, string pubEditedAddress, string pubEditedPhoneNo)
+        {
+            try
+            {
+                var uploadResult = ImageUploadHelper.GetUploadResult(pubEditedImage);
+
+                var filter = Builders<Publisher>.Filter.Eq(x => x.Id, pubId);
+                var update = Builders<Publisher>.Update.Set(x => x.ImagePublicId, uploadResult.PublicId).Set(x => x.Name, pubEditedName).Set(x => x.Address, pubEditedAddress).Set(x => x.PhoneNumber, pubEditedPhoneNo);
+                Context.Publishers.FindOneAndUpdate(filter, update);
+
+                return Json("Chỉnh sửa thông tin nhà xuất bản thành công!");
+            }
+            catch (Exception ex)
+            {
+                return Json("Đã xảy ra lỗi trong quá trình xử lý" + ex.Message);
+            }
+        }
     }
 }

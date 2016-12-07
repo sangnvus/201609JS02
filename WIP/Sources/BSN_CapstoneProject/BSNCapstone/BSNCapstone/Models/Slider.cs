@@ -17,5 +17,9 @@ namespace BSNCapstone.Models
         public string PublicId { get; set; }
 
         public string Desc { get; set; }
+
+        // HuyenPT. Add. Start. 06-12-2016
+        public bool isShow { get; set; }
+        // HuyenPT. Add. End. 06-12-2016
     }
 }

@@ -51,3 +51,33 @@ function DeletePublisher(id, i) {
         });
     }
 }
+
+function EditPublisher(pubId) {
+    var url = $("#EditPublisher").data('url');
+    var formData = new FormData();
+    var totalFiles = document.getElementById("pubEditedImage").files.length;
+    for (var i = 0; i < totalFiles; i++) {
+        var pubImage = document.getElementById("pubEditedImage").files[i];
+        formData.append("pubEditedImage", pubImage);
+    }
+    formData.append("pubId", pubId);
+    formData.append("pubEditedName", $("#pubEditedName").val());
+    formData.append("pubEditedAddress", $("#pubEditedAddress").val());
+    formData.append("pubEditedPhoneNo", $("#pubEditedPhoneNo").val());
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: formData,
+        dataType: 'json',
+        contentType: false,
+        processData: false,
+
+        success: function (result) {
+            alert(result);
+            window.location.reload();
+        },
+        error: function (err) {
+            alert(err.statusText);
+        }
+    });
+}

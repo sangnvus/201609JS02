@@ -194,13 +194,39 @@
                                                         <span class="fa fa-angle-down"></span>
                                                     </button>
                                                     <ul class="dropdown-menu">
+                                                        <!--Button edit post-->
                                                         <li>
-                                                            <a href="#"> Sửa</a>
+                                                            <a href="#" data-toggle="modal" data-target="#editDialog">Sửa</a>
                                                         </li>
+                                                        <!--Button xóa post-->
                                                         <li>
                                                             <a href="#" data-bind="click: deletePost"> Xóa</a>
                                                         </li>
                                                     </ul>
+                                                    <!--Pop-up edit post-->
+                                                    <div class="modal fade" id="editDialog" role="dialog">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                    <h4 class="modal-title">Edit Post</h4>
+                                                                </div>
+                                                                <div class="midle-modal">
+                                                                    <div class="row content" style="margin-top:10px;">
+                                                                        <div class="owner-avatar" style="margin:0 0 5px 26px;">
+                                                                            <img src="" style="float:left">
+                                                                            <input type="text" class="write-post" style="float:left; width:auto" data-bind="value: Message" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">Hùy</button>
+                                                                    <input type="button" class="btn btn-default" style="background-color: #224A86; color:white"
+                                                                           data-dismiss="modal" data-toggle="modal" data-bind="click: editPost" value="Lưu">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <!--Thời gian post bài-->

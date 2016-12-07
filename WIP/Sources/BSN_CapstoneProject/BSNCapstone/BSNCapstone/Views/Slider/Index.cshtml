@@ -71,7 +71,9 @@
                                     <th style="width:1px">#</th>
                                     <th style="width:200px">Ảnh</th>
                                     <th>Miêu tả</th>
-                                    <th style="width:130px">Chế độ</th>
+                                    @*HuyenPT. Delete. Start. 06-12-2016*@
+                                    @*<th style="width:130px">Chế độ</th>*@
+                                    @*HuyenPT. Delete. End. 06-12-2016*@
                                     <th style="width:130px">Hành động</th>
                                 </tr>
                             </thead>
@@ -88,12 +90,30 @@
                                     new CloudinaryDotNet.StringDictionary("class=thumbnail inline"))
                                         </td>
                                         <td>@img.Desc</td>
-                                        <td>
+                                        @*HuyenPT. Delete. Start. 06-12-2016*@
+                                        @*<td>
                                             <button type="submit" class="btn btn-default">Bật</button>
                                             <button type="submit" class="btn btn-default">Tắt</button>
-                                        </td>
+                                        </td>*@
+                                        @*HuyenPT. Delete. End. 06-12-2016*@
                                         <td>
-                                            <button type="submit" class="btn btn-default">Sửa</button>
+                                            @*HuyenPT. Update. Start. 06-12-2016*@
+                                            @*<button type="submit" class="btn btn-default">Sửa</button>*@
+                                            @if (img.isShow)
+                                            {
+                                                <button type="submit" class="btn btn-default"
+                                                        onclick="Show('@img.Id')" id="Show" data-url="@Url.Action("Show", "Slider")">
+                                                    Hủy bỏ
+                                                </button>
+                                            }
+                                            else
+                                            {
+                                                <button type="submit" class="btn btn-default"
+                                                        onclick="Show('@img.Id')" id="Show" data-url="@Url.Action("Show", "Slider")">
+                                                    Trình chiếu
+                                                </button>
+                                            }
+                                            @*HuyenPT. Update. End. 06-12-2016*@
                                             <button type="submit" class="btn btn-danger" onclick="Delete('@img.Id', @i)" id="Delete" data-url="@Url.Action("DeleteConfirmed", "Slider")">Xóa</button>
                                         </td>
                                     </tr>
@@ -104,7 +124,6 @@
                         </table>
                     </div>
                 </div>
-                <!-------NÚT SANG TRANG------->
             </div>
         </div>
     </div>
