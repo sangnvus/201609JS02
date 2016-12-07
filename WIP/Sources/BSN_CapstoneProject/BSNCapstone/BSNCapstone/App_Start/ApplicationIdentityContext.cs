@@ -49,9 +49,11 @@ namespace BSNCapstone.App_Start
 
             var reports = database.GetCollection<Report>("reports");
 
+            var authors = database.GetCollection<Author>("authors");
+
             //HuyenPT. Update. Start. 19-11-2016
             //return new ApplicationIdentityContext(users, roles, categories, books, sliders, publishers, groups, posts, comments, userprofiles);
-            return new ApplicationIdentityContext(users, roles, categories, books, sliders, publishers, groups, posts, booksStatistic, reports);
+            return new ApplicationIdentityContext(users, roles, categories, books, sliders, publishers, groups, posts, booksStatistic, reports,authors);
             //HuyenPT. Update. End. 19-11-2016
 
         }
@@ -78,7 +80,8 @@ namespace BSNCapstone.App_Start
            IMongoCollection<Group> groups,
            IMongoCollection<Post> posts,
            IMongoCollection<BookStatistic> booksStatistic,
-           IMongoCollection<Report> reports
+           IMongoCollection<Report> reports,
+            IMongoCollection<Author> authors
         )
         //HuyenPT. Update. End. 19-11-2016
         {
@@ -100,6 +103,7 @@ namespace BSNCapstone.App_Start
             //DangVH. Create. End (08/11/2016)
             BooksStatistic = booksStatistic;
             Reports = reports;
+            Authors = authors;
         }
 
         // Bổ sung IMongoCollection cho 1 Object mới
@@ -121,6 +125,8 @@ namespace BSNCapstone.App_Start
         //DangVH. Create. End (08/11/2016)
         public IMongoCollection<BookStatistic> BooksStatistic { get; set; }
         public IMongoCollection<Report> Reports { get; set; }
+
+        public IMongoCollection<Author> Authors { get; set; }
 
         public Task<List<IdentityRole>> AllRolesAsync()
         {

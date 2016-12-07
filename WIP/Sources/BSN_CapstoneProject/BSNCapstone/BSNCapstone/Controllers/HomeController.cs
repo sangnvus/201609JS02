@@ -58,6 +58,13 @@ namespace BSNCapstone.Controllers
             return View(user);
         }
 
+        [HttpPost]
+        public ActionResult GetListBookTag(string input)
+        {
+            var books = Context.Books.AsQueryable().Where(p => p.BookName.ToLower().Contains(input)).Select(p => new { p.BookName }).Distinct();
+            return Json(books, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult LockedPage() {
             return View();
         }
