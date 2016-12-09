@@ -11,7 +11,9 @@
     double avarageRatingPoint = ViewBag.avarageRatingPoint;
     var listSameBook = (List<BSNCapstone.ViewModels.BooksSuggestViewModel>)ViewBag.listSameBook;
     var currentUser = (BSNCapstone.Models.ApplicationUser)ViewBag.currentUser;
+    var allAuthor = (List<BSNCapstone.Models.Author>)ViewBag.allAuthor;
     var allUser = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUser;
+    var listGroupHaveTagIsCurrentBook = (List<BSNCapstone.Models.Group>)ViewBag.listGroupHaveTagIsCurrentBook;
 }
 
 <!DOCTYPE html>
@@ -25,15 +27,15 @@
                     <p>
                         Tác giả: @foreach (var author in Model.Authors)
                         {
-                            if (allUser.Find(x => x.Id.Equals(author)) != null)
+                            if (allAuthor.Find(x => x.Id.ToString().Equals(author)) != null)
                             {
                                 if (Model.Authors.Last() == author)
                                 {
-                                    <strong><i>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(allUser.Find(x => x.Id.Equals(author)).UserName.ToLower()) </i></strong>
+                                    <strong><i>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(allAuthor.Find(x => x.Id.ToString().Equals(author)).AuthorName.ToLower()) </i></strong>
                                 }
                                 else
                                 {
-                                    <strong><i>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(allUser.Find(x => x.Id.Equals(author)).UserName.ToLower()), </i></strong>
+                                    <strong><i>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(allAuthor.Find(x => x.Id.ToString().Equals(author)).AuthorName.ToLower()), </i></strong>
                                 }
                             }     
                         }
@@ -254,14 +256,14 @@
                                 {
                                     if (book.AuthorName.Last() == author)
                                     {
-                                        <i data-toggle="tooltip" title="@allUser.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName" class="authorname">
-                                            <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allUser.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName.ToLower()) </strong>
+                                        <i data-toggle="tooltip" title="@allAuthor.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName" class="authorname">
+                                            <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthor.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName.ToLower()) </strong>
                                         </i>
                                     }
                                     else
                                     {
-                                        <i data-toggle="tooltip" title="@allUser.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName" class="authorname">
-                                            <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allUser.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName.ToLower()), </strong>
+                                        <i data-toggle="tooltip" title="@allAuthor.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName" class="authorname">
+                                            <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthor.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName.ToLower()), </strong>
                                         </i>
                                     }
                                 }
@@ -272,13 +274,41 @@
             </div>
             <br>
             <br>
+
+            <div class="text-center" class="panel-heading">
+                <h4><strong>DANH SÁCH NHÓM</strong></h4>
+            </div>
+            <br>
+            <!--  Bắt đầu phần group list của tác giả  -->
             <div class="row">
-                <div class="text-center" class="panel-heading">
-                    <h4><strong>DANH SÁCH NHÓM</strong></h4>
+                @foreach (var group in listGroupHaveTagIsCurrentBook)
+                {
+                    <div class="col-md-6" style="padding-left:10px;">
+                    <div class="col-md-6" style="padding-left:0px;">
+                        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                            .Height(117).Width(90).Crop("fill")).BuildImageTag(group.AvaImg,
+                                new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                    </div>
+                        <div class="col-md-3">
+                            <br>
+                            <button class="button buttonJoin">Tham gia</button>
+                        </div>
+                    <br>
+                    <br>
+                    <div class="col-md-12 list-group">
+                        <ul class="list-group">
+                            <li>
+                                <a href="@Url.Action("MainPage", "Groups", new { id = group.Id })" data-toggle="tooltip" title="@group.GroupName">
+                                    <span>@group.GroupName.ToUpper()</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <br>
-                <!--  Bắt đầu phần group list của tác giả  -->
-                <div class="row">
+                }
+                
+
+                @*<div class="row">
                     <div class="col-md-3">
                         <img src="nhagiakim.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
                     </div>
@@ -296,8 +326,8 @@
                         <button class="button buttonJoin">Tham gia</button>
                         <button class="button buttonFoll">+Theo dõi</button>
                     </div>
-                </div>
-                <div class="row">
+                </div>*@
+                @*<div class="row">
 
                     <div class="col-md-6">
                         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -308,75 +338,8 @@
                                     </a>
                                 </li>
                             </ul>
-
                         </div>
-
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <ul class="list-group">
-                                <li>
-                                    <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
-                                        <span>Hội yêu thích truyện Harry Potter</span>
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <br>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="trenduongbang.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
-
-                    </div>
-                    <div class="col-md-3">
-                        <br>
-                        <button class="button buttonJoin">Tham gia</button>
-                        <button class="button buttonFoll">+Theo dõi</button>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="tottochanbencuaso.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
-
-                    </div>
-                    <div class="col-md-3">
-                        <br>
-                        <button class="button buttonJoin">Tham gia</button>
-                        <button class="button buttonFoll">+Theo dõi</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <ul class="list-group">
-                                <li>
-                                    <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
-                                        <span>Hội yêu thích truyện Harry Potter</span>
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <ul class="list-group">
-                                <li>
-                                    <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
-                                        <span>Hội yêu thích truyện Harry Potter</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-right">
-                    <button type="button" class="btn btn-link">Xem thêm </button>
-                </p>
-                <br>
+                </div>*@
             </div>
         </div>
     </div>

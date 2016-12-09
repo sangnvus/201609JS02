@@ -5,7 +5,7 @@
     int bookNumber = ViewBag.bookNumber;
     var allCategories = ((List<BSNCapstone.Models.Category>)ViewBag.allCategories);
     var allPublishers = ((List<BSNCapstone.Models.Publisher>)ViewBag.allPublishers);
-    var allAuthors = ((List<BSNCapstone.Models.ApplicationUser>)ViewBag.allAuthors);
+    var allAuthors = ((List<BSNCapstone.Models.Author>)ViewBag.allAuthors);
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -86,9 +86,9 @@
                                             @foreach (var author in item.Authors)
                                             {
                                                 <p>
-                                                    @if (allAuthors.Find(x => x.Id.Equals(author)) != null)
+                                                    @if (allAuthors.Find(x => x.Id.ToString().Equals(author)) != null)
                                                     {
-                                                        @Html.DisplayFor(authorItem => allAuthors.Where(x => x.Id.Equals(author)).First().UserName)
+                                                        @Html.DisplayFor(authorItem => allAuthors.Where(x => x.Id.ToString().Equals(author)).First().AuthorName)
                                                     }
                                                 </p>
                                             }
@@ -149,36 +149,3 @@
 @section Scripts {
     <script src="~/Scripts/Custom/book.js"></script>
 }
-<script>
-    $(document).ready(function () {
-        var showChar = 200;
-        var ellipsestext = "...";
-        var moretext = "More";
-        var lesstext = "Less";
-        $('.more').each(function () {
-            var content = $.trim($(this).html());
-            if (content.length > 500) {
-                var c = content.substr(0, showChar);
-                console.log(c);
-                var h = content.substr(showChar - 1, content.length - showChar);
-                var html = c + '<span class="moreelipses">' + ellipsestext +
-                        '</span>&nbsp;<span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
-                $(this).html(html);
-            }
-        });
-        $(".morelink").click(function () {
-            if ($(this).hasClass("less")) {
-                $(this).removeClass("less");
-                $(this).html(moretext);
-            } else {
-                $(this).addClass("less");
-                $(this).html(lesstext);
-            }
-            console.log("abc");
-            $(this).parent().prev().toggle();
-            $(this).prev().toggle();
-            return false;
-        });
-    });
-</script>
-

@@ -132,4 +132,35 @@ $(document).ready(function () {
         return false;  
         } 
     })
+
+    $(document).ready(function () {
+        var showChar = 200;
+        var ellipsestext = "...";
+        var moretext = "More";
+        var lesstext = "Less";
+        $('.more').each(function () {
+            var content = $.trim($(this).html());
+            if (content.length > 500) {
+                var c = content.substr(0, showChar);
+                console.log(c);
+                var h = content.substr(showChar - 1, content.length - showChar);
+                var html = c + '<span class="moreelipses">' + ellipsestext +
+                        '</span>&nbsp;<span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+                $(this).html(html);
+            }
+        });
+        $(".morelink").click(function () {
+            if ($(this).hasClass("less")) {
+                $(this).removeClass("less");
+                $(this).html(moretext);
+            } else {
+                $(this).addClass("less");
+                $(this).html(lesstext);
+            }
+            console.log("abc");
+            $(this).parent().prev().toggle();
+            $(this).prev().toggle();
+            return false;
+        });
+    });
 });

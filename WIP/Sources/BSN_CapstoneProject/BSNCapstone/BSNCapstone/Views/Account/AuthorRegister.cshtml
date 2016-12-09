@@ -27,7 +27,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
+                <div class="nav navbar-nav navbar-right">
                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
                     {
                         @Html.AntiForgeryToken()
@@ -37,14 +37,13 @@
                         </div>
                         <div class="col-md-4" style="padding-top:1.5%">
                             @Html.PasswordFor(model => model.Login.Password, new { @class = "form-control", @placeholder = "Mật khẩu" })
-                            <!------------------Quên mật khẩu-------------------->
-                            <a class="forgotpass" type="button" @*data-toggle="modal" data-target="#myModal"*@ href="@Url.Action("ForgotPassword", "Account")">Bạn quên?</a>
                         </div>
                         <div class="col-md-3" style="padding-top:1.5%">
                             <input type="submit" value="Đăng nhập" class="btn btn-default" />
                         </div>
                     }
-                </ul>
+                <a class="forgotpass" type="button" href="@Url.Action("ForgotPassword", "Account")">Bạn không đăng nhập được?</a>
+                </div>
             </div>
         </div>
     </nav>
