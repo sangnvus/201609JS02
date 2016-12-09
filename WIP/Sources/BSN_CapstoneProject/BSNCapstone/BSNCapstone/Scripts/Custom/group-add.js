@@ -1,9 +1,16 @@
 ﻿function CreateGroup() {
     var url = $("#CreateGroupButton").data('url');
     var type = $('input[type=radio][name=grouptype]:checked').val();
+    var tag = "";
+    if ($('input[type=radio][name=tag]:checked').val() == "AuthorTag_chosen") {
+        tag = $('#AuthorTag').val();
+    } else {
+        tag = $('#BookTag').val();
+    }
+    console.log(tag);
     var formData = new FormData();
     formData.append("groupName", $("#groupname").val());
-    formData.append("groupTag", $("#grouptag").val());
+    formData.append("groupTag", tag);
     formData.append("groupDesc", $("#groupdesc").val());
     formData.append("groupType", type);
     $.ajax({
@@ -20,8 +27,6 @@
             document.getElementById('groupname').style.border = "1px solid #ccc";
             document.getElementById('groupname').style.borderRadius = "4px";
             document.getElementById('grouptag-error').innerHTML = null;
-            document.getElementById('grouptag').style.border = "1px solid #ccc";
-            document.getElementById('grouptag').style.borderRadius = "4px";
             document.getElementById('grouptype-error').innerHTML = null;
             $.each(result, function (index, x) {
                 if (x == "Tên nhóm đã tồn tại") {
@@ -64,8 +69,6 @@
             document.getElementById('groupname').style.border = "1px solid #ccc";
             document.getElementById('groupname').style.borderRadius = "4px";
             document.getElementById('grouptag-error').innerHTML = null;
-            document.getElementById('grouptag').style.border = "1px solid #ccc";
-            document.getElementById('grouptag').style.borderRadius = "4px";
             document.getElementById('grouptype-error').innerHTML = null;
         })
     });

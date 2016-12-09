@@ -9,3 +9,11 @@
     text-decoration: none;
     background-color: #f2f2f2;
 }
+
+#BookTag_chosen {
+    /*display: none;*/
+}
+
+#AuthorTag_chosen {
+    display: none;
+}

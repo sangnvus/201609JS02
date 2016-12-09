@@ -52,7 +52,7 @@ namespace BSNCapstone.Controllers
         public ActionResult Login(string returnUrl)
         {
             //DangVH. Create. Start (15/11/2016)
-            ViewBag.sliders = Context.Sliders.Find(_ => true).ToList();
+            ViewBag.sliders = Context.Sliders.Find(x => x.isShow.Equals(true)).ToList();
             ViewBag.cloudinary = cloudinary;
             //DangVH. Create. End (15/11/2016)
             ViewBag.ReturnUrl = returnUrl;
@@ -687,6 +687,12 @@ namespace BSNCapstone.Controllers
                 var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = confirmedAuthor.Id, code = code }, protocol: Request.Url.Scheme);
                 await UserManager.SendEmailAsync(confirmedAuthor.Id, "[BookAholic]Xác Nhận Tài Khoản", "Chào mừng bạn đã đến với mạng xã hội sách BookAholic <p> Xin vui lòng click vào link để xác nhận tài khoản của bạn</p>: <a href=\"" + callbackUrl + "\">Xác Nhận tài khoản</a>");
             }
+            var author = new Author()
+            {
+                Id = ObjectId.GenerateNewId(),
+                UserId = id,
+                AuthorName = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault().UserName
+            };
             return Json("Successed");
         }
     }

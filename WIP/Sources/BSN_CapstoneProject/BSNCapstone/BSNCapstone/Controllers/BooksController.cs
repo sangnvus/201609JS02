@@ -36,8 +36,8 @@ namespace BSNCapstone.Controllers
             }
             else
             {
-                var authors = Context.Users.Find(x => x.Roles.Contains("author")).ToEnumerable();
-                return new MultiSelectList(authors, "Id", "UserName", selectedValues);
+                var authors = Context.Authors.Find(_ => true).ToEnumerable();
+                return new MultiSelectList(authors, "Id", "AuthorName", selectedValues);
             }
         }
         //DangVH. Create. End (14/11/2016)
@@ -53,16 +53,16 @@ namespace BSNCapstone.Controllers
             //DangVH. Create. End (02/11/2016)
             ViewBag.allCategories = BooksControllerHelper.ListAllCategory();
             ViewBag.allPublishers = Context.Publishers.Find(_ => true).ToList();
-            ViewBag.allAuthors = Context.Users.Find(x => x.Roles.Contains("author")).ToList();
+            ViewBag.allAuthors = Context.Authors.Find(_ => true).ToList();
             var books = Context.Books.Find(x => x.Requested.Equals(false)).ToEnumerable();
             //DangVH. Create. Start (02/11/2016)
             if (!string.IsNullOrEmpty(searchString))
             {
-                var authors = Context.Users.Find(x => x.Roles.Contains("author")).ToList().Where(x => x.UserName.Contains(searchString)).ToList();
+                var authors = Context.Authors.Find(_ => true).ToList().Where(x => x.AuthorName.Contains(searchString)).ToList();
                 List<string> searchAuthors = new List<string>();
                 foreach (var author in authors)
                 {
-                    searchAuthors.Add(author.Id);
+                    searchAuthors.Add(author.Id.ToString());
                 }
                 books = books.Where(x => x.BookName.Contains(searchString) || x.Authors.Intersect(searchAuthors).Any());
             }
@@ -111,6 +111,8 @@ namespace BSNCapstone.Controllers
             Random random = new Random((int)(DateTime.Now.Ticks));
             ViewBag.randomGroup = Context.Groups.Find(_ => true).ToList().OrderBy(x => random.Next()).Take(4).ToList();
             ViewBag.currentUser = Context.Users.Find(x => x.Id.Equals(new ObjectId(User.Identity.GetUserId()))).FirstOrDefault();
+            ViewBag.listGroupHaveTagIsCurrentBook = GroupsControllerHelper.SuggestGroup(id); 
+            ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
             ViewBag.allUser = Context.Users.Find(_ => true).ToList();
             return View(book);
         }

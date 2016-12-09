@@ -9,8 +9,8 @@ namespace BSNCapstone.Models
 {
     public class Author
     {
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        //[BsonRepresentation(BsonType.ObjectId)]
+        public ObjectId Id { get; set; }
 
         public string UserId { get; set; }
 

@@ -31,7 +31,27 @@ namespace BSNCapstone.Hubs
         public void GetPosts()
         {
             // get dữ liệu từ db
+            List<Post> postsForShow = new List<Post>();
             List<Post> posts = con.Posts.Find(_ => true).SortByDescending(m => m.PostedDate).ToList();
+            var currentUserId = Context.User.Identity.GetUserId();
+            var user = con.Users.Find(x => x.Id.Equals(currentUserId)).FirstOrDefault();
+            foreach (var following in user.Following)
+            {
+                if (posts.FindAll(x => x.PostedById.Equals(following)) != null)
+                {
+                    foreach (var post in posts.FindAll(x => x.PostedById.Equals(following)))
+                    {
+                        postsForShow.Add(post);
+                    }
+                }
+            }
+            if (posts.FindAll(x => x.PostedById.Equals(currentUserId)) != null)
+            {
+                foreach (var post in posts.FindAll(x => x.PostedById.Equals(currentUserId)))
+                {
+                    postsForShow.Add(post);
+                }
+            }
 
             /* Desc: lisPost
              * lấy list dữ liệu để truyền qua view 
@@ -39,7 +59,7 @@ namespace BSNCapstone.Hubs
              */
             List<Object> listPost = new List<object>();
 
-            foreach (var item in posts)
+            foreach (var item in postsForShow)
             {
                 List<Comment>  listPostCmt = new List<Comment>(item.PostComments);
                 List<PostLike>  listPostLike = new List<PostLike>(item.PostLikes);

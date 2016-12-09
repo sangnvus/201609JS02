@@ -5,10 +5,11 @@
     var listHotBook = (List<BSNCapstone.ViewModels.BooksSuggestViewModel>)ViewBag.listHotBook;
     var listNewBook = (List<BSNCapstone.ViewModels.BooksSuggestViewModel>)ViewBag.listNewBook;
     var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
-    var randomAuthor = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.randomAuthor;
+    var randomAuthor = (List<BSNCapstone.Models.Author>)ViewBag.randomAuthor;
     var randomPublisher = (List<BSNCapstone.Models.Publisher>)ViewBag.randomPublisher;
     var listGroup = (List<BSNCapstone.Models.Group>)ViewBag.listGroup;
-    var allAuthors = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allAuthors;
+    var allUsers = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUsers;
+    var allAuthors = (List<BSNCapstone.Models.Author>)ViewBag.allAuthors;
  }
 
 <!DOCTYPE html>
@@ -31,12 +32,12 @@
 
                 <a href="@Url.Action("EditProfile", "Timeline", new { id = @Model.Id })">Chỉnh sửa thông tin cá nhân</a>
 
-                <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 5%;">
                     <div class="text-left" class="panel-heading">
                         <h5><strong>NHÓM</strong></h5>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" style="margin-top: 20%;">
                     <ul class="list-group">
                         @foreach (var group in listGroup)
                         {
@@ -101,16 +102,16 @@
                                 </strong>
                                 <br>@foreach (var author in book.AuthorName)
                                     {
-                                        if (book.AuthorName.Last() == author)
+                                        if (book.AuthorName.Last().Equals(author))
                                         {
-                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName" class="authorname">
-                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName.ToLower()) </strong>
+                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName" class="authorname">
+                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName.ToLower()) </strong>
                                             </i>
                                         }
                                         else
                                         {
-                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName" class="authorname">
-                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName.ToLower()), </strong>
+                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName" class="authorname">
+                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName.ToLower()), </strong>
                                             </i>
                                         }
                                     }
@@ -374,16 +375,16 @@
                                     <br>
                                     @foreach (var author in hotBook.AuthorName)
                                     {
-                                        if (hotBook.AuthorName.Last() == author)
+                                        if (hotBook.AuthorName.Last().Equals(author))
                                         {
-                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName" class="authorname">
-                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName.ToLower()) </strong>
+                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName" class="authorname">
+                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName.ToLower()) </strong>
                                             </i>
                                         }
                                         else
                                         {
-                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName" class="authorname">
-                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.Equals(author)).FirstOrDefault().UserName.ToLower()), </strong>
+                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName" class="authorname">
+                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName.ToLower()), </strong>
                                             </i>
                                         }
                                     }
@@ -452,31 +453,31 @@
                         @foreach (var author in randomAuthor)
                         {
                             <div class="col-md-6" style="padding-left:10px;">
-                            <div class="col-md-6" style="padding-left:0;">
-                                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
-                                    .Height(117).Width(90).Crop("fill")).BuildImageTag(author.Avatar,
-                                        new CloudinaryDotNet.StringDictionary("class=img-rounded")))
-                            </div>
-                            <br>
-                            <br>
-                            <br>
+                                <div class="col-md-6" style="padding-left:0;">
+                                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                        .Height(117).Width(90).Crop("fill")).BuildImageTag(allUsers.Find(x => x.Id.Equals(author.UserId)).Avatar,
+                                            new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                                </div>
+                                <br>
+                                <br>
+                                <br>
                                 <div class="hidden" id="FollowHandleHomePage" data-followerid="@Model.Id" data-url="@Url.Action("FollowHandle", "Timeline")"></div>
-                                @if (!Model.Following.Contains(author.Id))
+                                @if (!Model.Following.Contains(author.UserId))
                                 {
-                                    <button class="button buttonFo" style="margin-left:14px;" data-option="1" data-author="@author.Id">Theo dõi</button>
-                                    <button class="button buttonFo" style="margin-left:14px; display:none;" data-option="2" data-author="@author.Id">Bỏ Theo dõi</button>
+                                    <button class="button buttonFo" style="margin-left:14px;" data-option="1" data-author="@author.UserId">Theo dõi</button>
+                                    <button class="button buttonFo" style="margin-left:14px; display:none;" data-option="2" data-author="@author.UserId">Bỏ Theo dõi</button>
                                 }
                                 else
                                 {
-                                    <button class="button buttonFo" style="margin-left: 14px; display: none;" data-option="1" data-author="@author.Id">Theo dõi</button>
-                                    <button class="button buttonFo" style="margin-left:14px;" data-option="2" data-author="@author.Id">Bỏ Theo dõi</button>
+                                    <button class="button buttonFo" style="margin-left: 14px; display: none;" data-option="1" data-author="@author.UserId">Theo dõi</button>
+                                    <button class="button buttonFo" style="margin-left:14px;" data-option="2" data-author="@author.UserId">Bỏ Theo dõi</button>
                                 }
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <ul class="list-group">
                                     <i class="authorname">
-                                        <strong data-toggle="tooltip" title="@author.UserName">
-                                            <a href="@Url.Action("Details", "Timeline", new { id = @author.Id })">
-                                                @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.UserName.ToLower())
+                                        <strong data-toggle="tooltip" title="@author.AuthorName">
+                                            <a href="@Url.Action("Details", "Timeline", new { id = @author.UserId })">
+                                                @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.AuthorName.ToLower())
                                             </a>
                                         </strong> 
                                     </i>
@@ -524,12 +525,12 @@
 
 @section scripts{
     <!--Reference the SignalR library. -->
-    <script src="~/Scripts/jquery.signalR-2.2.1.js"></script>
+    @*<script src="~/Scripts/jquery.signalR-2.2.1.js"></script>*@
     <!--Reference the autogenerated SignalR hub script. -->
-    <script src="~/signalr/hubs"></script>
+    @*<script src="~/signalr/hubs"></script>
     <script src="~/Scripts/jquery.timeago.js"></script>
     <script src="~/Scripts/knockout-2.2.0.js"></script>
-    <script src="~/Scripts/Custom/post.js"></script>
+    <script src="~/Scripts/Custom/post.js"></script>*@
     <script src="~/Scripts/Custom/follow-handle.js"></script>
 
     <link rel="stylesheet" href="~/Content/Trangchu_canhan_tacgia.css">

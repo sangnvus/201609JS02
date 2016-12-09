@@ -164,7 +164,12 @@ function viewModel() {
     * khi A post 1 bài post mới thì nó cũng sẽ hiển thị lên newfeed của B
     */
     self.hub.client.loadPosts = function (data) {
+        console.log("abc");
         var mappedPosts = $.map(data, function (item) { return new Post(item, self.hub); });
+        console.log(mappedPosts);
+        mappedPosts.forEach(function (i, a) {
+            console.log(i.PostedBy);
+        })
         self.posts(mappedPosts);
     }
 
