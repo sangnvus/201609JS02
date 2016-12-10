@@ -28,7 +28,7 @@ namespace BSNCapstone.Hubs
     {
         private readonly ApplicationIdentityContext con = ApplicationIdentityContext.Create();
 
-        public void GetPosts()
+        public void GetNewFeedPosts()
         {
             // get dữ liệu từ db
             List<Post> postsForShow = new List<Post>();
@@ -252,7 +252,7 @@ namespace BSNCapstone.Hubs
                     NumOfPostLike = post.PostLikes.Count
                 };
 
-                GetPosts();
+                GetNewFeedPosts();
                 //Clients.All.loadNewLikes(post);
                 return ret;
             }
@@ -270,7 +270,7 @@ namespace BSNCapstone.Hubs
                     NumOfPostLike = post.PostLikes.Count
                 };
 
-                GetPosts();
+                GetNewFeedPosts();
                 //Clients.All.loadNewLikes(post);
                 return ret;
             }
@@ -280,7 +280,7 @@ namespace BSNCapstone.Hubs
         public void DeletePost(Post post)
         {
             con.Posts.FindOneAndDeleteAsync(x => x.Id.Equals(new ObjectId(post.Id)));
-            GetPosts();  // chờ maitain: update hàm client delete post để cải thiện performance
+            GetNewFeedPosts();  // chờ maitain: update hàm client delete post để cải thiện performance
         }
 
         public void EditPost(Post post)

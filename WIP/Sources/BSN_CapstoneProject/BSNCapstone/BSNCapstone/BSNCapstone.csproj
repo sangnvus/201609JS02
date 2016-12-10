@@ -288,7 +288,7 @@
     <Content Include="Scripts\Custom\follow-handle.js" />
     <Content Include="Scripts\Custom\group-add.js" />
     <Content Include="Scripts\Custom\group.js" />
-    <Content Include="Scripts\Custom\post.js" />
+    <Content Include="Scripts\Custom\newfeed-post.js" />
     <Content Include="Scripts\Custom\publisher.js" />
     <Content Include="Scripts\Custom\report-action.js" />
     <Content Include="Scripts\Custom\slider.js" />

@@ -133,7 +133,7 @@ function viewModel() {
     */
     self.init = function () {
         self.error(null);
-        self.hub.server.getPosts().fail(function (err) {
+        self.hub.server.getNewFeedPosts().fail(function (err) {
             self.error(err);
         });
     }
