@@ -1,0 +1,684 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.12">
+  <compound refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller" kind="class"><name>BSNCapstone::Controllers::AccountController</name>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aea53417b7c89f639fdc9a0624cf08563" kind="enum"><name>ManageMessageId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aea53417b7c89f639fdc9a0624cf08563a0053618c57496fec45c67daf91919394" kind="enumvalue"><name>ChangePasswordSuccess</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aea53417b7c89f639fdc9a0624cf08563af17ca72fcf8adaa46d5e87b12ec3a27d" kind="enumvalue"><name>SetPasswordSuccess</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aea53417b7c89f639fdc9a0624cf08563a46e53931d0e837638a46368b2b04ba6a" kind="enumvalue"><name>RemoveLoginSuccess</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aea53417b7c89f639fdc9a0624cf08563a902b0d55fddef6f8d651fe1035b7d4bd" kind="enumvalue"><name>Error</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a9c7487cfff7cf8e1a1a3202cfbc71d4b" kind="variable"><name>_userManager</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a35f09221124abb845be8d79c265d31ff" kind="variable"><name>Context</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a35f0f587b7e6ae0ddfd26a6a497da346" kind="variable"><name>cloudinary</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1ae9f8b6c6ce67dd0d12981d997eeacb89" kind="variable"><name>_helper</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a15eab832497720fbb65b05a930185641" kind="variable"><name>XsrfKey</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a0764e98c55ea40d52cc0f2cf102c9118" kind="property"><name>UserManager</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1af4bf8cb0371d8babccc43dc50f8e669f" kind="property"><name>SignInHelper</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a2af8284b23d9dec0a61dc9435caa8c0f" kind="property"><name>AuthenticationManager</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a49980c20b65690aa8c16ad79941d064f" kind="function"><name>AccountController</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a284b59a1144b6e24c4876945c4cfa341" kind="function"><name>AccountController</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aa4be0c43559aa67b8f69b685192fb984" kind="function"><name>Login</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a0636cff8924f2a75f343a2809e7b376a" kind="function"><name>Login</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a663b81a8a401001dbf8e09c9be97eda4" kind="function"><name>Register</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a7f258e0d08476bf332c3fcbd32bb01b8" kind="function"><name>AuthorRegister</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1ae923e42b8e650d2917b7d82db42cdb6b" kind="function"><name>Register</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a7bdd3ec9dc25907605e2bdc74983534b" kind="function"><name>AuthorRegister</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a8b31b5f2b93525896831a0903057d416" kind="function"><name>ConfirmEmail</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a19b697ff3cdb3c60441d5cf762924968" kind="function"><name>ForgotPassword</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1ab06b6a41192c50ec572ef9ce3117b8cf" kind="function"><name>ForgotPassword</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a843fe0faae8d488bfcee795de5bc8f01" kind="function"><name>ForgotPasswordConfirmation</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a3481fbe95f7de17f7bb4d4a25eaac7dc" kind="function"><name>ResetPassword</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a74b912f1df92180062ef7a97bb71cf4b" kind="function"><name>ResetPassword</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a56b0f34ef31776abc6fd138315910573" kind="function"><name>ResetPasswordConfirmation</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a2823f5879c9f6dfb3aeb3d0a3c90dd30" kind="function"><name>Disassociate</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aedfd84b99ba4c44093d4f40a78e9c16b" kind="function"><name>Manage</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a5fa5699c021936f139c0703810b7a83b" kind="function"><name>Manage</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a24948704e6a0773919b8532fc14310a2" kind="function"><name>ExternalLogin</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a5e9c2cf4fa557239ff65e770465dbd0d" kind="function"><name>ExternalLoginCallback</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aa59e448b1b5746c3aad872e3809c90d0" kind="function"><name>LinkLogin</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a6ef4538defac99cf61f328c67e45ed15" kind="function"><name>LinkLoginCallback</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a115e452255961f4be831bcf0795690da" kind="function"><name>ExternalLoginConfirmation</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a9e497efd7bbf5cb11a678ba192d0c3fc" kind="function"><name>LogOff</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1adf8950163faf8549f0448b6b394cef03" kind="function"><name>ExternalLoginFailure</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a9a454a7511c3d0984b5fc616e81174f0" kind="function"><name>RemoveAccountList</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aba95a9ffd64c2ff2e2bb682c484bb0c5" kind="function"><name>Users</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a6a2c7ca2ad2dbfd182f8411f3d5a0b01" kind="function"><name>Authors</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a61a275391f5f2cfe3b40aa032212c41a" kind="function"><name>AuthorConfirm</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1ab9ef4897a668e1a693fe3d2db69c160e" kind="function"><name>Dispose</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a1326e6423783ae6f0068eb68d58302ca" kind="function"><name>SignInAsync</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a8db1940cce1c580520c00aa5eda6a573" kind="function"><name>AddErrors</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1ab7a42edf68787d299bc838989ac9d54e" kind="function"><name>HasPassword</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1afff9722678e327b8e0876648a0fad06d" kind="function"><name>RedirectToLocal</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model" kind="class"><name>BSNCapstone::ViewModels::AccountViewModel</name>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model_1a00d918508b925fc90cb7257458ef9bc9" kind="property"><name>Login</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model_1a90adffb162ef0e886b7b809cac9b43f9" kind="property"><name>Register</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model_1ab5f162f4bc281e5a1c6f6781a44db999" kind="property"><name>AuthorRegister</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model_1abf188cb93164dc64b52797ad029c4d3a" kind="property"><name>ForgotPassword</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context" kind="class"><name>BSNCapstone::App_Start::ApplicationIdentityContext</name>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a9403555440833187d1090ce6bc10b2fb" kind="property"><name>Roles</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a862d7ee9e26160bbf5b1d98d0edc5fdb" kind="property"><name>Users</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a5ab4e341bedd029a221f6b56554d27a2" kind="property"><name>Categories</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1ae83d38e39b3840e42583a6857cf55415" kind="property"><name>Books</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1ad5578f0200b3dffa6e165d38beb5a164" kind="property"><name>Sliders</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1acafea8bb65a86cb1cea6adfcacb1a518" kind="property"><name>Publishers</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1ab3394ba40ac644aec82b22bdf7dceb8d" kind="property"><name>Posts</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1aab7b45765720c244ad281e545469d59e" kind="property"><name>Groups</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a31da924c053e38c8204dfa14391df3cc" kind="property"><name>BooksStatistic</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1af940e14ef27a769ed5d501476900f2f7" kind="property"><name>Reports</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1ae309215428eda96032f63eb819e4990d" kind="property"><name>Authors</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a14e88202c7ad5b3b9131ebd803092b1f" kind="function"><name>Create</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a60a04819a5ce2f184cbe5a4a84bbe54b" kind="function"><name>ApplicationIdentityContext</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1aef90274c20ae5fbb3dd4d826ce760d0d" kind="function"><name>AllRolesAsync</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1ab57ca88f519b4131b49bfdd52a822457" kind="function"><name>Dispose</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_role_manager" kind="class"><name>BSNCapstone::App_Start::IdentityConfig::ApplicationRoleManager</name>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_role_manager_1a797e5bd09fa17f725a67146130471104" kind="function"><name>ApplicationRoleManager</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_role_manager_1a4350ebbe0545ff098956aaff1596217b" kind="function"><name>Create</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_application_user" kind="class"><name>BSNCapstone::Models::ApplicationUser</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a9bea9392d2ee4ab091797891a8813074" kind="property"><name>Avatar</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1ab0904ea1ffd815e7bd77e5cab04a5dc4" kind="property"><name>Cover</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a2193dfe4da62887a817a614a58c972bf" kind="property"><name>Address</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a098b43f89920481c2a467273dbcd8aa4" kind="property"><name>DOB</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1ae85667d56822771ddf6a23cb37869f8c" kind="property"><name>SSNImgId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1ad2192c6f9797d27b03e7955975359a25" kind="property"><name>Gender</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a0e644712f301abed2e32e0bb60487aef" kind="property"><name>Follower</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a024c8ddf6326e4c2c82c426cf55dc071" kind="property"><name>Following</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1add11abadaf1cba28e982aed16a3e41b7" kind="property"><name>Interacbook</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1ac1927249a96fe26e5b40a87df4896966" kind="property"><name>AuthorConfirmed</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a370c1c712c7f2b71511cf1e89b0748d5" kind="property"><name>Locked</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1ac821ef4bc4cd666370ccb3f24680074a" kind="property"><name>CreatedTime</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a0084153697e08f9e68d25fd600ce7597" kind="function"><name>GenerateUserIdentityAsync</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a495d86b0bc4783c256add89d82daedc8" kind="function"><name>ApplicationUser</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager" kind="class"><name>BSNCapstone::App_Start::IdentityConfig::ApplicationUserManager</name>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager_1a8a746819b13a67d2cfb05f490d6af133" kind="function"><name>ApplicationUserManager</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager_1a3a935386c8a940529f2cc3117837169f" kind="function"><name>AddUserToRolesAsync</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager_1a0bf63469e0d94144443901dbf4fa4b2b" kind="function"><name>RemoveUserFromRolesAsync</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager_1adf11a6e130d4505259a18fe8e3593e2a" kind="function"><name>Create</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_author" kind="class"><name>BSNCapstone::Models::Author</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_author_1a84d4a3567d986bddb6600d077b339cc0" kind="property"><name>Id</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_author_1aa444d30d5fd0dcc75b2604d84bce8a20" kind="property"><name>UserId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_author_1a5209a42186262cd940a9526df498fbdf" kind="property"><name>AuthorName</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model" kind="class"><name>BSNCapstone::Models::AuthorRegisterViewModel</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model_1a539451d55fe2cedb78f6e214c269df4f" kind="property"><name>UserName</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model_1a409decc18cc8555b88629a37f1f9e7f4" kind="property"><name>Email</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model_1a95b03fbd68b1deee35ed4d357f34a028" kind="property"><name>Password</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model_1aaf314356cb6fae27b419509b5974a836" kind="property"><name>ConfirmPassword</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model_1a12b1e31bf1f36dce8b490abd9b833cd7" kind="property"><name>SSNImgId</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_book" kind="class"><name>BSNCapstone::Models::Book</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1aed944432d24450df467e9a1b6e91767b" kind="property"><name>Id</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1aaf8d2b8019280de69f9a6479c53b721d" kind="property"><name>BookName</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a59576876ff833bd7ad8619b6bf9083fd" kind="property"><name>Authors</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1af2ab8d2603c5e5b695c63518a05abcdd" kind="property"><name>Publishers</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a461d75f0e6ed3ef0b0eb676fcb36258e" kind="property"><name>ReleaseDay</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a10b339c20e6b079cf8236e917bba2916" kind="property"><name>Description</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a8124a127380b6e93e181db8be6bd007a" kind="property"><name>ImgPublicId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a93e54ce9ec3c300cac4cfd7ef3fa524e" kind="property"><name>Categories</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1ab30e63c611bcf1c944ad095df8af8180" kind="property"><name>RatingPoint</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a11dcce1db9380564bd20a910d8d19663" kind="property"><name>RateTime</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1ae256f1de1fcd67ece532eb24ce13b1bc" kind="property"><name>AvarageRating</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1aac1f4e9722fc2a3b7915e6440f887f72" kind="property"><name>Comments</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a977c37e1a1b769e2a61f4bac108ab0c5" kind="property"><name>Requested</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1ae06d42761838875cf77ca069b5c8bece" kind="property"><name>RequestedBookAuthor</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a81bde7ce0051fcd1a19d179e1f47e28c" kind="function"><name>Book</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_view_models_1_1_book_categories_view_model" kind="class"><name>BSNCapstone::ViewModels::BookCategoriesViewModel</name>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_categories_view_model_1aa9130a6b26eb4cd34b9ac63d1be1fd92" kind="property"><name>CategoryId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_categories_view_model_1a663f2ebb44b50b7dba1b61f15c4da769" kind="property"><name>CategoryName</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_categories_view_model_1a4e3a2add63088503023f19fda5d56bf2" kind="property"><name>IsSelected</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model" kind="class"><name>BSNCapstone::ViewModels::BookCommentViewModel</name>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1a8253f00fb7f97cea875eedecd44c0e8f" kind="property"><name>Id</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1af6d71734115bb903f80215f225437336" kind="property"><name>UserId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1a00d32fa36691ff3e2dc163a6c3bbb256" kind="property"><name>CreatedTime</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1adf781552c730afd778c007399fe4e3c5" kind="property"><name>Description</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1a7582cb3ace0b3c80aeab7e1346d49fa4" kind="property"><name>LinesDescription</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1ac126a1bae149b587aa4746e4970983d1" kind="function"><name>BookCommentViewModel</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_books_controller_helper_1_1_book_compare" kind="class"><name>BSNCapstone::ControllerHelpers::BooksControllerHelper::BookCompare</name>
+    <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_books_controller_helper_1_1_book_compare_1af157d003971492ae996cd59b3e938f76" kind="function"><name>Equals</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_books_controller_helper_1_1_book_compare_1aab1115587c1a657dd1fb397c638bccca" kind="function"><name>GetHashCode</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller" kind="class"><name>BSNCapstone::Controllers::BooksController</name>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1ab9dca67308099cac13e97660b07732e7" kind="variable"><name>Context</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1aa82760ba862810b4b49c68a9337e8a14" kind="variable"><name>cloudinary</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a72ea1b326ffe753eea2c028824db3970" kind="function"><name>GetPubsCatsAus</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1ae65d39a4dc004652764d507579f6c05a" kind="function"><name>Index</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a11a0c516c779fcc76fb43f009d5581b4" kind="function"><name>Details</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a6070b5b90838f5094af388f605ab5974" kind="function"><name>Create</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a26b0c16c1195d14d3cbcf84239187882" kind="function"><name>Create</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a638b503ba53a71749d6706f10f7345e5" kind="function"><name>Edit</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a6958f7593f13fba27641de6e8d68d697" kind="function"><name>Edit</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1aa275f8e6bca14df2e505fef194117cc2" kind="function"><name>DeleteConfirm</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1aec937c5b5bde3f568020d9dbae0fb3fd" kind="function"><name>RatingBook</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a8e328e27b22b84a77721b3e271f022b8" kind="function"><name>CommentBook</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1aa2e70a3d29af46219d424f0cbba3d29e" kind="function"><name>BookRequest</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a86042952948d48e7ed5eaa9ad240e28b" kind="function"><name>RequestAddBook</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_books_controller_helper" kind="class"><name>BSNCapstone::ControllerHelpers::BooksControllerHelper</name>
+    <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_books_controller_helper_1abf892c42889caf5745a04e55587f1707" kind="function"><name>Context</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_books_controller_helper_1a051ee7c7a9500d15b631970504a3e568" kind="function"><name>GetBookNumber</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_books_controller_helper_1a968b8fb99c88d1686996291d7d8463c0" kind="function"><name>ListAllCategory</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_books_controller_helper_1a6ba93cf0b9dc0f85d49499af6eb03bd7" kind="function"><name>GetAverageRatingPoint</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_books_controller_helper_1a94bbc68ad2a09da1addf1ff5582a5ba5" kind="function"><name>SuggestBook</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model" kind="class"><name>BSNCapstone::ViewModels::BooksSuggestViewModel</name>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1a97543198153870d88d714d2ea5d3f491" kind="property"><name>BookId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1ac1d92f275f59aa225865a2b0f965f015" kind="property"><name>Count</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1a6e4ee0496526e184f55098fe227fb3cb" kind="property"><name>BookName</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1accd353c70ca750097cef1e3406a91a8e" kind="property"><name>AuthorName</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1a304ea102c78b0bd3fe3c1a9918d35531" kind="property"><name>ImgPublicId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1a81d5481dbde00aea555bfeb7cdecb10c" kind="property"><name>RateTime</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1ad28c80886e6d8b4825c62f0535ec16fc" kind="function"><name>BooksSuggestViewModel</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_book_statistic" kind="class"><name>BSNCapstone::Models::BookStatistic</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_statistic_1a7231208ba0fb9a9860416e9894201830" kind="property"><name>Id</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_statistic_1a6a91cd4562a000072cd6be966b5818b1" kind="property"><name>BookId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_statistic_1a13b41230d46277d92fe6e031e5a9aaa3" kind="property"><name>EachDate</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_statistic_1aadc3374eb1926a5953c7acb9a8146e5a" kind="property"><name>Count</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_book_statistic_1a5a52ea32d707fd44a7be1e4b79f0fb28" kind="function"><name>BookStatistic</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_bundle_config" kind="class"><name>BSNCapstone::BundleConfig</name>
+    <member refid="class_b_s_n_capstone_1_1_bundle_config_1a2551b8e6f0169b1b59e42781d387e30f" kind="function"><name>RegisterBundles</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller" kind="class"><name>BSNCapstone::Controllers::CategoriesController</name>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1a695b82402dd9c823aa016254e4094093" kind="variable"><name>Context</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1a99c6d682619be3395996d382812d4c0a" kind="function"><name>Index</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1abcd8bc5c3ce4dbf93bf6560ecd1fdf6d" kind="function"><name>Create</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1a35b8e0db4e71c1eaab3300f618cfa145" kind="function"><name>Edit</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1a960e2bdea3e6e36039e71a7cb219f4da" kind="function"><name>Edit</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1a601c5595fd9733665e8ae5c5f3a14362" kind="function"><name>Delete</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1ae5b5113761bb25ad80a3d764038a4490" kind="function"><name>DeleteConfirm</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_categories_controller_helper" kind="class"><name>BSNCapstone::ControllerHelpers::CategoriesControllerHelper</name>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_category" kind="class"><name>BSNCapstone::Models::Category</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_category_1ad6d21f6874ac26745c655e7f3ecf8b14" kind="property"><name>Id</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_category_1a40c729d87386d053a196a1810caf58d8" kind="property"><name>CategoryName</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result" kind="class"><name>BSNCapstone::Controllers::AccountController::ChallengeResult</name>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1a6e0ea1279d39e0f98bfe2e36461016b0" kind="property"><name>LoginProvider</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1a2e92718aa2d9d5d5fa2f99857c5f2269" kind="property"><name>RedirectUri</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1aca20408239c5ea21f9a3c12ab20450bd" kind="property"><name>UserId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1af52432d0f1779b14c497b1980493ff65" kind="function"><name>ChallengeResult</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1ae3df14a9d492a411f5f3ad5e3e24648e" kind="function"><name>ChallengeResult</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1ae818b3e8269dc341b4982bb57f11a710" kind="function"><name>ExecuteResult</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_comment" kind="class"><name>BSNCapstone::Models::Comment</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_comment_1afefc64a9f1ba3f12cf9619f5158d3155" kind="property"><name>CommentId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_comment_1a5f85f20ae39bb9ecbab550002902e5ec" kind="property"><name>PostId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_comment_1ab47c68b3a0b6f8eab981dc36027ce123" kind="property"><name>Message</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_comment_1a27a5fd78276d57ecae4c05c50c89c8cc" kind="property"><name>CommentedBy</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_comment_1a402cfe49544d1702df33d0dfa7f5313e" kind="property"><name>CommentedDate</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_common_1_1_constant" kind="class"><name>BSNCapstone::Common::Constant</name>
+    <member refid="class_b_s_n_capstone_1_1_common_1_1_constant_1a0e4fd45751e74836c84f7fa765fa8437" kind="variable"><name>DefaultAvatarLink</name></member>
+    <member refid="class_b_s_n_capstone_1_1_common_1_1_constant_1a630606ba79365244e186239a9c8f3064" kind="variable"><name>DefaultCoverLink</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_email_service" kind="class"><name>BSNCapstone::App_Start::IdentityConfig::EmailService</name>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_email_service_1a129bb7a8f826e77a77d1a3b9441da207" kind="function"><name>SendAsync</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_app___start_1_1_ensua_auth_indexes" kind="class"><name>BSNCapstone::App_Start::EnsuaAuthIndexes</name>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_ensua_auth_indexes_1a0b44d4459ed944e39893b3c654c9ff1a" kind="function"><name>Exist</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_external_login_confirmation_view_model" kind="class"><name>BSNCapstone::Models::ExternalLoginConfirmationViewModel</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_external_login_confirmation_view_model_1a581970b34de1e339c4da41d56a98a618" kind="property"><name>UserName</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_external_login_confirmation_view_model_1a646eb19bda5d278d496091a09c4139e1" kind="property"><name>Email</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_filter_config" kind="class"><name>BSNCapstone::FilterConfig</name>
+    <member refid="class_b_s_n_capstone_1_1_filter_config_1afd4a2c365c6bf15fde98838c5ef135e6" kind="function"><name>RegisterGlobalFilters</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_forgot_password_view_model" kind="class"><name>BSNCapstone::Models::ForgotPasswordViewModel</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_forgot_password_view_model_1ac387d063b71a2cdb9d9475998e36384d" kind="property"><name>Email</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_group" kind="class"><name>BSNCapstone::Models::Group</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1aa8185bbb26faf4afdedb04f498841c59" kind="property"><name>Id</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a37496c073c9ffec81ac211e3e1f6b314" kind="property"><name>CreatorId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a19bb2ebacae03c2b3dd49fd768159256" kind="property"><name>GroupName</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a8e4dda9d188cefb70a9a550d5b35b66b" kind="property"><name>GroupMembers</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a3277ab2731e873c22636c9c122c933c6" kind="property"><name>Tag</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1af06b7c356ece224a25c2cfe30f6e82c0" kind="property"><name>GroupType</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a4a3cddb2d44e616f1da850adf81d2a31" kind="property"><name>CreatedDate</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1adde75bbb0909d50a46c0046e82540e73" kind="property"><name>AvaImg</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a14527acb1280e8e5aa6492aa0d52813b" kind="property"><name>CoverImg</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a74b17b3740aa74e709f5faf422b121b2" kind="property"><name>Locked</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1ac73a82bcbd2a0d9785639046323c5fa5" kind="property"><name>Description</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1ab9028a7e2ea46486f24a9dc18ee9c92a" kind="property"><name>ListJoinRequest</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a67f716d935f1974093d4a72522e842e5" kind="function"><name>Group</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model" kind="class"><name>BSNCapstone::ViewModels::GroupMembersViewModel</name>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model_1a90a68774515bd4a884358b1d0208bc83" kind="property"><name>UserId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model_1a555456e400d69ffe6671131cab4e70d0" kind="property"><name>UserName</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model_1a802d667a7bb1f8c414c3b86ffd6bf292" kind="property"><name>RoleInGroup</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model_1a3f5713d29c37434401d2a2d161a5f85d" kind="property"><name>IsSelected</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller" kind="class"><name>BSNCapstone::Controllers::GroupsController</name>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a5361399a1e77d19d0d4b5f2fb2119947" kind="variable"><name>Context</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a96b2f673fd998d5244894068469563d1" kind="variable"><name>cloudinary</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1aafc28462be0cea9c81316090ffb307d7" kind="function"><name>GetUserForAdd</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a884b14521c1626bffb3de7e8ffba3730" kind="function"><name>GroupReportContent</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1afc12a05fc2318253dd02fe16ea610315" kind="function"><name>Index</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a0121c9de64b7b5aa36ef31328309f1f7" kind="function"><name>Lock</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1aa38db4c68d42adaff43343b8a86c82e1" kind="function"><name>MainPage</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a01e79e4dcefe029d21993f66a8628b2c" kind="function"><name>Members</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1afb8d057a9da5995d129b50c85c504ef7" kind="function"><name>GroupRequestHandle</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1ab61bbd54808302c5ffa734a1dc42c483" kind="function"><name>Setting</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1ac50fda4cab77d370bb33ccb05c5114f5" kind="function"><name>Setting</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a8bd38efb6828ed232ced461799c0faaf" kind="function"><name>Details</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a4628799d611d57d41b3f3728f8803131" kind="function"><name>Create</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a6e9e2507b0b01764b6b85b04ad5dfe4c" kind="function"><name>Create</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1ac8d85355f7674815313825bb2b466c08" kind="function"><name>Edit</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a6d2c3f3b78f8590f9900be3cd01331b5" kind="function"><name>Edit</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a4391c124827e71a7bda0eb1ef1bda195" kind="function"><name>Delete</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a79b6a46addfff6341792b9ab607e4bed" kind="function"><name>Delete</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a3eed0b9593704905014007b5ccf6553e" kind="function"><name>ChangeImage</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a038afd169cfb2c7ee004b9ea7e5ae57f" kind="function"><name>Report</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a18e60e6a2c97bb39635564bde1737992" kind="function"><name>AddNewMember</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_groups_controller_helper" kind="class"><name>BSNCapstone::ControllerHelpers::GroupsControllerHelper</name>
+    <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_groups_controller_helper_1a85fff61e3597dbf103f3a0e426dea167" kind="function"><name>GetGroupNumber</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_groups_controller_helper_1a01cbeb60b997dfeeaa3e75bf6c7d5015" kind="function"><name>GetGroupJustCreatedNumber</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_groups_controller_helper_1a43a008df4cd9c38b245e713e45395136" kind="function"><name>SuggestGroup</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_view_models_1_1_group_setting_view_model" kind="class"><name>BSNCapstone::ViewModels::GroupSettingViewModel</name>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_group_setting_view_model_1aec8244df143f90a7b80b85aa64589c20" kind="property"><name>Id</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_group_setting_view_model_1a8a9efd5ce3a60fe61a271536050e0c69" kind="property"><name>CreatorId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_group_setting_view_model_1a139af031f0fa4886edcab49d5f82c974" kind="property"><name>GroupName</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_group_setting_view_model_1aedf96378b7cd32729be0794edf88279d" kind="property"><name>Description</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_group_setting_view_model_1a4b61b0ea4acedd99931adfc665963bad" kind="property"><name>Lock</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_group_setting_view_model_1a34e942a538b8d7618950aa153e0f7b8b" kind="property"><name>Tag</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_group_setting_view_model_1a4f6efe54230a61e4d640b6a717594c8c" kind="property"><name>GroupType</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller" kind="class"><name>BSNCapstone::Controllers::HomeController</name>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1a4adc4a03c5cd6c17a88b847910688abb" kind="variable"><name>Context</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1abe643708daf74242041464547058e182" kind="variable"><name>cloudinary</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1a064475586e83ab94d5a0c0d3f8dff755" kind="variable"><name>_userManager</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1ab7b2b2fea7d6204c5999355c4bcc9c4e" kind="property"><name>UserManager</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1a85161bd9d58db65a3b9c362a7e5f0538" kind="function"><name>Index</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1ad3b96478a39dac1c6f227899fd4a130d" kind="function"><name>GetListBookTag</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1a60cc15af73a241b6525dd03bfe2e4ab8" kind="function"><name>LockedPage</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config" kind="class"><name>BSNCapstone::App_Start::IdentityConfig</name>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1a2cfc863f23d4198bca307f06fe04023e" kind="enum"><name>SignInStatus</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1a2cfc863f23d4198bca307f06fe04023ea505a83f220c02df2f85c3810cd9ceb38" kind="enumvalue"><name>Success</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1a2cfc863f23d4198bca307f06fe04023eadce117aece4cb31f04117b795367890d" kind="enumvalue"><name>LockedOut</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1a2cfc863f23d4198bca307f06fe04023eab478a5ea5a2e0827cdaf934b2e721457" kind="enumvalue"><name>RequiresTwoFactorAuthentication</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1a2cfc863f23d4198bca307f06fe04023eae139a585510a502bbf1841cf589f5086" kind="enumvalue"><name>Failure</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_image_upload_helper" kind="class"><name>BSNCapstone::ControllerHelpers::ImageUploadHelper</name>
+    <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_image_upload_helper_1a2cefec77081d01c011efc44f30ea12c3" kind="function"><name>GetCloudinaryAccount</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_image_upload_helper_1a28693f7986b6a178d99c9749a067526a" kind="function"><name>GetUploadResult</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_login_view_model" kind="class"><name>BSNCapstone::Models::LoginViewModel</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_login_view_model_1a739ae7187c4257a100e9795da5daf087" kind="property"><name>Email</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_login_view_model_1a56ab8e5ab24d5151b792393713511d8e" kind="property"><name>Password</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_login_view_model_1a9c71a755d425bcc3f366b26d6957df89" kind="property"><name>RememberMe</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_manage_user_view_model" kind="class"><name>BSNCapstone::Models::ManageUserViewModel</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_manage_user_view_model_1a110d80951991b590e176b37c956380e2" kind="property"><name>OldPassword</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_manage_user_view_model_1aca88c915db9c8b8a0827fea5f945fb96" kind="property"><name>NewPassword</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_manage_user_view_model_1a6d47b1cd98ab38f03cff4725f2f2090e" kind="property"><name>ConfirmPassword</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_mvc_application" kind="class"><name>BSNCapstone::MvcApplication</name>
+    <member refid="class_b_s_n_capstone_1_1_mvc_application_1a7c6dd38d8259a1e7a0e29f0abc117a11" kind="function"><name>Application_Start</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_photo_model" kind="class"><name>BSNCapstone::Models::PhotoModel</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_photo_model_1ae40c53c92365b8f5a17710320c59df21" kind="property"><name>Cloudinary</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_photo_model_1a65983047e726e8ad3dff9868940293b6" kind="function"><name>PhotoModel</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_post" kind="class"><name>BSNCapstone::Models::Post</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_post_1a45c47bbf7da1f2453e5190ea6263e05e" kind="property"><name>Id</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_post_1a56a25051e58c13c590f894de049e6f93" kind="property"><name>Message</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_post_1aee82fef30e861fbc3c1f8af940bce788" kind="property"><name>PostedById</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_post_1aa367c4d203536bcf0cf8a954c1b0d04d" kind="property"><name>PostedDate</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_post_1ad257e2ca6e101e061924c42c54fee982" kind="property"><name>PostComments</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_post_1ae3dc42286dc527412015b1e2bee58d6e" kind="property"><name>PostLikes</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_post_1a398721a8e0cdeb8eb373080320ed5fcb" kind="function"><name>Post</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub" kind="class"><name>BSNCapstone::Hubs::PostHub</name>
+    <member refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1a20efd07ace30831747e1abc45c9bf97c" kind="variable"><name>con</name></member>
+    <member refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1ac10294e668a43d4f48131ea323b5c21c" kind="function"><name>GetNewFeedPosts</name></member>
+    <member refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1a9e622401bf5248c13a585688190fadaa" kind="function"><name>AddPost</name></member>
+    <member refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1a1233fafceeadb6ae0e4beac7ab6bd989" kind="function"><name>AddComment</name></member>
+    <member refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1ae83230b2219d48b583f2d03d811bf5fd" kind="function"><name>AddPostLike</name></member>
+    <member refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1ae83c996b708655a3d9345ea3b4006981" kind="function"><name>DeletePost</name></member>
+    <member refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1ab57328ce763261bce1946762ff9821f3" kind="function"><name>EditPost</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_post_like" kind="class"><name>BSNCapstone::Models::PostLike</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_post_like_1aa23f563f8ff6fa5d0e922fad085965a5" kind="property"><name>PostId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_post_like_1aef0a881a883b4954e91ab574f60a203f" kind="property"><name>LikedBy</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_publisher" kind="class"><name>BSNCapstone::Models::Publisher</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_publisher_1a04317fbec0ab44fb244ae58211d273ad" kind="property"><name>Id</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_publisher_1a81e38ec85ccb23dffdd74e2461948c7c" kind="property"><name>Name</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_publisher_1a43032e19cfc714a480993d3d98835a45" kind="property"><name>Address</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_publisher_1a1eafbc2b715ada62e6220df666174de6" kind="property"><name>PhoneNumber</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_publisher_1a39dcd8f29431a6bc962bf5386f3f6e1e" kind="property"><name>ImagePublicId</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_controllers_1_1_publisher_controller" kind="class"><name>BSNCapstone::Controllers::PublisherController</name>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_publisher_controller_1a911ec68f4a1c810a8cf1d2e5374b6b45" kind="variable"><name>Context</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_publisher_controller_1ae7e000d07ac6716ab43a09b240d44208" kind="variable"><name>cloudinary</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_publisher_controller_1a3fe09222b07e66b697ef9c6e079e9347" kind="function"><name>Index</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_publisher_controller_1a4a9ac3d1505bc905773d5d720bd52b50" kind="function"><name>Upload</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_publisher_controller_1aa503223ce7200ad653bfed1a33f601c6" kind="function"><name>Delete</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_publisher_controller_1a27d41590b936f65c2736f0ffeb24c44c" kind="function"><name>Edit</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_publisher_photo_model" kind="class"><name>BSNCapstone::Models::PublisherPhotoModel</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_publisher_photo_model_1a30b0d2264caacb1efc8ab2e1fbf77c94" kind="property"><name>Publishers</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_publisher_photo_model_1a16606e426a7d02c07aaea7d16d34217b" kind="function"><name>PublisherPhotoModel</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_register_view_model" kind="class"><name>BSNCapstone::Models::RegisterViewModel</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_register_view_model_1ad3d55e408421e8ffc59a143a61b66d3d" kind="property"><name>UserName</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_register_view_model_1aae9e71d50851b56a74e4fde168e9eec5" kind="property"><name>Email</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_register_view_model_1a759a93760d4725df9dd2cf111c7fb18c" kind="property"><name>Password</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_register_view_model_1aece9841b3b9de24aeec000535d0675a1" kind="property"><name>ConfirmPassword</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_report" kind="class"><name>BSNCapstone::Models::Report</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_report_1ac403eba46331bd75c2ff58844f8f0734" kind="property"><name>Id</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_report_1acd33495e82cb63469022cd8117584966" kind="property"><name>UserId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_report_1a9afc7e9a28958f1bfdf1d541c5be6580" kind="property"><name>ReportedUserId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_report_1aed241d07786679c12962ad8cb95b2bc3" kind="property"><name>ReportedGroupId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_report_1a62c4b0a1b052f366622e596990486076" kind="property"><name>Content</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_report_1a0f53e6bedc0b3d86704955705a16b83e" kind="property"><name>Status</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model" kind="class"><name>BSNCapstone::ViewModels::ReportContentViewModel</name>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ac3e78eaecbcb0587ec9b56e5405cd026" kind="enum"><name>ReportUser</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ac3e78eaecbcb0587ec9b56e5405cd026a7a11fcf2442e1a75f29f4bb13822282a" kind="enumvalue"><name>report1</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ac3e78eaecbcb0587ec9b56e5405cd026ad228fbbfe4a7ba408e90a04a643f9f92" kind="enumvalue"><name>report2</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ac3e78eaecbcb0587ec9b56e5405cd026a9097889361cab41bf402b95f6a645ecb" kind="enumvalue"><name>report3</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ac3e78eaecbcb0587ec9b56e5405cd026a21de3b5e4f63771b81471135e53fa673" kind="enumvalue"><name>report4</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ac3e78eaecbcb0587ec9b56e5405cd026a6efd3483f43a75ce276b1c8836cdcb27" kind="enumvalue"><name>report5</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ac3e78eaecbcb0587ec9b56e5405cd026a474e3fa738428961832b70afa7063205" kind="enumvalue"><name>report6</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cd" kind="enum"><name>ReportGroup</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cda7a11fcf2442e1a75f29f4bb13822282a" kind="enumvalue"><name>report1</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cdad228fbbfe4a7ba408e90a04a643f9f92" kind="enumvalue"><name>report2</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cda9097889361cab41bf402b95f6a645ecb" kind="enumvalue"><name>report3</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cda21de3b5e4f63771b81471135e53fa673" kind="enumvalue"><name>report4</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cda6efd3483f43a75ce276b1c8836cdcb27" kind="enumvalue"><name>report5</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cda474e3fa738428961832b70afa7063205" kind="enumvalue"><name>report6</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cdaffd393781ce4d376c902cfd7a2702d52" kind="enumvalue"><name>report7</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a2e1dc11c0774545b46b70f2f9501cc09" kind="property"><name>ListReportUser</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a38291c823e40d26fcff5beeb712bf8b6" kind="property"><name>ListReportGroup</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a5a9488a19ba50120888981d932ee4cc7" kind="function"><name>ReportContentViewModel</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ae49552ea86af1a7e3c842894c7f74deb" kind="function"><name>GetEnumDescription</name></member>
+    <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1acc76f6a30623c1c2b3f98050e6bb6329" kind="function"><name>EnumToList&lt; T &gt;</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller" kind="class"><name>BSNCapstone::Controllers::ReportsController</name>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller_1a4ed85d911b234925a63ac23134f0be11" kind="variable"><name>Context</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller_1a6a01621172bf41272c692d24738af3be" kind="function"><name>Index</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller_1af712b08c25e678454fd732d330f0ba57" kind="function"><name>GetReport</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller_1ae6db8a876b811af3267f014ec717a8a3" kind="function"><name>Reject</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_reset_password_view_model" kind="class"><name>BSNCapstone::Models::ResetPasswordViewModel</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_reset_password_view_model_1a810ece81eb3e85792d9d522fa3ce3b10" kind="property"><name>Email</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_reset_password_view_model_1ac77435d4da0ddd556961dbcaa343dc72" kind="property"><name>Password</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_reset_password_view_model_1a2cc86054572c8c8f34fbfb6a66b1fefe" kind="property"><name>ConfirmPassword</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_reset_password_view_model_1a9307ba87e25251d2031d010c0c92edc2" kind="property"><name>Code</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_route_config" kind="class"><name>BSNCapstone::RouteConfig</name>
+    <member refid="class_b_s_n_capstone_1_1_route_config_1acc113fc0206dfd8df9cdcba6bf856b72" kind="function"><name>RegisterRoutes</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper" kind="class"><name>BSNCapstone::App_Start::IdentityConfig::SignInHelper</name>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a809df1f12ae3f21748be44ac4c539d85" kind="property"><name>UserManager</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1aa975cc12c087a54d4e8e08fec6692290" kind="property"><name>AuthenticationManager</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a23b898d1aafedc4e9bb8e6357b761537" kind="function"><name>SignInHelper</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1afe0092764bab431faec4b79dae4e56ef" kind="function"><name>SignInAsync</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a8ddd4b31f296865551d872b4dc595ceb" kind="function"><name>SendTwoFactorCode</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a3759827c1bf91daf5623a32e8c9187b2" kind="function"><name>GetVerifiedUserIdAsync</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1aedbe212b28a5b4203857c4c812547921" kind="function"><name>HasBeenVerified</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a10f9756096802707419e598b560163d5" kind="function"><name>TwoFactorSignIn</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a60f31c029fbfb27ea0a34f29f8f2f739" kind="function"><name>ExternalSignIn</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a8ec5e66b69c1de4f44a6acb7e9f9d037" kind="function"><name>PasswordSignIn</name></member>
+    <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a85840fcee527bed078caac1d30c6752e" kind="function"><name>SignInOrTwoFactor</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_slider" kind="class"><name>BSNCapstone::Models::Slider</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_slider_1a5017c2c73483bbb84e839271b5c5b02b" kind="property"><name>Id</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_slider_1ad83663a5f28a5c1f32eb7bef7fd282a1" kind="property"><name>PublicId</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_slider_1a02d0cb1cfc999b709b9db776dfc813c1" kind="property"><name>Desc</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_slider_1add555e6e18f9e5f8574c4104fad1b11b" kind="property"><name>isShow</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller" kind="class"><name>BSNCapstone::Controllers::SliderController</name>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1a5cb1d24c9bffb10dcdfce9a86d87203f" kind="variable"><name>Context</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1adbfa53183df4e88ee7e4b1266f5fe60e" kind="variable"><name>cloudinary</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1a43a3d2406b31dc9797ed2b6983451117" kind="function"><name>Index</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1adf5a3ff4f26089ece1621d2489e3f051" kind="function"><name>Upload</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1a3d8f7474675b6f894e18591d49bfff4a" kind="function"><name>Delete</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1a560a0bb909ce92276be71c76b25d80af" kind="function"><name>Show</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_slider_photo_model" kind="class"><name>BSNCapstone::Models::SliderPhotoModel</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_slider_photo_model_1a505b30833d07a6d403cdc5ce3f7a5946" kind="property"><name>Sliders</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_slider_photo_model_1a8349ec676db3536f7ac1819f23ef83ad" kind="function"><name>SliderPhotoModel</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_startup" kind="class"><name>BSNCapstone::Startup</name>
+    <member refid="class_b_s_n_capstone_1_1_startup_1af036e6cd85e52dadfd4fc696687df8a9" kind="function"><name>ConfigureAuth</name></member>
+    <member refid="class_b_s_n_capstone_1_1_startup_1a901ec52161ede8f5a5ddc0b524a8b6c3" kind="function"><name>Configuration</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_controllers_1_1_timeline_controller" kind="class"><name>BSNCapstone::Controllers::TimelineController</name>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_timeline_controller_1aea30f1eb3a980c411246cbbd5078553b" kind="variable"><name>Context</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_timeline_controller_1a222cf5e1f3b7bfc90d144cfcc9d677b3" kind="variable"><name>cloudinary</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_timeline_controller_1a510a18edaacab29cae9c0353f39f5e78" kind="variable"><name>_userManager</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_timeline_controller_1a35d27088973b77f5deb20c0929e69963" kind="property"><name>UserManager</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_timeline_controller_1a8bb2f08275beb7760f9447d4eed7a9d0" kind="function"><name>Details</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_timeline_controller_1ac3cf0a4ee74fbe5c1df4f05b06753694" kind="function"><name>EditProfile</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_timeline_controller_1af6a0862826313b41ab7bf0647a871cb5" kind="function"><name>EditProfile</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_timeline_controller_1abb2ead3f678f9f14c20e0eb0eca44b4e" kind="function"><name>ChangeImage</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_timeline_controller_1a0bfc6715575d29d67a6d14dce82c3a9f" kind="function"><name>FollowHandle</name></member>
+    <member refid="class_b_s_n_capstone_1_1_controllers_1_1_timeline_controller_1adee3c1bf53e2e27a3ec7a9ae9abcd343" kind="function"><name>Lock</name></member>
+  </compound>
+  <compound refid="class_b_s_n_capstone_1_1_models_1_1_user_profile" kind="class"><name>BSNCapstone::Models::UserProfile</name>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_user_profile_1ac0588f6def1dda0b1f55985cf10b99f8" kind="property"><name>id</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_user_profile_1a5b9db3581473a4f4da44a7c63216c4b1" kind="property"><name>UserName</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_user_profile_1a9d8025435be308ce93f1f43f47f93b43" kind="property"><name>Address</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_user_profile_1a9c42bc318838acb69873fe609758d043" kind="property"><name>DOB</name></member>
+    <member refid="class_b_s_n_capstone_1_1_models_1_1_user_profile_1afcc406b741a05da613a5a1db46187afe" kind="property"><name>Gender</name></member>
+  </compound>
+  <compound refid="namespace_asp_net_1_1_identity" kind="namespace"><name>AspNet::Identity</name>
+  </compound>
+  <compound refid="namespace_asp_net_1_1_identity_1_1_mongo_d_b" kind="namespace"><name>AspNet::Identity::MongoDB</name>
+  </compound>
+  <compound refid="namespace_b_s_n_capstone" kind="namespace"><name>BSNCapstone</name>
+  </compound>
+  <compound refid="namespace_b_s_n_capstone_1_1_app___start" kind="namespace"><name>BSNCapstone::App_Start</name>
+  </compound>
+  <compound refid="namespace_b_s_n_capstone_1_1_common" kind="namespace"><name>BSNCapstone::Common</name>
+  </compound>
+  <compound refid="namespace_b_s_n_capstone_1_1_controller_helpers" kind="namespace"><name>BSNCapstone::ControllerHelpers</name>
+  </compound>
+  <compound refid="namespace_b_s_n_capstone_1_1_controllers" kind="namespace"><name>BSNCapstone::Controllers</name>
+  </compound>
+  <compound refid="namespace_b_s_n_capstone_1_1_hubs" kind="namespace"><name>BSNCapstone::Hubs</name>
+  </compound>
+  <compound refid="namespace_b_s_n_capstone_1_1_models" kind="namespace"><name>BSNCapstone::Models</name>
+  </compound>
+  <compound refid="namespace_b_s_n_capstone_1_1_view_models" kind="namespace"><name>BSNCapstone::ViewModels</name>
+  </compound>
+  <compound refid="namespace_cloudinary_dot_net" kind="namespace"><name>CloudinaryDotNet</name>
+  </compound>
+  <compound refid="namespace_cloudinary_dot_net_1_1_actions" kind="namespace"><name>CloudinaryDotNet::Actions</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_1_1_identity" kind="namespace"><name>Microsoft::AspNet::Identity</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_1_1_identity_1_1_entity_framework" kind="namespace"><name>Microsoft::AspNet::Identity::EntityFramework</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_1_1_identity_1_1_owin" kind="namespace"><name>Microsoft::AspNet::Identity::Owin</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_1_1_signal_r" kind="namespace"><name>Microsoft::AspNet::SignalR</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_owin" kind="namespace"><name>Microsoft::Owin</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_owin_1_1_security" kind="namespace"><name>Microsoft::Owin::Security</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_owin_1_1_security_1_1_cookies" kind="namespace"><name>Microsoft::Owin::Security::Cookies</name>
+  </compound>
+  <compound refid="namespace_mongo_d_b_1_1_bson" kind="namespace"><name>MongoDB::Bson</name>
+  </compound>
+  <compound refid="namespace_mongo_d_b_1_1_bson_1_1_serialization_1_1_attributes" kind="namespace"><name>MongoDB::Bson::Serialization::Attributes</name>
+  </compound>
+  <compound refid="namespace_mongo_d_b_1_1_driver" kind="namespace"><name>MongoDB::Driver</name>
+  </compound>
+  <compound refid="namespace_mongo_d_b_1_1_driver_1_1_builders" kind="namespace"><name>MongoDB::Driver::Builders</name>
+  </compound>
+  <compound refid="namespace_owin" kind="namespace"><name>Owin</name>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_component_model" kind="namespace"><name>System::ComponentModel</name>
+  </compound>
+  <compound refid="namespace_system_1_1_component_model_1_1_data_annotations" kind="namespace"><name>System::ComponentModel::DataAnnotations</name>
+  </compound>
+  <compound refid="namespace_system_1_1_globalization" kind="namespace"><name>System::Globalization</name>
+  </compound>
+  <compound refid="namespace_system_1_1_i_o" kind="namespace"><name>System::IO</name>
+  </compound>
+  <compound refid="namespace_system_1_1_linq" kind="namespace"><name>System::Linq</name>
+  </compound>
+  <compound refid="namespace_system_1_1_net_1_1_mail" kind="namespace"><name>System::Net::Mail</name>
+  </compound>
+  <compound refid="namespace_system_1_1_reflection" kind="namespace"><name>System::Reflection</name>
+  </compound>
+  <compound refid="namespace_system_1_1_runtime_1_1_compiler_services" kind="namespace"><name>System::Runtime::CompilerServices</name>
+  </compound>
+  <compound refid="namespace_system_1_1_runtime_1_1_interop_services" kind="namespace"><name>System::Runtime::InteropServices</name>
+  </compound>
+  <compound refid="namespace_system_1_1_runtime_1_1_remoting_1_1_contexts" kind="namespace"><name>System::Runtime::Remoting::Contexts</name>
+  </compound>
+  <compound refid="namespace_system_1_1_security_1_1_claims" kind="namespace"><name>System::Security::Claims</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading_1_1_tasks" kind="namespace"><name>System::Threading::Tasks</name>
+  </compound>
+  <compound refid="namespace_system_1_1_web" kind="namespace"><name>System::Web</name>
+  </compound>
+  <compound refid="namespace_system_1_1_web_1_1_mvc" kind="namespace"><name>System::Web::Mvc</name>
+  </compound>
+  <compound refid="namespace_system_1_1_web_1_1_optimization" kind="namespace"><name>System::Web::Optimization</name>
+  </compound>
+  <compound refid="namespace_system_1_1_web_1_1_routing" kind="namespace"><name>System::Web::Routing</name>
+  </compound>
+  <compound refid="namespace_web_matrix_1_1_web_data" kind="namespace"><name>WebMatrix::WebData</name>
+  </compound>
+  <compound refid="_application_identity_context_8cs" kind="file"><name>ApplicationIdentityContext.cs</name>
+  </compound>
+  <compound refid="_bundle_config_8cs" kind="file"><name>BundleConfig.cs</name>
+  </compound>
+  <compound refid="_ensua_auth_indexes_8cs" kind="file"><name>EnsuaAuthIndexes.cs</name>
+  </compound>
+  <compound refid="_filter_config_8cs" kind="file"><name>FilterConfig.cs</name>
+  </compound>
+  <compound refid="_identity_config_8cs" kind="file"><name>IdentityConfig.cs</name>
+  </compound>
+  <compound refid="_route_config_8cs" kind="file"><name>RouteConfig.cs</name>
+  </compound>
+  <compound refid="_startup_8_auth_8cs" kind="file"><name>Startup.Auth.cs</name>
+  </compound>
+  <compound refid="_constant_8cs" kind="file"><name>Constant.cs</name>
+  </compound>
+  <compound refid="_books_controller_helper_8cs" kind="file"><name>BooksControllerHelper.cs</name>
+  </compound>
+  <compound refid="_categories_controller_helper_8cs" kind="file"><name>CategoriesControllerHelper.cs</name>
+  </compound>
+  <compound refid="_groups_controller_helper_8cs" kind="file"><name>GroupsControllerHelper.cs</name>
+  </compound>
+  <compound refid="_image_upload_helper_8cs" kind="file"><name>ImageUploadHelper.cs</name>
+  </compound>
+  <compound refid="_account_controller_8cs" kind="file"><name>AccountController.cs</name>
+  </compound>
+  <compound refid="_books_controller_8cs" kind="file"><name>BooksController.cs</name>
+  </compound>
+  <compound refid="_categories_controller_8cs" kind="file"><name>CategoriesController.cs</name>
+  </compound>
+  <compound refid="_groups_controller_8cs" kind="file"><name>GroupsController.cs</name>
+  </compound>
+  <compound refid="_home_controller_8cs" kind="file"><name>HomeController.cs</name>
+  </compound>
+  <compound refid="_publisher_controller_8cs" kind="file"><name>PublisherController.cs</name>
+  </compound>
+  <compound refid="_reports_controller_8cs" kind="file"><name>ReportsController.cs</name>
+  </compound>
+  <compound refid="_slider_controller_8cs" kind="file"><name>SliderController.cs</name>
+  </compound>
+  <compound refid="_timeline_controller_8cs" kind="file"><name>TimelineController.cs</name>
+  </compound>
+  <compound refid="_global_8asax_8cs" kind="file"><name>Global.asax.cs</name>
+  </compound>
+  <compound refid="_post_hub_8cs" kind="file"><name>PostHub.cs</name>
+  </compound>
+  <compound refid="_account_view_models_8cs" kind="file"><name>AccountViewModels.cs</name>
+  </compound>
+  <compound refid="_author_8cs" kind="file"><name>Author.cs</name>
+  </compound>
+  <compound refid="_book_8cs" kind="file"><name>Book.cs</name>
+  </compound>
+  <compound refid="_book_statistic_8cs" kind="file"><name>BookStatistic.cs</name>
+  </compound>
+  <compound refid="_category_8cs" kind="file"><name>Category.cs</name>
+  </compound>
+  <compound refid="_comment_8cs" kind="file"><name>Comment.cs</name>
+  </compound>
+  <compound refid="_group_8cs" kind="file"><name>Group.cs</name>
+  </compound>
+  <compound refid="_identity_models_8cs" kind="file"><name>IdentityModels.cs</name>
+  </compound>
+  <compound refid="_photo_model_8cs" kind="file"><name>PhotoModel.cs</name>
+  </compound>
+  <compound refid="_post_8cs" kind="file"><name>Post.cs</name>
+  </compound>
+  <compound refid="_post_like_8cs" kind="file"><name>PostLike.cs</name>
+  </compound>
+  <compound refid="_publisher_8cs" kind="file"><name>Publisher.cs</name>
+  </compound>
+  <compound refid="_report_8cs" kind="file"><name>Report.cs</name>
+  </compound>
+  <compound refid="_slider_8cs" kind="file"><name>Slider.cs</name>
+  </compound>
+  <compound refid="_temporary_generated_file__036_c0_b5_b-1481-4323-8_d20-8_f5_a_d_c_b23_d92_8cs" kind="file"><name>TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs</name>
+  </compound>
+  <compound refid="_temporary_generated_file__5937a670-0e60-4077-877b-f7221da3dda1_8cs" kind="file"><name>TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs</name>
+  </compound>
+  <compound refid="_temporary_generated_file___e7_a71_f73-0_f8_d-4_b9_b-_b56_e-8_e70_b10_b_c5_d3_8cs" kind="file"><name>TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs</name>
+  </compound>
+  <compound refid="_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_startup_8cs" kind="file"><name>Startup.cs</name>
+  </compound>
+  <compound refid="_account_view_model_8cs" kind="file"><name>AccountViewModel.cs</name>
+  </compound>
+  <compound refid="_book_categories_view_model_8cs" kind="file"><name>BookCategoriesViewModel.cs</name>
+  </compound>
+  <compound refid="_book_comment_view_model_8cs" kind="file"><name>BookCommentViewModel.cs</name>
+  </compound>
+  <compound refid="_books_suggest_view_model_8cs" kind="file"><name>BooksSuggestViewModel.cs</name>
+  </compound>
+  <compound refid="_group_members_view_model_8cs" kind="file"><name>GroupMembersViewModel.cs</name>
+  </compound>
+  <compound refid="_group_setting_view_model_8cs" kind="file"><name>GroupSettingViewModel.cs</name>
+  </compound>
+  <compound refid="_report_content_view_model_8cs" kind="file"><name>ReportContentViewModel.cs</name>
+  </compound>
+  <compound refid="dir_badb1e0a6719b0eac5873e7575c6367a" kind="dir"><name>App_Start</name>
+  </compound>
+  <compound refid="dir_4ab6b4cc6a7edbff49100e9123df213f" kind="dir"><name>Common</name>
+  </compound>
+  <compound refid="dir_28d1f2080e9bea44f395aab62faed7a5" kind="dir"><name>ControllerHelpers</name>
+  </compound>
+  <compound refid="dir_f1e231c396d6a78f925b250f39acb3ba" kind="dir"><name>Controllers</name>
+  </compound>
+  <compound refid="dir_a71c3b2ad23b9ff58220dd012d201987" kind="dir"><name>obj/Debug</name>
+  </compound>
+  <compound refid="dir_757acb156296182989db0abeacc952bb" kind="dir"><name>Hubs</name>
+  </compound>
+  <compound refid="dir_22305cb0964bbe63c21991dd2265ce48" kind="dir"><name>Models</name>
+  </compound>
+  <compound refid="dir_43724e81dd40e09f32417973865cdd64" kind="dir"><name>obj</name>
+  </compound>
+  <compound refid="dir_d051c76eebdc544d9c3d734575641c72" kind="dir"><name>Properties</name>
+  </compound>
+  <compound refid="dir_ba262fc08cc173e800721160247391b9" kind="dir"><name>ViewModels</name>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::ViewModels::GroupMembersViewModel</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model_1a90a68774515bd4a884358b1d0208bc83" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.ViewModels.GroupMembersViewModel.UserId</definition>
+        <argsstring></argsstring>
+        <name>UserId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/GroupMembersViewModel.cs" line="10" column="1" bodyfile="ViewModels/GroupMembersViewModel.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model_1a555456e400d69ffe6671131cab4e70d0" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.ViewModels.GroupMembersViewModel.UserName</definition>
+        <argsstring></argsstring>
+        <name>UserName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/GroupMembersViewModel.cs" line="11" column="1" bodyfile="ViewModels/GroupMembersViewModel.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model_1a802d667a7bb1f8c414c3b86ffd6bf292" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.ViewModels.GroupMembersViewModel.RoleInGroup</definition>
+        <argsstring></argsstring>
+        <name>RoleInGroup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/GroupMembersViewModel.cs" line="12" column="1" bodyfile="ViewModels/GroupMembersViewModel.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model_1a3f5713d29c37434401d2a2d161a5f85d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool BSNCapstone.ViewModels.GroupMembersViewModel.IsSelected</definition>
+        <argsstring></argsstring>
+        <name>IsSelected</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/GroupMembersViewModel.cs" line="13" column="1" bodyfile="ViewModels/GroupMembersViewModel.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ViewModels/GroupMembersViewModel.cs" line="9" column="1" bodyfile="ViewModels/GroupMembersViewModel.cs" bodystart="8" bodyend="14"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model_1a3f5713d29c37434401d2a2d161a5f85d" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::GroupMembersViewModel</scope><name>IsSelected</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model_1a802d667a7bb1f8c414c3b86ffd6bf292" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::GroupMembersViewModel</scope><name>RoleInGroup</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model_1a90a68774515bd4a884358b1d0208bc83" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::GroupMembersViewModel</scope><name>UserId</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model_1a555456e400d69ffe6671131cab4e70d0" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::GroupMembersViewModel</scope><name>UserName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

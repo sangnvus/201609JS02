@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="dir_22305cb0964bbe63c21991dd2265ce48" kind="dir">
+    <compoundname>Models</compoundname>
+    <innerfile refid="_account_view_models_8cs">AccountViewModels.cs</innerfile>
+    <innerfile refid="_author_8cs">Author.cs</innerfile>
+    <innerfile refid="_book_8cs">Book.cs</innerfile>
+    <innerfile refid="_book_statistic_8cs">BookStatistic.cs</innerfile>
+    <innerfile refid="_category_8cs">Category.cs</innerfile>
+    <innerfile refid="_comment_8cs">Comment.cs</innerfile>
+    <innerfile refid="_group_8cs">Group.cs</innerfile>
+    <innerfile refid="_identity_models_8cs">IdentityModels.cs</innerfile>
+    <innerfile refid="_photo_model_8cs">PhotoModel.cs</innerfile>
+    <innerfile refid="_post_8cs">Post.cs</innerfile>
+    <innerfile refid="_post_like_8cs">PostLike.cs</innerfile>
+    <innerfile refid="_publisher_8cs">Publisher.cs</innerfile>
+    <innerfile refid="_report_8cs">Report.cs</innerfile>
+    <innerfile refid="_slider_8cs">Slider.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Models/"/>
+  </compounddef>
+</doxygen>

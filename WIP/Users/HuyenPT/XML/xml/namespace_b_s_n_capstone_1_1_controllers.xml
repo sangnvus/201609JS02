@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="namespace_b_s_n_capstone_1_1_controllers" kind="namespace" language="C#">
+    <compoundname>BSNCapstone::Controllers</compoundname>
+    <innerclass refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller" prot="public">BSNCapstone::Controllers::AccountController</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller" prot="public">BSNCapstone::Controllers::BooksController</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller" prot="public">BSNCapstone::Controllers::CategoriesController</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller" prot="public">BSNCapstone::Controllers::GroupsController</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller" prot="public">BSNCapstone::Controllers::HomeController</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_controllers_1_1_publisher_controller" prot="public">BSNCapstone::Controllers::PublisherController</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller" prot="public">BSNCapstone::Controllers::ReportsController</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller" prot="public">BSNCapstone::Controllers::SliderController</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_controllers_1_1_timeline_controller" prot="public">BSNCapstone::Controllers::TimelineController</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Controllers/AccountController.cs" line="19" column="1"/>
+  </compounddef>
+</doxygen>

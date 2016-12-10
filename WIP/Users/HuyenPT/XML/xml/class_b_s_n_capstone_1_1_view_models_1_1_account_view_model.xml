@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::ViewModels::AccountViewModel</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model_1a00d918508b925fc90cb7257458ef9bc9" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_login_view_model" kindref="compound">LoginViewModel</ref></type>
+        <definition>LoginViewModel BSNCapstone.ViewModels.AccountViewModel.Login</definition>
+        <argsstring></argsstring>
+        <name>Login</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/AccountViewModel.cs" line="11" column="1" bodyfile="ViewModels/AccountViewModel.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model_1a90adffb162ef0e886b7b809cac9b43f9" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_register_view_model" kindref="compound">RegisterViewModel</ref></type>
+        <definition>RegisterViewModel BSNCapstone.ViewModels.AccountViewModel.Register</definition>
+        <argsstring></argsstring>
+        <name>Register</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/AccountViewModel.cs" line="12" column="1" bodyfile="ViewModels/AccountViewModel.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model_1ab5f162f4bc281e5a1c6f6781a44db999" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model" kindref="compound">AuthorRegisterViewModel</ref></type>
+        <definition>AuthorRegisterViewModel BSNCapstone.ViewModels.AccountViewModel.AuthorRegister</definition>
+        <argsstring></argsstring>
+        <name>AuthorRegister</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/AccountViewModel.cs" line="13" column="1" bodyfile="ViewModels/AccountViewModel.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model_1abf188cb93164dc64b52797ad029c4d3a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_forgot_password_view_model" kindref="compound">ForgotPasswordViewModel</ref></type>
+        <definition>ForgotPasswordViewModel BSNCapstone.ViewModels.AccountViewModel.ForgotPassword</definition>
+        <argsstring></argsstring>
+        <name>ForgotPassword</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/AccountViewModel.cs" line="14" column="1" bodyfile="ViewModels/AccountViewModel.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ViewModels/AccountViewModel.cs" line="10" column="1" bodyfile="ViewModels/AccountViewModel.cs" bodystart="9" bodyend="15"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model_1ab5f162f4bc281e5a1c6f6781a44db999" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::AccountViewModel</scope><name>AuthorRegister</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model_1abf188cb93164dc64b52797ad029c4d3a" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::AccountViewModel</scope><name>ForgotPassword</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model_1a00d918508b925fc90cb7257458ef9bc9" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::AccountViewModel</scope><name>Login</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model_1a90adffb162ef0e886b7b809cac9b43f9" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::AccountViewModel</scope><name>Register</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

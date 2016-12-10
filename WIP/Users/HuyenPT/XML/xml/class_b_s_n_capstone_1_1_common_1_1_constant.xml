@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_common_1_1_constant" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Common::Constant</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_common_1_1_constant_1a0e4fd45751e74836c84f7fa765fa8437" prot="public" static="no" mutable="no">
+        <type>const string</type>
+        <definition>const string BSNCapstone.Common.Constant.DefaultAvatarLink</definition>
+        <argsstring></argsstring>
+        <name>DefaultAvatarLink</name>
+        <initializer>= &quot;/Content/Image/avatar_default.png&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Common/Constant.cs" line="10" column="1" bodyfile="Common/Constant.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_common_1_1_constant_1a630606ba79365244e186239a9c8f3064" prot="public" static="no" mutable="no">
+        <type>const string</type>
+        <definition>const string BSNCapstone.Common.Constant.DefaultCoverLink</definition>
+        <argsstring></argsstring>
+        <name>DefaultCoverLink</name>
+        <initializer>= &quot;/Content/Image/cover_default.jpg&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Common/Constant.cs" line="11" column="1" bodyfile="Common/Constant.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Common/Constant.cs" line="9" column="1" bodyfile="Common/Constant.cs" bodystart="8" bodyend="12"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_common_1_1_constant_1a0e4fd45751e74836c84f7fa765fa8437" prot="public" virt="non-virtual"><scope>BSNCapstone::Common::Constant</scope><name>DefaultAvatarLink</name></member>
+      <member refid="class_b_s_n_capstone_1_1_common_1_1_constant_1a630606ba79365244e186239a9c8f3064" prot="public" virt="non-virtual"><scope>BSNCapstone::Common::Constant</scope><name>DefaultCoverLink</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

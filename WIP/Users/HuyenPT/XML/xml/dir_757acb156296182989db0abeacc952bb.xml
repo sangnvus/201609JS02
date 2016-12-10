@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="dir_757acb156296182989db0abeacc952bb" kind="dir">
+    <compoundname>Hubs</compoundname>
+    <innerfile refid="_post_hub_8cs">PostHub.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Hubs/"/>
+  </compounddef>
+</doxygen>

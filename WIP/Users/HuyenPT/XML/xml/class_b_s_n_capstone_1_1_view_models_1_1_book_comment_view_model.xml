@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::ViewModels::BookCommentViewModel</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1a8253f00fb7f97cea875eedecd44c0e8f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>ObjectId</type>
+        <definition>ObjectId BSNCapstone.ViewModels.BookCommentViewModel.Id</definition>
+        <argsstring></argsstring>
+        <name>Id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BookCommentViewModel.cs" line="14" column="1" bodyfile="ViewModels/BookCommentViewModel.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1af6d71734115bb903f80215f225437336" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.ViewModels.BookCommentViewModel.UserId</definition>
+        <argsstring></argsstring>
+        <name>UserId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BookCommentViewModel.cs" line="16" column="1" bodyfile="ViewModels/BookCommentViewModel.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1a00d32fa36691ff3e2dc163a6c3bbb256" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime BSNCapstone.ViewModels.BookCommentViewModel.CreatedTime</definition>
+        <argsstring></argsstring>
+        <name>CreatedTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BookCommentViewModel.cs" line="18" column="1" bodyfile="ViewModels/BookCommentViewModel.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1adf781552c730afd778c007399fe4e3c5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.ViewModels.BookCommentViewModel.Description</definition>
+        <argsstring></argsstring>
+        <name>Description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BookCommentViewModel.cs" line="20" column="1" bodyfile="ViewModels/BookCommentViewModel.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1a7582cb3ace0b3c80aeab7e1346d49fa4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; BSNCapstone.ViewModels.BookCommentViewModel.LinesDescription</definition>
+        <argsstring></argsstring>
+        <name>LinesDescription</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BookCommentViewModel.cs" line="22" column="1" bodyfile="ViewModels/BookCommentViewModel.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1ac126a1bae149b587aa4746e4970983d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.ViewModels.BookCommentViewModel.BookCommentViewModel</definition>
+        <argsstring>()</argsstring>
+        <name>BookCommentViewModel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BookCommentViewModel.cs" line="24" column="1" bodyfile="ViewModels/BookCommentViewModel.cs" bodystart="24" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ViewModels/BookCommentViewModel.cs" line="12" column="1" bodyfile="ViewModels/BookCommentViewModel.cs" bodystart="11" bodyend="28"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1ac126a1bae149b587aa4746e4970983d1" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BookCommentViewModel</scope><name>BookCommentViewModel</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1a00d32fa36691ff3e2dc163a6c3bbb256" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BookCommentViewModel</scope><name>CreatedTime</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1adf781552c730afd778c007399fe4e3c5" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BookCommentViewModel</scope><name>Description</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1a8253f00fb7f97cea875eedecd44c0e8f" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BookCommentViewModel</scope><name>Id</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1a7582cb3ace0b3c80aeab7e1346d49fa4" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BookCommentViewModel</scope><name>LinesDescription</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model_1af6d71734115bb903f80215f225437336" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BookCommentViewModel</scope><name>UserId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

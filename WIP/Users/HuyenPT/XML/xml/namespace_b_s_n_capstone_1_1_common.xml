@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="namespace_b_s_n_capstone_1_1_common" kind="namespace" language="C#">
+    <compoundname>BSNCapstone::Common</compoundname>
+    <innerclass refid="class_b_s_n_capstone_1_1_common_1_1_constant" prot="public">BSNCapstone::Common::Constant</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Common/Constant.cs" line="7" column="1"/>
+  </compounddef>
+</doxygen>

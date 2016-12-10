@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_controller_helpers_1_1_image_upload_helper" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::ControllerHelpers::ImageUploadHelper</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controller_helpers_1_1_image_upload_helper_1a2cefec77081d01c011efc44f30ea12c3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Cloudinary</type>
+        <definition>static Cloudinary BSNCapstone.ControllerHelpers.ImageUploadHelper.GetCloudinaryAccount</definition>
+        <argsstring>()</argsstring>
+        <name>GetCloudinaryAccount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ControllerHelpers/ImageUploadHelper.cs" line="13" column="1" bodyfile="ControllerHelpers/ImageUploadHelper.cs" bodystart="13" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controller_helpers_1_1_image_upload_helper_1a28693f7986b6a178d99c9749a067526a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ImageUploadResult</type>
+        <definition>static ImageUploadResult BSNCapstone.ControllerHelpers.ImageUploadHelper.GetUploadResult</definition>
+        <argsstring>(HttpPostedFileBase file)</argsstring>
+        <name>GetUploadResult</name>
+        <param>
+          <type>HttpPostedFileBase</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ControllerHelpers/ImageUploadHelper.cs" line="21" column="1" bodyfile="ControllerHelpers/ImageUploadHelper.cs" bodystart="21" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ControllerHelpers/ImageUploadHelper.cs" line="12" column="1" bodyfile="ControllerHelpers/ImageUploadHelper.cs" bodystart="11" bodyend="32"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_image_upload_helper_1a2cefec77081d01c011efc44f30ea12c3" prot="public" virt="non-virtual"><scope>BSNCapstone::ControllerHelpers::ImageUploadHelper</scope><name>GetCloudinaryAccount</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_image_upload_helper_1a28693f7986b6a178d99c9749a067526a" prot="public" virt="non-virtual"><scope>BSNCapstone::ControllerHelpers::ImageUploadHelper</scope><name>GetUploadResult</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_models_1_1_application_user" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Models::ApplicationUser</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IdentityUser</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_application_user_1a9bea9392d2ee4ab091797891a8813074" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.ApplicationUser.Avatar</definition>
+        <argsstring></argsstring>
+        <name>Avatar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/IdentityModels.cs" line="28" column="1" bodyfile="Models/IdentityModels.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_application_user_1ab0904ea1ffd815e7bd77e5cab04a5dc4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.ApplicationUser.Cover</definition>
+        <argsstring></argsstring>
+        <name>Cover</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/IdentityModels.cs" line="30" column="1" bodyfile="Models/IdentityModels.cs" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_application_user_1a2193dfe4da62887a817a614a58c972bf" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.ApplicationUser.Address</definition>
+        <argsstring></argsstring>
+        <name>Address</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/IdentityModels.cs" line="32" column="1" bodyfile="Models/IdentityModels.cs" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_application_user_1a098b43f89920481c2a467273dbcd8aa4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime BSNCapstone.Models.ApplicationUser.DOB</definition>
+        <argsstring></argsstring>
+        <name>DOB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/IdentityModels.cs" line="35" column="1" bodyfile="Models/IdentityModels.cs" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_application_user_1ae85667d56822771ddf6a23cb37869f8c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.ApplicationUser.SSNImgId</definition>
+        <argsstring></argsstring>
+        <name>SSNImgId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/IdentityModels.cs" line="38" column="1" bodyfile="Models/IdentityModels.cs" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_application_user_1ad2192c6f9797d27b03e7955975359a25" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.ApplicationUser.Gender</definition>
+        <argsstring></argsstring>
+        <name>Gender</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/IdentityModels.cs" line="40" column="1" bodyfile="Models/IdentityModels.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_application_user_1a0e644712f301abed2e32e0bb60487aef" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; BSNCapstone.Models.ApplicationUser.Follower</definition>
+        <argsstring></argsstring>
+        <name>Follower</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/IdentityModels.cs" line="42" column="1" bodyfile="Models/IdentityModels.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_application_user_1a024c8ddf6326e4c2c82c426cf55dc071" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; BSNCapstone.Models.ApplicationUser.Following</definition>
+        <argsstring></argsstring>
+        <name>Following</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/IdentityModels.cs" line="44" column="1" bodyfile="Models/IdentityModels.cs" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_application_user_1add11abadaf1cba28e982aed16a3e41b7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; BSNCapstone.Models.ApplicationUser.Interacbook</definition>
+        <argsstring></argsstring>
+        <name>Interacbook</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/IdentityModels.cs" line="46" column="1" bodyfile="Models/IdentityModels.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_application_user_1ac1927249a96fe26e5b40a87df4896966" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool BSNCapstone.Models.ApplicationUser.AuthorConfirmed</definition>
+        <argsstring></argsstring>
+        <name>AuthorConfirmed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/IdentityModels.cs" line="48" column="1" bodyfile="Models/IdentityModels.cs" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_application_user_1a370c1c712c7f2b71511cf1e89b0748d5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool BSNCapstone.Models.ApplicationUser.Locked</definition>
+        <argsstring></argsstring>
+        <name>Locked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/IdentityModels.cs" line="50" column="1" bodyfile="Models/IdentityModels.cs" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_application_user_1ac821ef4bc4cd666370ccb3f24680074a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime BSNCapstone.Models.ApplicationUser.CreatedTime</definition>
+        <argsstring></argsstring>
+        <name>CreatedTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/IdentityModels.cs" line="52" column="1" bodyfile="Models/IdentityModels.cs" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_models_1_1_application_user_1a0084153697e08f9e68d25fd600ce7597" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; ClaimsIdentity &gt;</type>
+        <definition>async Task&lt;ClaimsIdentity&gt; BSNCapstone.Models.ApplicationUser.GenerateUserIdentityAsync</definition>
+        <argsstring>(UserManager&lt; ApplicationUser &gt; manager)</argsstring>
+        <name>GenerateUserIdentityAsync</name>
+        <param>
+          <type>UserManager&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_application_user" kindref="compound">ApplicationUser</ref> &gt;</type>
+          <declname>manager</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/IdentityModels.cs" line="15" column="1" bodyfile="Models/IdentityModels.cs" bodystart="15" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_models_1_1_application_user_1a495d86b0bc4783c256add89d82daedc8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.Models.ApplicationUser.ApplicationUser</definition>
+        <argsstring>()</argsstring>
+        <name>ApplicationUser</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/IdentityModels.cs" line="54" column="1" bodyfile="Models/IdentityModels.cs" bodystart="54" bodyend="61"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="15">
+        <label>AspNet::Identity::MongoDB::IdentityUser</label>
+      </node>
+      <node id="14">
+        <label>BSNCapstone.Models.ApplicationUser</label>
+        <link refid="class_b_s_n_capstone_1_1_models_1_1_application_user"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="17">
+        <label>AspNet::Identity::MongoDB::IdentityUser</label>
+      </node>
+      <node id="16">
+        <label>BSNCapstone.Models.ApplicationUser</label>
+        <link refid="class_b_s_n_capstone_1_1_models_1_1_application_user"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Models/IdentityModels.cs" line="14" column="1" bodyfile="Models/IdentityModels.cs" bodystart="13" bodyend="62"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a2193dfe4da62887a817a614a58c972bf" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ApplicationUser</scope><name>Address</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a495d86b0bc4783c256add89d82daedc8" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ApplicationUser</scope><name>ApplicationUser</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1ac1927249a96fe26e5b40a87df4896966" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ApplicationUser</scope><name>AuthorConfirmed</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a9bea9392d2ee4ab091797891a8813074" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ApplicationUser</scope><name>Avatar</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1ab0904ea1ffd815e7bd77e5cab04a5dc4" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ApplicationUser</scope><name>Cover</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1ac821ef4bc4cd666370ccb3f24680074a" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ApplicationUser</scope><name>CreatedTime</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a098b43f89920481c2a467273dbcd8aa4" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ApplicationUser</scope><name>DOB</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a0e644712f301abed2e32e0bb60487aef" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ApplicationUser</scope><name>Follower</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a024c8ddf6326e4c2c82c426cf55dc071" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ApplicationUser</scope><name>Following</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1ad2192c6f9797d27b03e7955975359a25" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ApplicationUser</scope><name>Gender</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a0084153697e08f9e68d25fd600ce7597" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ApplicationUser</scope><name>GenerateUserIdentityAsync</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1add11abadaf1cba28e982aed16a3e41b7" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ApplicationUser</scope><name>Interacbook</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1a370c1c712c7f2b71511cf1e89b0748d5" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ApplicationUser</scope><name>Locked</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_application_user_1ae85667d56822771ddf6a23cb37869f8c" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ApplicationUser</scope><name>SSNImgId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

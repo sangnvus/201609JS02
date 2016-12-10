@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Controllers::SliderController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1a5cb1d24c9bffb10dcdfce9a86d87203f" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context" kindref="compound">ApplicationIdentityContext</ref></type>
+        <definition>readonly ApplicationIdentityContext BSNCapstone.Controllers.SliderController.Context</definition>
+        <argsstring></argsstring>
+        <name>Context</name>
+        <initializer>= ApplicationIdentityContext.Create()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/SliderController.cs" line="21" column="1" bodyfile="Controllers/SliderController.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1adbfa53183df4e88ee7e4b1266f5fe60e" prot="private" static="no" mutable="no">
+        <type>readonly CloudinaryDotNet.Cloudinary</type>
+        <definition>readonly CloudinaryDotNet.Cloudinary BSNCapstone.Controllers.SliderController.cloudinary</definition>
+        <argsstring></argsstring>
+        <name>cloudinary</name>
+        <initializer>= ImageUploadHelper.GetCloudinaryAccount()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/SliderController.cs" line="23" column="1" bodyfile="Controllers/SliderController.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1a43a3d2406b31dc9797ed2b6983451117" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.SliderController.Index</definition>
+        <argsstring>()</argsstring>
+        <name>Index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/SliderController.cs" line="27" column="1" bodyfile="Controllers/SliderController.cs" bodystart="27" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1adf5a3ff4f26089ece1621d2489e3f051" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.SliderController.Upload</definition>
+        <argsstring>(string desc)</argsstring>
+        <name>Upload</name>
+        <param>
+          <type>string</type>
+          <declname>desc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/SliderController.cs" line="42" column="1" bodyfile="Controllers/SliderController.cs" bodystart="42" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1a3d8f7474675b6f894e18591d49bfff4a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.SliderController.Delete</definition>
+        <argsstring>(string id)</argsstring>
+        <name>Delete</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/SliderController.cs" line="89" column="1" bodyfile="Controllers/SliderController.cs" bodystart="89" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1a560a0bb909ce92276be71c76b25d80af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.SliderController.Show</definition>
+        <argsstring>(string id)</argsstring>
+        <name>Show</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/SliderController.cs" line="96" column="1" bodyfile="Controllers/SliderController.cs" bodystart="96" bodyend="103"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="144">
+        <label>BSNCapstone.Controllers.SliderController</label>
+        <link refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller"/>
+        <childnode refid="145" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="145">
+        <label>Controller</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="146">
+        <label>BSNCapstone.Controllers.SliderController</label>
+        <link refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller"/>
+        <childnode refid="147" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="147">
+        <label>Controller</label>
+      </node>
+    </collaborationgraph>
+    <location file="Controllers/SliderController.cs" line="20" column="1" bodyfile="Controllers/SliderController.cs" bodystart="19" bodyend="104"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1adbfa53183df4e88ee7e4b1266f5fe60e" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::SliderController</scope><name>cloudinary</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1a5cb1d24c9bffb10dcdfce9a86d87203f" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::SliderController</scope><name>Context</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1a3d8f7474675b6f894e18591d49bfff4a" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::SliderController</scope><name>Delete</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1a43a3d2406b31dc9797ed2b6983451117" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::SliderController</scope><name>Index</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1a560a0bb909ce92276be71c76b25d80af" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::SliderController</scope><name>Show</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_slider_controller_1adf5a3ff4f26089ece1621d2489e3f051" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::SliderController</scope><name>Upload</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

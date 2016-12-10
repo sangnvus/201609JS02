@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="dir_28d1f2080e9bea44f395aab62faed7a5" kind="dir">
+    <compoundname>ControllerHelpers</compoundname>
+    <innerfile refid="_books_controller_helper_8cs">BooksControllerHelper.cs</innerfile>
+    <innerfile refid="_categories_controller_helper_8cs">CategoriesControllerHelper.cs</innerfile>
+    <innerfile refid="_groups_controller_helper_8cs">GroupsControllerHelper.cs</innerfile>
+    <innerfile refid="_image_upload_helper_8cs">ImageUploadHelper.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ControllerHelpers/"/>
+  </compounddef>
+</doxygen>

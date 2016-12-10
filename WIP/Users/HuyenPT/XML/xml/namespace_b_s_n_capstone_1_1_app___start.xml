@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="namespace_b_s_n_capstone_1_1_app___start" kind="namespace" language="C#">
+    <compoundname>BSNCapstone::App_Start</compoundname>
+    <innerclass refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context" prot="public">BSNCapstone::App_Start::ApplicationIdentityContext</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_app___start_1_1_ensua_auth_indexes" prot="public">BSNCapstone::App_Start::EnsuaAuthIndexes</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config" prot="public">BSNCapstone::App_Start::IdentityConfig</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="App_Start/ApplicationIdentityContext.cs" line="11" column="1"/>
+  </compounddef>
+</doxygen>

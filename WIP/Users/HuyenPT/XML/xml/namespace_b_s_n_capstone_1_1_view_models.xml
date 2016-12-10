@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="namespace_b_s_n_capstone_1_1_view_models" kind="namespace" language="C#">
+    <compoundname>BSNCapstone::ViewModels</compoundname>
+    <innerclass refid="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model" prot="public">BSNCapstone::ViewModels::AccountViewModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_view_models_1_1_book_categories_view_model" prot="public">BSNCapstone::ViewModels::BookCategoriesViewModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model" prot="public">BSNCapstone::ViewModels::BookCommentViewModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model" prot="public">BSNCapstone::ViewModels::BooksSuggestViewModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model" prot="public">BSNCapstone::ViewModels::GroupMembersViewModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_view_models_1_1_group_setting_view_model" prot="public">BSNCapstone::ViewModels::GroupSettingViewModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model" prot="public">BSNCapstone::ViewModels::ReportContentViewModel</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ViewModels/AccountViewModel.cs" line="8" column="1"/>
+  </compounddef>
+</doxygen>

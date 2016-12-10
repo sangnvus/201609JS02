@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::App_Start::IdentityConfig::ApplicationUserManager</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UserManager&lt; ApplicationUser &gt;</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager_1a8a746819b13a67d2cfb05f490d6af133" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.App_Start.IdentityConfig.ApplicationUserManager.ApplicationUserManager</definition>
+        <argsstring>(IUserStore&lt; ApplicationUser &gt; store)</argsstring>
+        <name>ApplicationUserManager</name>
+        <param>
+          <type>IUserStore&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_application_user" kindref="compound">ApplicationUser</ref> &gt;</type>
+          <declname>store</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="23" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager_1a3a935386c8a940529f2cc3117837169f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>async Task&lt; IdentityResult &gt;</type>
+        <definition>virtual async Task&lt;IdentityResult&gt; BSNCapstone.App_Start.IdentityConfig.ApplicationUserManager.AddUserToRolesAsync</definition>
+        <argsstring>(string userId, IList&lt; string &gt; roles)</argsstring>
+        <name>AddUserToRolesAsync</name>
+        <param>
+          <type>string</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>IList&lt; string &gt;</type>
+          <declname>roles</declname>
+        </param>
+        <briefdescription>
+<para>Method to add user to multiple roles </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>user id</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>roles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>list of role names</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="85" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="85" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager_1a0bf63469e0d94144443901dbf4fa4b2b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>async Task&lt; IdentityResult &gt;</type>
+        <definition>virtual async Task&lt;IdentityResult&gt; BSNCapstone.App_Start.IdentityConfig.ApplicationUserManager.RemoveUserFromRolesAsync</definition>
+        <argsstring>(string userId, IList&lt; string &gt; roles)</argsstring>
+        <name>RemoveUserFromRolesAsync</name>
+        <param>
+          <type>string</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>IList&lt; string &gt;</type>
+          <declname>roles</declname>
+        </param>
+        <briefdescription>
+<para>Remove user from multiple roles </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>user id</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>roles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>list of role names</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="111" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="111" bodyend="127"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager_1adf11a6e130d4505259a18fe8e3593e2a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager" kindref="compound">ApplicationUserManager</ref></type>
+        <definition>static ApplicationUserManager BSNCapstone.App_Start.IdentityConfig.ApplicationUserManager.Create</definition>
+        <argsstring>(IdentityFactoryOptions&lt; ApplicationUserManager &gt; options, IOwinContext context)</argsstring>
+        <name>Create</name>
+        <param>
+          <type>IdentityFactoryOptions&lt; <ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager" kindref="compound">ApplicationUserManager</ref> &gt;</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>IOwinContext</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="27" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="27" bodyend="77"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="19">
+        <label>UserManager&lt; ApplicationUser &gt;</label>
+      </node>
+      <node id="18">
+        <label>BSNCapstone.App_Start.IdentityConfig.ApplicationUserManager</label>
+        <link refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="21">
+        <label>UserManager&lt; ApplicationUser &gt;</label>
+      </node>
+      <node id="20">
+        <label>BSNCapstone.App_Start.IdentityConfig.ApplicationUserManager</label>
+        <link refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="App_Start/IdentityConfig.cs" line="22" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="21" bodyend="128"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager_1a3a935386c8a940529f2cc3117837169f" prot="public" virt="virtual"><scope>BSNCapstone::App_Start::IdentityConfig::ApplicationUserManager</scope><name>AddUserToRolesAsync</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager_1a8a746819b13a67d2cfb05f490d6af133" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::ApplicationUserManager</scope><name>ApplicationUserManager</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager_1adf11a6e130d4505259a18fe8e3593e2a" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::ApplicationUserManager</scope><name>Create</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager_1a0bf63469e0d94144443901dbf4fa4b2b" prot="public" virt="virtual"><scope>BSNCapstone::App_Start::IdentityConfig::ApplicationUserManager</scope><name>RemoveUserFromRolesAsync</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

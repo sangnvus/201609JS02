@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_startup" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Startup</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_startup_1af036e6cd85e52dadfd4fc696687df8a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BSNCapstone.Startup.ConfigureAuth</definition>
+        <argsstring>(IAppBuilder app)</argsstring>
+        <name>ConfigureAuth</name>
+        <param>
+          <type>IAppBuilder</type>
+          <declname>app</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/Startup.Auth.cs" line="15" column="1" bodyfile="App_Start/Startup.Auth.cs" bodystart="15" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_startup_1a901ec52161ede8f5a5ddc0b524a8b6c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BSNCapstone.Startup.Configuration</definition>
+        <argsstring>(IAppBuilder app)</argsstring>
+        <name>Configuration</name>
+        <param>
+          <type>IAppBuilder</type>
+          <declname>app</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Startup.cs" line="9" column="1" bodyfile="Startup.cs" bodystart="9" bodyend="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="App_Start/Startup.Auth.cs" line="13" column="1" bodyfile="App_Start/Startup.Auth.cs" bodystart="12" bodyend="107"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_startup_1a901ec52161ede8f5a5ddc0b524a8b6c3" prot="public" virt="non-virtual"><scope>BSNCapstone::Startup</scope><name>Configuration</name></member>
+      <member refid="class_b_s_n_capstone_1_1_startup_1af036e6cd85e52dadfd4fc696687df8a9" prot="public" virt="non-virtual"><scope>BSNCapstone::Startup</scope><name>ConfigureAuth</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

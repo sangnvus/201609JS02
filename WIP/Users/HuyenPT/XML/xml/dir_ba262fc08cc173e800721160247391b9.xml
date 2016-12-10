@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="dir_ba262fc08cc173e800721160247391b9" kind="dir">
+    <compoundname>ViewModels</compoundname>
+    <innerfile refid="_account_view_model_8cs">AccountViewModel.cs</innerfile>
+    <innerfile refid="_book_categories_view_model_8cs">BookCategoriesViewModel.cs</innerfile>
+    <innerfile refid="_book_comment_view_model_8cs">BookCommentViewModel.cs</innerfile>
+    <innerfile refid="_books_suggest_view_model_8cs">BooksSuggestViewModel.cs</innerfile>
+    <innerfile refid="_group_members_view_model_8cs">GroupMembersViewModel.cs</innerfile>
+    <innerfile refid="_group_setting_view_model_8cs">GroupSettingViewModel.cs</innerfile>
+    <innerfile refid="_report_content_view_model_8cs">ReportContentViewModel.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ViewModels/"/>
+  </compounddef>
+</doxygen>

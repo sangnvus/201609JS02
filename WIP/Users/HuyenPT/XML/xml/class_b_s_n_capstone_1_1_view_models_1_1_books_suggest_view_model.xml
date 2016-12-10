@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::ViewModels::BooksSuggestViewModel</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1a97543198153870d88d714d2ea5d3f491" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.ViewModels.BooksSuggestViewModel.BookId</definition>
+        <argsstring></argsstring>
+        <name>BookId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BooksSuggestViewModel.cs" line="10" column="1" bodyfile="ViewModels/BooksSuggestViewModel.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1ac1d92f275f59aa225865a2b0f965f015" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int BSNCapstone.ViewModels.BooksSuggestViewModel.Count</definition>
+        <argsstring></argsstring>
+        <name>Count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BooksSuggestViewModel.cs" line="11" column="1" bodyfile="ViewModels/BooksSuggestViewModel.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1a6e4ee0496526e184f55098fe227fb3cb" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.ViewModels.BooksSuggestViewModel.BookName</definition>
+        <argsstring></argsstring>
+        <name>BookName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BooksSuggestViewModel.cs" line="12" column="1" bodyfile="ViewModels/BooksSuggestViewModel.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1accd353c70ca750097cef1e3406a91a8e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; BSNCapstone.ViewModels.BooksSuggestViewModel.AuthorName</definition>
+        <argsstring></argsstring>
+        <name>AuthorName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BooksSuggestViewModel.cs" line="13" column="1" bodyfile="ViewModels/BooksSuggestViewModel.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1a304ea102c78b0bd3fe3c1a9918d35531" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.ViewModels.BooksSuggestViewModel.ImgPublicId</definition>
+        <argsstring></argsstring>
+        <name>ImgPublicId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BooksSuggestViewModel.cs" line="14" column="1" bodyfile="ViewModels/BooksSuggestViewModel.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1a81d5481dbde00aea555bfeb7cdecb10c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int BSNCapstone.ViewModels.BooksSuggestViewModel.RateTime</definition>
+        <argsstring></argsstring>
+        <name>RateTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BooksSuggestViewModel.cs" line="15" column="1" bodyfile="ViewModels/BooksSuggestViewModel.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1ad28c80886e6d8b4825c62f0535ec16fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.ViewModels.BooksSuggestViewModel.BooksSuggestViewModel</definition>
+        <argsstring>()</argsstring>
+        <name>BooksSuggestViewModel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BooksSuggestViewModel.cs" line="17" column="1" bodyfile="ViewModels/BooksSuggestViewModel.cs" bodystart="17" bodyend="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ViewModels/BooksSuggestViewModel.cs" line="9" column="1" bodyfile="ViewModels/BooksSuggestViewModel.cs" bodystart="8" bodyend="21"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1accd353c70ca750097cef1e3406a91a8e" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BooksSuggestViewModel</scope><name>AuthorName</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1a97543198153870d88d714d2ea5d3f491" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BooksSuggestViewModel</scope><name>BookId</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1a6e4ee0496526e184f55098fe227fb3cb" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BooksSuggestViewModel</scope><name>BookName</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1ad28c80886e6d8b4825c62f0535ec16fc" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BooksSuggestViewModel</scope><name>BooksSuggestViewModel</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1ac1d92f275f59aa225865a2b0f965f015" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BooksSuggestViewModel</scope><name>Count</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1a304ea102c78b0bd3fe3c1a9918d35531" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BooksSuggestViewModel</scope><name>ImgPublicId</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_books_suggest_view_model_1a81d5481dbde00aea555bfeb7cdecb10c" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BooksSuggestViewModel</scope><name>RateTime</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

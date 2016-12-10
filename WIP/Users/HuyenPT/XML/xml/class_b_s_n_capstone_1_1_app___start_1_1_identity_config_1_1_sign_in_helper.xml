@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::App_Start::IdentityConfig::SignInHelper</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a809df1f12ae3f21748be44ac4c539d85" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type><ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager" kindref="compound">ApplicationUserManager</ref></type>
+        <definition>ApplicationUserManager BSNCapstone.App_Start.IdentityConfig.SignInHelper.UserManager</definition>
+        <argsstring></argsstring>
+        <name>UserManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="201" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1aa975cc12c087a54d4e8e08fec6692290" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>IAuthenticationManager</type>
+        <definition>IAuthenticationManager BSNCapstone.App_Start.IdentityConfig.SignInHelper.AuthenticationManager</definition>
+        <argsstring></argsstring>
+        <name>AuthenticationManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="202" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a23b898d1aafedc4e9bb8e6357b761537" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.App_Start.IdentityConfig.SignInHelper.SignInHelper</definition>
+        <argsstring>(ApplicationUserManager userManager, IAuthenticationManager authManager)</argsstring>
+        <name>SignInHelper</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager" kindref="compound">ApplicationUserManager</ref></type>
+          <declname>userManager</declname>
+        </param>
+        <param>
+          <type>IAuthenticationManager</type>
+          <declname>authManager</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="195" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="195" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1afe0092764bab431faec4b79dae4e56ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task BSNCapstone.App_Start.IdentityConfig.SignInHelper.SignInAsync</definition>
+        <argsstring>(ApplicationUser user, bool isPersistent, bool rememberBrowser)</argsstring>
+        <name>SignInAsync</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_application_user" kindref="compound">ApplicationUser</ref></type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isPersistent</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>rememberBrowser</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="203" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="203" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a8ddd4b31f296865551d872b4dc595ceb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; bool &gt;</type>
+        <definition>async Task&lt;bool&gt; BSNCapstone.App_Start.IdentityConfig.SignInHelper.SendTwoFactorCode</definition>
+        <argsstring>(string provider)</argsstring>
+        <name>SendTwoFactorCode</name>
+        <param>
+          <type>string</type>
+          <declname>provider</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="219" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="219" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a3759827c1bf91daf5623a32e8c9187b2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; string &gt;</type>
+        <definition>async Task&lt;string&gt; BSNCapstone.App_Start.IdentityConfig.SignInHelper.GetVerifiedUserIdAsync</definition>
+        <argsstring>()</argsstring>
+        <name>GetVerifiedUserIdAsync</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="232" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="232" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1aedbe212b28a5b4203857c4c812547921" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; bool &gt;</type>
+        <definition>async Task&lt;bool&gt; BSNCapstone.App_Start.IdentityConfig.SignInHelper.HasBeenVerified</definition>
+        <argsstring>()</argsstring>
+        <name>HasBeenVerified</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="242" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="242" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a10f9756096802707419e598b560163d5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; <ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1a2cfc863f23d4198bca307f06fe04023e" kindref="member">SignInStatus</ref> &gt;</type>
+        <definition>async Task&lt;SignInStatus&gt; BSNCapstone.App_Start.IdentityConfig.SignInHelper.TwoFactorSignIn</definition>
+        <argsstring>(string provider, string code, bool isPersistent, bool rememberBrowser)</argsstring>
+        <name>TwoFactorSignIn</name>
+        <param>
+          <type>string</type>
+          <declname>provider</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isPersistent</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>rememberBrowser</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="247" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="247" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a60f31c029fbfb27ea0a34f29f8f2f739" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; <ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1a2cfc863f23d4198bca307f06fe04023e" kindref="member">SignInStatus</ref> &gt;</type>
+        <definition>async Task&lt;SignInStatus&gt; BSNCapstone.App_Start.IdentityConfig.SignInHelper.ExternalSignIn</definition>
+        <argsstring>(ExternalLoginInfo loginInfo, bool isPersistent)</argsstring>
+        <name>ExternalSignIn</name>
+        <param>
+          <type>ExternalLoginInfo</type>
+          <declname>loginInfo</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isPersistent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="274" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="274" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a8ec5e66b69c1de4f44a6acb7e9f9d037" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; <ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1a2cfc863f23d4198bca307f06fe04023e" kindref="member">SignInStatus</ref> &gt;</type>
+        <definition>async Task&lt;SignInStatus&gt; BSNCapstone.App_Start.IdentityConfig.SignInHelper.PasswordSignIn</definition>
+        <argsstring>(string email, string password, bool isPersistent, bool shouldLockout)</argsstring>
+        <name>PasswordSignIn</name>
+        <param>
+          <type>string</type>
+          <declname>email</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>password</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isPersistent</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>shouldLockout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="303" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="303" bodyend="329"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a85840fcee527bed078caac1d30c6752e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; <ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1a2cfc863f23d4198bca307f06fe04023e" kindref="member">SignInStatus</ref> &gt;</type>
+        <definition>async Task&lt;SignInStatus&gt; BSNCapstone.App_Start.IdentityConfig.SignInHelper.SignInOrTwoFactor</definition>
+        <argsstring>(ApplicationUser user, bool isPersistent)</argsstring>
+        <name>SignInOrTwoFactor</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_application_user" kindref="compound">ApplicationUser</ref></type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isPersistent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="289" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="289" bodyend="301"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="App_Start/IdentityConfig.cs" line="194" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="193" bodyend="331"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1aa975cc12c087a54d4e8e08fec6692290" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::SignInHelper</scope><name>AuthenticationManager</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a60f31c029fbfb27ea0a34f29f8f2f739" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::SignInHelper</scope><name>ExternalSignIn</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a3759827c1bf91daf5623a32e8c9187b2" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::SignInHelper</scope><name>GetVerifiedUserIdAsync</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1aedbe212b28a5b4203857c4c812547921" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::SignInHelper</scope><name>HasBeenVerified</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a8ec5e66b69c1de4f44a6acb7e9f9d037" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::SignInHelper</scope><name>PasswordSignIn</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a8ddd4b31f296865551d872b4dc595ceb" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::SignInHelper</scope><name>SendTwoFactorCode</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1afe0092764bab431faec4b79dae4e56ef" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::SignInHelper</scope><name>SignInAsync</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a23b898d1aafedc4e9bb8e6357b761537" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::SignInHelper</scope><name>SignInHelper</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a85840fcee527bed078caac1d30c6752e" prot="private" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::SignInHelper</scope><name>SignInOrTwoFactor</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a10f9756096802707419e598b560163d5" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::SignInHelper</scope><name>TwoFactorSignIn</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper_1a809df1f12ae3f21748be44ac4c539d85" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::SignInHelper</scope><name>UserManager</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

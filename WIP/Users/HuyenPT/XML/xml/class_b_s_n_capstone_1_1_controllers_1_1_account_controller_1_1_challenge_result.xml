@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result" kind="class" language="C#" prot="private">
+    <compoundname>BSNCapstone::Controllers::AccountController::ChallengeResult</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">HttpUnauthorizedResult</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1a6e0ea1279d39e0f98bfe2e36461016b0" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Controllers.AccountController.ChallengeResult.LoginProvider</definition>
+        <argsstring></argsstring>
+        <name>LoginProvider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="635" column="1" bodyfile="Controllers/AccountController.cs" bodystart="635" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1a2e92718aa2d9d5d5fa2f99857c5f2269" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Controllers.AccountController.ChallengeResult.RedirectUri</definition>
+        <argsstring></argsstring>
+        <name>RedirectUri</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="636" column="1" bodyfile="Controllers/AccountController.cs" bodystart="636" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1aca20408239c5ea21f9a3c12ab20450bd" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Controllers.AccountController.ChallengeResult.UserId</definition>
+        <argsstring></argsstring>
+        <name>UserId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="637" column="1" bodyfile="Controllers/AccountController.cs" bodystart="637" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1af52432d0f1779b14c497b1980493ff65" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.Controllers.AccountController.ChallengeResult.ChallengeResult</definition>
+        <argsstring>(string provider, string redirectUri)</argsstring>
+        <name>ChallengeResult</name>
+        <param>
+          <type>string</type>
+          <declname>provider</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>redirectUri</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="623" column="1" bodyfile="Controllers/AccountController.cs" bodystart="623" bodyend="626"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1ae3df14a9d492a411f5f3ad5e3e24648e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.Controllers.AccountController.ChallengeResult.ChallengeResult</definition>
+        <argsstring>(string provider, string redirectUri, string userId)</argsstring>
+        <name>ChallengeResult</name>
+        <param>
+          <type>string</type>
+          <declname>provider</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>redirectUri</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>userId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="628" column="1" bodyfile="Controllers/AccountController.cs" bodystart="628" bodyend="633"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1ae818b3e8269dc341b4982bb57f11a710" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void BSNCapstone.Controllers.AccountController.ChallengeResult.ExecuteResult</definition>
+        <argsstring>(ControllerContext context)</argsstring>
+        <name>ExecuteResult</name>
+        <param>
+          <type>ControllerContext</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="639" column="1" bodyfile="Controllers/AccountController.cs" bodystart="639" bodyend="647"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="57">
+        <label>HttpUnauthorizedResult</label>
+      </node>
+      <node id="56">
+        <label>BSNCapstone.Controllers.AccountController.ChallengeResult</label>
+        <childnode refid="57" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="59">
+        <label>HttpUnauthorizedResult</label>
+      </node>
+      <node id="58">
+        <label>BSNCapstone.Controllers.AccountController.ChallengeResult</label>
+        <childnode refid="59" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Controllers/AccountController.cs" line="622" column="1" bodyfile="Controllers/AccountController.cs" bodystart="621" bodyend="648"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1af52432d0f1779b14c497b1980493ff65" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController::ChallengeResult</scope><name>ChallengeResult</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1ae3df14a9d492a411f5f3ad5e3e24648e" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController::ChallengeResult</scope><name>ChallengeResult</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1ae818b3e8269dc341b4982bb57f11a710" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController::ChallengeResult</scope><name>ExecuteResult</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1a6e0ea1279d39e0f98bfe2e36461016b0" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController::ChallengeResult</scope><name>LoginProvider</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1a2e92718aa2d9d5d5fa2f99857c5f2269" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController::ChallengeResult</scope><name>RedirectUri</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result_1aca20408239c5ea21f9a3c12ab20450bd" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController::ChallengeResult</scope><name>UserId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

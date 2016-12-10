@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::App_Start::ApplicationIdentityContext</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IDisposable</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a9403555440833187d1090ce6bc10b2fb" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>IMongoCollection&lt; IdentityRole &gt;</type>
+        <definition>IMongoCollection&lt;IdentityRole&gt; BSNCapstone.App_Start.ApplicationIdentityContext.Roles</definition>
+        <argsstring></argsstring>
+        <name>Roles</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/ApplicationIdentityContext.cs" line="110" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a862d7ee9e26160bbf5b1d98d0edc5fdb" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_application_user" kindref="compound">ApplicationUser</ref> &gt;</type>
+        <definition>IMongoCollection&lt;ApplicationUser&gt; BSNCapstone.App_Start.ApplicationIdentityContext.Users</definition>
+        <argsstring></argsstring>
+        <name>Users</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/ApplicationIdentityContext.cs" line="111" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a5ab4e341bedd029a221f6b56554d27a2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_category" kindref="compound">Category</ref> &gt;</type>
+        <definition>IMongoCollection&lt;Category&gt; BSNCapstone.App_Start.ApplicationIdentityContext.Categories</definition>
+        <argsstring></argsstring>
+        <name>Categories</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/ApplicationIdentityContext.cs" line="112" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1ae83d38e39b3840e42583a6857cf55415" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_book" kindref="compound">Book</ref> &gt;</type>
+        <definition>IMongoCollection&lt;Book&gt; BSNCapstone.App_Start.ApplicationIdentityContext.Books</definition>
+        <argsstring></argsstring>
+        <name>Books</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/ApplicationIdentityContext.cs" line="113" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1ad5578f0200b3dffa6e165d38beb5a164" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_slider" kindref="compound">Slider</ref> &gt;</type>
+        <definition>IMongoCollection&lt;Slider&gt; BSNCapstone.App_Start.ApplicationIdentityContext.Sliders</definition>
+        <argsstring></argsstring>
+        <name>Sliders</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/ApplicationIdentityContext.cs" line="115" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1acafea8bb65a86cb1cea6adfcacb1a518" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_publisher" kindref="compound">Publisher</ref> &gt;</type>
+        <definition>IMongoCollection&lt;Publisher&gt; BSNCapstone.App_Start.ApplicationIdentityContext.Publishers</definition>
+        <argsstring></argsstring>
+        <name>Publishers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/ApplicationIdentityContext.cs" line="118" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1ab3394ba40ac644aec82b22bdf7dceb8d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_post" kindref="compound">Post</ref> &gt;</type>
+        <definition>IMongoCollection&lt;Post&gt; BSNCapstone.App_Start.ApplicationIdentityContext.Posts</definition>
+        <argsstring></argsstring>
+        <name>Posts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/ApplicationIdentityContext.cs" line="121" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1aab7b45765720c244ad281e545469d59e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_group" kindref="compound">Group</ref> &gt;</type>
+        <definition>IMongoCollection&lt;Group&gt; BSNCapstone.App_Start.ApplicationIdentityContext.Groups</definition>
+        <argsstring></argsstring>
+        <name>Groups</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/ApplicationIdentityContext.cs" line="124" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a31da924c053e38c8204dfa14391df3cc" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_book_statistic" kindref="compound">BookStatistic</ref> &gt;</type>
+        <definition>IMongoCollection&lt;BookStatistic&gt; BSNCapstone.App_Start.ApplicationIdentityContext.BooksStatistic</definition>
+        <argsstring></argsstring>
+        <name>BooksStatistic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/ApplicationIdentityContext.cs" line="126" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1af940e14ef27a769ed5d501476900f2f7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_report" kindref="compound">Report</ref> &gt;</type>
+        <definition>IMongoCollection&lt;Report&gt; BSNCapstone.App_Start.ApplicationIdentityContext.Reports</definition>
+        <argsstring></argsstring>
+        <name>Reports</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/ApplicationIdentityContext.cs" line="127" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1ae309215428eda96032f63eb819e4990d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_author" kindref="compound">Author</ref> &gt;</type>
+        <definition>IMongoCollection&lt;Author&gt; BSNCapstone.App_Start.ApplicationIdentityContext.Authors</definition>
+        <argsstring></argsstring>
+        <name>Authors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/ApplicationIdentityContext.cs" line="129" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a14e88202c7ad5b3b9131ebd803092b1f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context" kindref="compound">ApplicationIdentityContext</ref></type>
+        <definition>static ApplicationIdentityContext BSNCapstone.App_Start.ApplicationIdentityContext.Create</definition>
+        <argsstring>()</argsstring>
+        <name>Create</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/ApplicationIdentityContext.cs" line="14" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="14" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a60a04819a5ce2f184cbe5a4a84bbe54b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.App_Start.ApplicationIdentityContext.ApplicationIdentityContext</definition>
+        <argsstring>(IMongoCollection&lt; ApplicationUser &gt; users, IMongoCollection&lt; IdentityRole &gt; roles, IMongoCollection&lt; Category &gt; categories, IMongoCollection&lt; Book &gt; books, IMongoCollection&lt; Slider &gt; sliders, IMongoCollection&lt; Publisher &gt; publishers, IMongoCollection&lt; Group &gt; groups, IMongoCollection&lt; Post &gt; posts, IMongoCollection&lt; BookStatistic &gt; booksStatistic, IMongoCollection&lt; Report &gt; reports, IMongoCollection&lt; Author &gt; authors)</argsstring>
+        <name>ApplicationIdentityContext</name>
+        <param>
+          <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_application_user" kindref="compound">ApplicationUser</ref> &gt;</type>
+          <declname>users</declname>
+        </param>
+        <param>
+          <type>IMongoCollection&lt; IdentityRole &gt;</type>
+          <declname>roles</declname>
+        </param>
+        <param>
+          <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_category" kindref="compound">Category</ref> &gt;</type>
+          <declname>categories</declname>
+        </param>
+        <param>
+          <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_book" kindref="compound">Book</ref> &gt;</type>
+          <declname>books</declname>
+        </param>
+        <param>
+          <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_slider" kindref="compound">Slider</ref> &gt;</type>
+          <declname>sliders</declname>
+        </param>
+        <param>
+          <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_publisher" kindref="compound">Publisher</ref> &gt;</type>
+          <declname>publishers</declname>
+        </param>
+        <param>
+          <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_group" kindref="compound">Group</ref> &gt;</type>
+          <declname>groups</declname>
+        </param>
+        <param>
+          <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_post" kindref="compound">Post</ref> &gt;</type>
+          <declname>posts</declname>
+        </param>
+        <param>
+          <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_book_statistic" kindref="compound">BookStatistic</ref> &gt;</type>
+          <declname>booksStatistic</declname>
+        </param>
+        <param>
+          <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_report" kindref="compound">Report</ref> &gt;</type>
+          <declname>reports</declname>
+        </param>
+        <param>
+          <type>IMongoCollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_author" kindref="compound">Author</ref> &gt;</type>
+          <declname>authors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/ApplicationIdentityContext.cs" line="74" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="74" bodyend="107"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1aef90274c20ae5fbb3dd4d826ce760d0d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Task&lt; List&lt; IdentityRole &gt; &gt;</type>
+        <definition>Task&lt;List&lt;IdentityRole&gt; &gt; BSNCapstone.App_Start.ApplicationIdentityContext.AllRolesAsync</definition>
+        <argsstring>()</argsstring>
+        <name>AllRolesAsync</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/ApplicationIdentityContext.cs" line="131" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="131" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1ab57ca88f519b4131b49bfdd52a822457" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BSNCapstone.App_Start.ApplicationIdentityContext.Dispose</definition>
+        <argsstring>()</argsstring>
+        <name>Dispose</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/ApplicationIdentityContext.cs" line="136" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="136" bodyend="139"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="7">
+        <label>IDisposable</label>
+      </node>
+      <node id="6">
+        <label>BSNCapstone.App_Start.ApplicationIdentityContext</label>
+        <link refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9">
+        <label>IDisposable</label>
+      </node>
+      <node id="8">
+        <label>BSNCapstone.App_Start.ApplicationIdentityContext</label>
+        <link refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="App_Start/ApplicationIdentityContext.cs" line="13" column="1" bodyfile="App_Start/ApplicationIdentityContext.cs" bodystart="12" bodyend="141"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1aef90274c20ae5fbb3dd4d826ce760d0d" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::ApplicationIdentityContext</scope><name>AllRolesAsync</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a60a04819a5ce2f184cbe5a4a84bbe54b" prot="private" virt="non-virtual"><scope>BSNCapstone::App_Start::ApplicationIdentityContext</scope><name>ApplicationIdentityContext</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1ae309215428eda96032f63eb819e4990d" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::ApplicationIdentityContext</scope><name>Authors</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1ae83d38e39b3840e42583a6857cf55415" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::ApplicationIdentityContext</scope><name>Books</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a31da924c053e38c8204dfa14391df3cc" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::ApplicationIdentityContext</scope><name>BooksStatistic</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a5ab4e341bedd029a221f6b56554d27a2" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::ApplicationIdentityContext</scope><name>Categories</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a14e88202c7ad5b3b9131ebd803092b1f" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::ApplicationIdentityContext</scope><name>Create</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1ab57ca88f519b4131b49bfdd52a822457" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::ApplicationIdentityContext</scope><name>Dispose</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1aab7b45765720c244ad281e545469d59e" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::ApplicationIdentityContext</scope><name>Groups</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1ab3394ba40ac644aec82b22bdf7dceb8d" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::ApplicationIdentityContext</scope><name>Posts</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1acafea8bb65a86cb1cea6adfcacb1a518" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::ApplicationIdentityContext</scope><name>Publishers</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1af940e14ef27a769ed5d501476900f2f7" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::ApplicationIdentityContext</scope><name>Reports</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a9403555440833187d1090ce6bc10b2fb" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::ApplicationIdentityContext</scope><name>Roles</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1ad5578f0200b3dffa6e165d38beb5a164" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::ApplicationIdentityContext</scope><name>Sliders</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context_1a862d7ee9e26160bbf5b1d98d0edc5fdb" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::ApplicationIdentityContext</scope><name>Users</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

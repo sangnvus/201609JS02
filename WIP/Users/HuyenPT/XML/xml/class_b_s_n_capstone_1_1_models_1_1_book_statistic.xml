@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_models_1_1_book_statistic" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Models::BookStatistic</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_statistic_1a7231208ba0fb9a9860416e9894201830" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.BookStatistic.Id</definition>
+        <argsstring></argsstring>
+        <name>Id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/BookStatistic.cs" line="14" column="1" bodyfile="Models/BookStatistic.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_statistic_1a6a91cd4562a000072cd6be966b5818b1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.BookStatistic.BookId</definition>
+        <argsstring></argsstring>
+        <name>BookId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/BookStatistic.cs" line="16" column="1" bodyfile="Models/BookStatistic.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_statistic_1a13b41230d46277d92fe6e031e5a9aaa3" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime BSNCapstone.Models.BookStatistic.EachDate</definition>
+        <argsstring></argsstring>
+        <name>EachDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/BookStatistic.cs" line="19" column="1" bodyfile="Models/BookStatistic.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_statistic_1aadc3374eb1926a5953c7acb9a8146e5a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int BSNCapstone.Models.BookStatistic.Count</definition>
+        <argsstring></argsstring>
+        <name>Count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/BookStatistic.cs" line="21" column="1" bodyfile="Models/BookStatistic.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_models_1_1_book_statistic_1a5a52ea32d707fd44a7be1e4b79f0fb28" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.Models.BookStatistic.BookStatistic</definition>
+        <argsstring>()</argsstring>
+        <name>BookStatistic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/BookStatistic.cs" line="23" column="1" bodyfile="Models/BookStatistic.cs" bodystart="23" bodyend="26"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Models/BookStatistic.cs" line="12" column="1" bodyfile="Models/BookStatistic.cs" bodystart="11" bodyend="27"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_statistic_1a6a91cd4562a000072cd6be966b5818b1" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::BookStatistic</scope><name>BookId</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_statistic_1a5a52ea32d707fd44a7be1e4b79f0fb28" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::BookStatistic</scope><name>BookStatistic</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_statistic_1aadc3374eb1926a5953c7acb9a8146e5a" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::BookStatistic</scope><name>Count</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_statistic_1a13b41230d46277d92fe6e031e5a9aaa3" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::BookStatistic</scope><name>EachDate</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_statistic_1a7231208ba0fb9a9860416e9894201830" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::BookStatistic</scope><name>Id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

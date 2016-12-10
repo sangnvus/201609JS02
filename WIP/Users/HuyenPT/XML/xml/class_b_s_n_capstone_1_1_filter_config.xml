@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_filter_config" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::FilterConfig</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_filter_config_1afd4a2c365c6bf15fde98838c5ef135e6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void BSNCapstone.FilterConfig.RegisterGlobalFilters</definition>
+        <argsstring>(GlobalFilterCollection filters)</argsstring>
+        <name>RegisterGlobalFilters</name>
+        <param>
+          <type>GlobalFilterCollection</type>
+          <declname>filters</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/FilterConfig.cs" line="8" column="1" bodyfile="App_Start/FilterConfig.cs" bodystart="8" bodyend="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="App_Start/FilterConfig.cs" line="7" column="1" bodyfile="App_Start/FilterConfig.cs" bodystart="6" bodyend="12"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_filter_config_1afd4a2c365c6bf15fde98838c5ef135e6" prot="public" virt="non-virtual"><scope>BSNCapstone::FilterConfig</scope><name>RegisterGlobalFilters</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

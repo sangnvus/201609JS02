@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_models_1_1_manage_user_view_model" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Models::ManageUserViewModel</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_manage_user_view_model_1a110d80951991b590e176b37c956380e2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.ManageUserViewModel.OldPassword</definition>
+        <argsstring></argsstring>
+        <name>OldPassword</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="26" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_manage_user_view_model_1aca88c915db9c8b8a0827fea5f945fb96" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.ManageUserViewModel.NewPassword</definition>
+        <argsstring></argsstring>
+        <name>NewPassword</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="32" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_manage_user_view_model_1a6d47b1cd98ab38f03cff4725f2f2090e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.ManageUserViewModel.ConfirmPassword</definition>
+        <argsstring></argsstring>
+        <name>ConfirmPassword</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="37" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Models/AccountViewModels.cs" line="22" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="21" bodyend="38"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_manage_user_view_model_1a6d47b1cd98ab38f03cff4725f2f2090e" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ManageUserViewModel</scope><name>ConfirmPassword</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_manage_user_view_model_1aca88c915db9c8b8a0827fea5f945fb96" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ManageUserViewModel</scope><name>NewPassword</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_manage_user_view_model_1a110d80951991b590e176b37c956380e2" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::ManageUserViewModel</scope><name>OldPassword</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

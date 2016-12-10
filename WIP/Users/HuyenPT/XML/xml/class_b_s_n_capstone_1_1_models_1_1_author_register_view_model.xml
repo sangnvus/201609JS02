@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Models::AuthorRegisterViewModel</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model_1a539451d55fe2cedb78f6e214c269df4f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.AuthorRegisterViewModel.UserName</definition>
+        <argsstring></argsstring>
+        <name>UserName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="83" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model_1a409decc18cc8555b88629a37f1f9e7f4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.AuthorRegisterViewModel.Email</definition>
+        <argsstring></argsstring>
+        <name>Email</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="88" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model_1a95b03fbd68b1deee35ed4d357f34a028" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.AuthorRegisterViewModel.Password</definition>
+        <argsstring></argsstring>
+        <name>Password</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="94" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model_1aaf314356cb6fae27b419509b5974a836" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.AuthorRegisterViewModel.ConfirmPassword</definition>
+        <argsstring></argsstring>
+        <name>ConfirmPassword</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="100" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model_1a12b1e31bf1f36dce8b490abd9b833cd7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.AuthorRegisterViewModel.SSNImgId</definition>
+        <argsstring></argsstring>
+        <name>SSNImgId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="103" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Models/AccountViewModels.cs" line="80" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="79" bodyend="104"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model_1aaf314356cb6fae27b419509b5974a836" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::AuthorRegisterViewModel</scope><name>ConfirmPassword</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model_1a409decc18cc8555b88629a37f1f9e7f4" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::AuthorRegisterViewModel</scope><name>Email</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model_1a95b03fbd68b1deee35ed4d357f34a028" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::AuthorRegisterViewModel</scope><name>Password</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model_1a12b1e31bf1f36dce8b490abd9b833cd7" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::AuthorRegisterViewModel</scope><name>SSNImgId</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model_1a539451d55fe2cedb78f6e214c269df4f" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::AuthorRegisterViewModel</scope><name>UserName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

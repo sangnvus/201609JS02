@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_controller_helpers_1_1_groups_controller_helper" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::ControllerHelpers::GroupsControllerHelper</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controller_helpers_1_1_groups_controller_helper_1a85fff61e3597dbf103f3a0e426dea167" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int BSNCapstone.ControllerHelpers.GroupsControllerHelper.GetGroupNumber</definition>
+        <argsstring>()</argsstring>
+        <name>GetGroupNumber</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ControllerHelpers/GroupsControllerHelper.cs" line="16" column="1" bodyfile="ControllerHelpers/GroupsControllerHelper.cs" bodystart="16" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controller_helpers_1_1_groups_controller_helper_1a01cbeb60b997dfeeaa3e75bf6c7d5015" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int BSNCapstone.ControllerHelpers.GroupsControllerHelper.GetGroupJustCreatedNumber</definition>
+        <argsstring>()</argsstring>
+        <name>GetGroupJustCreatedNumber</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ControllerHelpers/GroupsControllerHelper.cs" line="22" column="1" bodyfile="ControllerHelpers/GroupsControllerHelper.cs" bodystart="22" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controller_helpers_1_1_groups_controller_helper_1a43a008df4cd9c38b245e713e45395136" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_group" kindref="compound">Group</ref> &gt;</type>
+        <definition>static List&lt;Group&gt; BSNCapstone.ControllerHelpers.GroupsControllerHelper.SuggestGroup</definition>
+        <argsstring>(string id)</argsstring>
+        <name>SuggestGroup</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ControllerHelpers/GroupsControllerHelper.cs" line="30" column="1" bodyfile="ControllerHelpers/GroupsControllerHelper.cs" bodystart="30" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ControllerHelpers/GroupsControllerHelper.cs" line="15" column="1" bodyfile="ControllerHelpers/GroupsControllerHelper.cs" bodystart="14" bodyend="38"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_groups_controller_helper_1a01cbeb60b997dfeeaa3e75bf6c7d5015" prot="public" virt="non-virtual"><scope>BSNCapstone::ControllerHelpers::GroupsControllerHelper</scope><name>GetGroupJustCreatedNumber</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_groups_controller_helper_1a85fff61e3597dbf103f3a0e426dea167" prot="public" virt="non-virtual"><scope>BSNCapstone::ControllerHelpers::GroupsControllerHelper</scope><name>GetGroupNumber</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_groups_controller_helper_1a43a008df4cd9c38b245e713e45395136" prot="public" virt="non-virtual"><scope>BSNCapstone::ControllerHelpers::GroupsControllerHelper</scope><name>SuggestGroup</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

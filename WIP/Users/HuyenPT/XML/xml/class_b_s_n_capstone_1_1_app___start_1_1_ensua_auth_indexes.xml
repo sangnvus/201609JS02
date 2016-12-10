@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_app___start_1_1_ensua_auth_indexes" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::App_Start::EnsuaAuthIndexes</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_ensua_auth_indexes_1a0b44d4459ed944e39893b3c654c9ff1a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void BSNCapstone.App_Start.EnsuaAuthIndexes.Exist</definition>
+        <argsstring>()</argsstring>
+        <name>Exist</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/EnsuaAuthIndexes.cs" line="13" column="1" bodyfile="App_Start/EnsuaAuthIndexes.cs" bodystart="13" bodyend="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="App_Start/EnsuaAuthIndexes.cs" line="12" column="1" bodyfile="App_Start/EnsuaAuthIndexes.cs" bodystart="11" bodyend="21"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_ensua_auth_indexes_1a0b44d4459ed944e39893b3c654c9ff1a" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::EnsuaAuthIndexes</scope><name>Exist</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
