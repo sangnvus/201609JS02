@@ -70,10 +70,7 @@
                                 <tr>
                                     <th style="width:1px">#</th>
                                     <th style="width:200px">Ảnh</th>
-                                    <th>Miêu tả</th>
-                                    @*HuyenPT. Delete. Start. 06-12-2016*@
-                                    @*<th style="width:130px">Chế độ</th>*@
-                                    @*HuyenPT. Delete. End. 06-12-2016*@
+                                    <th style="width:300px">Miêu tả</th>
                                     <th style="width:130px">Hành động</th>
                                 </tr>
                             </thead>
@@ -90,12 +87,6 @@
                                     new CloudinaryDotNet.StringDictionary("class=thumbnail inline"))
                                         </td>
                                         <td>@img.Desc</td>
-                                        @*HuyenPT. Delete. Start. 06-12-2016*@
-                                        @*<td>
-                                            <button type="submit" class="btn btn-default">Bật</button>
-                                            <button type="submit" class="btn btn-default">Tắt</button>
-                                        </td>*@
-                                        @*HuyenPT. Delete. End. 06-12-2016*@
                                         <td>
                                             @*HuyenPT. Update. Start. 06-12-2016*@
                                             @*<button type="submit" class="btn btn-default">Sửa</button>*@
@@ -103,7 +94,7 @@
                                             {
                                                 <button type="submit" class="btn btn-default"
                                                         onclick="Show('@img.Id')" id="Show" data-url="@Url.Action("Show", "Slider")">
-                                                    Hủy bỏ
+                                                    Bỏ trình chiếu
                                                 </button>
                                             }
                                             else
@@ -114,7 +105,7 @@
                                                 </button>
                                             }
                                             @*HuyenPT. Update. End. 06-12-2016*@
-                                            <button type="submit" class="btn btn-danger" onclick="Delete('@img.Id', @i)" id="Delete" data-url="@Url.Action("DeleteConfirmed", "Slider")">Xóa</button>
+                                            <button type="submit" class="btn btn-danger" onclick="Delete('@img.Id', @i)" id="Delete" data-url="@Url.Action("Delete", "Slider")">Xóa</button>
                                         </td>
                                     </tr>
                                     i++;

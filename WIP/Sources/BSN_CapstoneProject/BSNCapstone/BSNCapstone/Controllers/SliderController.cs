@@ -86,7 +86,7 @@ namespace BSNCapstone.Controllers
         }
 
         [HttpPost]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult Delete(string id)
         {
             Context.Sliders.DeleteOneAsync(x => x.Id.Equals(new ObjectId(id)));
             return Json("Xóa slide thành công!");
