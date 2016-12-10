@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Globalization;
 using Microsoft.AspNet.Identity;
 using BSNCapstone.ViewModels;
+using PagedList;
 
 namespace BSNCapstone.Controllers
 {
@@ -20,16 +21,18 @@ namespace BSNCapstone.Controllers
         private readonly ApplicationIdentityContext Context = ApplicationIdentityContext.Create();
         //
         // GET: /Reports/
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             ViewBag.allUser = Context.Users.Find(_ => true).ToList();
             ViewBag.allGroup = Context.Groups.Find(_ => true).ToList();
             List<Report> user = Context.Reports.Find(x => x.ReportedUserId != null && x.Status.Equals(true)).ToList();
             List<Report> group = Context.Reports.Find(x => x.ReportedGroupId != null && x.Status.Equals(true)).ToList();
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
             ReportContentViewModel report = new ReportContentViewModel() 
             {
-                ListReportUser = user,
-                ListReportGroup = group
+                ListReportUser = user.ToPagedList(pageNumber, pageSize),
+                ListReportGroup = group.ToPagedList(pageNumber, pageSize)
             };
             return View(report);
         }

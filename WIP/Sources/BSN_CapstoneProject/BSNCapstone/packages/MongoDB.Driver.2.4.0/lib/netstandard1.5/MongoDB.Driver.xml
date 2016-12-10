@@ -4,11 +4,453 @@
         <name>MongoDB.Driver</name>
     </assembly>
     <members>
+        <member name="T:MongoDB.Driver.AggregateBucketAutoGranularity">
+            <summary>
+            Represents the granularity value for a $bucketAuto stage.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoGranularity.E6">
+            <summary>
+            Gets the E6 granularity.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoGranularity.E12">
+            <summary>
+            Gets the E12 granularity.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoGranularity.E24">
+            <summary>
+            Gets the E24 granularity.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoGranularity.E48">
+            <summary>
+            Gets the E48 granularity.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoGranularity.E96">
+            <summary>
+            Gets the E96 granularity.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoGranularity.E192">
+            <summary>
+            Gets the E192 granularity.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoGranularity.PowersOf2">
+            <summary>
+            Gets the POWERSOF2 granularity.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoGranularity.R5">
+            <summary>
+            Gets the R5 granularity.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoGranularity.R10">
+            <summary>
+            Gets the R10 granularity.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoGranularity.R20">
+            <summary>
+            Gets the R20 granularity.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoGranularity.R40">
+            <summary>
+            Gets the R40 granularity.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoGranularity.R80">
+            <summary>
+            Gets the R80 granularity.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoGranularity.S1_2_5">
+            <summary>
+            Gets the 1-2-5 granularity.
+            </summary>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateBucketAutoGranularity.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.AggregateBucketAutoGranularity"/> struct.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoGranularity.Value">
+            <summary>
+            Gets the value.
+            </summary>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateBucketAutoOptions">
+            <summary>
+            Represents options for the BucketAuto method.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoOptions.Granularity">
+            <summary>
+            Gets or sets the granularity.
+            </summary>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateBucketAutoResult`1">
+            <summary>
+            Represents the result of the $bucketAuto stage.
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateBucketAutoResult`1.#ctor(MongoDB.Driver.AggregateBucketAutoResultId{`0},System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.AggregateBucketResult`1"/> class.
+            </summary>
+            <param name="id">The inclusive lower boundary of the bucket.</param>
+            <param name="count">The count.</param>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateBucketAutoResult`1.#ctor(`0,`0,System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.AggregateBucketResult`1" /> class.
+            </summary>
+            <param name="min">The minimum.</param>
+            <param name="max">The maximum.</param>
+            <param name="count">The count.</param>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoResult`1.Id">
+            <summary>
+            Gets the inclusive lower boundary of the bucket.
+            </summary>
+            <value>
+            The inclusive lower boundary of the bucket.
+            </value>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoResult`1.Count">
+            <summary>
+            Gets the count.
+            </summary>
+            <value>
+            The count.
+            </value>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoResult`1.Max">
+            <summary>
+            Gets the maximum.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoResult`1.Min">
+            <summary>
+            Gets the minimum.
+            </summary>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateBucketAutoResultId`1">
+            <summary>
+            Represents the _id value in the result of a $bucketAuto stage.
+            </summary>
+            <typeparam name="TValue">The type of the values.</typeparam>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateBucketAutoResultId`1.#ctor(`0,`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.AggregateBucketAutoResultId`1"/> class.
+            </summary>
+            <param name="min">The minimum.</param>
+            <param name="max">The maximum.</param>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoResultId`1.Max">
+            <summary>
+            Gets the max value.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketAutoResultId`1.Min">
+            <summary>
+            Gets the min value.
+            </summary>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateBucketOptions`1">
+            <summary>
+            Represents options for the Bucket method.
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketOptions`1.DefaultBucket">
+            <summary>
+            Gets or sets the default bucket.
+            </summary>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateBucketResult`1">
+            <summary>
+            Represents the result of the $bucket stage.
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateBucketResult`1.#ctor(`0,System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.AggregateBucketResult`1"/> class.
+            </summary>
+            <param name="id">The inclusive lower boundary of the bucket.</param>
+            <param name="count">The count.</param>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketResult`1.Id">
+            <summary>
+            Gets the inclusive lower boundary of the bucket.
+            </summary>
+            <value>
+            The inclusive lower boundary of the bucket.
+            </value>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateBucketResult`1.Count">
+            <summary>
+            Gets the count.
+            </summary>
+            <value>
+            The count.
+            </value>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateCountResult">
+            <summary>
+            Result type for the aggregate $count stage.
+            </summary>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateCountResult.#ctor(System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.AggregateCountResult"/> class.
+            </summary>
+            <param name="count">The count.</param>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateCountResult.Count">
+            <summary>
+            Gets the count.
+            </summary>
+            <value>
+            The count.
+            </value>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateExpressionDefinition`2">
+            <summary>
+            An aggregation expression.
+            </summary>
+            <typeparam name="TSource">The type of the source.</typeparam>
+            <typeparam name="TResult">The type of the result.</typeparam>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateExpressionDefinition`2.op_Implicit(MongoDB.Bson.BsonValue)~MongoDB.Driver.AggregateExpressionDefinition{`0,`1}">
+            <summary>
+            Performs an implicit conversion from <see cref="T:MongoDB.Bson.BsonValue"/> to <see cref="T:MongoDB.Driver.AggregateExpressionDefinition`2"/>.
+            </summary>
+            <param name="expression">The expression.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateExpressionDefinition`2.op_Implicit(System.String)~MongoDB.Driver.AggregateExpressionDefinition{`0,`1}">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.String"/> to <see cref="T:MongoDB.Driver.AggregateExpressionDefinition`2"/>.
+            </summary>
+            <param name="expression">The expression.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateExpressionDefinition`2.Render(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
+            <summary>
+            Renders the aggregation expression.
+            </summary>
+            <param name="sourceSerializer">The source serializer.</param>
+            <param name="serializerRegistry">The serializer registry.</param>
+            <returns>The rendered aggregation expression.</returns>
+        </member>
+        <member name="T:MongoDB.Driver.BsonValueAggregateExpressionDefinition`2">
+            <summary>
+            A <see cref="T:MongoDB.Bson.BsonValue"/> based aggregate expression.
+            </summary>
+            <typeparam name="TSource">The type of the source.</typeparam>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <seealso cref="T:MongoDB.Driver.AggregateExpressionDefinition`2" />
+        </member>
+        <member name="M:MongoDB.Driver.BsonValueAggregateExpressionDefinition`2.#ctor(MongoDB.Bson.BsonValue)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.BsonValueAggregateExpressionDefinition`2"/> class.
+            </summary>
+            <param name="expression">The expression.</param>
+        </member>
+        <member name="M:MongoDB.Driver.BsonValueAggregateExpressionDefinition`2.Render(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Driver.ExpressionAggregateExpressionDefinition`2">
+            <summary>
+            A <see cref="T:MongoDB.Bson.BsonValue"/> based aggregate expression.
+            </summary>
+            <typeparam name="TSource">The type of the source.</typeparam>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <seealso cref="T:MongoDB.Driver.AggregateExpressionDefinition`2" />
+        </member>
+        <member name="M:MongoDB.Driver.ExpressionAggregateExpressionDefinition`2.#ctor(System.Linq.Expressions.Expression{System.Func{`0,`1}},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.ExpressionAggregateExpressionDefinition`2" /> class.
+            </summary>
+            <param name="expression">The expression.</param>
+            <param name="translationOptions">The translation options.</param>
+        </member>
+        <member name="M:MongoDB.Driver.ExpressionAggregateExpressionDefinition`2.Render(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateFacet">
+            <summary>
+            Represents static methods for creating facets.
+            </summary>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFacet.Create``2(System.String,MongoDB.Driver.PipelineDefinition{``0,``1})">
+            <summary>
+            Creates a new instance of the <see cref="T:MongoDB.Driver.AggregateFacet`2" /> class.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="name">The facet name.</param>
+            <param name="pipeline">The facet pipeline.</param>
+            <returns>
+            A new instance of the <see cref="T:MongoDB.Driver.AggregateFacet`2" /> class
+            </returns>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateFacet`1">
+            <summary>
+            Represents a facet to be passed to the Facet method.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFacet`1.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.AggregateFacet`1"/> class.
+            </summary>
+            <param name="name">The facet name.</param>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateFacet`1.Name">
+            <summary>
+            Gets the facet name.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateFacet`1.OutputSerializer">
+            <summary>
+            Gets the output serializer.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateFacet`1.OutputType">
+            <summary>
+            Gets the type of the output documents.
+            </summary>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFacet`1.RenderPipeline(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
+            <summary>
+            Renders the facet pipeline.
+            </summary>
+            <param name="inputSerializer">The input serializer.</param>
+            <param name="serializerRegistry">The serializer registry.</param>
+            <returns>The rendered pipeline.</returns>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateFacet`2">
+            <summary>
+            Represents a facet to be passed to the Facet method.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the otuput documents.</typeparam>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFacet`2.#ctor(System.String,MongoDB.Driver.PipelineDefinition{`0,`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.AggregateFacet`2"/> class.
+            </summary>
+            <param name="name">The facet name.</param>
+            <param name="pipeline">The facet pipeline.</param>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateFacet`2.OutputSerializer">
+            <inheritdoc/>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateFacet`2.OutputType">
+            <inheritdoc/>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateFacet`2.Pipeline">
+            <summary>
+            Gets the facet pipeline.
+            </summary>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFacet`2.RenderPipeline(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateFacetOptions`1">
+            <summary>
+            Options for the aggregate $facet stage.
+            </summary>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateFacetOptions`1.OutputSerializer">
+            <summary>
+            Gets or sets the output serializer.
+            </summary>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateFacetResult">
+            <summary>
+            Represents an abstract AggregateFacetResult with an arbitrary TOutput type.
+            </summary>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFacetResult.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.AggregateFacetResult" /> class.
+            </summary>
+            <param name="name">The name of the facet.</param>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateFacetResult.Name">
+            <summary>
+            Gets the name of the facet.
+            </summary>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFacetResult.Output``1">
+            <summary>
+            Gets the output of the facet.
+            </summary>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <returns>The output of the facet.</returns>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateFacetResult`1">
+            <summary>
+            Represents the result of a single facet.
+            </summary>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFacetResult`1.#ctor(System.String,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.AggregateFacetResult`1"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="output">The output.</param>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateFacetResult`1.Output">
+            <summary>
+            Gets or sets the output.
+            </summary>
+            <value>
+            The output.
+            </value>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateFacetResults">
+            <summary>
+            Represents the results of a $facet stage with an arbitrary number of facets.
+            </summary>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFacetResults.#ctor(MongoDB.Driver.AggregateFacetResult[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.AggregateFacetResults"/> class.
+            </summary>
+            <param name="facets">The facets.</param>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateFacetResults.Facets">
+            <summary>
+            Gets the facets.
+            </summary>
+        </member>
         <member name="T:MongoDB.Driver.AggregateFluentBase`1">
             <summary>
             Base class for implementors of <see cref="T:MongoDB.Driver.IAggregateFluent`1" />.
             </summary>
             <typeparam name="TResult">The type of the document.</typeparam>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateFluentBase`1.Database">
+            <inheritdoc />
         </member>
         <member name="P:MongoDB.Driver.AggregateFluentBase`1.Options">
             <inheritdoc />
@@ -20,6 +462,27 @@
             <inheritdoc />
         </member>
         <member name="M:MongoDB.Driver.AggregateFluentBase`1.As``1(MongoDB.Bson.Serialization.IBsonSerializer{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFluentBase`1.Bucket``1(MongoDB.Driver.AggregateExpressionDefinition{`0,``0},System.Collections.Generic.IEnumerable{``0},MongoDB.Driver.AggregateBucketOptions{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFluentBase`1.Bucket``2(MongoDB.Driver.AggregateExpressionDefinition{`0,``0},System.Collections.Generic.IEnumerable{``0},MongoDB.Driver.ProjectionDefinition{`0,``1},MongoDB.Driver.AggregateBucketOptions{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFluentBase`1.BucketAuto``1(MongoDB.Driver.AggregateExpressionDefinition{`0,``0},System.Int32,MongoDB.Driver.AggregateBucketAutoOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFluentBase`1.BucketAuto``2(MongoDB.Driver.AggregateExpressionDefinition{`0,``0},System.Int32,MongoDB.Driver.ProjectionDefinition{`0,``1},MongoDB.Driver.AggregateBucketAutoOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFluentBase`1.Count">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFluentBase`1.Facet``1(System.Collections.Generic.IEnumerable{MongoDB.Driver.AggregateFacet{`0}},MongoDB.Driver.AggregateFacetOptions{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFluentBase`1.GraphLookup``7(MongoDB.Driver.IMongoCollection{``0},MongoDB.Driver.FieldDefinition{``0,``1},MongoDB.Driver.FieldDefinition{``0,``2},MongoDB.Driver.AggregateExpressionDefinition{`0,``3},MongoDB.Driver.FieldDefinition{``6,``5},MongoDB.Driver.FieldDefinition{``4,System.Int32},MongoDB.Driver.AggregateGraphLookupOptions{``0,``4,``6})">
             <inheritdoc />
         </member>
         <member name="M:MongoDB.Driver.AggregateFluentBase`1.Group``1(MongoDB.Driver.ProjectionDefinition{`0,``0})">
@@ -46,10 +509,19 @@
         <member name="M:MongoDB.Driver.AggregateFluentBase`1.Project``1(MongoDB.Driver.ProjectionDefinition{`0,``0})">
             <inheritdoc />
         </member>
+        <member name="M:MongoDB.Driver.AggregateFluentBase`1.ReplaceRoot``1(MongoDB.Driver.AggregateExpressionDefinition{`0,``0})">
+            <inheritdoc />
+        </member>
         <member name="M:MongoDB.Driver.AggregateFluentBase`1.Skip(System.Int32)">
             <inheritdoc />
         </member>
         <member name="M:MongoDB.Driver.AggregateFluentBase`1.Sort(MongoDB.Driver.SortDefinition{`0})">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFluentBase`1.SortByCount``1(MongoDB.Driver.AggregateExpressionDefinition{`0,``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.AggregateFluentBase`1.ThenBy(MongoDB.Driver.SortDefinition{`0})">
             <inheritdoc />
         </member>
         <member name="M:MongoDB.Driver.AggregateFluentBase`1.Unwind``1(MongoDB.Driver.FieldDefinition{`0},MongoDB.Bson.Serialization.IBsonSerializer{``0})">
@@ -63,6 +535,39 @@
         </member>
         <member name="M:MongoDB.Driver.AggregateFluentBase`1.ToCursorAsync(System.Threading.CancellationToken)">
             <inheritdoc />
+        </member>
+        <member name="T:MongoDB.Driver.AggregateGraphLookupOptions`3">
+            <summary>
+            Represents options for the GraphLookup method.
+            </summary>
+            <typeparam name="TFrom">The type of from documents.</typeparam>
+            <typeparam name="TAsElement">The type of the as field elements.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateGraphLookupOptions`3.AsElementSerializer">
+            <summary>
+            Gets or sets the TAsElement serialzier.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateGraphLookupOptions`3.FromSerializer">
+            <summary>
+            Gets or sets the TFrom serializer.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateGraphLookupOptions`3.MaxDepth">
+            <summary>
+            Gets or sets the maximum depth.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateGraphLookupOptions`3.OutputSerializer">
+            <summary>
+            Gets or sets the output serializer.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateGraphLookupOptions`3.RestrictSearchWithMatch">
+            <summary>
+            Gets the filter to restrict the search with.
+            </summary>
         </member>
         <member name="T:MongoDB.Driver.AggregateLookupOptions`2">
             <summary>
@@ -101,14 +606,68 @@
             Gets or sets a value indicating whether to bypass document validation.
             </summary>
         </member>
+        <member name="P:MongoDB.Driver.AggregateOptions.Collation">
+            <summary>
+            Gets or sets the collation.
+            </summary>
+        </member>
         <member name="P:MongoDB.Driver.AggregateOptions.MaxTime">
             <summary>
             Gets or sets the maximum time.
             </summary>
         </member>
+        <member name="P:MongoDB.Driver.AggregateOptions.TranslationOptions">
+            <summary>
+            Gets or sets the translation options.
+            </summary>
+        </member>
         <member name="P:MongoDB.Driver.AggregateOptions.UseCursor">
             <summary>
             Gets or sets a value indicating whether to use a cursor.
+            </summary>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateSortByCountResult`1">
+            <summary>
+            Result type for the aggregate $sortByCount stage.
+            </summary>
+            <typeparam name="TId">The type of the identifier.</typeparam>
+        </member>
+        <member name="M:MongoDB.Driver.AggregateSortByCountResult`1.#ctor(`0,System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.AggregateCountResult" /> class.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="count">The count.</param>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateSortByCountResult`1.Count">
+            <summary>
+            Gets the count.
+            </summary>
+            <value>
+            The count.
+            </value>
+        </member>
+        <member name="P:MongoDB.Driver.AggregateSortByCountResult`1.Id">
+            <summary>
+            Gets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="T:MongoDB.Driver.AggregateStringTranslationMode">
+            <summary>
+            Option for which expression to generate for certain string operations.
+            </summary>
+        </member>
+        <member name="F:MongoDB.Driver.AggregateStringTranslationMode.Bytes">
+            <summary>
+            Translate to the byte variation.
+            </summary>
+        </member>
+        <member name="F:MongoDB.Driver.AggregateStringTranslationMode.CodePoints">
+            <summary>
+            Translate to the code points variation. This is only supported in >= MongoDB 3.4.
             </summary>
         </member>
         <member name="T:MongoDB.Driver.AggregateUnwindOptions`1">
@@ -356,6 +915,20 @@
             Represents a registry of already created clusters.
             </summary>
         </member>
+        <member name="P:MongoDB.Driver.ClusterRegistry.Instance">
+            <summary>
+            Gets the default cluster registry.
+            </summary>
+            <value>
+            The default cluster registry.
+            </value>
+        </member>
+        <member name="M:MongoDB.Driver.ClusterRegistry.UnregisterAndDisposeCluster(MongoDB.Driver.Core.Clusters.ICluster)">
+            <summary>
+            Unregisters and disposes the cluster.
+            </summary>
+            <param name="cluster">The cluster.</param>
+        </member>
         <member name="T:MongoDB.Driver.RenderedCommand`1">
             <summary>
             A rendered command.
@@ -523,6 +1096,11 @@
             Options for a count operation.
             </summary>
         </member>
+        <member name="P:MongoDB.Driver.CountOptions.Collation">
+            <summary>
+            Gets or sets the collation.
+            </summary>
+        </member>
         <member name="P:MongoDB.Driver.CountOptions.Hint">
             <summary>
             Gets or sets the hint.
@@ -546,6 +1124,11 @@
         <member name="T:MongoDB.Driver.CreateCollectionOptions">
             <summary>
             Options for creating a collection.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.CreateCollectionOptions.Collation">
+            <summary>
+            Gets or sets the collation.
             </summary>
         </member>
         <member name="P:MongoDB.Driver.CreateCollectionOptions.AutoIndexId">
@@ -676,6 +1259,11 @@
             Gets or sets the size of a geohash bucket.
             </summary>
         </member>
+        <member name="P:MongoDB.Driver.CreateIndexOptions.Collation">
+            <summary>
+            Gets or sets the collation.
+            </summary>
+        </member>
         <member name="P:MongoDB.Driver.CreateIndexOptions.DefaultLanguage">
             <summary>
             Gets or sets the default language.
@@ -752,6 +1340,36 @@
             Gets or sets the partial filter expression.
             </summary>
         </member>
+        <member name="T:MongoDB.Driver.CreateViewOptions`1">
+            <summary>
+            Options for creating a view.
+            </summary>
+            <typeparam name="TDocument">The type of the documents.</typeparam>
+        </member>
+        <member name="P:MongoDB.Driver.CreateViewOptions`1.Collation">
+            <summary>
+            Gets or sets the collation.
+            </summary>
+            <value>
+            The collation.
+            </value>
+        </member>
+        <member name="P:MongoDB.Driver.CreateViewOptions`1.DocumentSerializer">
+            <summary>
+            Gets or sets the document serializer.
+            </summary>
+            <value>
+            The document serializer.
+            </value>
+        </member>
+        <member name="P:MongoDB.Driver.CreateViewOptions`1.SerializerRegistry">
+            <summary>
+            Gets or sets the serializer registry.
+            </summary>
+            <value>
+            The serializer registry.
+            </value>
+        </member>
         <member name="T:MongoDB.Driver.CursorType">
             <summary>
             The cursor type.
@@ -784,6 +1402,11 @@
             </summary>
             <param name="filter">The filter.</param>
         </member>
+        <member name="P:MongoDB.Driver.DeleteManyModel`1.Collation">
+            <summary>
+            Gets or sets the collation.
+            </summary>
+        </member>
         <member name="P:MongoDB.Driver.DeleteManyModel`1.Filter">
             <summary>
             Gets the filter.
@@ -806,6 +1429,11 @@
             </summary>
             <param name="filter">The filter.</param>
         </member>
+        <member name="P:MongoDB.Driver.DeleteOneModel`1.Collation">
+            <summary>
+            Gets or sets the collation.
+            </summary>
+        </member>
         <member name="P:MongoDB.Driver.DeleteOneModel`1.Filter">
             <summary>
             Gets the filter.
@@ -814,6 +1442,16 @@
         <member name="P:MongoDB.Driver.DeleteOneModel`1.ModelType">
             <summary>
             Gets the type of the model.
+            </summary>
+        </member>
+        <member name="T:MongoDB.Driver.DeleteOptions">
+            <summary>
+            Options for the Delete methods.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.DeleteOptions.Collation">
+            <summary>
+            Gets or sets the collation.
             </summary>
         </member>
         <member name="T:MongoDB.Driver.DeleteResult">
@@ -874,9 +1512,24 @@
             Options for the distinct command.
             </summary>
         </member>
+        <member name="P:MongoDB.Driver.DistinctOptions.Collation">
+            <summary>
+            Gets or sets the collation.
+            </summary>
+        </member>
         <member name="P:MongoDB.Driver.DistinctOptions.MaxTime">
             <summary>
             Gets or sets the maximum time.
+            </summary>
+        </member>
+        <member name="T:MongoDB.Driver.ExpressionTranslationOptions">
+            <summary>
+            Options for controlling translation from .NET expression trees into MongoDB expressions.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.ExpressionTranslationOptions.StringTranslationMode">
+            <summary>
+            Gets or sets the string translation mode.
             </summary>
         </member>
         <member name="T:MongoDB.Driver.ExternalEvidence">
@@ -1665,11 +2318,43 @@
             <param name="points">The points.</param>
             <returns>A geo within polygon filter.</returns>
         </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Gt(MongoDB.Driver.FieldDefinition{`0,System.UInt32},System.UInt32)">
+            <summary>
+            Creates a greater than filter for a UInt32 field.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A greater than filter.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Gt(MongoDB.Driver.FieldDefinition{`0,System.UInt64},System.UInt64)">
+            <summary>
+            Creates a greater than filter for a UInt64 field.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A greater than filter.</returns>
+        </member>
         <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Gt``1(MongoDB.Driver.FieldDefinition{`0,``0},``0)">
             <summary>
             Creates a greater than filter.
             </summary>
             <typeparam name="TField">The type of the field.</typeparam>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A greater than filter.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Gt(System.Linq.Expressions.Expression{System.Func{`0,System.UInt32}},System.UInt32)">
+            <summary>
+            Creates a greater than filter for a UInt32 field.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A greater than filter.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Gt(System.Linq.Expressions.Expression{System.Func{`0,System.UInt64}},System.UInt64)">
+            <summary>
+            Creates a greater than filter for a UInt64 field.
+            </summary>
             <param name="field">The field.</param>
             <param name="value">The value.</param>
             <returns>A greater than filter.</returns>
@@ -1683,11 +2368,43 @@
             <param name="value">The value.</param>
             <returns>A greater than filter.</returns>
         </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Gte(MongoDB.Driver.FieldDefinition{`0,System.UInt32},System.UInt32)">
+            <summary>
+            Creates a greater than or equal filter for a UInt32 field.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A greater than or equal filter.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Gte(MongoDB.Driver.FieldDefinition{`0,System.UInt64},System.UInt64)">
+            <summary>
+            Creates a greater than or equal filter for a UInt64 field.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A greater than or equal filter.</returns>
+        </member>
         <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Gte``1(MongoDB.Driver.FieldDefinition{`0,``0},``0)">
             <summary>
             Creates a greater than or equal filter.
             </summary>
             <typeparam name="TField">The type of the field.</typeparam>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A greater than or equal filter.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Gte(System.Linq.Expressions.Expression{System.Func{`0,System.UInt32}},System.UInt32)">
+            <summary>
+            Creates a greater than or equal filter for a UInt32 field.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A greater than or equal filter.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Gte(System.Linq.Expressions.Expression{System.Func{`0,System.UInt64}},System.UInt64)">
+            <summary>
+            Creates a greater than or equal filter for a UInt64 field.
+            </summary>
             <param name="field">The field.</param>
             <param name="value">The value.</param>
             <returns>A greater than or equal filter.</returns>
@@ -1719,11 +2436,43 @@
             <param name="values">The values.</param>
             <returns>An in filter.</returns>
         </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Lt(MongoDB.Driver.FieldDefinition{`0,System.UInt32},System.UInt32)">
+            <summary>
+            Creates a less than filter for a UInt32 field.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A less than filter.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Lt(MongoDB.Driver.FieldDefinition{`0,System.UInt64},System.UInt64)">
+            <summary>
+            Creates a less than filter for a UInt64 field.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A less than filter.</returns>
+        </member>
         <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Lt``1(MongoDB.Driver.FieldDefinition{`0,``0},``0)">
             <summary>
             Creates a less than filter.
             </summary>
             <typeparam name="TField">The type of the field.</typeparam>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A less than filter.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Lt(System.Linq.Expressions.Expression{System.Func{`0,System.UInt32}},System.UInt32)">
+            <summary>
+            Creates a less than filter for a UInt32 field.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A less than filter.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Lt(System.Linq.Expressions.Expression{System.Func{`0,System.UInt64}},System.UInt64)">
+            <summary>
+            Creates a less than filter for a UInt64 field.
+            </summary>
             <param name="field">The field.</param>
             <param name="value">The value.</param>
             <returns>A less than filter.</returns>
@@ -1737,11 +2486,43 @@
             <param name="value">The value.</param>
             <returns>A less than filter.</returns>
         </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Lte(MongoDB.Driver.FieldDefinition{`0,System.UInt32},System.UInt32)">
+            <summary>
+            Creates a less than or equal filter for a UInt32 field.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A less than or equal filter.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Lte(MongoDB.Driver.FieldDefinition{`0,System.UInt64},System.UInt64)">
+            <summary>
+            Creates a less than or equal filter for a UInt64 field.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A less than or equal filter.</returns>
+        </member>
         <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Lte``1(MongoDB.Driver.FieldDefinition{`0,``0},``0)">
             <summary>
             Creates a less than or equal filter.
             </summary>
             <typeparam name="TField">The type of the field.</typeparam>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A less than or equal filter.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Lte(System.Linq.Expressions.Expression{System.Func{`0,System.UInt32}},System.UInt32)">
+            <summary>
+            Creates a less than or equal filter for a UInt32 field.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>A less than or equal filter.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.FilterDefinitionBuilder`1.Lte(System.Linq.Expressions.Expression{System.Func{`0,System.UInt64}},System.UInt64)">
+            <summary>
+            Creates a less than or equal filter for a UInt64 field.
+            </summary>
             <param name="field">The field.</param>
             <param name="value">The value.</param>
             <returns>A less than or equal filter.</returns>
@@ -2177,6 +2958,11 @@
             <typeparam name="TDocument">The type of the document.</typeparam>
             <typeparam name="TProjection">The type of the projection (same as TDocument if there is no projection).</typeparam>
         </member>
+        <member name="P:MongoDB.Driver.FindOneAndDeleteOptions`2.Collation">
+            <summary>
+            Gets or sets the collation.
+            </summary>
+        </member>
         <member name="P:MongoDB.Driver.FindOneAndDeleteOptions`2.MaxTime">
             <summary>
             Gets or sets the maximum time.
@@ -2208,6 +2994,11 @@
         <member name="M:MongoDB.Driver.FindOneAndReplaceOptions`2.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:MongoDB.Driver.FindOneAndReplaceOptions`2"/> class.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.FindOneAndReplaceOptions`2.Collation">
+            <summary>
+            Gets or sets the collation.
             </summary>
         </member>
         <member name="P:MongoDB.Driver.FindOneAndReplaceOptions`2.BypassDocumentValidation">
@@ -2263,6 +3054,11 @@
             Gets or sets a value indicating whether to bypass document validation.
             </summary>
         </member>
+        <member name="P:MongoDB.Driver.FindOneAndUpdateOptions`2.Collation">
+            <summary>
+            Gets or sets the collation.
+            </summary>
+        </member>
         <member name="P:MongoDB.Driver.FindOneAndUpdateOptions`2.IsUpsert">
             <summary>
             Gets or sets a value indicating whether to insert the document if it doesn't already exist.
@@ -2312,6 +3108,11 @@
         <member name="P:MongoDB.Driver.FindOptionsBase.BatchSize">
             <summary>
             Gets or sets the size of a batch.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.FindOptionsBase.Collation">
+            <summary>
+            Gets or sets the collation.
             </summary>
         </member>
         <member name="P:MongoDB.Driver.FindOptionsBase.Comment">
@@ -2397,6 +3198,11 @@
             </remarks>
             <typeparam name="TResult">The type of the result of the pipeline.</typeparam>
         </member>
+        <member name="P:MongoDB.Driver.IAggregateFluent`1.Database">
+            <summary>
+            Gets the database.
+            </summary>
+        </member>
         <member name="P:MongoDB.Driver.IAggregateFluent`1.Options">
             <summary>
             Gets the options.
@@ -2417,10 +3223,91 @@
         </member>
         <member name="M:MongoDB.Driver.IAggregateFluent`1.As``1(MongoDB.Bson.Serialization.IBsonSerializer{``0})">
             <summary>
-            Appends a project stage to the pipeline.
+            Changes the result type of the pipeline.
             </summary>
             <typeparam name="TNewResult">The type of the new result.</typeparam>
             <param name="newResultSerializer">The new result serializer.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluent`1.Bucket``1(MongoDB.Driver.AggregateExpressionDefinition{`0,``0},System.Collections.Generic.IEnumerable{``0},MongoDB.Driver.AggregateBucketOptions{``0})">
+            <summary>
+            Appends a $bucket stage to the pipeline.
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="groupBy">The expression providing the value to group by.</param>
+            <param name="boundaries">The bucket boundaries.</param>
+            <param name="options">The options.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluent`1.Bucket``2(MongoDB.Driver.AggregateExpressionDefinition{`0,``0},System.Collections.Generic.IEnumerable{``0},MongoDB.Driver.ProjectionDefinition{`0,``1},MongoDB.Driver.AggregateBucketOptions{``0})">
+            <summary>
+            Appends a $bucket stage to the pipeline with a custom projection.
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <typeparam name="TNewResult">The type of the new result.</typeparam>
+            <param name="groupBy">The expression providing the value to group by.</param>
+            <param name="boundaries">The bucket boundaries.</param>
+            <param name="output">The output projection.</param>
+            <param name="options">The options.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluent`1.BucketAuto``1(MongoDB.Driver.AggregateExpressionDefinition{`0,``0},System.Int32,MongoDB.Driver.AggregateBucketAutoOptions)">
+            <summary>
+            Appends a $bucketAuto stage to the pipeline.
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="groupBy">The expression providing the value to group by.</param>
+            <param name="buckets">The number of buckets.</param>
+            <param name="options">The options (optional).</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluent`1.BucketAuto``2(MongoDB.Driver.AggregateExpressionDefinition{`0,``0},System.Int32,MongoDB.Driver.ProjectionDefinition{`0,``1},MongoDB.Driver.AggregateBucketAutoOptions)">
+            <summary>
+            Appends a $bucketAuto stage to the pipeline with a custom projection.
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <typeparam name="TNewResult">The type of the new result.</typeparam>
+            <param name="groupBy">The expression providing the value to group by.</param>
+            <param name="buckets">The number of buckets.</param>
+            <param name="output">The output projection.</param>
+            <param name="options">The options (optional).</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluent`1.Count">
+            <summary>
+            Appends a count stage to the pipeline.
+            </summary>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluent`1.Facet``1(System.Collections.Generic.IEnumerable{MongoDB.Driver.AggregateFacet{`0}},MongoDB.Driver.AggregateFacetOptions{``0})">
+            <summary>
+            Appends a $facet stage to the pipeline.
+            </summary>
+            <typeparam name="TNewResult">The type of the new result.</typeparam>
+            <param name="facets">The facets.</param>
+            <param name="options">The options.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluent`1.GraphLookup``7(MongoDB.Driver.IMongoCollection{``0},MongoDB.Driver.FieldDefinition{``0,``1},MongoDB.Driver.FieldDefinition{``0,``2},MongoDB.Driver.AggregateExpressionDefinition{`0,``3},MongoDB.Driver.FieldDefinition{``6,``5},MongoDB.Driver.FieldDefinition{``4,System.Int32},MongoDB.Driver.AggregateGraphLookupOptions{``0,``4,``6})">
+            <summary>
+            Appends a $graphLookup stage to the pipeline.
+            </summary>
+            <typeparam name="TFrom">The type of the from documents.</typeparam>
+            <typeparam name="TConnectFrom">The type of the connect from field (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TConnectTo">The type of the connect to field.</typeparam>
+            <typeparam name="TStartWith">The type of the start with expression (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TAsElement">The type of the as field elements.</typeparam>
+            <typeparam name="TAs">The type of the as field.</typeparam>
+            <typeparam name="TNewResult">The type of the new result (must be same as TResult with an additional as field).</typeparam>
+            <param name="from">The from collection.</param>
+            <param name="connectFromField">The connect from field.</param>
+            <param name="connectToField">The connect to field.</param>
+            <param name="startWith">The start with value.</param>
+            <param name="as">The as field.</param>
+            <param name="depthField">The depth field.</param>
+            <param name="options">The options.</param>
             <returns>The fluent aggregate interface.</returns>
         </member>
         <member name="M:MongoDB.Driver.IAggregateFluent`1.Group``1(MongoDB.Driver.ProjectionDefinition{`0,``0})">
@@ -2492,6 +3379,14 @@
             The fluent aggregate interface.
             </returns>
         </member>
+        <member name="M:MongoDB.Driver.IAggregateFluent`1.ReplaceRoot``1(MongoDB.Driver.AggregateExpressionDefinition{`0,``0})">
+            <summary>
+            Appends a $replaceRoot stage to the pipeline.
+            </summary>
+            <typeparam name="TNewResult">The type of the new result.</typeparam>
+            <param name="newRoot">The new root.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
         <member name="M:MongoDB.Driver.IAggregateFluent`1.Skip(System.Int32)">
             <summary>
             Appends a skip stage to the pipeline.
@@ -2504,6 +3399,14 @@
             Appends a sort stage to the pipeline.
             </summary>
             <param name="sort">The sort specification.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluent`1.SortByCount``1(MongoDB.Driver.AggregateExpressionDefinition{`0,``0})">
+            <summary>
+            Appends a sortByCount stage to the pipeline.
+            </summary>
+            <typeparam name="TId">The type of the identifier.</typeparam>
+            <param name="id">The identifier.</param>
             <returns>The fluent aggregate interface.</returns>
         </member>
         <member name="M:MongoDB.Driver.IAggregateFluent`1.Unwind``1(MongoDB.Driver.FieldDefinition{`0},MongoDB.Bson.Serialization.IBsonSerializer{``0})">
@@ -2532,10 +3435,176 @@
             </summary>
             <typeparam name="TResult">The type of the result.</typeparam>
         </member>
+        <member name="M:MongoDB.Driver.IOrderedAggregateFluent`1.ThenBy(MongoDB.Driver.SortDefinition{`0})">
+            <summary>
+            Combines the current sort definition with an additional sort definition.
+            </summary>
+            <param name="newSort">The new sort.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
         <member name="T:MongoDB.Driver.IAggregateFluentExtensions">
             <summary>
             Extension methods for <see cref="T:MongoDB.Driver.IAggregateFluent`1"/>
             </summary>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluentExtensions.Bucket``2(MongoDB.Driver.IAggregateFluent{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Collections.Generic.IEnumerable{``1},MongoDB.Driver.AggregateBucketOptions{``1})">
+            <summary>
+            Appends a $bucket stage to the pipeline.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="aggregate">The aggregate.</param>
+            <param name="groupBy">The expression providing the value to group by.</param>
+            <param name="boundaries">The bucket boundaries.</param>
+            <param name="options">The options.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluentExtensions.Bucket``3(MongoDB.Driver.IAggregateFluent{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Collections.Generic.IEnumerable{``1},System.Linq.Expressions.Expression{System.Func{System.Linq.IGrouping{``1,``0},``2}},MongoDB.Driver.AggregateBucketOptions{``1})">
+            <summary>
+            Appends a $bucket stage to the pipeline.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <typeparam name="TNewResult">The type of the new result.</typeparam>
+            <param name="aggregate">The aggregate.</param>
+            <param name="groupBy">The expression providing the value to group by.</param>
+            <param name="boundaries">The bucket boundaries.</param>
+            <param name="output">The output projection.</param>
+            <param name="options">The options.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluentExtensions.BucketAuto``2(MongoDB.Driver.IAggregateFluent{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,MongoDB.Driver.AggregateBucketAutoOptions)">
+            <summary>
+            Appends a $bucketAuto stage to the pipeline.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="aggregate">The aggregate.</param>
+            <param name="groupBy">The expression providing the value to group by.</param>
+            <param name="buckets">The number of buckets.</param>
+            <param name="options">The options (optional).</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluentExtensions.BucketAuto``3(MongoDB.Driver.IAggregateFluent{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Linq.Expressions.Expression{System.Func{System.Linq.IGrouping{``1,``0},``2}},MongoDB.Driver.AggregateBucketAutoOptions)">
+            <summary>
+            Appends a $bucketAuto stage to the pipeline.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <typeparam name="TNewResult">The type of the new result.</typeparam>
+            <param name="aggregate">The aggregate.</param>
+            <param name="groupBy">The expression providing the value to group by.</param>
+            <param name="buckets">The number of buckets.</param>
+            <param name="output">The output projection.</param>
+            <param name="options">The options (optional).</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluentExtensions.Facet``1(MongoDB.Driver.IAggregateFluent{``0},System.Collections.Generic.IEnumerable{MongoDB.Driver.AggregateFacet{``0}})">
+            <summary>
+            Appends a $facet stage to the pipeline.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <param name="aggregate">The aggregate.</param>
+            <param name="facets">The facets.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluentExtensions.Facet``1(MongoDB.Driver.IAggregateFluent{``0},MongoDB.Driver.AggregateFacet{``0}[])">
+            <summary>
+            Appends a $facet stage to the pipeline.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <param name="aggregate">The aggregate.</param>
+            <param name="facets">The facets.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluentExtensions.Facet``2(MongoDB.Driver.IAggregateFluent{``0},MongoDB.Driver.AggregateFacet{``0}[])">
+            <summary>
+            Appends a $facet stage to the pipeline.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TNewResult">The type of the new result.</typeparam>
+            <param name="aggregate">The aggregate.</param>
+            <param name="facets">The facets.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluentExtensions.GraphLookup``7(MongoDB.Driver.IAggregateFluent{``0},MongoDB.Driver.IMongoCollection{``1},MongoDB.Driver.FieldDefinition{``1,``2},MongoDB.Driver.FieldDefinition{``1,``3},MongoDB.Driver.AggregateExpressionDefinition{``0,``4},MongoDB.Driver.FieldDefinition{``6,``5},MongoDB.Driver.AggregateGraphLookupOptions{``1,``1,``6})">
+            <summary>
+            Appends a $graphLookup stage to the pipeline.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TFrom">The type of the from documents.</typeparam>
+            <typeparam name="TConnectFrom">The type of the connect from field (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TConnectTo">The type of the connect to field.</typeparam>
+            <typeparam name="TStartWith">The type of the start with expression (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TAs">The type of the as field.</typeparam>
+            <typeparam name="TNewResult">The type of the new result (must be same as TResult with an additional as field).</typeparam>
+            <param name="aggregate">The aggregate.</param>
+            <param name="from">The from collection.</param>
+            <param name="connectFromField">The connect from field.</param>
+            <param name="connectToField">The connect to field.</param>
+            <param name="startWith">The start with value.</param>
+            <param name="as">The as field.</param>
+            <param name="options">The options.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluentExtensions.GraphLookup``2(MongoDB.Driver.IAggregateFluent{``0},MongoDB.Driver.IMongoCollection{``1},MongoDB.Driver.FieldDefinition{``1,MongoDB.Bson.BsonValue},MongoDB.Driver.FieldDefinition{``1,MongoDB.Bson.BsonValue},MongoDB.Driver.AggregateExpressionDefinition{``0,MongoDB.Bson.BsonValue},MongoDB.Driver.FieldDefinition{MongoDB.Bson.BsonDocument,System.Collections.Generic.IEnumerable{MongoDB.Bson.BsonDocument}},MongoDB.Driver.FieldDefinition{MongoDB.Bson.BsonDocument,System.Int32})">
+            <summary>
+            Appends a $graphLookup stage to the pipeline.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TFrom">The type of the from documents.</typeparam>
+            <param name="aggregate">The aggregate.</param>
+            <param name="from">The from collection.</param>
+            <param name="connectFromField">The connect from field.</param>
+            <param name="connectToField">The connect to field.</param>
+            <param name="startWith">The start with value.</param>
+            <param name="as">The as field.</param>
+            <param name="depthField">The depth field.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluentExtensions.GraphLookup``7(MongoDB.Driver.IAggregateFluent{``0},MongoDB.Driver.IMongoCollection{``1},System.Linq.Expressions.Expression{System.Func{``1,``2}},System.Linq.Expressions.Expression{System.Func{``1,``3}},System.Linq.Expressions.Expression{System.Func{``0,``4}},System.Linq.Expressions.Expression{System.Func{``6,``5}},MongoDB.Driver.AggregateGraphLookupOptions{``1,``1,``6})">
+            <summary>
+            Appends a $graphLookup stage to the pipeline.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TNewResult">The type of the new result (must be same as TResult with an additional as field).</typeparam>
+            <typeparam name="TFrom">The type of the from documents.</typeparam>
+            <typeparam name="TConnectFrom">The type of the connect from field (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TConnectTo">The type of the connect to field.</typeparam>
+            <typeparam name="TStartWith">The type of the start with expression (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TAs">The type of the as field.</typeparam>
+            <param name="aggregate">The aggregate.</param>
+            <param name="from">The from collection.</param>
+            <param name="connectFromField">The connect from field.</param>
+            <param name="connectToField">The connect to field.</param>
+            <param name="startWith">The start with value.</param>
+            <param name="as">The as field.</param>
+            <param name="options">The options.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluentExtensions.GraphLookup``8(MongoDB.Driver.IAggregateFluent{``0},MongoDB.Driver.IMongoCollection{``1},System.Linq.Expressions.Expression{System.Func{``1,``2}},System.Linq.Expressions.Expression{System.Func{``1,``3}},System.Linq.Expressions.Expression{System.Func{``0,``4}},System.Linq.Expressions.Expression{System.Func{``7,``6}},System.Linq.Expressions.Expression{System.Func{``5,System.Int32}},MongoDB.Driver.AggregateGraphLookupOptions{``1,``5,``7})">
+            <summary>
+            Appends a $graphLookup stage to the pipeline.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TFrom">The type of the from documents.</typeparam>
+            <typeparam name="TConnectFrom">The type of the connect from field (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TConnectTo">The type of the connect to field.</typeparam>
+            <typeparam name="TStartWith">The type of the start with expression (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TAsElement">The type of the as field elements.</typeparam>
+            <typeparam name="TAs">The type of the as field.</typeparam>
+            <typeparam name="TNewResult">The type of the new result (must be same as TResult with an additional as field).</typeparam>
+            <param name="aggregate">The aggregate.</param>
+            <param name="from">The from collection.</param>
+            <param name="connectFromField">The connect from field.</param>
+            <param name="connectToField">The connect to field.</param>
+            <param name="startWith">The start with value.</param>
+            <param name="as">The as field.</param>
+            <param name="depthField">The depth field.</param>
+            <param name="options">The options.</param>
+            <returns>The fluent aggregate interface.</returns>
         </member>
         <member name="M:MongoDB.Driver.IAggregateFluentExtensions.Group``1(MongoDB.Driver.IAggregateFluent{``0},MongoDB.Driver.ProjectionDefinition{``0,MongoDB.Bson.BsonDocument})">
             <summary>
@@ -2623,6 +3692,18 @@
             The fluent aggregate interface.
             </returns>
         </member>
+        <member name="M:MongoDB.Driver.IAggregateFluentExtensions.ReplaceRoot``2(MongoDB.Driver.IAggregateFluent{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Appends a $replaceRoot stage to the pipeline.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TNewResult">The type of the new result.</typeparam>
+            <param name="aggregate">The aggregate.</param>
+            <param name="newRoot">The new root.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
         <member name="M:MongoDB.Driver.IAggregateFluentExtensions.SortBy``1(MongoDB.Driver.IAggregateFluent{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
             <summary>
             Appends an ascending sort stage to the pipeline.
@@ -2630,6 +3711,18 @@
             <typeparam name="TResult">The type of the result.</typeparam>
             <param name="aggregate">The aggregate.</param>
             <param name="field">The field to sort by.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.IAggregateFluentExtensions.SortByCount``2(MongoDB.Driver.IAggregateFluent{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Appends a sortByCount stage to the pipeline.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <param name="aggregate">The aggregate.</param>
+            <param name="id">The id.</param>
             <returns>
             The fluent aggregate interface.
             </returns>
@@ -3098,6 +4191,27 @@
             <param name="cancellationToken">The cancellation token.</param>
             <returns>A Task whose result is a cursor.</returns>
         </member>
+        <member name="M:MongoDB.Driver.IMongoClient.WithReadConcern(MongoDB.Driver.ReadConcern)">
+            <summary>
+            Returns a new IMongoClient instance with a different read concern setting.
+            </summary>
+            <param name="readConcern">The read concern.</param>
+            <returns>A new IMongoClient instance with a different read concern setting.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IMongoClient.WithReadPreference(MongoDB.Driver.ReadPreference)">
+            <summary>
+            Returns a new IMongoClient instance with a different read preference setting.
+            </summary>
+            <param name="readPreference">The read preference.</param>
+            <returns>A new IMongoClient instance with a different read preference setting.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IMongoClient.WithWriteConcern(MongoDB.Driver.WriteConcern)">
+            <summary>
+            Returns a new IMongoClient instance with a different write concern setting.
+            </summary>
+            <param name="writeConcern">The write concern.</param>
+            <returns>A new IMongoClient instance with a different write concern setting.</returns>
+        </member>
         <member name="T:MongoDB.Driver.IMongoCollection`1">
             <summary>
             Represents a typed collection in MongoDB.
@@ -3203,11 +4317,33 @@
             The result of the delete operation.
             </returns>
         </member>
+        <member name="M:MongoDB.Driver.IMongoCollection`1.DeleteMany(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+            <summary>
+            Deletes multiple documents.
+            </summary>
+            <param name="filter">The filter.</param>
+            <param name="options">The options.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            The result of the delete operation.
+            </returns>
+        </member>
         <member name="M:MongoDB.Driver.IMongoCollection`1.DeleteManyAsync(MongoDB.Driver.FilterDefinition{`0},System.Threading.CancellationToken)">
             <summary>
             Deletes multiple documents.
             </summary>
             <param name="filter">The filter.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            The result of the delete operation.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.IMongoCollection`1.DeleteManyAsync(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+            <summary>
+            Deletes multiple documents.
+            </summary>
+            <param name="filter">The filter.</param>
+            <param name="options">The options.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <returns>
             The result of the delete operation.
@@ -3223,11 +4359,33 @@
             The result of the delete operation.
             </returns>
         </member>
+        <member name="M:MongoDB.Driver.IMongoCollection`1.DeleteOne(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a single document.
+            </summary>
+            <param name="filter">The filter.</param>
+            <param name="options">The options.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            The result of the delete operation.
+            </returns>
+        </member>
         <member name="M:MongoDB.Driver.IMongoCollection`1.DeleteOneAsync(MongoDB.Driver.FilterDefinition{`0},System.Threading.CancellationToken)">
             <summary>
             Deletes a single document.
             </summary>
             <param name="filter">The filter.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            The result of the delete operation.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.IMongoCollection`1.DeleteOneAsync(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a single document.
+            </summary>
+            <param name="filter">The filter.</param>
+            <param name="options">The options.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <returns>
             The result of the delete operation.
@@ -3503,24 +4661,24 @@
         </member>
         <member name="M:MongoDB.Driver.IMongoCollection`1.WithReadConcern(MongoDB.Driver.ReadConcern)">
             <summary>
-            Returns a new collection with a different read concern.
+            Returns a new IMongoCollection instance with a different read concern setting.
             </summary>
             <param name="readConcern">The read concern.</param>
-            <returns>A new collection.</returns>
+            <returns>A new IMongoCollection instance with a different read concern setting.</returns>
         </member>
         <member name="M:MongoDB.Driver.IMongoCollection`1.WithReadPreference(MongoDB.Driver.ReadPreference)">
             <summary>
-            Returns a new collection with a different read preference.
+            Returns a new IMongoCollection instance with a different read preference setting.
             </summary>
             <param name="readPreference">The read preference.</param>
-            <returns>A new collection.</returns>
+            <returns>A new IMongoCollection instance with a different read preference setting.</returns>
         </member>
         <member name="M:MongoDB.Driver.IMongoCollection`1.WithWriteConcern(MongoDB.Driver.WriteConcern)">
             <summary>
-            Returns a new collection with a different write concern.
+            Returns a new IMongoCollection instance with a different write concern setting.
             </summary>
             <param name="writeConcern">The write concern.</param>
-            <returns>A new collection.</returns>
+            <returns>A new IMongoCollection instance with a different write concern setting.</returns>
         </member>
         <member name="T:MongoDB.Driver.IMongoCollectionExtensions">
             <summary>
@@ -3585,6 +4743,19 @@
             The result of the delete operation.
             </returns>
         </member>
+        <member name="M:MongoDB.Driver.IMongoCollectionExtensions.DeleteMany``1(MongoDB.Driver.IMongoCollection{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+            <summary>
+            Deletes multiple documents.
+            </summary>
+            <typeparam name="TDocument">The type of the document.</typeparam>
+            <param name="collection">The collection.</param>
+            <param name="filter">The filter.</param>
+            <param name="options">The options.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            The result of the delete operation.
+            </returns>
+        </member>
         <member name="M:MongoDB.Driver.IMongoCollectionExtensions.DeleteManyAsync``1(MongoDB.Driver.IMongoCollection{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.CancellationToken)">
             <summary>
             Deletes multiple documents.
@@ -3592,6 +4763,19 @@
             <typeparam name="TDocument">The type of the document.</typeparam>
             <param name="collection">The collection.</param>
             <param name="filter">The filter.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            The result of the delete operation.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.IMongoCollectionExtensions.DeleteManyAsync``1(MongoDB.Driver.IMongoCollection{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+            <summary>
+            Deletes multiple documents.
+            </summary>
+            <typeparam name="TDocument">The type of the document.</typeparam>
+            <param name="collection">The collection.</param>
+            <param name="filter">The filter.</param>
+            <param name="options">The options.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <returns>
             The result of the delete operation.
@@ -3609,6 +4793,19 @@
             The result of the delete operation.
             </returns>
         </member>
+        <member name="M:MongoDB.Driver.IMongoCollectionExtensions.DeleteOne``1(MongoDB.Driver.IMongoCollection{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a single document.
+            </summary>
+            <typeparam name="TDocument">The type of the document.</typeparam>
+            <param name="collection">The collection.</param>
+            <param name="filter">The filter.</param>
+            <param name="options">The options.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            The result of the delete operation.
+            </returns>
+        </member>
         <member name="M:MongoDB.Driver.IMongoCollectionExtensions.DeleteOneAsync``1(MongoDB.Driver.IMongoCollection{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.CancellationToken)">
             <summary>
             Deletes a single document.
@@ -3616,6 +4813,19 @@
             <typeparam name="TDocument">The type of the document.</typeparam>
             <param name="collection">The collection.</param>
             <param name="filter">The filter.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            The result of the delete operation.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.IMongoCollectionExtensions.DeleteOneAsync``1(MongoDB.Driver.IMongoCollection{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a single document.
+            </summary>
+            <typeparam name="TDocument">The type of the document.</typeparam>
+            <param name="collection">The collection.</param>
+            <param name="filter">The filter.</param>
+            <param name="options">The options.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <returns>
             The result of the delete operation.
@@ -4156,6 +5366,31 @@
             <param name="cancellationToken">The cancellation token.</param>
             <returns>A task.</returns>
         </member>
+        <member name="M:MongoDB.Driver.IMongoDatabase.CreateView``2(System.String,System.String,MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.CreateViewOptions{``0},System.Threading.CancellationToken)">
+            <summary>
+            Creates a view.
+            </summary>
+            <typeparam name="TDocument">The type of the input documents.</typeparam>
+            <typeparam name="TResult">The type of the pipeline result documents.</typeparam>
+            <param name="viewName">The name of the view.</param>
+            <param name="viewOn">The name of the collection that the view is on.</param>
+            <param name="pipeline">The pipeline.</param>
+            <param name="options">The options.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:MongoDB.Driver.IMongoDatabase.CreateViewAsync``2(System.String,System.String,MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.CreateViewOptions{``0},System.Threading.CancellationToken)">
+            <summary>
+            Creates a view.
+            </summary>
+            <typeparam name="TDocument">The type of the input documents.</typeparam>
+            <typeparam name="TResult">The type of the pipeline result documents.</typeparam>
+            <param name="viewName">The name of the view.</param>
+            <param name="viewOn">The name of the collection that the view is on.</param>
+            <param name="pipeline">The pipeline.</param>
+            <param name="options">The options.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A task.</returns>
+        </member>
         <member name="M:MongoDB.Driver.IMongoDatabase.DropCollection(System.String,System.Threading.CancellationToken)">
             <summary>
             Drops the collection with the specified name.
@@ -4238,6 +5473,27 @@
             <returns>
             The result of the command.
             </returns>
+        </member>
+        <member name="M:MongoDB.Driver.IMongoDatabase.WithReadConcern(MongoDB.Driver.ReadConcern)">
+            <summary>
+            Returns a new IMongoDatabase instance with a different read concern setting.
+            </summary>
+            <param name="readConcern">The read concern.</param>
+            <returns>A new IMongoDatabase instance with a different read concern setting.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IMongoDatabase.WithReadPreference(MongoDB.Driver.ReadPreference)">
+            <summary>
+            Returns a new IMongoDatabase instance with a different read preference setting.
+            </summary>
+            <param name="readPreference">The read preference.</param>
+            <returns>A new IMongoDatabase instance with a different read preference setting.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.IMongoDatabase.WithWriteConcern(MongoDB.Driver.WriteConcern)">
+            <summary>
+            Returns a new IMongoDatabase instance with a different write concern setting.
+            </summary>
+            <param name="writeConcern">The write concern.</param>
+            <returns>A new IMongoDatabase instance with a different write concern setting.</returns>
         </member>
         <member name="T:MongoDB.Driver.IMongoIndexManager`1">
             <summary>
@@ -4795,6 +6051,11 @@
             Gets or sets a value indicating whether to bypass document validation.
             </summary>
         </member>
+        <member name="P:MongoDB.Driver.MapReduceOptions`2.Collation">
+            <summary>
+            Gets or sets the collation.
+            </summary>
+        </member>
         <member name="P:MongoDB.Driver.MapReduceOptions`2.Filter">
             <summary>
             Gets or sets the filter.
@@ -4982,6 +6243,15 @@
         <member name="M:MongoDB.Driver.MongoClient.ListDatabasesAsync(System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
+        <member name="M:MongoDB.Driver.MongoClient.WithReadConcern(MongoDB.Driver.ReadConcern)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Driver.MongoClient.WithReadPreference(MongoDB.Driver.ReadPreference)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Driver.MongoClient.WithWriteConcern(MongoDB.Driver.WriteConcern)">
+            <inheritdoc/>
+        </member>
         <member name="T:MongoDB.Driver.MongoClientBase">
             <summary>
             Base class for implementors of <see cref="T:MongoDB.Driver.IMongoClient"/>.
@@ -5008,6 +6278,15 @@
         <member name="M:MongoDB.Driver.MongoClientBase.ListDatabasesAsync(System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
+        <member name="M:MongoDB.Driver.MongoClientBase.WithReadConcern(MongoDB.Driver.ReadConcern)">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.MongoClientBase.WithReadPreference(MongoDB.Driver.ReadPreference)">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.MongoClientBase.WithWriteConcern(MongoDB.Driver.WriteConcern)">
+            <inheritdoc />
+        </member>
         <member name="T:MongoDB.Driver.MongoClientSettings">
             <summary>
             The settings for a MongoDB client.
@@ -5016,6 +6295,11 @@
         <member name="M:MongoDB.Driver.MongoClientSettings.#ctor">
             <summary>
             Creates a new instance of MongoClientSettings. Usually you would use a connection string instead.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.MongoClientSettings.ApplicationName">
+            <summary>
+            Gets or sets the application name.
             </summary>
         </member>
         <member name="P:MongoDB.Driver.MongoClientSettings.ClusterConfigurator">
@@ -5046,6 +6330,16 @@
         <member name="P:MongoDB.Driver.MongoClientSettings.IsFrozen">
             <summary>
             Gets a value indicating whether the settings have been frozen to prevent further changes.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.MongoClientSettings.HeartbeatInterval">
+            <summary>
+            Gets or sets the heartbeat interval.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.MongoClientSettings.HeartbeatTimeout">
+            <summary>
+            Gets or sets the heartbeat timeout.
             </summary>
         </member>
         <member name="P:MongoDB.Driver.MongoClientSettings.IPv6">
@@ -5270,13 +6564,25 @@
         <member name="M:MongoDB.Driver.MongoCollectionBase`1.DeleteMany(MongoDB.Driver.FilterDefinition{`0},System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
+        <member name="M:MongoDB.Driver.MongoCollectionBase`1.DeleteMany(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
         <member name="M:MongoDB.Driver.MongoCollectionBase`1.DeleteManyAsync(MongoDB.Driver.FilterDefinition{`0},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.MongoCollectionBase`1.DeleteManyAsync(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
         <member name="M:MongoDB.Driver.MongoCollectionBase`1.DeleteOne(MongoDB.Driver.FilterDefinition{`0},System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
+        <member name="M:MongoDB.Driver.MongoCollectionBase`1.DeleteOne(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
         <member name="M:MongoDB.Driver.MongoCollectionBase`1.DeleteOneAsync(MongoDB.Driver.FilterDefinition{`0},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.MongoCollectionBase`1.DeleteOneAsync(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
         <member name="M:MongoDB.Driver.MongoCollectionBase`1.Distinct``1(MongoDB.Driver.FieldDefinition{`0,``0},MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DistinctOptions,System.Threading.CancellationToken)">
@@ -5734,6 +7040,12 @@
         <member name="M:MongoDB.Driver.MongoDatabaseBase.CreateCollectionAsync(System.String,MongoDB.Driver.CreateCollectionOptions,System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
+        <member name="M:MongoDB.Driver.MongoDatabaseBase.CreateView``2(System.String,System.String,MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.CreateViewOptions{``0},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.MongoDatabaseBase.CreateViewAsync``2(System.String,System.String,MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.CreateViewOptions{``0},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
         <member name="M:MongoDB.Driver.MongoDatabaseBase.DropCollection(System.String,System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
@@ -5759,6 +7071,15 @@
             <inheritdoc />
         </member>
         <member name="M:MongoDB.Driver.MongoDatabaseBase.RunCommandAsync``1(MongoDB.Driver.Command{``0},MongoDB.Driver.ReadPreference,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.MongoDatabaseBase.WithReadConcern(MongoDB.Driver.ReadConcern)">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.MongoDatabaseBase.WithReadPreference(MongoDB.Driver.ReadPreference)">
+            <inheritdoc />
+        </member>
+        <member name="M:MongoDB.Driver.MongoDatabaseBase.WithWriteConcern(MongoDB.Driver.WriteConcern)">
             <inheritdoc />
         </member>
         <member name="T:MongoDB.Driver.MongoDatabaseSettings">
@@ -6112,12 +7433,13 @@
             Represents an identity in MongoDB.
             </summary>
         </member>
-        <member name="M:MongoDB.Driver.MongoIdentity.#ctor(System.String,System.String)">
+        <member name="M:MongoDB.Driver.MongoIdentity.#ctor(System.String,System.String,System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:MongoDB.Driver.MongoIdentity" /> class.
             </summary>
             <param name="source">The source.</param>
             <param name="username">The username.</param>
+            <param name="allowNullUsername">Whether to allow null usernames.</param>
         </member>
         <member name="P:MongoDB.Driver.MongoIdentity.Source">
             <summary>
@@ -6367,6 +7689,11 @@
             </summary>
             <param name="url">The URL containing the settings.</param>
         </member>
+        <member name="P:MongoDB.Driver.MongoUrl.ApplicationName">
+            <summary>
+            Gets the application name.
+            </summary>
+        </member>
         <member name="P:MongoDB.Driver.MongoUrl.AuthenticationMechanism">
             <summary>
             Gets the authentication mechanism.
@@ -6410,6 +7737,21 @@
         <member name="P:MongoDB.Driver.MongoUrl.GuidRepresentation">
             <summary>
             Gets the representation to use for Guids.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.MongoUrl.HasAuthenticationSettings">
+            <summary>
+            Gets a value indicating whether this instance has authentication settings.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.MongoUrl.HeartbeatInterval">
+            <summary>
+            Gets the heartbeat interval.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.MongoUrl.HeartbeatTimeout">
+            <summary>
+            Gets the heartbeat timeout.
             </summary>
         </member>
         <member name="P:MongoDB.Driver.MongoUrl.IPv6">
@@ -6575,6 +7917,12 @@
             <param name="obj">The other URL.</param>
             <returns>True if the two URLs are equal.</returns>
         </member>
+        <member name="M:MongoDB.Driver.MongoUrl.GetCredential">
+            <summary>
+            Gets the credential.
+            </summary>
+            <returns>The credential (or null if the URL has not authentication settings).</returns>
+        </member>
         <member name="M:MongoDB.Driver.MongoUrl.GetHashCode">
             <summary>
             Gets the hash code.
@@ -6610,6 +7958,11 @@
             Creates a new instance of MongoUrlBuilder.
             </summary>
             <param name="url">The initial settings.</param>
+        </member>
+        <member name="P:MongoDB.Driver.MongoUrlBuilder.ApplicationName">
+            <summary>
+            Gets or sets the application name.
+            </summary>
         </member>
         <member name="P:MongoDB.Driver.MongoUrlBuilder.AuthenticationMechanism">
             <summary>
@@ -6654,6 +8007,16 @@
         <member name="P:MongoDB.Driver.MongoUrlBuilder.GuidRepresentation">
             <summary>
             Gets or sets the representation to use for Guids.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.MongoUrlBuilder.HeartbeatInterval">
+            <summary>
+            Gets or sets the heartbeat interval.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.MongoUrlBuilder.HeartbeatTimeout">
+            <summary>
+            Gets or sets the heartbeat timeout.
             </summary>
         </member>
         <member name="P:MongoDB.Driver.MongoUrlBuilder.IPv6">
@@ -6854,6 +8217,17 @@
             Gets the write error.
             </summary>
         </member>
+        <member name="T:MongoDB.Driver.MongoX509Identity">
+            <summary>
+            Represents an identity defined by an X509 certificate.
+            </summary>
+        </member>
+        <member name="M:MongoDB.Driver.MongoX509Identity.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.MongoExternalIdentity" /> class.
+            </summary>
+            <param name="username">The username.</param>
+        </member>
         <member name="T:MongoDB.Driver.PasswordEvidence">
             <summary>
             Evidence of a MongoIdentity via a shared secret.
@@ -6935,6 +8309,16 @@
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
         </member>
+        <member name="P:MongoDB.Driver.PipelineDefinition`2.OutputSerializer">
+            <summary>
+            Gets the output serializer.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.PipelineDefinition`2.Stages">
+            <summary>
+            Gets the stages.
+            </summary>
+        </member>
         <member name="M:MongoDB.Driver.PipelineDefinition`2.Render(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
             <summary>
             Renders the pipeline.
@@ -6942,6 +8326,57 @@
             <param name="inputSerializer">The input serializer.</param>
             <param name="serializerRegistry">The serializer registry.</param>
             <returns>A <see cref="T:MongoDB.Driver.RenderedPipelineDefinition`1"/></returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinition`2.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinition`2.ToString(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <param name="inputSerializer">The input serializer.</param>
+            <param name="serializerRegistry">The serializer registry.</param>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinition`2.Create(System.Collections.Generic.IEnumerable{MongoDB.Driver.IPipelineStageDefinition},MongoDB.Bson.Serialization.IBsonSerializer{`1})">
+            <summary>
+            Creates a pipeline.
+            </summary>
+            <param name="stages">The stages.</param>
+            <param name="outputSerializer">The output serializer.</param>
+            <returns>A <see cref="T:MongoDB.Driver.PipelineDefinition`2"/>.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinition`2.Create(System.Collections.Generic.IEnumerable{MongoDB.Bson.BsonDocument},MongoDB.Bson.Serialization.IBsonSerializer{`1})">
+            <summary>
+            Creates a pipeline.
+            </summary>
+            <param name="stages">The stages.</param>
+            <param name="outputSerializer">The output serializer.</param>
+            <returns>A <see cref="T:MongoDB.Driver.PipelineDefinition`2"/>.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinition`2.Create(System.Collections.Generic.IEnumerable{System.String},MongoDB.Bson.Serialization.IBsonSerializer{`1})">
+            <summary>
+            Creates a pipeline.
+            </summary>
+            <param name="stages">The stages.</param>
+            <param name="outputSerializer">The output serializer.</param>
+            <returns>A <see cref="T:MongoDB.Driver.PipelineDefinition`2"/>.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinition`2.Create(MongoDB.Bson.BsonDocument[])">
+            <summary>
+            Creates a pipeline.
+            </summary>
+            <param name="stages">The stages.</param>
+            <returns>A <see cref="T:MongoDB.Driver.PipelineDefinition`2"/>.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinition`2.Create(System.String[])">
+            <summary>
+            Creates a pipeline.
+            </summary>
+            <param name="stages">The stages.</param>
+            <returns>A <see cref="T:MongoDB.Driver.PipelineDefinition`2"/>.</returns>
         </member>
         <member name="M:MongoDB.Driver.PipelineDefinition`2.op_Implicit(MongoDB.Driver.IPipelineStageDefinition[])~MongoDB.Driver.PipelineDefinition{`0,`1}">
             <summary>
@@ -6979,34 +8414,6 @@
             The result of the conversion.
             </returns>
         </member>
-        <member name="T:MongoDB.Driver.CombinedPipelineDefinition`3">
-            <summary>
-            A pipeline defined by combining two pipeline definitions.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <typeparam name="TIntermediateOutput">The type of the intermediate output.</typeparam>
-            <typeparam name="TOutput">The type of the output.</typeparam>
-        </member>
-        <member name="M:MongoDB.Driver.CombinedPipelineDefinition`3.#ctor(MongoDB.Driver.PipelineDefinition{`0,`1},MongoDB.Driver.PipelineDefinition{`1,`2})">
-            <summary>
-            Initializes a new instance of the <see cref="T:MongoDB.Driver.CombinedPipelineDefinition`3"/> class.
-            </summary>
-            <param name="first">The first pipeline.</param>
-            <param name="second">The second pipeline.</param>
-        </member>
-        <member name="P:MongoDB.Driver.CombinedPipelineDefinition`3.First">
-            <summary>
-            Gets the first pipeline.
-            </summary>
-        </member>
-        <member name="P:MongoDB.Driver.CombinedPipelineDefinition`3.Second">
-            <summary>
-            Gets the second pipeline.
-            </summary>
-        </member>
-        <member name="M:MongoDB.Driver.CombinedPipelineDefinition`3.Render(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
-            <inheritdoc />
-        </member>
         <member name="T:MongoDB.Driver.BsonDocumentStagePipelineDefinition`2">
             <summary>
             A pipeline composed of instances of <see cref="T:MongoDB.Bson.BsonDocument"/>.
@@ -7021,10 +8428,16 @@
             <param name="stages">The stages.</param>
             <param name="outputSerializer">The output serializer.</param>
         </member>
-        <member name="P:MongoDB.Driver.BsonDocumentStagePipelineDefinition`2.Stages">
+        <member name="P:MongoDB.Driver.BsonDocumentStagePipelineDefinition`2.OutputSerializer">
+            <inheritdoc />
+        </member>
+        <member name="P:MongoDB.Driver.BsonDocumentStagePipelineDefinition`2.Documents">
             <summary>
             Gets the stages.
             </summary>
+        </member>
+        <member name="P:MongoDB.Driver.BsonDocumentStagePipelineDefinition`2.Stages">
+            <inheritdoc />
         </member>
         <member name="M:MongoDB.Driver.BsonDocumentStagePipelineDefinition`2.Render(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
             <inheritdoc />
@@ -7043,6 +8456,9 @@
             <param name="stages">The stages.</param>
             <param name="outputSerializer">The output serializer.</param>
         </member>
+        <member name="P:MongoDB.Driver.PipelineStagePipelineDefinition`2.OutputSerializer">
+            <inheritdoc />
+        </member>
         <member name="P:MongoDB.Driver.PipelineStagePipelineDefinition`2.Serializer">
             <summary>
             Gets the serializer.
@@ -7055,6 +8471,760 @@
         </member>
         <member name="M:MongoDB.Driver.PipelineStagePipelineDefinition`2.Render(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
             <inheritdoc />
+        </member>
+        <member name="P:MongoDB.Driver.OptimizingPipelineDefinition`2.OutputSerializer">
+            <inheritdoc />
+        </member>
+        <member name="P:MongoDB.Driver.OptimizingPipelineDefinition`2.Stages">
+            <inheritdoc />
+        </member>
+        <member name="T:MongoDB.Driver.PipelineDefinitionBuilder">
+            <summary>
+            Extension methods for adding stages to a pipeline.
+            </summary>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.AppendStage``3(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.PipelineStageDefinition{``1,``2},MongoDB.Bson.Serialization.IBsonSerializer{``2})">
+            <summary>
+            Appends a stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="stage">The stage.</param>
+            <param name="outputSerializer">The output serializer.</param>
+            <returns>A new pipeline with an additional stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.As``3(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Bson.Serialization.IBsonSerializer{``2})">
+            <summary>
+            Changes the output type of the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="outputSerializer">The output serializer.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Bucket``3(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.AggregateExpressionDefinition{``1,``2},System.Collections.Generic.IEnumerable{``2},MongoDB.Driver.AggregateBucketOptions{``2})">
+            <summary>
+            Appends a $bucket stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="groupBy">The group by expression.</param>
+            <param name="boundaries">The boundaries.</param>
+            <param name="options">The options.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Bucket``4(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.AggregateExpressionDefinition{``1,``2},System.Collections.Generic.IEnumerable{``2},MongoDB.Driver.ProjectionDefinition{``1,``3},MongoDB.Driver.AggregateBucketOptions{``2})">
+            <summary>
+            Appends a $bucket stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="groupBy">The group by expression.</param>
+            <param name="boundaries">The boundaries.</param>
+            <param name="output">The output projection.</param>
+            <param name="options">The options.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Bucket``3(MongoDB.Driver.PipelineDefinition{``0,``1},System.Linq.Expressions.Expression{System.Func{``1,``2}},System.Collections.Generic.IEnumerable{``2},MongoDB.Driver.AggregateBucketOptions{``2},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Appends a $bucket stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="groupBy">The group by expression.</param>
+            <param name="boundaries">The boundaries.</param>
+            <param name="options">The options.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Bucket``4(MongoDB.Driver.PipelineDefinition{``0,``1},System.Linq.Expressions.Expression{System.Func{``1,``2}},System.Collections.Generic.IEnumerable{``2},System.Linq.Expressions.Expression{System.Func{System.Linq.IGrouping{``2,``1},``3}},MongoDB.Driver.AggregateBucketOptions{``2},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Appends a $bucket stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="groupBy">The group by expression.</param>
+            <param name="boundaries">The boundaries.</param>
+            <param name="output">The output projection.</param>
+            <param name="options">The options.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.BucketAuto``3(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.AggregateExpressionDefinition{``1,``2},System.Int32,MongoDB.Driver.AggregateBucketAutoOptions)">
+            <summary>
+            Appends a $bucketAuto stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="groupBy">The group by expression.</param>
+            <param name="buckets">The number of buckets.</param>
+            <param name="options">The options.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.BucketAuto``4(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.AggregateExpressionDefinition{``1,``2},System.Int32,MongoDB.Driver.ProjectionDefinition{``1,``3},MongoDB.Driver.AggregateBucketAutoOptions)">
+            <summary>
+            Appends a $bucketAuto stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="groupBy">The group by expression.</param>
+            <param name="buckets">The number of buckets.</param>
+            <param name="output">The output projection.</param>
+            <param name="options">The options.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.BucketAuto``3(MongoDB.Driver.PipelineDefinition{``0,``1},System.Linq.Expressions.Expression{System.Func{``1,``2}},System.Int32,MongoDB.Driver.AggregateBucketAutoOptions,MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Appends a $bucketAuto stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="groupBy">The group by expression.</param>
+            <param name="buckets">The number of buckets.</param>
+            <param name="options">The options (optional).</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.BucketAuto``4(MongoDB.Driver.PipelineDefinition{``0,``1},System.Linq.Expressions.Expression{System.Func{``1,``2}},System.Int32,System.Linq.Expressions.Expression{System.Func{System.Linq.IGrouping{``2,``1},``3}},MongoDB.Driver.AggregateBucketAutoOptions,MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Appends a $bucketAuto stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="groupBy">The group by expression.</param>
+            <param name="buckets">The number of buckets.</param>
+            <param name="output">The output projection.</param>
+            <param name="options">The options (optional).</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Count``2(MongoDB.Driver.PipelineDefinition{``0,``1})">
+            <summary>
+            Appends a $count stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Facet``3(MongoDB.Driver.PipelineDefinition{``0,``1},System.Collections.Generic.IEnumerable{MongoDB.Driver.AggregateFacet{``1}},MongoDB.Driver.AggregateFacetOptions{``2})">
+            <summary>
+            Appends a $facet stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="facets">The facets.</param>
+            <param name="options">The options.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Facet``2(MongoDB.Driver.PipelineDefinition{``0,``1},System.Collections.Generic.IEnumerable{MongoDB.Driver.AggregateFacet{``1}})">
+            <summary>
+            Appends a $facet stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="facets">The facets.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Facet``2(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.AggregateFacet{``1}[])">
+            <summary>
+            Appends a $facet stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="facets">The facets.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Facet``3(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.AggregateFacet{``1}[])">
+            <summary>
+            Appends a $facet stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="facets">The facets.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.For``1(MongoDB.Bson.Serialization.IBsonSerializer{``0})">
+            <summary>
+            Used to start creating a pipeline for {TInput} documents.
+            </summary>
+            <typeparam name="TInput">The type of the output.</typeparam>
+            <param name="inputSerializer">The inputSerializer serializer.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.GraphLookup``9(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.IMongoCollection{``2},MongoDB.Driver.FieldDefinition{``2,``3},MongoDB.Driver.FieldDefinition{``2,``4},MongoDB.Driver.AggregateExpressionDefinition{``1,``5},MongoDB.Driver.FieldDefinition{``8,``7},MongoDB.Driver.FieldDefinition{``6,System.Int32},MongoDB.Driver.AggregateGraphLookupOptions{``2,``6,``8})">
+            <summary>
+            Appends a $graphLookup stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TFrom">The type of the from documents.</typeparam>
+            <typeparam name="TConnectFrom">The type of the connect from field (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TConnectTo">The type of the connect to field.</typeparam>
+            <typeparam name="TStartWith">The type of the start with expression (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TAsElement">The type of the as field elements.</typeparam>
+            <typeparam name="TAs">The type of the as field.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="from">The from collection.</param>
+            <param name="connectFromField">The connect from field.</param>
+            <param name="connectToField">The connect to field.</param>
+            <param name="startWith">The start with value.</param>
+            <param name="as">The as field.</param>
+            <param name="depthField">The depth field.</param>
+            <param name="options">The options.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.GraphLookup``8(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.IMongoCollection{``2},MongoDB.Driver.FieldDefinition{``2,``3},MongoDB.Driver.FieldDefinition{``2,``4},MongoDB.Driver.AggregateExpressionDefinition{``1,``5},MongoDB.Driver.FieldDefinition{``7,``6},MongoDB.Driver.AggregateGraphLookupOptions{``2,``2,``7})">
+            <summary>
+            Appends a $graphLookup stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TFrom">The type of the from documents.</typeparam>
+            <typeparam name="TConnectFrom">The type of the connect from field (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TConnectTo">The type of the connect to field.</typeparam>
+            <typeparam name="TStartWith">The type of the start with expression (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TAs">The type of the as field.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="from">The from collection.</param>
+            <param name="connectFromField">The connect from field.</param>
+            <param name="connectToField">The connect to field.</param>
+            <param name="startWith">The start with value.</param>
+            <param name="as">The as field.</param>
+            <param name="options">The options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.GraphLookup``3(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.IMongoCollection{``2},MongoDB.Driver.FieldDefinition{``2,MongoDB.Bson.BsonValue},MongoDB.Driver.FieldDefinition{``2,MongoDB.Bson.BsonValue},MongoDB.Driver.AggregateExpressionDefinition{``1,MongoDB.Bson.BsonValue},MongoDB.Driver.FieldDefinition{MongoDB.Bson.BsonDocument,System.Collections.Generic.IEnumerable{MongoDB.Bson.BsonDocument}},MongoDB.Driver.FieldDefinition{MongoDB.Bson.BsonDocument,System.Int32})">
+            <summary>
+            Appends a $graphLookup stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TFrom">The type of the from documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="from">The from collection.</param>
+            <param name="connectFromField">The connect from field.</param>
+            <param name="connectToField">The connect to field.</param>
+            <param name="startWith">The start with value.</param>
+            <param name="as">The as field.</param>
+            <param name="depthField">The depth field.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.GraphLookup``8(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.IMongoCollection{``2},System.Linq.Expressions.Expression{System.Func{``2,``3}},System.Linq.Expressions.Expression{System.Func{``2,``4}},System.Linq.Expressions.Expression{System.Func{``1,``5}},System.Linq.Expressions.Expression{System.Func{``7,``6}},MongoDB.Driver.AggregateGraphLookupOptions{``2,``2,``7},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Appends a $graphLookup stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TFrom">The type of the from documents.</typeparam>
+            <typeparam name="TConnectFrom">The type of the connect from field (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TConnectTo">The type of the connect to field.</typeparam>
+            <typeparam name="TStartWith">The type of the start with expression (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TAs">The type of the as field.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="from">The from collection.</param>
+            <param name="connectFromField">The connect from field.</param>
+            <param name="connectToField">The connect to field.</param>
+            <param name="startWith">The start with value.</param>
+            <param name="as">The as field.</param>
+            <param name="options">The options.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.GraphLookup``9(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.IMongoCollection{``2},System.Linq.Expressions.Expression{System.Func{``2,``3}},System.Linq.Expressions.Expression{System.Func{``2,``4}},System.Linq.Expressions.Expression{System.Func{``1,``5}},System.Linq.Expressions.Expression{System.Func{``8,``7}},System.Linq.Expressions.Expression{System.Func{``6,System.Int32}},MongoDB.Driver.AggregateGraphLookupOptions{``2,``6,``8},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Appends a $graphLookup stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TFrom">The type of the from documents.</typeparam>
+            <typeparam name="TConnectFrom">The type of the connect from field (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TConnectTo">The type of the connect to field.</typeparam>
+            <typeparam name="TStartWith">The type of the start with expression (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TAsElement">The type of the as field elements.</typeparam>
+            <typeparam name="TAs">The type of the as field.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="from">The from collection.</param>
+            <param name="connectFromField">The connect from field.</param>
+            <param name="connectToField">The connect to field.</param>
+            <param name="startWith">The start with value.</param>
+            <param name="as">The as field.</param>
+            <param name="depthField">The depth field.</param>
+            <param name="options">The options.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Group``3(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.ProjectionDefinition{``1,``2})">
+            <summary>
+            Appends a $group stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="group">The group projection.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Group``2(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.ProjectionDefinition{``1,MongoDB.Bson.BsonDocument})">
+            <summary>
+            Appends a group stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="group">The group projection.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Group``4(MongoDB.Driver.PipelineDefinition{``0,``1},System.Linq.Expressions.Expression{System.Func{``1,``2}},System.Linq.Expressions.Expression{System.Func{System.Linq.IGrouping{``2,``1},``3}},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Appends a group stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="id">The id.</param>
+            <param name="group">The group projection.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Limit``2(MongoDB.Driver.PipelineDefinition{``0,``1},System.Int32)">
+            <summary>
+            Appends a $limit stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="limit">The limit.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Lookup``4(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.IMongoCollection{``2},MongoDB.Driver.FieldDefinition{``1},MongoDB.Driver.FieldDefinition{``2},MongoDB.Driver.FieldDefinition{``3},MongoDB.Driver.AggregateLookupOptions{``2,``3})">
+            <summary>
+            Appends a $lookup stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TForeignDocument">The type of the foreign collection documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="foreignCollection">The foreign collection.</param>
+            <param name="localField">The local field.</param>
+            <param name="foreignField">The foreign field.</param>
+            <param name="as">The "as" field.</param>
+            <param name="options">The options.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Lookup``4(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.IMongoCollection{``2},System.Linq.Expressions.Expression{System.Func{``1,System.Object}},System.Linq.Expressions.Expression{System.Func{``2,System.Object}},System.Linq.Expressions.Expression{System.Func{``3,System.Object}},MongoDB.Driver.AggregateLookupOptions{``2,``3})">
+            <summary>
+            Appends a lookup stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TForeignDocument">The type of the foreign collection documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="foreignCollection">The foreign collection.</param>
+            <param name="localField">The local field.</param>
+            <param name="foreignField">The foreign field.</param>
+            <param name="as">The "as" field.</param>
+            <param name="options">The options.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Match``2(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.FilterDefinition{``1})">
+            <summary>
+            Appends a $match stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="filter">The filter.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Match``2(MongoDB.Driver.PipelineDefinition{``0,``1},System.Linq.Expressions.Expression{System.Func{``1,System.Boolean}})">
+            <summary>
+            Appends a match stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="filter">The filter.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.OfType``3(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Bson.Serialization.IBsonSerializer{``2})">
+            <summary>
+            Appends a $match stage to the pipeline to select documents of a certain type.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="outputSerializer">The output serializer.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Out``2(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.IMongoCollection{``1})">
+            <summary>
+            Appends a $out stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="outputCollection">The output collection.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Project``3(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.ProjectionDefinition{``1,``2})">
+            <summary>
+            Appends a $project stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="projection">The projection.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Project``2(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.ProjectionDefinition{``1,MongoDB.Bson.BsonDocument})">
+            <summary>
+            Appends a project stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="projection">The projection.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Project``3(MongoDB.Driver.PipelineDefinition{``0,``1},System.Linq.Expressions.Expression{System.Func{``1,``2}},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Appends a project stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="projection">The projection.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.ReplaceRoot``3(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.AggregateExpressionDefinition{``1,``2})">
+            <summary>
+            Appends a $replaceRoot stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="newRoot">The new root.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.ReplaceRoot``3(MongoDB.Driver.PipelineDefinition{``0,``1},System.Linq.Expressions.Expression{System.Func{``1,``2}},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Appends a $replaceRoot stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="newRoot">The new root.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Skip``2(MongoDB.Driver.PipelineDefinition{``0,``1},System.Int32)">
+            <summary>
+            Appends a $skip stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="skip">The number of documents to skip.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Sort``2(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.SortDefinition{``1})">
+            <summary>
+            Appends a $sort stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="sort">The sort definition.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.SortByCount``3(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.AggregateExpressionDefinition{``1,``2})">
+            <summary>
+            Appends a $sortByCount stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="value">The value expression.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.SortByCount``3(MongoDB.Driver.PipelineDefinition{``0,``1},System.Linq.Expressions.Expression{System.Func{``1,``2}},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Appends a sortByCount stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="value">The value expression.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Unwind``3(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.FieldDefinition{``1},MongoDB.Driver.AggregateUnwindOptions{``2})">
+            <summary>
+            Appends an $unwind stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="field">The field.</param>
+            <param name="options">The options.</param>
+            <returns>
+            A new pipeline with an additional stage.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Unwind``2(MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.FieldDefinition{``1},MongoDB.Driver.AggregateUnwindOptions{MongoDB.Bson.BsonDocument})">
+            <summary>
+            Appends an unwind stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="field">The field to unwind.</param>
+            <param name="options">The options.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Unwind``2(MongoDB.Driver.PipelineDefinition{``0,``1},System.Linq.Expressions.Expression{System.Func{``1,System.Object}},MongoDB.Driver.AggregateUnwindOptions{MongoDB.Bson.BsonDocument})">
+            <summary>
+            Appends an unwind stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="field">The field to unwind.</param>
+            <param name="options">The options.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineDefinitionBuilder.Unwind``3(MongoDB.Driver.PipelineDefinition{``0,``1},System.Linq.Expressions.Expression{System.Func{``1,System.Object}},MongoDB.Driver.AggregateUnwindOptions{``2})">
+            <summary>
+            Appends an unwind stage to the pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="pipeline">The pipeline.</param>
+            <param name="field">The field to unwind.</param>
+            <param name="options">The options.</param>
+            <returns>
+            The fluent aggregate interface.
+            </returns>
+        </member>
+        <member name="T:MongoDB.Driver.AppendedStagePipelineDefinition`3">
+            <summary>
+            Represents a pipeline consisting of an existing pipeline with one additional stage appended.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+        </member>
+        <member name="M:MongoDB.Driver.AppendedStagePipelineDefinition`3.#ctor(MongoDB.Driver.PipelineDefinition{`0,`1},MongoDB.Driver.PipelineStageDefinition{`1,`2},MongoDB.Bson.Serialization.IBsonSerializer{`2})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.AppendedStagePipelineDefinition`3" /> class.
+            </summary>
+            <param name="pipeline">The pipeline.</param>
+            <param name="stage">The stage.</param>
+            <param name="outputSerializer">The output serializer.</param>
+        </member>
+        <member name="P:MongoDB.Driver.AppendedStagePipelineDefinition`3.OutputSerializer">
+            <inheritdoc/>
+        </member>
+        <member name="P:MongoDB.Driver.AppendedStagePipelineDefinition`3.Stages">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Driver.AppendedStagePipelineDefinition`3.Render(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Driver.EmptyPipelineDefinition`1">
+            <summary>
+            Represents an empty pipeline.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+        </member>
+        <member name="M:MongoDB.Driver.EmptyPipelineDefinition`1.#ctor(MongoDB.Bson.Serialization.IBsonSerializer{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.EmptyPipelineDefinition`1"/> class.
+            </summary>
+            <param name="inputSerializer">The output serializer.</param>
+        </member>
+        <member name="P:MongoDB.Driver.EmptyPipelineDefinition`1.OutputSerializer">
+            <inheritdoc/>
+        </member>
+        <member name="P:MongoDB.Driver.EmptyPipelineDefinition`1.Stages">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Driver.EmptyPipelineDefinition`1.Render(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Driver.PrependedStagePipelineDefinition`3">
+            <summary>
+            Represents a pipeline consisting of an existing pipeline with one additional stage prepended.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+        </member>
+        <member name="M:MongoDB.Driver.PrependedStagePipelineDefinition`3.#ctor(MongoDB.Driver.PipelineStageDefinition{`0,`1},MongoDB.Driver.PipelineDefinition{`1,`2},MongoDB.Bson.Serialization.IBsonSerializer{`2})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.PrependedStagePipelineDefinition`3" /> class.
+            </summary>
+            <param name="stage">The stage.</param>
+            <param name="pipeline">The pipeline.</param>
+            <param name="outputSerializer">The output serializer.</param>
+        </member>
+        <member name="P:MongoDB.Driver.PrependedStagePipelineDefinition`3.OutputSerializer">
+            <inheritdoc/>
+        </member>
+        <member name="P:MongoDB.Driver.PrependedStagePipelineDefinition`3.Stages">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Driver.PrependedStagePipelineDefinition`3.Render(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Driver.ReplaceOutputSerializerPipelineDefinition`3">
+            <summary>
+            Represents a pipeline with the output serializer replaced.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TIntermediate">The type of the intermediate documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <seealso cref="T:MongoDB.Driver.PipelineDefinition`2" />
+        </member>
+        <member name="M:MongoDB.Driver.ReplaceOutputSerializerPipelineDefinition`3.#ctor(MongoDB.Driver.PipelineDefinition{`0,`1},MongoDB.Bson.Serialization.IBsonSerializer{`2})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.ReplaceOutputSerializerPipelineDefinition`3"/> class.
+            </summary>
+            <param name="pipeline">The pipeline.</param>
+            <param name="outputSerializer">The output serializer.</param>
+        </member>
+        <member name="P:MongoDB.Driver.ReplaceOutputSerializerPipelineDefinition`3.OutputSerializer">
+            <inheritdoc/>
+        </member>
+        <member name="P:MongoDB.Driver.ReplaceOutputSerializerPipelineDefinition`3.Stages">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Driver.ReplaceOutputSerializerPipelineDefinition`3.Render(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
+            <inheritdoc/>
         </member>
         <member name="T:MongoDB.Driver.IRenderedPipelineStageDefinition">
             <summary>
@@ -7135,6 +9305,16 @@
             <param name="serializerRegistry">The serializer registry.</param>
             <returns>An <see cref="T:MongoDB.Driver.IRenderedPipelineStageDefinition" /></returns>
         </member>
+        <member name="M:MongoDB.Driver.IPipelineStageDefinition.ToString(MongoDB.Bson.Serialization.IBsonSerializer,MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <param name="inputSerializer">The input serializer.</param>
+            <param name="serializerRegistry">The serializer registry.</param>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
         <member name="T:MongoDB.Driver.PipelineStageDefinition`2">
             <summary>
             Base class for pipeline stages.
@@ -7162,6 +9342,19 @@
             <param name="inputSerializer">The input serializer.</param>
             <param name="serializerRegistry">The serializer registry.</param>
             <returns>A <see cref="T:MongoDB.Driver.RenderedPipelineStageDefinition`1" /></returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinition`2.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinition`2.ToString(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <param name="inputSerializer">The input serializer.</param>
+            <param name="serializerRegistry">The serializer registry.</param>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
         </member>
         <member name="M:MongoDB.Driver.PipelineStageDefinition`2.op_Implicit(MongoDB.Bson.BsonDocument)~MongoDB.Driver.PipelineStageDefinition{`0,`1}">
             <summary>
@@ -7233,6 +9426,466 @@
         </member>
         <member name="M:MongoDB.Driver.JsonPipelineStageDefinition`2.Render(MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Bson.Serialization.IBsonSerializerRegistry)">
             <inheritdoc />
+        </member>
+        <member name="T:MongoDB.Driver.PipelineStageDefinitionBuilder">
+            <summary>
+            Methods for building pipeline stages.
+            </summary>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Bucket``2(MongoDB.Driver.AggregateExpressionDefinition{``0,``1},System.Collections.Generic.IEnumerable{``1},MongoDB.Driver.AggregateBucketOptions{``1})">
+            <summary>
+            Creates a $bucket stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <param name="groupBy">The group by expression.</param>
+            <param name="boundaries">The boundaries.</param>
+            <param name="options">The options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Bucket``3(MongoDB.Driver.AggregateExpressionDefinition{``0,``1},System.Collections.Generic.IEnumerable{``1},MongoDB.Driver.ProjectionDefinition{``0,``2},MongoDB.Driver.AggregateBucketOptions{``1})">
+            <summary>
+            Creates a $bucket stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="groupBy">The group by expression.</param>
+            <param name="boundaries">The boundaries.</param>
+            <param name="output">The output projection.</param>
+            <param name="options">The options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Bucket``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Collections.Generic.IEnumerable{``1},MongoDB.Driver.AggregateBucketOptions{``1},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Creates a $bucket stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <param name="groupBy">The group by expression.</param>
+            <param name="boundaries">The boundaries.</param>
+            <param name="options">The options.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Bucket``3(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Collections.Generic.IEnumerable{``1},System.Linq.Expressions.Expression{System.Func{System.Linq.IGrouping{``1,``0},``2}},MongoDB.Driver.AggregateBucketOptions{``1},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Creates a $bucket stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="groupBy">The group by expression.</param>
+            <param name="boundaries">The boundaries.</param>
+            <param name="output">The output projection.</param>
+            <param name="options">The options.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.BucketAuto``2(MongoDB.Driver.AggregateExpressionDefinition{``0,``1},System.Int32,MongoDB.Driver.AggregateBucketAutoOptions)">
+            <summary>
+            Creates a $bucketAuto stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <param name="groupBy">The group by expression.</param>
+            <param name="buckets">The number of buckets.</param>
+            <param name="options">The options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.BucketAuto``3(MongoDB.Driver.AggregateExpressionDefinition{``0,``1},System.Int32,MongoDB.Driver.ProjectionDefinition{``0,``2},MongoDB.Driver.AggregateBucketAutoOptions)">
+            <summary>
+            Creates a $bucketAuto stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="groupBy">The group by expression.</param>
+            <param name="buckets">The number of buckets.</param>
+            <param name="output">The output projection.</param>
+            <param name="options">The options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.BucketAuto``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,MongoDB.Driver.AggregateBucketAutoOptions,MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Creates a $bucketAuto stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="groupBy">The group by expression.</param>
+            <param name="buckets">The number of buckets.</param>
+            <param name="options">The options (optional).</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.BucketAuto``3(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Linq.Expressions.Expression{System.Func{System.Linq.IGrouping{``1,``0},``2}},MongoDB.Driver.AggregateBucketAutoOptions,MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Creates a $bucketAuto stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TValue">The type of the output documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="groupBy">The group by expression.</param>
+            <param name="buckets">The number of buckets.</param>
+            <param name="output">The output projection.</param>
+            <param name="options">The options (optional).</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Count``1">
+            <summary>
+            Creates a $count stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Facet``2(System.Collections.Generic.IEnumerable{MongoDB.Driver.AggregateFacet{``0}},MongoDB.Driver.AggregateFacetOptions{``1})">
+            <summary>
+            Creates a $facet stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="facets">The facets.</param>
+            <param name="options">The options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Facet``1(System.Collections.Generic.IEnumerable{MongoDB.Driver.AggregateFacet{``0}})">
+            <summary>
+            Creates a $facet stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <param name="facets">The facets.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Facet``1(MongoDB.Driver.AggregateFacet{``0}[])">
+            <summary>
+            Creates a $facet stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <param name="facets">The facets.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Facet``2(MongoDB.Driver.AggregateFacet{``0}[])">
+            <summary>
+            Creates a $facet stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="facets">The facets.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.GraphLookup``8(MongoDB.Driver.IMongoCollection{``1},MongoDB.Driver.FieldDefinition{``1,``2},MongoDB.Driver.FieldDefinition{``1,``3},MongoDB.Driver.AggregateExpressionDefinition{``0,``4},MongoDB.Driver.FieldDefinition{``7,``6},MongoDB.Driver.FieldDefinition{``5,System.Int32},MongoDB.Driver.AggregateGraphLookupOptions{``1,``5,``7})">
+            <summary>
+            Creates a $graphLookup stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TFrom">The type of the from documents.</typeparam>
+            <typeparam name="TConnectFrom">The type of the connect from field (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TConnectTo">The type of the connect to field.</typeparam>
+            <typeparam name="TStartWith">The type of the start with expression (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TAsElement">The type of the as field elements.</typeparam>
+            <typeparam name="TAs">The type of the as field.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="from">The from collection.</param>
+            <param name="connectFromField">The connect from field.</param>
+            <param name="connectToField">The connect to field.</param>
+            <param name="startWith">The start with value.</param>
+            <param name="as">The as field.</param>
+            <param name="depthField">The depth field.</param>
+            <param name="options">The options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.GraphLookup``7(MongoDB.Driver.IMongoCollection{``1},MongoDB.Driver.FieldDefinition{``1,``2},MongoDB.Driver.FieldDefinition{``1,``3},MongoDB.Driver.AggregateExpressionDefinition{``0,``4},MongoDB.Driver.FieldDefinition{``6,``5},MongoDB.Driver.AggregateGraphLookupOptions{``1,``1,``6})">
+            <summary>
+            Creates a $graphLookup stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TFrom">The type of the from documents.</typeparam>
+            <typeparam name="TConnectFrom">The type of the connect from field (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TConnectTo">The type of the connect to field.</typeparam>
+            <typeparam name="TStartWith">The type of the start with expression (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TAs">The type of the as field.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="from">The from collection.</param>
+            <param name="connectFromField">The connect from field.</param>
+            <param name="connectToField">The connect to field.</param>
+            <param name="startWith">The start with value.</param>
+            <param name="as">The as field.</param>
+            <param name="options">The options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.GraphLookup``2(MongoDB.Driver.IMongoCollection{``1},MongoDB.Driver.FieldDefinition{``1,MongoDB.Bson.BsonValue},MongoDB.Driver.FieldDefinition{``1,MongoDB.Bson.BsonValue},MongoDB.Driver.AggregateExpressionDefinition{``0,MongoDB.Bson.BsonValue},MongoDB.Driver.FieldDefinition{MongoDB.Bson.BsonDocument,System.Collections.Generic.IEnumerable{MongoDB.Bson.BsonDocument}},MongoDB.Driver.FieldDefinition{MongoDB.Bson.BsonDocument,System.Int32})">
+            <summary>
+            Creates a $graphLookup stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TFrom">The type of the from documents.</typeparam>
+            <param name="from">The from collection.</param>
+            <param name="connectFromField">The connect from field.</param>
+            <param name="connectToField">The connect to field.</param>
+            <param name="startWith">The start with value.</param>
+            <param name="as">The as field.</param>
+            <param name="depthField">The depth field.</param>
+            <returns>The fluent aggregate interface.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.GraphLookup``7(MongoDB.Driver.IMongoCollection{``1},System.Linq.Expressions.Expression{System.Func{``1,``2}},System.Linq.Expressions.Expression{System.Func{``1,``3}},System.Linq.Expressions.Expression{System.Func{``0,``4}},System.Linq.Expressions.Expression{System.Func{``6,``5}},MongoDB.Driver.AggregateGraphLookupOptions{``1,``1,``6},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Creates a $graphLookup stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TFrom">The type of the from documents.</typeparam>
+            <typeparam name="TConnectFrom">The type of the connect from field (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TConnectTo">The type of the connect to field.</typeparam>
+            <typeparam name="TStartWith">The type of the start with expression (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TAs">The type of the as field.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="from">The from collection.</param>
+            <param name="connectFromField">The connect from field.</param>
+            <param name="connectToField">The connect to field.</param>
+            <param name="startWith">The start with value.</param>
+            <param name="as">The as field.</param>
+            <param name="options">The options.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.GraphLookup``8(MongoDB.Driver.IMongoCollection{``1},System.Linq.Expressions.Expression{System.Func{``1,``2}},System.Linq.Expressions.Expression{System.Func{``1,``3}},System.Linq.Expressions.Expression{System.Func{``0,``4}},System.Linq.Expressions.Expression{System.Func{``7,``6}},System.Linq.Expressions.Expression{System.Func{``5,System.Int32}},MongoDB.Driver.AggregateGraphLookupOptions{``1,``5,``7},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Creates a $graphLookup stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TFrom">The type of the from documents.</typeparam>
+            <typeparam name="TConnectFrom">The type of the connect from field (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TConnectTo">The type of the connect to field.</typeparam>
+            <typeparam name="TStartWith">The type of the start with expression (must be either TConnectTo or a type that implements IEnumerable{TConnectTo}).</typeparam>
+            <typeparam name="TAsElement">The type of the as field elements.</typeparam>
+            <typeparam name="TAs">The type of the as field.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="from">The from collection.</param>
+            <param name="connectFromField">The connect from field.</param>
+            <param name="connectToField">The connect to field.</param>
+            <param name="startWith">The start with value.</param>
+            <param name="as">The as field.</param>
+            <param name="depthField">The depth field.</param>
+            <param name="options">The options.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Group``2(MongoDB.Driver.ProjectionDefinition{``0,``1})">
+            <summary>
+            Creates a $group stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="group">The group projection.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Group``1(MongoDB.Driver.ProjectionDefinition{``0,MongoDB.Bson.BsonDocument})">
+            <summary>
+            Creates a $group stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <param name="group">The group projection.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Group``3(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Linq.Expressions.Expression{System.Func{System.Linq.IGrouping{``1,``0},``2}},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Creates a $group stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="value">The value field.</param>
+            <param name="group">The group projection.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Limit``1(System.Int32)">
+            <summary>
+            Creates a $limit stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <param name="limit">The limit.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Lookup``3(MongoDB.Driver.IMongoCollection{``1},MongoDB.Driver.FieldDefinition{``0},MongoDB.Driver.FieldDefinition{``1},MongoDB.Driver.FieldDefinition{``2},MongoDB.Driver.AggregateLookupOptions{``1,``2})">
+            <summary>
+            Creates a $lookup stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TForeignDocument">The type of the foreign collection documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="foreignCollection">The foreign collection.</param>
+            <param name="localField">The local field.</param>
+            <param name="foreignField">The foreign field.</param>
+            <param name="as">The "as" field.</param>
+            <param name="options">The options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Lookup``3(MongoDB.Driver.IMongoCollection{``1},System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Linq.Expressions.Expression{System.Func{``1,System.Object}},System.Linq.Expressions.Expression{System.Func{``2,System.Object}},MongoDB.Driver.AggregateLookupOptions{``1,``2})">
+            <summary>
+            Creates a $lookup stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TForeignDocument">The type of the foreign collection documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="foreignCollection">The foreign collection.</param>
+            <param name="localField">The local field.</param>
+            <param name="foreignField">The foreign field.</param>
+            <param name="as">The "as" field.</param>
+            <param name="options">The options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Match``1(MongoDB.Driver.FilterDefinition{``0})">
+            <summary>
+            Creates a $match stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <param name="filter">The filter.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Match``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Creates a $match stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <param name="filter">The filter.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.OfType``2(MongoDB.Bson.Serialization.IBsonSerializer{``1})">
+            <summary>
+            Create a $match stage that select documents of a sub type.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="outputSerializer">The output serializer.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Out``1(MongoDB.Driver.IMongoCollection{``0})">
+            <summary>
+            Creates a $out stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <param name="outputCollection">The output collection.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Project``2(MongoDB.Driver.ProjectionDefinition{``0,``1})">
+            <summary>
+            Creates a $project stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="projection">The projection.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Project``1(MongoDB.Driver.ProjectionDefinition{``0,MongoDB.Bson.BsonDocument})">
+            <summary>
+            Creates a $project stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <param name="projection">The projection.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Project``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Creates a $project stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="projection">The projection.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.ReplaceRoot``2(MongoDB.Driver.AggregateExpressionDefinition{``0,``1})">
+            <summary>
+            Creates a $replaceRoot stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="newRoot">The new root.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.ReplaceRoot``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Creates a $replaceRoot stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="newRoot">The new root.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Skip``1(System.Int32)">
+            <summary>
+            Creates a $skip stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <param name="skip">The skip.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Sort``1(MongoDB.Driver.SortDefinition{``0})">
+            <summary>
+            Creates a $sort stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <param name="sort">The sort.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.SortByCount``2(MongoDB.Driver.AggregateExpressionDefinition{``0,``1})">
+            <summary>
+            Creates a $sortByCount stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <param name="value">The value expression.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.SortByCount``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},MongoDB.Driver.ExpressionTranslationOptions)">
+            <summary>
+            Creates a $sortByCount stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TValue">The type of the values.</typeparam>
+            <param name="value">The value.</param>
+            <param name="translationOptions">The translation options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Unwind``2(MongoDB.Driver.FieldDefinition{``0},MongoDB.Driver.AggregateUnwindOptions{``1})">
+            <summary>
+            Creates an $unwind stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="field">The field.</param>
+            <param name="options">The options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Unwind``1(MongoDB.Driver.FieldDefinition{``0},MongoDB.Driver.AggregateUnwindOptions{MongoDB.Bson.BsonDocument})">
+            <summary>
+            Creates an $unwind stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <param name="field">The field to unwind.</param>
+            <param name="options">The options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Unwind``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},MongoDB.Driver.AggregateUnwindOptions{MongoDB.Bson.BsonDocument})">
+            <summary>
+            Creates an $unwind stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <param name="field">The field to unwind.</param>
+            <param name="options">The options.</param>
+            <returns>The stage.</returns>
+        </member>
+        <member name="M:MongoDB.Driver.PipelineStageDefinitionBuilder.Unwind``2(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},MongoDB.Driver.AggregateUnwindOptions{``1})">
+            <summary>
+            Creates an $unwind stage.
+            </summary>
+            <typeparam name="TInput">The type of the input documents.</typeparam>
+            <typeparam name="TOutput">The type of the output documents.</typeparam>
+            <param name="field">The field to unwind.</param>
+            <param name="options">The options.</param>
+            <returns>The stage.</returns>
         </member>
         <member name="T:MongoDB.Driver.RenderedProjectionDefinition`1">
             <summary>
@@ -7806,6 +10459,11 @@
             </summary>
             <param name="filter">The filter.</param>
             <param name="replacement">The replacement.</param>
+        </member>
+        <member name="P:MongoDB.Driver.ReplaceOneModel`1.Collation">
+            <summary>
+            Gets or sets the collation.
+            </summary>
         </member>
         <member name="P:MongoDB.Driver.ReplaceOneModel`1.Filter">
             <summary>
@@ -9369,6 +12027,11 @@
             <param name="filter">The filter.</param>
             <param name="update">The update.</param>
         </member>
+        <member name="P:MongoDB.Driver.UpdateManyModel`1.Collation">
+            <summary>
+            Gets or sets the collation.
+            </summary>
+        </member>
         <member name="P:MongoDB.Driver.UpdateManyModel`1.Filter">
             <summary>
             Gets the filter.
@@ -9400,6 +12063,11 @@
             <param name="filter">The filter.</param>
             <param name="update">The update.</param>
         </member>
+        <member name="P:MongoDB.Driver.UpdateOneModel`1.Collation">
+            <summary>
+            Gets or sets the collation.
+            </summary>
+        </member>
         <member name="P:MongoDB.Driver.UpdateOneModel`1.Filter">
             <summary>
             Gets the filter.
@@ -9426,6 +12094,11 @@
         <member name="P:MongoDB.Driver.UpdateOptions.BypassDocumentValidation">
             <summary>
             Gets or sets a value indicating whether to bypass document validation.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Driver.UpdateOptions.Collation">
+            <summary>
+            Gets or sets the collation.
             </summary>
         </member>
         <member name="P:MongoDB.Driver.UpdateOptions.IsUpsert">
@@ -11478,9 +14151,9 @@
         </member>
         <member name="M:MongoDB.Driver.Linq.LinqExtensions.Inject``1(MongoDB.Driver.FilterDefinition{``0})">
             <summary>
-            Injects a low level FilterDefinition{T} into a LINQ where clause. Can only be used in LINQ queries.
+            Injects a low level FilterDefinition{TDocument} into a LINQ where clause. Can only be used in LINQ queries.
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="TDocument">The type of the document.</typeparam>
             <param name="filter">The filter.</param>
             <returns>
             Throws an InvalidOperationException if called.

@@ -14,6 +14,7 @@ using BSNCapstone.ControllerHelpers;
 using BSNCapstone.ViewModels;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using PagedList;
 
 namespace BSNCapstone.Controllers
 {
@@ -649,28 +650,50 @@ namespace BSNCapstone.Controllers
         #endregion
 
         //GET: /Account/Users
-        public ActionResult Users(string searchString)
+        public ActionResult Users(string searchString, string currentFilter, int? page)
         {
             var users = Context.Users.Find(x => x.EmailConfirmed.Equals(true)).ToEnumerable();
             ViewBag.cloudiray = cloudinary;
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.currentFilter = searchString;
             if (!string.IsNullOrEmpty(searchString))
             {
                 users = users.Where(x => x.UserName.Contains(searchString) || x.Email.Contains(searchString));
             }
-            return View(users);
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
+            return View(users.ToPagedList(pageNumber, pageSize));
         }
 
 
         //GET: /Account/Authors
-        public ActionResult Authors(string searchString)
+        public ActionResult Authors(string searchString, string currentFilter, int? page)
         {
             var authors = Context.Users.Find(x => x.Roles.Contains("author")).ToEnumerable();
             ViewBag.cloudinary = cloudinary;
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.currentFilter = searchString;
             if (!string.IsNullOrEmpty(searchString))
             {
                 authors = authors.Where(x => x.UserName.Contains(searchString) || x.Email.Contains(searchString));
             }
-            return View(authors);
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
+            return View(authors.ToPagedList(pageNumber, pageSize));
         }
 
         //POST: /Account/AuthorConfirm/id
