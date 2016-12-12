@@ -717,6 +717,7 @@ namespace BSNCapstone.Controllers
                 AuthorName = confirmedAuthor.UserName,
                 AuthorImg = confirmedAuthor.Avatar
             };
+            await Context.Authors.InsertOneAsync(author);
             return Json("Successed");
         }
     }
