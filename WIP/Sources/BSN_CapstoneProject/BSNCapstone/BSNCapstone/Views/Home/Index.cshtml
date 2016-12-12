@@ -455,7 +455,7 @@
                             <div class="col-md-6" style="padding-left:10px;">
                                 <div class="col-md-6" style="padding-left:0;">
                                     @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
-                                        .Height(117).Width(90).Crop("fill")).BuildImageTag(allUsers.Find(x => x.Id.Equals(author.UserId)).Avatar,
+                                        .Height(117).Width(90).Crop("fill")).BuildImageTag(author.AuthorImg,
                                             new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                                 </div>
                                 <br>
@@ -476,9 +476,16 @@
                                 <ul class="list-group">
                                     <i class="authorname">
                                         <strong data-toggle="tooltip" title="@author.AuthorName">
-                                            <a href="@Url.Action("Details", "Timeline", new { id = @author.UserId })">
+                                            @if (!author.UserId.IsEmpty())
+                                            {
+                                                <a href="@Url.Action("Details", "Timeline", new { id = @author.UserId })">
+                                                    @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.AuthorName.ToLower())
+                                                </a>
+                                            }
+                                            else
+                                            {
                                                 @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.AuthorName.ToLower())
-                                            </a>
+                                            }
                                         </strong> 
                                     </i>
                                 </ul>
