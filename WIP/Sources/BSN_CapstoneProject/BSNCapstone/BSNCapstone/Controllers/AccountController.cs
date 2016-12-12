@@ -714,7 +714,8 @@ namespace BSNCapstone.Controllers
             {
                 Id = ObjectId.GenerateNewId(),
                 UserId = id,
-                AuthorName = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault().UserName
+                AuthorName = confirmedAuthor.UserName,
+                AuthorImg = confirmedAuthor.Avatar
             };
             return Json("Successed");
         }

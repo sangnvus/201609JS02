@@ -15,5 +15,13 @@ namespace BSNCapstone.Models
         public string UserId { get; set; }
 
         public string AuthorName { get; set; }
+
+        public string AuthorImg { get; set; }
+
+        public Author()
+        {
+            UserId = "";
+            AuthorImg = "";
+        }
     }
 }
