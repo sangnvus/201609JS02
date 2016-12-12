@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_models_1_1_register_view_model" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Models::RegisterViewModel</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_register_view_model_1ad3d55e408421e8ffc59a143a61b66d3d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.RegisterViewModel.UserName</definition>
+        <argsstring></argsstring>
+        <name>UserName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="60" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_register_view_model_1aae9e71d50851b56a74e4fde168e9eec5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.RegisterViewModel.Email</definition>
+        <argsstring></argsstring>
+        <name>Email</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="65" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_register_view_model_1a759a93760d4725df9dd2cf111c7fb18c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.RegisterViewModel.Password</definition>
+        <argsstring></argsstring>
+        <name>Password</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="71" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_register_view_model_1aece9841b3b9de24aeec000535d0675a1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.RegisterViewModel.ConfirmPassword</definition>
+        <argsstring></argsstring>
+        <name>ConfirmPassword</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="76" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Models/AccountViewModels.cs" line="57" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="56" bodyend="77"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_register_view_model_1aece9841b3b9de24aeec000535d0675a1" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::RegisterViewModel</scope><name>ConfirmPassword</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_register_view_model_1aae9e71d50851b56a74e4fde168e9eec5" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::RegisterViewModel</scope><name>Email</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_register_view_model_1a759a93760d4725df9dd2cf111c7fb18c" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::RegisterViewModel</scope><name>Password</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_register_view_model_1ad3d55e408421e8ffc59a143a61b66d3d" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::RegisterViewModel</scope><name>UserName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

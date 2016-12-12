@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_models_1_1_photo_model" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Models::PhotoModel</compoundname>
+    <derivedcompoundref refid="class_b_s_n_capstone_1_1_models_1_1_publisher_photo_model" prot="public" virt="non-virtual">BSNCapstone.Models.PublisherPhotoModel</derivedcompoundref>
+    <derivedcompoundref refid="class_b_s_n_capstone_1_1_models_1_1_slider_photo_model" prot="public" virt="non-virtual">BSNCapstone.Models.SliderPhotoModel</derivedcompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_photo_model_1ae40c53c92365b8f5a17710320c59df21" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>Cloudinary</type>
+        <definition>Cloudinary BSNCapstone.Models.PhotoModel.Cloudinary</definition>
+        <argsstring></argsstring>
+        <name>Cloudinary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/PhotoModel.cs" line="12" column="1" bodyfile="Models/PhotoModel.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_models_1_1_photo_model_1a65983047e726e8ad3dff9868940293b6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.Models.PhotoModel.PhotoModel</definition>
+        <argsstring>(Cloudinary cloudinary)</argsstring>
+        <name>PhotoModel</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_photo_model_1ae40c53c92365b8f5a17710320c59df21" kindref="member">Cloudinary</ref></type>
+          <declname>cloudinary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/PhotoModel.cs" line="14" column="1" bodyfile="Models/PhotoModel.cs" bodystart="14" bodyend="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="106">
+        <label>BSNCapstone.Models.SliderPhotoModel</label>
+        <link refid="class_b_s_n_capstone_1_1_models_1_1_slider_photo_model"/>
+        <childnode refid="104" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="104">
+        <label>BSNCapstone.Models.PhotoModel</label>
+        <link refid="class_b_s_n_capstone_1_1_models_1_1_photo_model"/>
+      </node>
+      <node id="105">
+        <label>BSNCapstone.Models.PublisherPhotoModel</label>
+        <link refid="class_b_s_n_capstone_1_1_models_1_1_publisher_photo_model"/>
+        <childnode refid="104" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="Models/PhotoModel.cs" line="11" column="1" bodyfile="Models/PhotoModel.cs" bodystart="10" bodyend="18"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_photo_model_1ae40c53c92365b8f5a17710320c59df21" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::PhotoModel</scope><name>Cloudinary</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_photo_model_1a65983047e726e8ad3dff9868940293b6" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::PhotoModel</scope><name>PhotoModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_role_manager" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::App_Start::IdentityConfig::ApplicationRoleManager</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">RoleManager&lt; IdentityRole &gt;</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_role_manager_1a797e5bd09fa17f725a67146130471104" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.App_Start.IdentityConfig.ApplicationRoleManager.ApplicationRoleManager</definition>
+        <argsstring>(IRoleStore&lt; IdentityRole, string &gt; roleStore)</argsstring>
+        <name>ApplicationRoleManager</name>
+        <param>
+          <type>IRoleStore&lt; IdentityRole, string &gt;</type>
+          <declname>roleStore</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="136" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="136" bodyend="139"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_role_manager_1a4350ebbe0545ff098956aaff1596217b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_role_manager" kindref="compound">ApplicationRoleManager</ref></type>
+        <definition>static ApplicationRoleManager BSNCapstone.App_Start.IdentityConfig.ApplicationRoleManager.Create</definition>
+        <argsstring>(IdentityFactoryOptions&lt; ApplicationRoleManager &gt; options, IOwinContext context)</argsstring>
+        <name>Create</name>
+        <param>
+          <type>IdentityFactoryOptions&lt; <ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_role_manager" kindref="compound">ApplicationRoleManager</ref> &gt;</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>IOwinContext</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="140" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="140" bodyend="144"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="10">
+        <label>BSNCapstone.App_Start.IdentityConfig.ApplicationRoleManager</label>
+        <link refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_role_manager"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>RoleManager&lt; IdentityRole &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="12">
+        <label>BSNCapstone.App_Start.IdentityConfig.ApplicationRoleManager</label>
+        <link refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_role_manager"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>RoleManager&lt; IdentityRole &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="App_Start/IdentityConfig.cs" line="135" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="134" bodyend="145"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_role_manager_1a797e5bd09fa17f725a67146130471104" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::ApplicationRoleManager</scope><name>ApplicationRoleManager</name></member>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_role_manager_1a4350ebbe0545ff098956aaff1596217b" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::ApplicationRoleManager</scope><name>Create</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

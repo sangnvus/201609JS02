@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="namespace_b_s_n_capstone_1_1_controller_helpers" kind="namespace" language="C#">
+    <compoundname>BSNCapstone::ControllerHelpers</compoundname>
+    <innerclass refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_books_controller_helper" prot="public">BSNCapstone::ControllerHelpers::BooksControllerHelper</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_categories_controller_helper" prot="public">BSNCapstone::ControllerHelpers::CategoriesControllerHelper</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_groups_controller_helper" prot="public">BSNCapstone::ControllerHelpers::GroupsControllerHelper</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_image_upload_helper" prot="public">BSNCapstone::ControllerHelpers::ImageUploadHelper</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ControllerHelpers/BooksControllerHelper.cs" line="13" column="1"/>
+  </compounddef>
+</doxygen>

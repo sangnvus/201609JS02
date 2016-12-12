@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_models_1_1_book" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Models::Book</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_1aed944432d24450df467e9a1b6e91767b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Book.Id</definition>
+        <argsstring></argsstring>
+        <name>Id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Book.cs" line="15" column="1" bodyfile="Models/Book.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_1aaf8d2b8019280de69f9a6479c53b721d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Book.BookName</definition>
+        <argsstring></argsstring>
+        <name>BookName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Book.cs" line="21" column="1" bodyfile="Models/Book.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_1a59576876ff833bd7ad8619b6bf9083fd" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; BSNCapstone.Models.Book.Authors</definition>
+        <argsstring></argsstring>
+        <name>Authors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Book.cs" line="28" column="1" bodyfile="Models/Book.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_1af2ab8d2603c5e5b695c63518a05abcdd" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; BSNCapstone.Models.Book.Publishers</definition>
+        <argsstring></argsstring>
+        <name>Publishers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Book.cs" line="36" column="1" bodyfile="Models/Book.cs" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_1a461d75f0e6ed3ef0b0eb676fcb36258e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime BSNCapstone.Models.Book.ReleaseDay</definition>
+        <argsstring></argsstring>
+        <name>ReleaseDay</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Book.cs" line="46" column="1" bodyfile="Models/Book.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_1a10b339c20e6b079cf8236e917bba2916" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Book.Description</definition>
+        <argsstring></argsstring>
+        <name>Description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Book.cs" line="52" column="1" bodyfile="Models/Book.cs" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_1a8124a127380b6e93e181db8be6bd007a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Book.ImgPublicId</definition>
+        <argsstring></argsstring>
+        <name>ImgPublicId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Book.cs" line="60" column="1" bodyfile="Models/Book.cs" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_1a93e54ce9ec3c300cac4cfd7ef3fa524e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; BSNCapstone.Models.Book.Categories</definition>
+        <argsstring></argsstring>
+        <name>Categories</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Book.cs" line="66" column="1" bodyfile="Models/Book.cs" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_1ab30e63c611bcf1c944ad095df8af8180" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int BSNCapstone.Models.Book.RatingPoint</definition>
+        <argsstring></argsstring>
+        <name>RatingPoint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Book.cs" line="70" column="1" bodyfile="Models/Book.cs" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_1a11dcce1db9380564bd20a910d8d19663" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int BSNCapstone.Models.Book.RateTime</definition>
+        <argsstring></argsstring>
+        <name>RateTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Book.cs" line="72" column="1" bodyfile="Models/Book.cs" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_1ae256f1de1fcd67ece532eb24ce13b1bc" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double BSNCapstone.Models.Book.AvarageRating</definition>
+        <argsstring></argsstring>
+        <name>AvarageRating</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Book.cs" line="75" column="1" bodyfile="Models/Book.cs" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_1aac1f4e9722fc2a3b7915e6440f887f72" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; <ref refid="class_b_s_n_capstone_1_1_view_models_1_1_book_comment_view_model" kindref="compound">BookCommentViewModel</ref> &gt;</type>
+        <definition>List&lt;BookCommentViewModel&gt; BSNCapstone.Models.Book.Comments</definition>
+        <argsstring></argsstring>
+        <name>Comments</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Book.cs" line="77" column="1" bodyfile="Models/Book.cs" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_1a977c37e1a1b769e2a61f4bac108ab0c5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool BSNCapstone.Models.Book.Requested</definition>
+        <argsstring></argsstring>
+        <name>Requested</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Book.cs" line="79" column="1" bodyfile="Models/Book.cs" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_book_1ae06d42761838875cf77ca069b5c8bece" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Book.RequestedBookAuthor</definition>
+        <argsstring></argsstring>
+        <name>RequestedBookAuthor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Book.cs" line="81" column="1" bodyfile="Models/Book.cs" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_models_1_1_book_1a81bde7ce0051fcd1a19d179e1f47e28c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.Models.Book.Book</definition>
+        <argsstring>()</argsstring>
+        <name>Book</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Book.cs" line="83" column="1" bodyfile="Models/Book.cs" bodystart="83" bodyend="96"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Models/Book.cs" line="13" column="1" bodyfile="Models/Book.cs" bodystart="12" bodyend="97"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a59576876ff833bd7ad8619b6bf9083fd" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Book</scope><name>Authors</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1ae256f1de1fcd67ece532eb24ce13b1bc" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Book</scope><name>AvarageRating</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a81bde7ce0051fcd1a19d179e1f47e28c" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Book</scope><name>Book</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1aaf8d2b8019280de69f9a6479c53b721d" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Book</scope><name>BookName</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a93e54ce9ec3c300cac4cfd7ef3fa524e" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Book</scope><name>Categories</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1aac1f4e9722fc2a3b7915e6440f887f72" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Book</scope><name>Comments</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a10b339c20e6b079cf8236e917bba2916" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Book</scope><name>Description</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1aed944432d24450df467e9a1b6e91767b" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Book</scope><name>Id</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a8124a127380b6e93e181db8be6bd007a" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Book</scope><name>ImgPublicId</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1af2ab8d2603c5e5b695c63518a05abcdd" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Book</scope><name>Publishers</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a11dcce1db9380564bd20a910d8d19663" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Book</scope><name>RateTime</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1ab30e63c611bcf1c944ad095df8af8180" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Book</scope><name>RatingPoint</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a461d75f0e6ed3ef0b0eb676fcb36258e" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Book</scope><name>ReleaseDay</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1a977c37e1a1b769e2a61f4bac108ab0c5" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Book</scope><name>Requested</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_book_1ae06d42761838875cf77ca069b5c8bece" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Book</scope><name>RequestedBookAuthor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

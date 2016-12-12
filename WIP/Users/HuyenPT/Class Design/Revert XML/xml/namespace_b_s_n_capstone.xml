@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="namespace_b_s_n_capstone" kind="namespace" language="C#">
+    <compoundname>BSNCapstone</compoundname>
+    <innerclass refid="class_b_s_n_capstone_1_1_bundle_config" prot="public">BSNCapstone::BundleConfig</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_filter_config" prot="public">BSNCapstone::FilterConfig</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_mvc_application" prot="public">BSNCapstone::MvcApplication</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_route_config" prot="public">BSNCapstone::RouteConfig</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_startup" prot="public">BSNCapstone::Startup</innerclass>
+    <innernamespace refid="namespace_b_s_n_capstone_1_1_app___start">BSNCapstone::App_Start</innernamespace>
+    <innernamespace refid="namespace_b_s_n_capstone_1_1_common">BSNCapstone::Common</innernamespace>
+    <innernamespace refid="namespace_b_s_n_capstone_1_1_controller_helpers">BSNCapstone::ControllerHelpers</innernamespace>
+    <innernamespace refid="namespace_b_s_n_capstone_1_1_controllers">BSNCapstone::Controllers</innernamespace>
+    <innernamespace refid="namespace_b_s_n_capstone_1_1_hubs">BSNCapstone::Hubs</innernamespace>
+    <innernamespace refid="namespace_b_s_n_capstone_1_1_models">BSNCapstone::Models</innernamespace>
+    <innernamespace refid="namespace_b_s_n_capstone_1_1_view_models">BSNCapstone::ViewModels</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="[generated]" line="1" column="1"/>
+  </compounddef>
+</doxygen>

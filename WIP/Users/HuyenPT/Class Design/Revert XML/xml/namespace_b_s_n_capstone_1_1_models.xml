@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="namespace_b_s_n_capstone_1_1_models" kind="namespace" language="C#">
+    <compoundname>BSNCapstone::Models</compoundname>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_application_user" prot="public">BSNCapstone::Models::ApplicationUser</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_author" prot="public">BSNCapstone::Models::Author</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_author_register_view_model" prot="public">BSNCapstone::Models::AuthorRegisterViewModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_book" prot="public">BSNCapstone::Models::Book</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_book_statistic" prot="public">BSNCapstone::Models::BookStatistic</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_category" prot="public">BSNCapstone::Models::Category</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_comment" prot="public">BSNCapstone::Models::Comment</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_external_login_confirmation_view_model" prot="public">BSNCapstone::Models::ExternalLoginConfirmationViewModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_forgot_password_view_model" prot="public">BSNCapstone::Models::ForgotPasswordViewModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_group" prot="public">BSNCapstone::Models::Group</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_login_view_model" prot="public">BSNCapstone::Models::LoginViewModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_manage_user_view_model" prot="public">BSNCapstone::Models::ManageUserViewModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_photo_model" prot="public">BSNCapstone::Models::PhotoModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_post" prot="public">BSNCapstone::Models::Post</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_post_like" prot="public">BSNCapstone::Models::PostLike</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_publisher" prot="public">BSNCapstone::Models::Publisher</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_publisher_photo_model" prot="public">BSNCapstone::Models::PublisherPhotoModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_register_view_model" prot="public">BSNCapstone::Models::RegisterViewModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_report" prot="public">BSNCapstone::Models::Report</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_reset_password_view_model" prot="public">BSNCapstone::Models::ResetPasswordViewModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_slider" prot="public">BSNCapstone::Models::Slider</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_slider_photo_model" prot="public">BSNCapstone::Models::SliderPhotoModel</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_models_1_1_user_profile" prot="public">BSNCapstone::Models::UserProfile</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Models/AccountViewModels.cs" line="7" column="1"/>
+  </compounddef>
+</doxygen>

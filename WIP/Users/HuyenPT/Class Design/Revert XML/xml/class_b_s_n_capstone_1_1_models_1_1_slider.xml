@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_models_1_1_slider" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Models::Slider</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_slider_1a5017c2c73483bbb84e839271b5c5b02b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>String</type>
+        <definition>String BSNCapstone.Models.Slider.Id</definition>
+        <argsstring></argsstring>
+        <name>Id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Slider.cs" line="14" column="1" bodyfile="Models/Slider.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_slider_1ad83663a5f28a5c1f32eb7bef7fd282a1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Slider.PublicId</definition>
+        <argsstring></argsstring>
+        <name>PublicId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Slider.cs" line="17" column="1" bodyfile="Models/Slider.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_slider_1a02d0cb1cfc999b709b9db776dfc813c1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Slider.Desc</definition>
+        <argsstring></argsstring>
+        <name>Desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Slider.cs" line="19" column="1" bodyfile="Models/Slider.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_slider_1add555e6e18f9e5f8574c4104fad1b11b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool BSNCapstone.Models.Slider.isShow</definition>
+        <argsstring></argsstring>
+        <name>isShow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Slider.cs" line="22" column="1" bodyfile="Models/Slider.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Models/Slider.cs" line="12" column="1" bodyfile="Models/Slider.cs" bodystart="11" bodyend="24"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_slider_1a02d0cb1cfc999b709b9db776dfc813c1" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Slider</scope><name>Desc</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_slider_1a5017c2c73483bbb84e839271b5c5b02b" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Slider</scope><name>Id</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_slider_1add555e6e18f9e5f8574c4104fad1b11b" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Slider</scope><name>isShow</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_slider_1ad83663a5f28a5c1f32eb7bef7fd282a1" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Slider</scope><name>PublicId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

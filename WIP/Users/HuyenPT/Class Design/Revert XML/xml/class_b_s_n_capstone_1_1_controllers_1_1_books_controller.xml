@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_controllers_1_1_books_controller" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Controllers::BooksController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1ab9dca67308099cac13e97660b07732e7" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context" kindref="compound">ApplicationIdentityContext</ref></type>
+        <definition>readonly ApplicationIdentityContext BSNCapstone.Controllers.BooksController.Context</definition>
+        <argsstring></argsstring>
+        <name>Context</name>
+        <initializer>= ApplicationIdentityContext.Create()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/BooksController.cs" line="18" column="1" bodyfile="Controllers/BooksController.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1aa82760ba862810b4b49c68a9337e8a14" prot="private" static="no" mutable="no">
+        <type>readonly CloudinaryDotNet.Cloudinary</type>
+        <definition>readonly CloudinaryDotNet.Cloudinary BSNCapstone.Controllers.BooksController.cloudinary</definition>
+        <argsstring></argsstring>
+        <name>cloudinary</name>
+        <initializer>= ImageUploadHelper.GetCloudinaryAccount()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/BooksController.cs" line="20" column="1" bodyfile="Controllers/BooksController.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a72ea1b326ffe753eea2c028824db3970" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>MultiSelectList</type>
+        <definition>MultiSelectList BSNCapstone.Controllers.BooksController.GetPubsCatsAus</definition>
+        <argsstring>(string[] selectedValues, int option)</argsstring>
+        <name>GetPubsCatsAus</name>
+        <param>
+          <type>string []</type>
+          <declname>selectedValues</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>option</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/BooksController.cs" line="25" column="1" bodyfile="Controllers/BooksController.cs" bodystart="25" bodyend="42"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1ae65d39a4dc004652764d507579f6c05a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.BooksController.Index</definition>
+        <argsstring>(string searchString)</argsstring>
+        <name>Index</name>
+        <param>
+          <type>string</type>
+          <declname>searchString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/BooksController.cs" line="48" column="1" bodyfile="Controllers/BooksController.cs" bodystart="48" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a11a0c516c779fcc76fb43f009d5581b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.BooksController.Details</definition>
+        <argsstring>(string id)</argsstring>
+        <name>Details</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/BooksController.cs" line="75" column="1" bodyfile="Controllers/BooksController.cs" bodystart="75" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a6070b5b90838f5094af388f605ab5974" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.BooksController.Create</definition>
+        <argsstring>()</argsstring>
+        <name>Create</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/BooksController.cs" line="122" column="1" bodyfile="Controllers/BooksController.cs" bodystart="122" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a26b0c16c1195d14d3cbcf84239187882" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.BooksController.Create</definition>
+        <argsstring>(Book book)</argsstring>
+        <name>Create</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_book" kindref="compound">Book</ref></type>
+          <declname>book</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/BooksController.cs" line="134" column="1" bodyfile="Controllers/BooksController.cs" bodystart="134" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a638b503ba53a71749d6706f10f7345e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.BooksController.Edit</definition>
+        <argsstring>(string id)</argsstring>
+        <name>Edit</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/BooksController.cs" line="203" column="1" bodyfile="Controllers/BooksController.cs" bodystart="203" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a6958f7593f13fba27641de6e8d68d697" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.BooksController.Edit</definition>
+        <argsstring>(Book book)</argsstring>
+        <name>Edit</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_book" kindref="compound">Book</ref></type>
+          <declname>book</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/BooksController.cs" line="223" column="1" bodyfile="Controllers/BooksController.cs" bodystart="223" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1aa275f8e6bca14df2e505fef194117cc2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.BooksController.DeleteConfirm</definition>
+        <argsstring>(string id)</argsstring>
+        <name>DeleteConfirm</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/BooksController.cs" line="304" column="1" bodyfile="Controllers/BooksController.cs" bodystart="304" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1aec937c5b5bde3f568020d9dbae0fb3fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.BooksController.RatingBook</definition>
+        <argsstring>(string id, int rating)</argsstring>
+        <name>RatingBook</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rating</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/BooksController.cs" line="317" column="1" bodyfile="Controllers/BooksController.cs" bodystart="317" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a8e328e27b22b84a77721b3e271f022b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.BooksController.CommentBook</definition>
+        <argsstring>(string commentedUser, string bookId, string commentContent)</argsstring>
+        <name>CommentBook</name>
+        <param>
+          <type>string</type>
+          <declname>commentedUser</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>bookId</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>commentContent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/BooksController.cs" line="332" column="1" bodyfile="Controllers/BooksController.cs" bodystart="332" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1aa2e70a3d29af46219d424f0cbba3d29e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.BooksController.BookRequest</definition>
+        <argsstring>(string searchString)</argsstring>
+        <name>BookRequest</name>
+        <param>
+          <type>string</type>
+          <declname>searchString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/BooksController.cs" line="348" column="1" bodyfile="Controllers/BooksController.cs" bodystart="348" bodyend="358"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a86042952948d48e7ed5eaa9ad240e28b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.BooksController.RequestAddBook</definition>
+        <argsstring>(string bookName, string author, string categories)</argsstring>
+        <name>RequestAddBook</name>
+        <param>
+          <type>string</type>
+          <declname>bookName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>author</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>categories</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/BooksController.cs" line="361" column="1" bodyfile="Controllers/BooksController.cs" bodystart="361" bodyend="423"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="36">
+        <label>BSNCapstone.Controllers.BooksController</label>
+        <link refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller"/>
+        <childnode refid="37" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>Controller</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="38">
+        <label>BSNCapstone.Controllers.BooksController</label>
+        <link refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller"/>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>Controller</label>
+      </node>
+    </collaborationgraph>
+    <location file="Controllers/BooksController.cs" line="17" column="1" bodyfile="Controllers/BooksController.cs" bodystart="16" bodyend="424"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1aa2e70a3d29af46219d424f0cbba3d29e" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::BooksController</scope><name>BookRequest</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1aa82760ba862810b4b49c68a9337e8a14" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::BooksController</scope><name>cloudinary</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a8e328e27b22b84a77721b3e271f022b8" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::BooksController</scope><name>CommentBook</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1ab9dca67308099cac13e97660b07732e7" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::BooksController</scope><name>Context</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a6070b5b90838f5094af388f605ab5974" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::BooksController</scope><name>Create</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a26b0c16c1195d14d3cbcf84239187882" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::BooksController</scope><name>Create</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1aa275f8e6bca14df2e505fef194117cc2" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::BooksController</scope><name>DeleteConfirm</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a11a0c516c779fcc76fb43f009d5581b4" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::BooksController</scope><name>Details</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a638b503ba53a71749d6706f10f7345e5" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::BooksController</scope><name>Edit</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a6958f7593f13fba27641de6e8d68d697" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::BooksController</scope><name>Edit</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a72ea1b326ffe753eea2c028824db3970" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::BooksController</scope><name>GetPubsCatsAus</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1ae65d39a4dc004652764d507579f6c05a" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::BooksController</scope><name>Index</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1aec937c5b5bde3f568020d9dbae0fb3fd" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::BooksController</scope><name>RatingBook</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_books_controller_1a86042952948d48e7ed5eaa9ad240e28b" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::BooksController</scope><name>RequestAddBook</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

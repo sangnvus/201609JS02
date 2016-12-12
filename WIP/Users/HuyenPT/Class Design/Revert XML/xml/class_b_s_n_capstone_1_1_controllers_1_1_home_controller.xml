@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_controllers_1_1_home_controller" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Controllers::HomeController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1a4adc4a03c5cd6c17a88b847910688abb" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context" kindref="compound">ApplicationIdentityContext</ref></type>
+        <definition>readonly ApplicationIdentityContext BSNCapstone.Controllers.HomeController.Context</definition>
+        <argsstring></argsstring>
+        <name>Context</name>
+        <initializer>= ApplicationIdentityContext.Create()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/HomeController.cs" line="20" column="1" bodyfile="Controllers/HomeController.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1abe643708daf74242041464547058e182" prot="private" static="no" mutable="no">
+        <type>readonly CloudinaryDotNet.Cloudinary</type>
+        <definition>readonly CloudinaryDotNet.Cloudinary BSNCapstone.Controllers.HomeController.cloudinary</definition>
+        <argsstring></argsstring>
+        <name>cloudinary</name>
+        <initializer>= ImageUploadHelper.GetCloudinaryAccount()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/HomeController.cs" line="21" column="1" bodyfile="Controllers/HomeController.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1a064475586e83ab94d5a0c0d3f8dff755" prot="private" static="no" mutable="no">
+        <type><ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager" kindref="compound">IdentityConfig.ApplicationUserManager</ref></type>
+        <definition>IdentityConfig.ApplicationUserManager BSNCapstone.Controllers.HomeController._userManager</definition>
+        <argsstring></argsstring>
+        <name>_userManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/HomeController.cs" line="22" column="1" bodyfile="Controllers/HomeController.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1ab7b2b2fea7d6204c5999355c4bcc9c4e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type><ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager" kindref="compound">IdentityConfig.ApplicationUserManager</ref></type>
+        <definition>IdentityConfig.ApplicationUserManager BSNCapstone.Controllers.HomeController.UserManager</definition>
+        <argsstring></argsstring>
+        <name>UserManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/HomeController.cs" line="23" column="1" bodyfile="Controllers/HomeController.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1a85161bd9d58db65a3b9c362a7e5f0538" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.HomeController.Index</definition>
+        <argsstring>()</argsstring>
+        <name>Index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/HomeController.cs" line="36" column="1" bodyfile="Controllers/HomeController.cs" bodystart="36" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1ad3b96478a39dac1c6f227899fd4a130d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.HomeController.GetListBookTag</definition>
+        <argsstring>(string input)</argsstring>
+        <name>GetListBookTag</name>
+        <param>
+          <type>string</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/HomeController.cs" line="63" column="1" bodyfile="Controllers/HomeController.cs" bodystart="63" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1a60cc15af73a241b6525dd03bfe2e4ab8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.HomeController.LockedPage</definition>
+        <argsstring>()</argsstring>
+        <name>LockedPage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/HomeController.cs" line="69" column="1" bodyfile="Controllers/HomeController.cs" bodystart="69" bodyend="71"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="88">
+        <label>BSNCapstone.Controllers.HomeController</label>
+        <link refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller"/>
+        <childnode refid="89" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="89">
+        <label>Controller</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="90">
+        <label>BSNCapstone.Controllers.HomeController</label>
+        <link refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller"/>
+        <childnode refid="91" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="91">
+        <label>Controller</label>
+      </node>
+    </collaborationgraph>
+    <location file="Controllers/HomeController.cs" line="19" column="1" bodyfile="Controllers/HomeController.cs" bodystart="17" bodyend="72"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1a064475586e83ab94d5a0c0d3f8dff755" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::HomeController</scope><name>_userManager</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1abe643708daf74242041464547058e182" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::HomeController</scope><name>cloudinary</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1a4adc4a03c5cd6c17a88b847910688abb" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::HomeController</scope><name>Context</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1ad3b96478a39dac1c6f227899fd4a130d" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::HomeController</scope><name>GetListBookTag</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1a85161bd9d58db65a3b9c362a7e5f0538" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::HomeController</scope><name>Index</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1a60cc15af73a241b6525dd03bfe2e4ab8" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::HomeController</scope><name>LockedPage</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_home_controller_1ab7b2b2fea7d6204c5999355c4bcc9c4e" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::HomeController</scope><name>UserManager</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

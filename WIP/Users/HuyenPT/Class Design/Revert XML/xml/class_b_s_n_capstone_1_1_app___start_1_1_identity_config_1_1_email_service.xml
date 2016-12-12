@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_email_service" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::App_Start::IdentityConfig::EmailService</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IIdentityMessageService</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_email_service_1a129bb7a8f826e77a77d1a3b9441da207" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Task</type>
+        <definition>Task BSNCapstone.App_Start.IdentityConfig.EmailService.SendAsync</definition>
+        <argsstring>(IdentityMessage message)</argsstring>
+        <name>SendAsync</name>
+        <param>
+          <type>IdentityMessage</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="149" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="149" bodyend="173"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="65">
+        <label>IIdentityMessageService</label>
+      </node>
+      <node id="64">
+        <label>BSNCapstone.App_Start.IdentityConfig.EmailService</label>
+        <link refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_email_service"/>
+        <childnode refid="65" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="67">
+        <label>IIdentityMessageService</label>
+      </node>
+      <node id="66">
+        <label>BSNCapstone.App_Start.IdentityConfig.EmailService</label>
+        <link refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_email_service"/>
+        <childnode refid="67" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="App_Start/IdentityConfig.cs" line="148" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="147" bodyend="174"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_email_service_1a129bb7a8f826e77a77d1a3b9441da207" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig::EmailService</scope><name>SendAsync</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

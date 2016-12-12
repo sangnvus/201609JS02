@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_models_1_1_post" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Models::Post</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_post_1a45c47bbf7da1f2453e5190ea6263e05e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Post.Id</definition>
+        <argsstring></argsstring>
+        <name>Id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Post.cs" line="20" column="1" bodyfile="Models/Post.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_post_1a56a25051e58c13c590f894de049e6f93" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Post.Message</definition>
+        <argsstring></argsstring>
+        <name>Message</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Post.cs" line="23" column="1" bodyfile="Models/Post.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_post_1aee82fef30e861fbc3c1f8af940bce788" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Post.PostedById</definition>
+        <argsstring></argsstring>
+        <name>PostedById</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Post.cs" line="25" column="1" bodyfile="Models/Post.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_post_1aa367c4d203536bcf0cf8a954c1b0d04d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>System.DateTime</type>
+        <definition>System.DateTime BSNCapstone.Models.Post.PostedDate</definition>
+        <argsstring></argsstring>
+        <name>PostedDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Post.cs" line="31" column="1" bodyfile="Models/Post.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_post_1ad257e2ca6e101e061924c42c54fee982" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>ICollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_comment" kindref="compound">Comment</ref> &gt;</type>
+        <definition>virtual ICollection&lt;Comment&gt; BSNCapstone.Models.Post.PostComments</definition>
+        <argsstring></argsstring>
+        <name>PostComments</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Post.cs" line="33" column="1" bodyfile="Models/Post.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_post_1ae3dc42286dc527412015b1e2bee58d6e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>ICollection&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_post_like" kindref="compound">PostLike</ref> &gt;</type>
+        <definition>virtual ICollection&lt;PostLike&gt; BSNCapstone.Models.Post.PostLikes</definition>
+        <argsstring></argsstring>
+        <name>PostLikes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Post.cs" line="35" column="1" bodyfile="Models/Post.cs" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_models_1_1_post_1a398721a8e0cdeb8eb373080320ed5fcb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.Models.Post.Post</definition>
+        <argsstring>()</argsstring>
+        <name>Post</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Post.cs" line="13" column="1" bodyfile="Models/Post.cs" bodystart="13" bodyend="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Models/Post.cs" line="12" column="1" bodyfile="Models/Post.cs" bodystart="11" bodyend="36"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_post_1a45c47bbf7da1f2453e5190ea6263e05e" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Post</scope><name>Id</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_post_1a56a25051e58c13c590f894de049e6f93" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Post</scope><name>Message</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_post_1a398721a8e0cdeb8eb373080320ed5fcb" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Post</scope><name>Post</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_post_1ad257e2ca6e101e061924c42c54fee982" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Post</scope><name>PostComments</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_post_1aee82fef30e861fbc3c1f8af940bce788" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Post</scope><name>PostedById</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_post_1aa367c4d203536bcf0cf8a954c1b0d04d" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Post</scope><name>PostedDate</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_post_1ae3dc42286dc527412015b1e2bee58d6e" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Post</scope><name>PostLikes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

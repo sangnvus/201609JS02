@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="_global_8asax_8cs" kind="file" language="C#">
+    <compoundname>Global.asax.cs</compoundname>
+    <innerclass refid="class_b_s_n_capstone_1_1_mvc_application" prot="public">BSNCapstone::MvcApplication</innerclass>
+    <innernamespace refid="namespace_b_s_n_capstone">BSNCapstone</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespace_system" kindref="compound">System</ref>;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespace_system" kindref="compound">System</ref>.Collections.Generic;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespace_system" kindref="compound">System</ref>.Linq;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespace_system" kindref="compound">System</ref>.Web;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespace_system" kindref="compound">System</ref>.Web.Mvc;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespace_system" kindref="compound">System</ref>.Web.Optimization;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespace_system" kindref="compound">System</ref>.Web.Routing;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespace_b_s_n_capstone" kindref="compound">BSNCapstone</ref>.<ref refid="namespace_b_s_n_capstone_1_1_app___start" kindref="compound">App_Start</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_b_s_n_capstone" kindref="compound">BSNCapstone</ref></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12" refid="class_b_s_n_capstone_1_1_mvc_application" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_b_s_n_capstone_1_1_mvc_application" kindref="compound">MvcApplication</ref><sp/>:<sp/><ref refid="namespace_system" kindref="compound">System</ref>.Web.HttpApplication</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_b_s_n_capstone_1_1_mvc_application_1a7c6dd38d8259a1e7a0e29f0abc117a11" kindref="member">Application_Start</ref>()</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_b_s_n_capstone_1_1_app___start_1_1_ensua_auth_indexes" kindref="compound">EnsuaAuthIndexes</ref>.<ref refid="class_b_s_n_capstone_1_1_app___start_1_1_ensua_auth_indexes_1a0b44d4459ed944e39893b3c654c9ff1a" kindref="member">Exist</ref>();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AreaRegistration.RegisterAllAreas();</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_b_s_n_capstone_1_1_filter_config" kindref="compound">FilterConfig</ref>.<ref refid="class_b_s_n_capstone_1_1_filter_config_1afd4a2c365c6bf15fde98838c5ef135e6" kindref="member">RegisterGlobalFilters</ref>(GlobalFilters.Filters);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_b_s_n_capstone_1_1_route_config" kindref="compound">RouteConfig</ref>.<ref refid="class_b_s_n_capstone_1_1_route_config_1acc113fc0206dfd8df9cdcba6bf856b72" kindref="member">RegisterRoutes</ref>(RouteTable.Routes);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_b_s_n_capstone_1_1_bundle_config" kindref="compound">BundleConfig</ref>.<ref refid="class_b_s_n_capstone_1_1_bundle_config_1a2551b8e6f0169b1b59e42781d387e30f" kindref="member">RegisterBundles</ref>(BundleTable.Bundles);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Global.asax.cs"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,795 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Controllers::AccountController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+    <innerclass refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1_1_challenge_result" prot="private">BSNCapstone::Controllers::AccountController::ChallengeResult</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aea53417b7c89f639fdc9a0624cf08563" prot="public" static="no">
+        <name>ManageMessageId</name>
+        <enumvalue id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aea53417b7c89f639fdc9a0624cf08563a0053618c57496fec45c67daf91919394" prot="public">
+          <name>ChangePasswordSuccess</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aea53417b7c89f639fdc9a0624cf08563af17ca72fcf8adaa46d5e87b12ec3a27d" prot="public">
+          <name>SetPasswordSuccess</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aea53417b7c89f639fdc9a0624cf08563a46e53931d0e837638a46368b2b04ba6a" prot="public">
+          <name>RemoveLoginSuccess</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aea53417b7c89f639fdc9a0624cf08563a902b0d55fddef6f8d651fe1035b7d4bd" prot="public">
+          <name>Error</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="602" column="1" bodyfile="Controllers/AccountController.cs" bodystart="601" bodyend="607"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a9c7487cfff7cf8e1a1a3202cfbc71d4b" prot="private" static="no" mutable="no">
+        <type><ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager" kindref="compound">IdentityConfig.ApplicationUserManager</ref></type>
+        <definition>IdentityConfig.ApplicationUserManager BSNCapstone.Controllers.AccountController._userManager</definition>
+        <argsstring></argsstring>
+        <name>_userManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="32" column="1" bodyfile="Controllers/AccountController.cs" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a35f09221124abb845be8d79c265d31ff" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context" kindref="compound">ApplicationIdentityContext</ref></type>
+        <definition>readonly ApplicationIdentityContext BSNCapstone.Controllers.AccountController.Context</definition>
+        <argsstring></argsstring>
+        <name>Context</name>
+        <initializer>= ApplicationIdentityContext.Create()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="46" column="1" bodyfile="Controllers/AccountController.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a35f0f587b7e6ae0ddfd26a6a497da346" prot="private" static="no" mutable="no">
+        <type>readonly CloudinaryDotNet.Cloudinary</type>
+        <definition>readonly CloudinaryDotNet.Cloudinary BSNCapstone.Controllers.AccountController.cloudinary</definition>
+        <argsstring></argsstring>
+        <name>cloudinary</name>
+        <initializer>= ImageUploadHelper.GetCloudinaryAccount()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="47" column="1" bodyfile="Controllers/AccountController.cs" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1ae9f8b6c6ce67dd0d12981d997eeacb89" prot="private" static="no" mutable="no">
+        <type><ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper" kindref="compound">IdentityConfig.SignInHelper</ref></type>
+        <definition>IdentityConfig.SignInHelper BSNCapstone.Controllers.AccountController._helper</definition>
+        <argsstring></argsstring>
+        <name>_helper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="63" column="1" bodyfile="Controllers/AccountController.cs" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a15eab832497720fbb65b05a930185641" prot="private" static="no" mutable="no">
+        <type>const string</type>
+        <definition>const string BSNCapstone.Controllers.AccountController.XsrfKey</definition>
+        <argsstring></argsstring>
+        <name>XsrfKey</name>
+        <initializer>= &quot;XsrfId&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="566" column="1" bodyfile="Controllers/AccountController.cs" bodystart="566" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a0764e98c55ea40d52cc0f2cf102c9118" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type><ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager" kindref="compound">IdentityConfig.ApplicationUserManager</ref></type>
+        <definition>IdentityConfig.ApplicationUserManager BSNCapstone.Controllers.AccountController.UserManager</definition>
+        <argsstring></argsstring>
+        <name>UserManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="33" column="1" bodyfile="Controllers/AccountController.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1af4bf8cb0371d8babccc43dc50f8e669f" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper" kindref="compound">IdentityConfig.SignInHelper</ref></type>
+        <definition>IdentityConfig.SignInHelper BSNCapstone.Controllers.AccountController.SignInHelper</definition>
+        <argsstring></argsstring>
+        <name>SignInHelper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="64" column="1" bodyfile="Controllers/AccountController.cs" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a2af8284b23d9dec0a61dc9435caa8c0f" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IAuthenticationManager</type>
+        <definition>IAuthenticationManager BSNCapstone.Controllers.AccountController.AuthenticationManager</definition>
+        <argsstring></argsstring>
+        <name>AuthenticationManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="568" column="1" bodyfile="Controllers/AccountController.cs" bodystart="569" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a49980c20b65690aa8c16ad79941d064f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.Controllers.AccountController.AccountController</definition>
+        <argsstring>()</argsstring>
+        <name>AccountController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="23" column="1" bodyfile="Controllers/AccountController.cs" bodystart="23" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a284b59a1144b6e24c4876945c4cfa341" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.Controllers.AccountController.AccountController</definition>
+        <argsstring>(IdentityConfig.ApplicationUserManager userManager)</argsstring>
+        <name>AccountController</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager" kindref="compound">IdentityConfig.ApplicationUserManager</ref></type>
+          <declname>userManager</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="27" column="1" bodyfile="Controllers/AccountController.cs" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aa4be0c43559aa67b8f69b685192fb984" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.AccountController.Login</definition>
+        <argsstring>(string returnUrl)</argsstring>
+        <name>Login</name>
+        <param>
+          <type>string</type>
+          <declname>returnUrl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="52" column="1" bodyfile="Controllers/AccountController.cs" bodystart="52" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a0636cff8924f2a75f343a2809e7b376a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; ActionResult &gt;</type>
+        <definition>async Task&lt;ActionResult&gt; BSNCapstone.Controllers.AccountController.Login</definition>
+        <argsstring>(AccountViewModel model, string returnUrl)</argsstring>
+        <name>Login</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model" kindref="compound">AccountViewModel</ref></type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>returnUrl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="81" column="1" bodyfile="Controllers/AccountController.cs" bodystart="81" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a663b81a8a401001dbf8e09c9be97eda4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.AccountController.Register</definition>
+        <argsstring>()</argsstring>
+        <name>Register</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="123" column="1" bodyfile="Controllers/AccountController.cs" bodystart="123" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a7f258e0d08476bf332c3fcbd32bb01b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.AccountController.AuthorRegister</definition>
+        <argsstring>()</argsstring>
+        <name>AuthorRegister</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="132" column="1" bodyfile="Controllers/AccountController.cs" bodystart="132" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1ae923e42b8e650d2917b7d82db42cdb6b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; ActionResult &gt;</type>
+        <definition>async Task&lt;ActionResult&gt; BSNCapstone.Controllers.AccountController.Register</definition>
+        <argsstring>(AccountViewModel model)</argsstring>
+        <name>Register</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model" kindref="compound">AccountViewModel</ref></type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="145" column="1" bodyfile="Controllers/AccountController.cs" bodystart="145" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a7bdd3ec9dc25907605e2bdc74983534b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; ActionResult &gt;</type>
+        <definition>async Task&lt;ActionResult&gt; BSNCapstone.Controllers.AccountController.AuthorRegister</definition>
+        <argsstring>(AccountViewModel model)</argsstring>
+        <name>AuthorRegister</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model" kindref="compound">AccountViewModel</ref></type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="183" column="1" bodyfile="Controllers/AccountController.cs" bodystart="183" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a8b31b5f2b93525896831a0903057d416" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; ActionResult &gt;</type>
+        <definition>async Task&lt;ActionResult&gt; BSNCapstone.Controllers.AccountController.ConfirmEmail</definition>
+        <argsstring>(string userId, string code)</argsstring>
+        <name>ConfirmEmail</name>
+        <param>
+          <type>string</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="227" column="1" bodyfile="Controllers/AccountController.cs" bodystart="227" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a19b697ff3cdb3c60441d5cf762924968" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.AccountController.ForgotPassword</definition>
+        <argsstring>()</argsstring>
+        <name>ForgotPassword</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="245" column="1" bodyfile="Controllers/AccountController.cs" bodystart="245" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1ab06b6a41192c50ec572ef9ce3117b8cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; ActionResult &gt;</type>
+        <definition>async Task&lt;ActionResult&gt; BSNCapstone.Controllers.AccountController.ForgotPassword</definition>
+        <argsstring>(AccountViewModel model)</argsstring>
+        <name>ForgotPassword</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_view_models_1_1_account_view_model" kindref="compound">AccountViewModel</ref></type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="256" column="1" bodyfile="Controllers/AccountController.cs" bodystart="256" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a843fe0faae8d488bfcee795de5bc8f01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.AccountController.ForgotPasswordConfirmation</definition>
+        <argsstring>()</argsstring>
+        <name>ForgotPasswordConfirmation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="281" column="1" bodyfile="Controllers/AccountController.cs" bodystart="281" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a3481fbe95f7de17f7bb4d4a25eaac7dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>  [AllowAnonymous] ActionResult</type>
+        <definition>  [AllowAnonymous] ActionResult BSNCapstone.Controllers.AccountController.ResetPassword</definition>
+        <argsstring>(string code)</argsstring>
+        <name>ResetPassword</name>
+        <param>
+          <type>string</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="288" column="1" bodyfile="Controllers/AccountController.cs" bodystart="288" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a74b912f1df92180062ef7a97bb71cf4b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; ActionResult &gt;</type>
+        <definition>async Task&lt;ActionResult&gt; BSNCapstone.Controllers.AccountController.ResetPassword</definition>
+        <argsstring>(ResetPasswordViewModel model)</argsstring>
+        <name>ResetPassword</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_reset_password_view_model" kindref="compound">ResetPasswordViewModel</ref></type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="299" column="1" bodyfile="Controllers/AccountController.cs" bodystart="299" bodyend="318"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a56b0f34ef31776abc6fd138315910573" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.AccountController.ResetPasswordConfirmation</definition>
+        <argsstring>()</argsstring>
+        <name>ResetPasswordConfirmation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="324" column="1" bodyfile="Controllers/AccountController.cs" bodystart="324" bodyend="327"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a2823f5879c9f6dfb3aeb3d0a3c90dd30" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>  [HttpPost][ValidateAntiForgeryToken] async Task&lt; ActionResult &gt;</type>
+        <definition>  [HttpPost][ValidateAntiForgeryToken] async Task&lt;ActionResult&gt; BSNCapstone.Controllers.AccountController.Disassociate</definition>
+        <argsstring>(string loginProvider, string providerKey)</argsstring>
+        <name>Disassociate</name>
+        <param>
+          <type>string</type>
+          <declname>loginProvider</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>providerKey</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="334" column="1" bodyfile="Controllers/AccountController.cs" bodystart="334" bodyend="347"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aedfd84b99ba4c44093d4f40a78e9c16b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.AccountController.Manage</definition>
+        <argsstring>(ManageMessageId? message)</argsstring>
+        <name>Manage</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aea53417b7c89f639fdc9a0624cf08563" kindref="member">ManageMessageId</ref>?</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="352" column="1" bodyfile="Controllers/AccountController.cs" bodystart="352" bodyend="363"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a5fa5699c021936f139c0703810b7a83b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; ActionResult &gt;</type>
+        <definition>async Task&lt;ActionResult&gt; BSNCapstone.Controllers.AccountController.Manage</definition>
+        <argsstring>(ManageUserViewModel model)</argsstring>
+        <name>Manage</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_manage_user_view_model" kindref="compound">ManageUserViewModel</ref></type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="370" column="1" bodyfile="Controllers/AccountController.cs" bodystart="370" bodyend="415"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a24948704e6a0773919b8532fc14310a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.AccountController.ExternalLogin</definition>
+        <argsstring>(string provider, string returnUrl)</argsstring>
+        <name>ExternalLogin</name>
+        <param>
+          <type>string</type>
+          <declname>provider</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>returnUrl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="423" column="1" bodyfile="Controllers/AccountController.cs" bodystart="423" bodyend="427"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a5e9c2cf4fa557239ff65e770465dbd0d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; ActionResult &gt;</type>
+        <definition>async Task&lt;ActionResult&gt; BSNCapstone.Controllers.AccountController.ExternalLoginCallback</definition>
+        <argsstring>(string returnUrl)</argsstring>
+        <name>ExternalLoginCallback</name>
+        <param>
+          <type>string</type>
+          <declname>returnUrl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="433" column="1" bodyfile="Controllers/AccountController.cs" bodystart="433" bodyend="455"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aa59e448b1b5746c3aad872e3809c90d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.AccountController.LinkLogin</definition>
+        <argsstring>(string provider)</argsstring>
+        <name>LinkLogin</name>
+        <param>
+          <type>string</type>
+          <declname>provider</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="462" column="1" bodyfile="Controllers/AccountController.cs" bodystart="462" bodyend="466"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a6ef4538defac99cf61f328c67e45ed15" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; ActionResult &gt;</type>
+        <definition>async Task&lt;ActionResult&gt; BSNCapstone.Controllers.AccountController.LinkLoginCallback</definition>
+        <argsstring>()</argsstring>
+        <name>LinkLoginCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="471" column="1" bodyfile="Controllers/AccountController.cs" bodystart="471" bodyend="484"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a115e452255961f4be831bcf0795690da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; ActionResult &gt;</type>
+        <definition>async Task&lt;ActionResult&gt; BSNCapstone.Controllers.AccountController.ExternalLoginConfirmation</definition>
+        <argsstring>(ExternalLoginConfirmationViewModel model, string returnUrl)</argsstring>
+        <name>ExternalLoginConfirmation</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_external_login_confirmation_view_model" kindref="compound">ExternalLoginConfirmationViewModel</ref></type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>returnUrl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="492" column="1" bodyfile="Controllers/AccountController.cs" bodystart="492" bodyend="523"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a9e497efd7bbf5cb11a678ba192d0c3fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.AccountController.LogOff</definition>
+        <argsstring>()</argsstring>
+        <name>LogOff</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="530" column="1" bodyfile="Controllers/AccountController.cs" bodystart="530" bodyend="534"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1adf8950163faf8549f0448b6b394cef03" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.AccountController.ExternalLoginFailure</definition>
+        <argsstring>()</argsstring>
+        <name>ExternalLoginFailure</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="540" column="1" bodyfile="Controllers/AccountController.cs" bodystart="540" bodyend="543"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a9a454a7511c3d0984b5fc616e81174f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.AccountController.RemoveAccountList</definition>
+        <argsstring>()</argsstring>
+        <name>RemoveAccountList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="547" column="1" bodyfile="Controllers/AccountController.cs" bodystart="547" bodyend="552"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aba95a9ffd64c2ff2e2bb682c484bb0c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.AccountController.Users</definition>
+        <argsstring>(string searchString)</argsstring>
+        <name>Users</name>
+        <param>
+          <type>string</type>
+          <declname>searchString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="652" column="1" bodyfile="Controllers/AccountController.cs" bodystart="652" bodyend="661"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a6a2c7ca2ad2dbfd182f8411f3d5a0b01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.AccountController.Authors</definition>
+        <argsstring>(string searchString)</argsstring>
+        <name>Authors</name>
+        <param>
+          <type>string</type>
+          <declname>searchString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="665" column="1" bodyfile="Controllers/AccountController.cs" bodystart="665" bodyend="674"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a61a275391f5f2cfe3b40aa032212c41a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; ActionResult &gt;</type>
+        <definition>async Task&lt;ActionResult&gt; BSNCapstone.Controllers.AccountController.AuthorConfirm</definition>
+        <argsstring>(string id)</argsstring>
+        <name>AuthorConfirm</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="678" column="1" bodyfile="Controllers/AccountController.cs" bodystart="678" bodyend="697"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1ab9ef4897a668e1a693fe3d2db69c160e" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void BSNCapstone.Controllers.AccountController.Dispose</definition>
+        <argsstring>(bool disposing)</argsstring>
+        <name>Dispose</name>
+        <param>
+          <type>bool</type>
+          <declname>disposing</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="554" column="1" bodyfile="Controllers/AccountController.cs" bodystart="554" bodyend="562"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a1326e6423783ae6f0068eb68d58302ca" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>async Task BSNCapstone.Controllers.AccountController.SignInAsync</definition>
+        <argsstring>(ApplicationUser user, bool isPersistent)</argsstring>
+        <name>SignInAsync</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_application_user" kindref="compound">ApplicationUser</ref></type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isPersistent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="576" column="1" bodyfile="Controllers/AccountController.cs" bodystart="576" bodyend="581"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a8db1940cce1c580520c00aa5eda6a573" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BSNCapstone.Controllers.AccountController.AddErrors</definition>
+        <argsstring>(IdentityResult result)</argsstring>
+        <name>AddErrors</name>
+        <param>
+          <type>IdentityResult</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="583" column="1" bodyfile="Controllers/AccountController.cs" bodystart="583" bodyend="589"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1ab7a42edf68787d299bc838989ac9d54e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BSNCapstone.Controllers.AccountController.HasPassword</definition>
+        <argsstring>()</argsstring>
+        <name>HasPassword</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="591" column="1" bodyfile="Controllers/AccountController.cs" bodystart="591" bodyend="599"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1afff9722678e327b8e0876648a0fad06d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.AccountController.RedirectToLocal</definition>
+        <argsstring>(string returnUrl)</argsstring>
+        <name>RedirectToLocal</name>
+        <param>
+          <type>string</type>
+          <declname>returnUrl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/AccountController.cs" line="609" column="1" bodyfile="Controllers/AccountController.cs" bodystart="609" bodyend="619"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="0">
+        <label>BSNCapstone.Controllers.AccountController</label>
+        <link refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Controller</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BSNCapstone.Controllers.AccountController</label>
+        <link refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Controller</label>
+      </node>
+    </collaborationgraph>
+    <location file="Controllers/AccountController.cs" line="22" column="1" bodyfile="Controllers/AccountController.cs" bodystart="21" bodyend="698"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1ae9f8b6c6ce67dd0d12981d997eeacb89" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>_helper</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a9c7487cfff7cf8e1a1a3202cfbc71d4b" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>_userManager</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a49980c20b65690aa8c16ad79941d064f" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>AccountController</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a284b59a1144b6e24c4876945c4cfa341" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>AccountController</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a8db1940cce1c580520c00aa5eda6a573" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>AddErrors</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a2af8284b23d9dec0a61dc9435caa8c0f" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>AuthenticationManager</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a61a275391f5f2cfe3b40aa032212c41a" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>AuthorConfirm</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a7f258e0d08476bf332c3fcbd32bb01b8" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>AuthorRegister</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a7bdd3ec9dc25907605e2bdc74983534b" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>AuthorRegister</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a6a2c7ca2ad2dbfd182f8411f3d5a0b01" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>Authors</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a35f0f587b7e6ae0ddfd26a6a497da346" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>cloudinary</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a8b31b5f2b93525896831a0903057d416" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>ConfirmEmail</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a35f09221124abb845be8d79c265d31ff" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>Context</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a2823f5879c9f6dfb3aeb3d0a3c90dd30" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>Disassociate</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1ab9ef4897a668e1a693fe3d2db69c160e" prot="protected" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>Dispose</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a24948704e6a0773919b8532fc14310a2" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>ExternalLogin</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a5e9c2cf4fa557239ff65e770465dbd0d" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>ExternalLoginCallback</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a115e452255961f4be831bcf0795690da" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>ExternalLoginConfirmation</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1adf8950163faf8549f0448b6b394cef03" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>ExternalLoginFailure</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a19b697ff3cdb3c60441d5cf762924968" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>ForgotPassword</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1ab06b6a41192c50ec572ef9ce3117b8cf" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>ForgotPassword</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a843fe0faae8d488bfcee795de5bc8f01" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>ForgotPasswordConfirmation</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1ab7a42edf68787d299bc838989ac9d54e" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>HasPassword</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aa59e448b1b5746c3aad872e3809c90d0" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>LinkLogin</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a6ef4538defac99cf61f328c67e45ed15" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>LinkLoginCallback</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aa4be0c43559aa67b8f69b685192fb984" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>Login</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a0636cff8924f2a75f343a2809e7b376a" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>Login</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a9e497efd7bbf5cb11a678ba192d0c3fc" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>LogOff</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aedfd84b99ba4c44093d4f40a78e9c16b" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>Manage</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a5fa5699c021936f139c0703810b7a83b" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>Manage</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aea53417b7c89f639fdc9a0624cf08563" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>ManageMessageId</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1afff9722678e327b8e0876648a0fad06d" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>RedirectToLocal</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a663b81a8a401001dbf8e09c9be97eda4" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>Register</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1ae923e42b8e650d2917b7d82db42cdb6b" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>Register</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a9a454a7511c3d0984b5fc616e81174f0" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>RemoveAccountList</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a3481fbe95f7de17f7bb4d4a25eaac7dc" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>ResetPassword</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a74b912f1df92180062ef7a97bb71cf4b" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>ResetPassword</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a56b0f34ef31776abc6fd138315910573" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>ResetPasswordConfirmation</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a1326e6423783ae6f0068eb68d58302ca" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>SignInAsync</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1af4bf8cb0371d8babccc43dc50f8e669f" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>SignInHelper</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a0764e98c55ea40d52cc0f2cf102c9118" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>UserManager</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1aba95a9ffd64c2ff2e2bb682c484bb0c5" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>Users</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_account_controller_1a15eab832497720fbb65b05a930185641" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::AccountController</scope><name>XsrfKey</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

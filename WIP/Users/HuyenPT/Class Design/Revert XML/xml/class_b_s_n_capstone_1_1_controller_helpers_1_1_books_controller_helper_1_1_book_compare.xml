@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_controller_helpers_1_1_books_controller_helper_1_1_book_compare" kind="class" language="C#" prot="private">
+    <compoundname>BSNCapstone::ControllerHelpers::BooksControllerHelper::BookCompare</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IEqualityComparer&lt; Book &gt;</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controller_helpers_1_1_books_controller_helper_1_1_book_compare_1af157d003971492ae996cd59b3e938f76" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BSNCapstone.ControllerHelpers.BooksControllerHelper.BookCompare.Equals</definition>
+        <argsstring>(Book x, Book y)</argsstring>
+        <name>Equals</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_book" kindref="compound">Book</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_book" kindref="compound">Book</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ControllerHelpers/BooksControllerHelper.cs" line="185" column="1" bodyfile="ControllerHelpers/BooksControllerHelper.cs" bodystart="185" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controller_helpers_1_1_books_controller_helper_1_1_book_compare_1aab1115587c1a657dd1fb397c638bccca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int BSNCapstone.ControllerHelpers.BooksControllerHelper.BookCompare.GetHashCode</definition>
+        <argsstring>(Book book)</argsstring>
+        <name>GetHashCode</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_book" kindref="compound">Book</ref></type>
+          <declname>book</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ControllerHelpers/BooksControllerHelper.cs" line="191" column="1" bodyfile="ControllerHelpers/BooksControllerHelper.cs" bodystart="191" bodyend="194"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="32">
+        <label>BSNCapstone.ControllerHelpers.BooksControllerHelper.BookCompare</label>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>IEqualityComparer&lt; Book &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="34">
+        <label>BSNCapstone.ControllerHelpers.BooksControllerHelper.BookCompare</label>
+        <childnode refid="35" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>IEqualityComparer&lt; Book &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="ControllerHelpers/BooksControllerHelper.cs" line="184" column="1" bodyfile="ControllerHelpers/BooksControllerHelper.cs" bodystart="183" bodyend="195"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_books_controller_helper_1_1_book_compare_1af157d003971492ae996cd59b3e938f76" prot="public" virt="non-virtual"><scope>BSNCapstone::ControllerHelpers::BooksControllerHelper::BookCompare</scope><name>Equals</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controller_helpers_1_1_books_controller_helper_1_1_book_compare_1aab1115587c1a657dd1fb397c638bccca" prot="public" virt="non-virtual"><scope>BSNCapstone::ControllerHelpers::BooksControllerHelper::BookCompare</scope><name>GetHashCode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

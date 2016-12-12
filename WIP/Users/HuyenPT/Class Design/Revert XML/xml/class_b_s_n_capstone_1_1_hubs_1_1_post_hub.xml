@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_hubs_1_1_post_hub" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Hubs::PostHub</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Hub</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1a20efd07ace30831747e1abc45c9bf97c" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context" kindref="compound">ApplicationIdentityContext</ref></type>
+        <definition>readonly ApplicationIdentityContext BSNCapstone.Hubs.PostHub.con</definition>
+        <argsstring></argsstring>
+        <name>con</name>
+        <initializer>= ApplicationIdentityContext.Create()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Hubs/PostHub.cs" line="29" column="1" bodyfile="Hubs/PostHub.cs" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1ac10294e668a43d4f48131ea323b5c21c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BSNCapstone.Hubs.PostHub.GetNewFeedPosts</definition>
+        <argsstring>()</argsstring>
+        <name>GetNewFeedPosts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Hubs/PostHub.cs" line="31" column="1" bodyfile="Hubs/PostHub.cs" bodystart="31" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1a9e622401bf5248c13a585688190fadaa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BSNCapstone.Hubs.PostHub.AddPost</definition>
+        <argsstring>(Post post)</argsstring>
+        <name>AddPost</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_post" kindref="compound">Post</ref></type>
+          <declname>post</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Hubs/PostHub.cs" line="116" column="1" bodyfile="Hubs/PostHub.cs" bodystart="116" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1a1233fafceeadb6ae0e4beac7ab6bd989" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>dynamic</type>
+        <definition>dynamic BSNCapstone.Hubs.PostHub.AddComment</definition>
+        <argsstring>(Comment postcomment)</argsstring>
+        <name>AddComment</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_comment" kindref="compound">Comment</ref></type>
+          <declname>postcomment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Hubs/PostHub.cs" line="159" column="1" bodyfile="Hubs/PostHub.cs" bodystart="159" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1ae83230b2219d48b583f2d03d811bf5fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>dynamic</type>
+        <definition>dynamic BSNCapstone.Hubs.PostHub.AddPostLike</definition>
+        <argsstring>(PostLike like)</argsstring>
+        <name>AddPostLike</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_post_like" kindref="compound">PostLike</ref></type>
+          <declname>like</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Hubs/PostHub.cs" line="219" column="1" bodyfile="Hubs/PostHub.cs" bodystart="219" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1ae83c996b708655a3d9345ea3b4006981" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BSNCapstone.Hubs.PostHub.DeletePost</definition>
+        <argsstring>(Post post)</argsstring>
+        <name>DeletePost</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_post" kindref="compound">Post</ref></type>
+          <declname>post</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Hubs/PostHub.cs" line="280" column="1" bodyfile="Hubs/PostHub.cs" bodystart="280" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1ab57328ce763261bce1946762ff9821f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BSNCapstone.Hubs.PostHub.EditPost</definition>
+        <argsstring>(Post post)</argsstring>
+        <name>EditPost</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_post" kindref="compound">Post</ref></type>
+          <declname>post</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Hubs/PostHub.cs" line="286" column="1" bodyfile="Hubs/PostHub.cs" bodystart="286" bodyend="291"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="111">
+        <label>Hub</label>
+      </node>
+      <node id="110">
+        <label>BSNCapstone.Hubs.PostHub</label>
+        <link refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub"/>
+        <childnode refid="111" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="113">
+        <label>Hub</label>
+      </node>
+      <node id="112">
+        <label>BSNCapstone.Hubs.PostHub</label>
+        <link refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub"/>
+        <childnode refid="113" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Hubs/PostHub.cs" line="28" column="1" bodyfile="Hubs/PostHub.cs" bodystart="27" bodyend="292"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1a1233fafceeadb6ae0e4beac7ab6bd989" prot="public" virt="non-virtual"><scope>BSNCapstone::Hubs::PostHub</scope><name>AddComment</name></member>
+      <member refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1a9e622401bf5248c13a585688190fadaa" prot="public" virt="non-virtual"><scope>BSNCapstone::Hubs::PostHub</scope><name>AddPost</name></member>
+      <member refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1ae83230b2219d48b583f2d03d811bf5fd" prot="public" virt="non-virtual"><scope>BSNCapstone::Hubs::PostHub</scope><name>AddPostLike</name></member>
+      <member refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1a20efd07ace30831747e1abc45c9bf97c" prot="private" virt="non-virtual"><scope>BSNCapstone::Hubs::PostHub</scope><name>con</name></member>
+      <member refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1ae83c996b708655a3d9345ea3b4006981" prot="public" virt="non-virtual"><scope>BSNCapstone::Hubs::PostHub</scope><name>DeletePost</name></member>
+      <member refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1ab57328ce763261bce1946762ff9821f3" prot="public" virt="non-virtual"><scope>BSNCapstone::Hubs::PostHub</scope><name>EditPost</name></member>
+      <member refid="class_b_s_n_capstone_1_1_hubs_1_1_post_hub_1ac10294e668a43d4f48131ea323b5c21c" prot="public" virt="non-virtual"><scope>BSNCapstone::Hubs::PostHub</scope><name>GetNewFeedPosts</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

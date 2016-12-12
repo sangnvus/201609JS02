@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Controllers::CategoriesController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1a695b82402dd9c823aa016254e4094093" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context" kindref="compound">ApplicationIdentityContext</ref></type>
+        <definition>readonly ApplicationIdentityContext BSNCapstone.Controllers.CategoriesController.Context</definition>
+        <argsstring></argsstring>
+        <name>Context</name>
+        <initializer>= ApplicationIdentityContext.Create()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/CategoriesController.cs" line="18" column="1" bodyfile="Controllers/CategoriesController.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1a99c6d682619be3395996d382812d4c0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.CategoriesController.Index</definition>
+        <argsstring>()</argsstring>
+        <name>Index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/CategoriesController.cs" line="21" column="1" bodyfile="Controllers/CategoriesController.cs" bodystart="21" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1abcd8bc5c3ce4dbf93bf6560ecd1fdf6d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.CategoriesController.Create</definition>
+        <argsstring>(string categoryName)</argsstring>
+        <name>Create</name>
+        <param>
+          <type>string</type>
+          <declname>categoryName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/CategoriesController.cs" line="46" column="1" bodyfile="Controllers/CategoriesController.cs" bodystart="46" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1a35b8e0db4e71c1eaab3300f618cfa145" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.CategoriesController.Edit</definition>
+        <argsstring>(string id)</argsstring>
+        <name>Edit</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/CategoriesController.cs" line="87" column="1" bodyfile="Controllers/CategoriesController.cs" bodystart="87" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1a960e2bdea3e6e36039e71a7cb219f4da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.CategoriesController.Edit</definition>
+        <argsstring>(Category category)</argsstring>
+        <name>Edit</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_models_1_1_category" kindref="compound">Category</ref></type>
+          <declname>category</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/CategoriesController.cs" line="96" column="1" bodyfile="Controllers/CategoriesController.cs" bodystart="96" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1a601c5595fd9733665e8ae5c5f3a14362" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.CategoriesController.Delete</definition>
+        <argsstring>(string id)</argsstring>
+        <name>Delete</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/CategoriesController.cs" line="109" column="1" bodyfile="Controllers/CategoriesController.cs" bodystart="109" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1ae5b5113761bb25ad80a3d764038a4490" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.CategoriesController.DeleteConfirm</definition>
+        <argsstring>(string id)</argsstring>
+        <name>DeleteConfirm</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/CategoriesController.cs" line="118" column="1" bodyfile="Controllers/CategoriesController.cs" bodystart="118" bodyend="123"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="49">
+        <label>Controller</label>
+      </node>
+      <node id="48">
+        <label>BSNCapstone.Controllers.CategoriesController</label>
+        <link refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller"/>
+        <childnode refid="49" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="51">
+        <label>Controller</label>
+      </node>
+      <node id="50">
+        <label>BSNCapstone.Controllers.CategoriesController</label>
+        <link refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller"/>
+        <childnode refid="51" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Controllers/CategoriesController.cs" line="17" column="1" bodyfile="Controllers/CategoriesController.cs" bodystart="16" bodyend="124"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1a695b82402dd9c823aa016254e4094093" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::CategoriesController</scope><name>Context</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1abcd8bc5c3ce4dbf93bf6560ecd1fdf6d" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::CategoriesController</scope><name>Create</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1a601c5595fd9733665e8ae5c5f3a14362" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::CategoriesController</scope><name>Delete</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1ae5b5113761bb25ad80a3d764038a4490" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::CategoriesController</scope><name>DeleteConfirm</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1a35b8e0db4e71c1eaab3300f618cfa145" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::CategoriesController</scope><name>Edit</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1a960e2bdea3e6e36039e71a7cb219f4da" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::CategoriesController</scope><name>Edit</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_categories_controller_1a99c6d682619be3395996d382812d4c0a" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::CategoriesController</scope><name>Index</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

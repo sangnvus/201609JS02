@@ -1,0 +1,454 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Controllers::GroupsController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a5361399a1e77d19d0d4b5f2fb2119947" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context" kindref="compound">ApplicationIdentityContext</ref></type>
+        <definition>readonly ApplicationIdentityContext BSNCapstone.Controllers.GroupsController.Context</definition>
+        <argsstring></argsstring>
+        <name>Context</name>
+        <initializer>= ApplicationIdentityContext.Create()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="19" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a96b2f673fd998d5244894068469563d1" prot="private" static="no" mutable="no">
+        <type>readonly CloudinaryDotNet.Cloudinary</type>
+        <definition>readonly CloudinaryDotNet.Cloudinary BSNCapstone.Controllers.GroupsController.cloudinary</definition>
+        <argsstring></argsstring>
+        <name>cloudinary</name>
+        <initializer>= ImageUploadHelper.GetCloudinaryAccount()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="20" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1aafc28462be0cea9c81316090ffb307d7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>MultiSelectList</type>
+        <definition>MultiSelectList BSNCapstone.Controllers.GroupsController.GetUserForAdd</definition>
+        <argsstring>(string[] selectedValues, string groupId)</argsstring>
+        <name>GetUserForAdd</name>
+        <param>
+          <type>string []</type>
+          <declname>selectedValues</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>groupId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="22" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="22" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a884b14521c1626bffb3de7e8ffba3730" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; BSNCapstone.Controllers.GroupsController.GroupReportContent</definition>
+        <argsstring>()</argsstring>
+        <name>GroupReportContent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="39" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="39" bodyend="47"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1afc12a05fc2318253dd02fe16ea610315" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.Index</definition>
+        <argsstring>(string searchString)</argsstring>
+        <name>Index</name>
+        <param>
+          <type>string</type>
+          <declname>searchString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="51" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="51" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a0121c9de64b7b5aa36ef31328309f1f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.Lock</definition>
+        <argsstring>(string id, int option, string reportId)</argsstring>
+        <name>Lock</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>option</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>reportId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="66" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="66" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1aa38db4c68d42adaff43343b8a86c82e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.MainPage</definition>
+        <argsstring>(string id)</argsstring>
+        <name>MainPage</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="90" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="90" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a01e79e4dcefe029d21993f66a8628b2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.Members</definition>
+        <argsstring>(string id)</argsstring>
+        <name>Members</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="109" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="109" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1afb8d057a9da5995d129b50c85c504ef7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.GroupRequestHandle</definition>
+        <argsstring>(string groupId, string userId, int option)</argsstring>
+        <name>GroupRequestHandle</name>
+        <param>
+          <type>string</type>
+          <declname>groupId</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>option</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="123" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="123" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1ab61bbd54808302c5ffa734a1dc42c483" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.Setting</definition>
+        <argsstring>(string id)</argsstring>
+        <name>Setting</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="206" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="206" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1ac50fda4cab77d370bb33ccb05c5114f5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.Setting</definition>
+        <argsstring>(GroupSettingViewModel groupSetting)</argsstring>
+        <name>Setting</name>
+        <param>
+          <type><ref refid="class_b_s_n_capstone_1_1_view_models_1_1_group_setting_view_model" kindref="compound">GroupSettingViewModel</ref></type>
+          <declname>groupSetting</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="231" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="231" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a8bd38efb6828ed232ced461799c0faaf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.Details</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Details</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="254" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="254" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a4628799d611d57d41b3f3728f8803131" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.Create</definition>
+        <argsstring>()</argsstring>
+        <name>Create</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="261" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="261" bodyend="264"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a6e9e2507b0b01764b6b85b04ad5dfe4c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.Create</definition>
+        <argsstring>(string groupName, string groupTag, string groupDesc, string groupType)</argsstring>
+        <name>Create</name>
+        <param>
+          <type>string</type>
+          <declname>groupName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>groupTag</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>groupDesc</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>groupType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="269" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="269" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1ac8d85355f7674815313825bb2b466c08" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.Edit</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Edit</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="334" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="334" bodyend="337"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a6d2c3f3b78f8590f9900be3cd01331b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.Edit</definition>
+        <argsstring>(int id, FormCollection collection)</argsstring>
+        <name>Edit</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>FormCollection</type>
+          <declname>collection</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="342" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="342" bodyend="354"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a4391c124827e71a7bda0eb1ef1bda195" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.Delete</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Delete</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="358" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="358" bodyend="361"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a79b6a46addfff6341792b9ab607e4bed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.Delete</definition>
+        <argsstring>(int id, FormCollection collection)</argsstring>
+        <name>Delete</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>FormCollection</type>
+          <declname>collection</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="366" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="366" bodyend="378"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a3eed0b9593704905014007b5ccf6553e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.ChangeImage</definition>
+        <argsstring>(string id, HttpPostedFileBase file, int option)</argsstring>
+        <name>ChangeImage</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>HttpPostedFileBase</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>option</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="382" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="382" bodyend="404"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a038afd169cfb2c7ee004b9ea7e5ae57f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.Report</definition>
+        <argsstring>()</argsstring>
+        <name>Report</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="408" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="408" bodyend="411"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a18e60e6a2c97bb39635564bde1737992" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.GroupsController.AddNewMember</definition>
+        <argsstring>(string addUser, string groupId)</argsstring>
+        <name>AddNewMember</name>
+        <param>
+          <type>string</type>
+          <declname>addUser</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>groupId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/GroupsController.cs" line="414" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="414" bodyend="435"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="80">
+        <label>BSNCapstone.Controllers.GroupsController</label>
+        <link refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller"/>
+        <childnode refid="81" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="81">
+        <label>Controller</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="82">
+        <label>BSNCapstone.Controllers.GroupsController</label>
+        <link refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller"/>
+        <childnode refid="83" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="83">
+        <label>Controller</label>
+      </node>
+    </collaborationgraph>
+    <location file="Controllers/GroupsController.cs" line="18" column="1" bodyfile="Controllers/GroupsController.cs" bodystart="17" bodyend="436"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a18e60e6a2c97bb39635564bde1737992" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>AddNewMember</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a3eed0b9593704905014007b5ccf6553e" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>ChangeImage</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a96b2f673fd998d5244894068469563d1" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>cloudinary</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a5361399a1e77d19d0d4b5f2fb2119947" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>Context</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a4628799d611d57d41b3f3728f8803131" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>Create</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a6e9e2507b0b01764b6b85b04ad5dfe4c" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>Create</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a4391c124827e71a7bda0eb1ef1bda195" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>Delete</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a79b6a46addfff6341792b9ab607e4bed" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>Delete</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a8bd38efb6828ed232ced461799c0faaf" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>Details</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1ac8d85355f7674815313825bb2b466c08" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>Edit</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a6d2c3f3b78f8590f9900be3cd01331b5" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>Edit</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1aafc28462be0cea9c81316090ffb307d7" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>GetUserForAdd</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a884b14521c1626bffb3de7e8ffba3730" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>GroupReportContent</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1afb8d057a9da5995d129b50c85c504ef7" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>GroupRequestHandle</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1afc12a05fc2318253dd02fe16ea610315" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>Index</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a0121c9de64b7b5aa36ef31328309f1f7" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>Lock</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1aa38db4c68d42adaff43343b8a86c82e1" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>MainPage</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a01e79e4dcefe029d21993f66a8628b2c" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>Members</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1a038afd169cfb2c7ee004b9ea7e5ae57f" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>Report</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1ab61bbd54808302c5ffa734a1dc42c483" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>Setting</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_groups_controller_1ac50fda4cab77d370bb33ccb05c5114f5" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::GroupsController</scope><name>Setting</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_models_1_1_user_profile" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Models::UserProfile</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_user_profile_1ac0588f6def1dda0b1f55985cf10b99f8" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.UserProfile.id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="138" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_user_profile_1a5b9db3581473a4f4da44a7c63216c4b1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.UserProfile.UserName</definition>
+        <argsstring></argsstring>
+        <name>UserName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="143" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_user_profile_1a9d8025435be308ce93f1f43f47f93b43" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.UserProfile.Address</definition>
+        <argsstring></argsstring>
+        <name>Address</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="147" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_user_profile_1a9c42bc318838acb69873fe609758d043" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.UserProfile.DOB</definition>
+        <argsstring></argsstring>
+        <name>DOB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="151" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_user_profile_1afcc406b741a05da613a5a1db46187afe" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.UserProfile.Gender</definition>
+        <argsstring></argsstring>
+        <name>Gender</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/AccountViewModels.cs" line="155" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Models/AccountViewModels.cs" line="136" column="1" bodyfile="Models/AccountViewModels.cs" bodystart="135" bodyend="156"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_user_profile_1a9d8025435be308ce93f1f43f47f93b43" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::UserProfile</scope><name>Address</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_user_profile_1a9c42bc318838acb69873fe609758d043" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::UserProfile</scope><name>DOB</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_user_profile_1afcc406b741a05da613a5a1db46187afe" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::UserProfile</scope><name>Gender</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_user_profile_1ac0588f6def1dda0b1f55985cf10b99f8" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::UserProfile</scope><name>id</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_user_profile_1a5b9db3581473a4f4da44a7c63216c4b1" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::UserProfile</scope><name>UserName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

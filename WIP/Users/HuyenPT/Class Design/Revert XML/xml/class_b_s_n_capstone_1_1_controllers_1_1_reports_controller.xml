@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Controllers::ReportsController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller_1a4ed85d911b234925a63ac23134f0be11" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_b_s_n_capstone_1_1_app___start_1_1_application_identity_context" kindref="compound">ApplicationIdentityContext</ref></type>
+        <definition>readonly ApplicationIdentityContext BSNCapstone.Controllers.ReportsController.Context</definition>
+        <argsstring></argsstring>
+        <name>Context</name>
+        <initializer>= ApplicationIdentityContext.Create()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/ReportsController.cs" line="20" column="1" bodyfile="Controllers/ReportsController.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller_1a6a01621172bf41272c692d24738af3be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.ReportsController.Index</definition>
+        <argsstring>()</argsstring>
+        <name>Index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/ReportsController.cs" line="23" column="1" bodyfile="Controllers/ReportsController.cs" bodystart="23" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller_1af712b08c25e678454fd732d330f0ba57" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.ReportsController.GetReport</definition>
+        <argsstring>(string reportContent, string userId, string beReportedId, int option)</argsstring>
+        <name>GetReport</name>
+        <param>
+          <type>string</type>
+          <declname>reportContent</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>userId</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>beReportedId</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>option</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/ReportsController.cs" line="38" column="1" bodyfile="Controllers/ReportsController.cs" bodystart="38" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller_1ae6db8a876b811af3267f014ec717a8a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult BSNCapstone.Controllers.ReportsController.Reject</definition>
+        <argsstring>(string id)</argsstring>
+        <name>Reject</name>
+        <param>
+          <type>string</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Controllers/ReportsController.cs" line="75" column="1" bodyfile="Controllers/ReportsController.cs" bodystart="75" bodyend="79"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="132">
+        <label>BSNCapstone.Controllers.ReportsController</label>
+        <link refid="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller"/>
+        <childnode refid="133" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="133">
+        <label>Controller</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="134">
+        <label>BSNCapstone.Controllers.ReportsController</label>
+        <link refid="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller"/>
+        <childnode refid="135" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="135">
+        <label>Controller</label>
+      </node>
+    </collaborationgraph>
+    <location file="Controllers/ReportsController.cs" line="19" column="1" bodyfile="Controllers/ReportsController.cs" bodystart="18" bodyend="80"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller_1a4ed85d911b234925a63ac23134f0be11" prot="private" virt="non-virtual"><scope>BSNCapstone::Controllers::ReportsController</scope><name>Context</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller_1af712b08c25e678454fd732d330f0ba57" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::ReportsController</scope><name>GetReport</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller_1a6a01621172bf41272c692d24738af3be" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::ReportsController</scope><name>Index</name></member>
+      <member refid="class_b_s_n_capstone_1_1_controllers_1_1_reports_controller_1ae6db8a876b811af3267f014ec717a8a3" prot="public" virt="non-virtual"><scope>BSNCapstone::Controllers::ReportsController</scope><name>Reject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

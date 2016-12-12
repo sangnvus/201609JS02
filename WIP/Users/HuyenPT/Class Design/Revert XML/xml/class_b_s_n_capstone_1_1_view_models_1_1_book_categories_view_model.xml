@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_view_models_1_1_book_categories_view_model" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::ViewModels::BookCategoriesViewModel</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_book_categories_view_model_1aa9130a6b26eb4cd34b9ac63d1be1fd92" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.ViewModels.BookCategoriesViewModel.CategoryId</definition>
+        <argsstring></argsstring>
+        <name>CategoryId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BookCategoriesViewModel.cs" line="13" column="1" bodyfile="ViewModels/BookCategoriesViewModel.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_book_categories_view_model_1a663f2ebb44b50b7dba1b61f15c4da769" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.ViewModels.BookCategoriesViewModel.CategoryName</definition>
+        <argsstring></argsstring>
+        <name>CategoryName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BookCategoriesViewModel.cs" line="14" column="1" bodyfile="ViewModels/BookCategoriesViewModel.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_book_categories_view_model_1a4e3a2add63088503023f19fda5d56bf2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool BSNCapstone.ViewModels.BookCategoriesViewModel.IsSelected</definition>
+        <argsstring></argsstring>
+        <name>IsSelected</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/BookCategoriesViewModel.cs" line="15" column="1" bodyfile="ViewModels/BookCategoriesViewModel.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ViewModels/BookCategoriesViewModel.cs" line="12" column="1" bodyfile="ViewModels/BookCategoriesViewModel.cs" bodystart="11" bodyend="16"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_categories_view_model_1aa9130a6b26eb4cd34b9ac63d1be1fd92" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BookCategoriesViewModel</scope><name>CategoryId</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_categories_view_model_1a663f2ebb44b50b7dba1b61f15c4da769" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BookCategoriesViewModel</scope><name>CategoryName</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_book_categories_view_model_1a4e3a2add63088503023f19fda5d56bf2" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::BookCategoriesViewModel</scope><name>IsSelected</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

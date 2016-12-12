@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_models_1_1_group" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::Models::Group</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_group_1aa8185bbb26faf4afdedb04f498841c59" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Group.Id</definition>
+        <argsstring></argsstring>
+        <name>Id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Group.cs" line="15" column="1" bodyfile="Models/Group.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_group_1a37496c073c9ffec81ac211e3e1f6b314" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Group.CreatorId</definition>
+        <argsstring></argsstring>
+        <name>CreatorId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Group.cs" line="17" column="1" bodyfile="Models/Group.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_group_1a19bb2ebacae03c2b3dd49fd768159256" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Group.GroupName</definition>
+        <argsstring></argsstring>
+        <name>GroupName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Group.cs" line="21" column="1" bodyfile="Models/Group.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_group_1a8e4dda9d188cefb70a9a550d5b35b66b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; <ref refid="class_b_s_n_capstone_1_1_view_models_1_1_group_members_view_model" kindref="compound">GroupMembersViewModel</ref> &gt;</type>
+        <definition>List&lt;GroupMembersViewModel&gt; BSNCapstone.Models.Group.GroupMembers</definition>
+        <argsstring></argsstring>
+        <name>GroupMembers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Group.cs" line="23" column="1" bodyfile="Models/Group.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_group_1a3277ab2731e873c22636c9c122c933c6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Group.Tag</definition>
+        <argsstring></argsstring>
+        <name>Tag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Group.cs" line="27" column="1" bodyfile="Models/Group.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_group_1af06b7c356ece224a25c2cfe30f6e82c0" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Group.GroupType</definition>
+        <argsstring></argsstring>
+        <name>GroupType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Group.cs" line="32" column="1" bodyfile="Models/Group.cs" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_group_1a4a3cddb2d44e616f1da850adf81d2a31" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime BSNCapstone.Models.Group.CreatedDate</definition>
+        <argsstring></argsstring>
+        <name>CreatedDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Group.cs" line="35" column="1" bodyfile="Models/Group.cs" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_group_1adde75bbb0909d50a46c0046e82540e73" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Group.AvaImg</definition>
+        <argsstring></argsstring>
+        <name>AvaImg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Group.cs" line="37" column="1" bodyfile="Models/Group.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_group_1a14527acb1280e8e5aa6492aa0d52813b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Group.CoverImg</definition>
+        <argsstring></argsstring>
+        <name>CoverImg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Group.cs" line="39" column="1" bodyfile="Models/Group.cs" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_group_1a74b17b3740aa74e709f5faf422b121b2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool BSNCapstone.Models.Group.Locked</definition>
+        <argsstring></argsstring>
+        <name>Locked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Group.cs" line="42" column="1" bodyfile="Models/Group.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_group_1ac73a82bcbd2a0d9785639046323c5fa5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string BSNCapstone.Models.Group.Description</definition>
+        <argsstring></argsstring>
+        <name>Description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Group.cs" line="45" column="1" bodyfile="Models/Group.cs" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_models_1_1_group_1ab9028a7e2ea46486f24a9dc18ee9c92a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; BSNCapstone.Models.Group.ListJoinRequest</definition>
+        <argsstring></argsstring>
+        <name>ListJoinRequest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Group.cs" line="47" column="1" bodyfile="Models/Group.cs" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_models_1_1_group_1a67f716d935f1974093d4a72522e842e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.Models.Group.Group</definition>
+        <argsstring>()</argsstring>
+        <name>Group</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Models/Group.cs" line="49" column="1" bodyfile="Models/Group.cs" bodystart="49" bodyend="55"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Models/Group.cs" line="13" column="1" bodyfile="Models/Group.cs" bodystart="12" bodyend="56"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1adde75bbb0909d50a46c0046e82540e73" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Group</scope><name>AvaImg</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a14527acb1280e8e5aa6492aa0d52813b" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Group</scope><name>CoverImg</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a4a3cddb2d44e616f1da850adf81d2a31" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Group</scope><name>CreatedDate</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a37496c073c9ffec81ac211e3e1f6b314" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Group</scope><name>CreatorId</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1ac73a82bcbd2a0d9785639046323c5fa5" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Group</scope><name>Description</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a67f716d935f1974093d4a72522e842e5" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Group</scope><name>Group</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a8e4dda9d188cefb70a9a550d5b35b66b" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Group</scope><name>GroupMembers</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a19bb2ebacae03c2b3dd49fd768159256" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Group</scope><name>GroupName</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1af06b7c356ece224a25c2cfe30f6e82c0" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Group</scope><name>GroupType</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1aa8185bbb26faf4afdedb04f498841c59" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Group</scope><name>Id</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1ab9028a7e2ea46486f24a9dc18ee9c92a" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Group</scope><name>ListJoinRequest</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a74b17b3740aa74e709f5faf422b121b2" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Group</scope><name>Locked</name></member>
+      <member refid="class_b_s_n_capstone_1_1_models_1_1_group_1a3277ab2731e873c22636c9c122c933c6" prot="public" virt="non-virtual"><scope>BSNCapstone::Models::Group</scope><name>Tag</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

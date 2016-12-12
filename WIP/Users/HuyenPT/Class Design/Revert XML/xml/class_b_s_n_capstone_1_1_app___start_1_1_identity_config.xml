@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::App_Start::IdentityConfig</compoundname>
+    <innerclass refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_role_manager" prot="public">BSNCapstone::App_Start::IdentityConfig::ApplicationRoleManager</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_application_user_manager" prot="public">BSNCapstone::App_Start::IdentityConfig::ApplicationUserManager</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_email_service" prot="public">BSNCapstone::App_Start::IdentityConfig::EmailService</innerclass>
+    <innerclass refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1_1_sign_in_helper" prot="public">BSNCapstone::App_Start::IdentityConfig::SignInHelper</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1a2cfc863f23d4198bca307f06fe04023e" prot="public" static="no">
+        <name>SignInStatus</name>
+        <enumvalue id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1a2cfc863f23d4198bca307f06fe04023ea505a83f220c02df2f85c3810cd9ceb38" prot="public">
+          <name>Success</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1a2cfc863f23d4198bca307f06fe04023eadce117aece4cb31f04117b795367890d" prot="public">
+          <name>LockedOut</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1a2cfc863f23d4198bca307f06fe04023eab478a5ea5a2e0827cdaf934b2e721457" prot="public">
+          <name>RequiresTwoFactorAuthentication</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1a2cfc863f23d4198bca307f06fe04023eae139a585510a502bbf1841cf589f5086" prot="public">
+          <name>Failure</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="App_Start/IdentityConfig.cs" line="185" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="184" bodyend="190"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="App_Start/IdentityConfig.cs" line="19" column="1" bodyfile="App_Start/IdentityConfig.cs" bodystart="18" bodyend="332"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_app___start_1_1_identity_config_1a2cfc863f23d4198bca307f06fe04023e" prot="public" virt="non-virtual"><scope>BSNCapstone::App_Start::IdentityConfig</scope><name>SignInStatus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

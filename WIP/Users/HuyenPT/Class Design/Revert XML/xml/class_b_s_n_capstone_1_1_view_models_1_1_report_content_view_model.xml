@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model" kind="class" language="C#" prot="public">
+    <compoundname>BSNCapstone::ViewModels::ReportContentViewModel</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ac3e78eaecbcb0587ec9b56e5405cd026" prot="public" static="no">
+        <name>ReportUser</name>
+        <enumvalue id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ac3e78eaecbcb0587ec9b56e5405cd026a7a11fcf2442e1a75f29f4bb13822282a" prot="public">
+          <name>report1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ac3e78eaecbcb0587ec9b56e5405cd026ad228fbbfe4a7ba408e90a04a643f9f92" prot="public">
+          <name>report2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ac3e78eaecbcb0587ec9b56e5405cd026a9097889361cab41bf402b95f6a645ecb" prot="public">
+          <name>report3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ac3e78eaecbcb0587ec9b56e5405cd026a21de3b5e4f63771b81471135e53fa673" prot="public">
+          <name>report4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ac3e78eaecbcb0587ec9b56e5405cd026a6efd3483f43a75ce276b1c8836cdcb27" prot="public">
+          <name>report5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ac3e78eaecbcb0587ec9b56e5405cd026a474e3fa738428961832b70afa7063205" prot="public">
+          <name>report6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/ReportContentViewModel.cs" line="24" column="1" bodyfile="ViewModels/ReportContentViewModel.cs" bodystart="23" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="enum" id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cd" prot="public" static="no">
+        <name>ReportGroup</name>
+        <enumvalue id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cda7a11fcf2442e1a75f29f4bb13822282a" prot="public">
+          <name>report1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cdad228fbbfe4a7ba408e90a04a643f9f92" prot="public">
+          <name>report2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cda9097889361cab41bf402b95f6a645ecb" prot="public">
+          <name>report3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cda21de3b5e4f63771b81471135e53fa673" prot="public">
+          <name>report4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cda6efd3483f43a75ce276b1c8836cdcb27" prot="public">
+          <name>report5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cda474e3fa738428961832b70afa7063205" prot="public">
+          <name>report6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cdaffd393781ce4d376c902cfd7a2702d52" prot="public">
+          <name>report7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/ReportContentViewModel.cs" line="40" column="1" bodyfile="ViewModels/ReportContentViewModel.cs" bodystart="39" bodyend="55"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a2e1dc11c0774545b46b70f2f9501cc09" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_report" kindref="compound">Report</ref> &gt;</type>
+        <definition>List&lt;Report&gt; BSNCapstone.ViewModels.ReportContentViewModel.ListReportUser</definition>
+        <argsstring></argsstring>
+        <name>ListReportUser</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/ReportContentViewModel.cs" line="13" column="1" bodyfile="ViewModels/ReportContentViewModel.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a38291c823e40d26fcff5beeb712bf8b6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; <ref refid="class_b_s_n_capstone_1_1_models_1_1_report" kindref="compound">Report</ref> &gt;</type>
+        <definition>List&lt;Report&gt; BSNCapstone.ViewModels.ReportContentViewModel.ListReportGroup</definition>
+        <argsstring></argsstring>
+        <name>ListReportGroup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/ReportContentViewModel.cs" line="15" column="1" bodyfile="ViewModels/ReportContentViewModel.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a5a9488a19ba50120888981d932ee4cc7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BSNCapstone.ViewModels.ReportContentViewModel.ReportContentViewModel</definition>
+        <argsstring>()</argsstring>
+        <name>ReportContentViewModel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/ReportContentViewModel.cs" line="17" column="1" bodyfile="ViewModels/ReportContentViewModel.cs" bodystart="17" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ae49552ea86af1a7e3c842894c7f74deb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string BSNCapstone.ViewModels.ReportContentViewModel.GetEnumDescription</definition>
+        <argsstring>(Enum value)</argsstring>
+        <name>GetEnumDescription</name>
+        <param>
+          <type>Enum</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/ReportContentViewModel.cs" line="57" column="1" bodyfile="ViewModels/ReportContentViewModel.cs" bodystart="57" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1acc76f6a30623c1c2b3f98050e6bb6329" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerable&lt; T &gt;</type>
+        <definition>static IEnumerable&lt;T&gt; BSNCapstone.ViewModels.ReportContentViewModel.EnumToList&lt; T &gt;</definition>
+        <argsstring>()</argsstring>
+        <name>EnumToList&lt; T &gt;</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ViewModels/ReportContentViewModel.cs" line="70" column="1" bodyfile="ViewModels/ReportContentViewModel.cs" bodystart="70" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ViewModels/ReportContentViewModel.cs" line="12" column="1" bodyfile="ViewModels/ReportContentViewModel.cs" bodystart="11" bodyend="89"/>
+    <listofallmembers>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1acc76f6a30623c1c2b3f98050e6bb6329" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::ReportContentViewModel</scope><name>EnumToList&lt; T &gt;</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ae49552ea86af1a7e3c842894c7f74deb" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::ReportContentViewModel</scope><name>GetEnumDescription</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a38291c823e40d26fcff5beeb712bf8b6" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::ReportContentViewModel</scope><name>ListReportGroup</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a2e1dc11c0774545b46b70f2f9501cc09" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::ReportContentViewModel</scope><name>ListReportUser</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a5a9488a19ba50120888981d932ee4cc7" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::ReportContentViewModel</scope><name>ReportContentViewModel</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1a18c7ce5bc0d855f30ff85fdb8a89d2cd" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::ReportContentViewModel</scope><name>ReportGroup</name></member>
+      <member refid="class_b_s_n_capstone_1_1_view_models_1_1_report_content_view_model_1ac3e78eaecbcb0587ec9b56e5405cd026" prot="public" virt="non-virtual"><scope>BSNCapstone::ViewModels::ReportContentViewModel</scope><name>ReportUser</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
