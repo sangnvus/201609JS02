@@ -13,7 +13,6 @@ using System.IO;
 using MongoDB.Driver.Builders;
 using BSNCapstone.App_Start;
 using BSNCapstone.ControllerHelpers;
-using PagedList;
 
 namespace BSNCapstone.Controllers
 {
@@ -23,13 +22,10 @@ namespace BSNCapstone.Controllers
         private readonly CloudinaryDotNet.Cloudinary cloudinary = ImageUploadHelper.GetCloudinaryAccount();
         //
         // GET: /Publisher/
-        public ActionResult Index(int? page)
+        public ActionResult Index()
         {
-            ViewBag.cloudinary = cloudinary;
             List<Publisher> publishers = Context.Publishers.Find(_ => true).ToList();
-            int pageSize = 3;
-            int pageNumber = (page ?? 1);
-            return View(publishers.ToPagedList(pageNumber, pageSize));
+            return View(new PublisherPhotoModel(cloudinary, publishers));
         }
 
         [HttpPost]

@@ -1,6 +1,4 @@
-﻿@*@model IEnumerable<BSNCapstone.Models.ApplicationUser>*@
-@model PagedList.IPagedList<BSNCapstone.Models.ApplicationUser>
-@using PagedList.Mvc;
+﻿@model IEnumerable<BSNCapstone.Models.ApplicationUser>
 
 @{
     ViewBag.Title = "Admin-Người dùng";
@@ -39,7 +37,7 @@
                 <div class="form-group add">
                 @using (Html.BeginForm("Users", "Account", FormMethod.Get, new { @class = "searchForm" }))
                 {
-                    @Html.TextBox("searchString", ViewBag.currentFilter as string)
+                    @Html.TextBox("searchString")
                     <input type="submit" value="Tìm" />
                 }
                     @*<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Tìm kiếm..." />*@
@@ -81,9 +79,6 @@
                         }
                     </tbody>
                 </table>
-                <br />
-                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) trên tổng số @Model.PageCount trang
-                @Html.PagedListPager(Model, page => Url.Action("Users", "Account", new { page, currentFilter = ViewBag.currentFilter }))
             </div>
             <!-------NÚT SANG TRANG------->
         </div>

@@ -1,10 +1,6 @@
-﻿@model PagedList.IPagedList<BSNCapstone.Models.Publisher>
-@using PagedList.Mvc;
-
-@{
+﻿@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewBag.Title = "Admin-Nhà xuất bản";
-    var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
 }
 
 <!DOCTYPE html>
@@ -108,12 +104,12 @@
                     <tbody>
                         @*HuyenPT. Create. Start. 02-11-2016*@
                         @{int i = 1;}
-                        @foreach (var publisher in Model)
+                        @foreach (BSNCapstone.Models.Publisher publisher in @Model.Publishers)
                         {
                             <tr id=@i>
                                 <td style="vertical-align: middle">@i</td>
                                 <td>
-                                    @cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                    @Model.Cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                     .Height(130).Width(130).Crop("fill")).BuildImageTag(publisher.ImagePublicId,
                                     new CloudinaryDotNet.StringDictionary("class=thumbnail inline"))
                                 </td>
@@ -152,7 +148,7 @@
                                                            id="pubEditedPhoneNo" value="@publisher.PhoneNumber">
                                                 </div>
                                                 <div class="col-sm-6" style="margin-top:1%; margin-left:180px">
-                                                    @cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                                    @Model.Cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                                     .Height(130).Width(130).Crop("fill")).BuildImageTag(publisher.ImagePublicId,
                                                     new CloudinaryDotNet.StringDictionary("class=thumbnail inline"))
                                                     <input type="file" id="pubEditedImage" style="color:black">
@@ -173,9 +169,6 @@
                         @*HuyenPT. Create. End. 02-11-2016*@
                     </tbody>
                 </table>
-                <br />
-                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) trên tổng số @Model.PageCount trang
-                @Html.PagedListPager(Model, page => Url.Action("Index", "Publisher", new { page }))
             </div>
         </div>
     </div>

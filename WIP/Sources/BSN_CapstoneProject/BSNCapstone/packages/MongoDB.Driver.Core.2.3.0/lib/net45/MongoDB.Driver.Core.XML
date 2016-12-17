@@ -40,205 +40,6 @@
       <param name="cancellationToken">The cancellation token.</param>
       <returns>A Task whose result indicates whether any more documents are available.</returns>
     </member>
-    <member name="T:MongoDB.Driver.Collation">
-      <summary>
-            Represents a MongoDB collation.
-            </summary>
-    </member>
-    <member name="M:MongoDB.Driver.Collation.#ctor(System.String,MongoDB.Driver.Optional{System.Nullable{System.Boolean}},MongoDB.Driver.Optional{System.Nullable{MongoDB.Driver.CollationCaseFirst}},MongoDB.Driver.Optional{System.Nullable{MongoDB.Driver.CollationStrength}},MongoDB.Driver.Optional{System.Nullable{System.Boolean}},MongoDB.Driver.Optional{System.Nullable{MongoDB.Driver.CollationAlternate}},MongoDB.Driver.Optional{System.Nullable{MongoDB.Driver.CollationMaxVariable}},MongoDB.Driver.Optional{System.Nullable{System.Boolean}},MongoDB.Driver.Optional{System.Nullable{System.Boolean}})">
-      <summary>
-            Initializes a new instance of the <see cref="T:MongoDB.Driver.Collation" /> class.
-            </summary>
-      <param name="locale">The locale.</param>
-      <param name="caseLevel">The case level.</param>
-      <param name="caseFirst">The case that is ordered first.</param>
-      <param name="strength">The strength.</param>
-      <param name="numericOrdering">Whether numbers are ordered numerically.</param>
-      <param name="alternate">The alternate.</param>
-      <param name="maxVariable">The maximum variable.</param>
-      <param name="normalization">The normalization.</param>
-      <param name="backwards">Whether secondary differences are to be considered in reverse order.</param>
-    </member>
-    <member name="P:MongoDB.Driver.Collation.Alternate">
-      <summary>
-            Gets whether spaces and punctuation are considered base characters.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Collation.Backwards">
-      <summary>
-            Gets whether secondary differencs are to be considered in reverse order.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Collation.CaseFirst">
-      <summary>
-            Gets whether upper case or lower case is ordered first.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Collation.CaseLevel">
-      <summary>
-            Gets whether the collation is case sensitive at strength 1 and 2.
-            </summary>
-    </member>
-    <member name="M:MongoDB.Driver.Collation.Equals(MongoDB.Driver.Collation)">
-      <summary>
-            Indicates whether the current object is equal to another object of the same type.
-            </summary>
-      <param name="other">An object to compare with this object.</param>
-      <returns>
-            true if the current object is equal to the <paramref name="other" /> parameter; otherwise, false.
-            </returns>
-    </member>
-    <member name="M:MongoDB.Driver.Collation.Equals(System.Object)">
-      <summary>Determines whether the specified object is equal to the current object.</summary>
-      <param name="obj">The object to compare with the current object. </param>
-      <returns>true if the specified object  is equal to the current object; otherwise, false.</returns>
-    </member>
-    <member name="M:MongoDB.Driver.Collation.FromBsonDocument(MongoDB.Bson.BsonDocument)">
-      <summary>
-            Creates a Collation instance from a BsonDocument.
-            </summary>
-      <param name="document">The document.</param>
-      <returns>A Collation instance.</returns>
-    </member>
-    <member name="M:MongoDB.Driver.Collation.GetHashCode">
-      <summary>Serves as the default hash function. </summary>
-      <returns>A hash code for the current object.</returns>
-    </member>
-    <member name="P:MongoDB.Driver.Collation.Locale">
-      <summary>
-            Gets the locale.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Collation.MaxVariable">
-      <summary>
-            Gets which characters are affected by the alternate: "Shifted".
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Collation.Normalization">
-      <summary>
-            Gets the normalization.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Collation.NumericOrdering">
-      <summary>
-            Gets whether numbers are ordered numerically.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Collation.Simple">
-      <summary>
-            Gets the simple binary compare collation.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Collation.Strength">
-      <summary>
-            Gets the strength.
-            </summary>
-    </member>
-    <member name="M:MongoDB.Driver.Collation.ToBsonDocument">
-      <summary>
-            Converts this object to a BsonDocument.
-            </summary>
-      <returns>A BsonDocument.</returns>
-    </member>
-    <member name="M:MongoDB.Driver.Collation.ToString">
-      <summary>Returns a string that represents the current object.</summary>
-      <returns>A string that represents the current object.</returns>
-    </member>
-    <member name="M:MongoDB.Driver.Collation.With(MongoDB.Driver.Optional{System.String},MongoDB.Driver.Optional{System.Nullable{System.Boolean}},MongoDB.Driver.Optional{System.Nullable{MongoDB.Driver.CollationCaseFirst}},MongoDB.Driver.Optional{System.Nullable{MongoDB.Driver.CollationStrength}},MongoDB.Driver.Optional{System.Nullable{System.Boolean}},MongoDB.Driver.Optional{System.Nullable{MongoDB.Driver.CollationAlternate}},MongoDB.Driver.Optional{System.Nullable{MongoDB.Driver.CollationMaxVariable}},MongoDB.Driver.Optional{System.Nullable{System.Boolean}},MongoDB.Driver.Optional{System.Nullable{System.Boolean}})">
-      <summary>
-            Creates a new Collation instance with some properties changed.
-            </summary>
-      <param name="locale">The new locale.</param>
-      <param name="caseLevel">The new case level.</param>
-      <param name="caseFirst">The new case first.</param>
-      <param name="strength">The new strength.</param>
-      <param name="numericOrdering">The new numeric ordering.</param>
-      <param name="alternate">The new alternate.</param>
-      <param name="maxVariable">The new maximum variable.</param>
-      <param name="normalization">The new normalization.</param>
-      <param name="backwards">The new backwards.</param>
-      <returns>A new Collation instance.</returns>
-    </member>
-    <member name="T:MongoDB.Driver.CollationAlternate">
-      <summary>
-            Controls whether spaces and punctuation are considered base characters.
-            </summary>
-    </member>
-    <member name="F:MongoDB.Driver.CollationAlternate.NonIgnorable">
-      <summary>
-            Spaces and punctuation are considered base characters (the default).
-            </summary>
-    </member>
-    <member name="F:MongoDB.Driver.CollationAlternate.Shifted">
-      <summary>
-            Spaces and characters are not considered base characters, and are only distinguised at strength &gt; 3.
-            </summary>
-    </member>
-    <member name="T:MongoDB.Driver.CollationCaseFirst">
-      <summary>
-            Uppercase or lowercase first.
-            </summary>
-    </member>
-    <member name="F:MongoDB.Driver.CollationCaseFirst.Off">
-      <summary>
-            Off (the default).
-            </summary>
-    </member>
-    <member name="F:MongoDB.Driver.CollationCaseFirst.Upper">
-      <summary>
-            Uppercase first.
-            </summary>
-    </member>
-    <member name="F:MongoDB.Driver.CollationCaseFirst.Lower">
-      <summary>
-            Lowercase first.
-            </summary>
-    </member>
-    <member name="T:MongoDB.Driver.CollationMaxVariable">
-      <summary>
-            Controls which characters are affected by alternate: "Shifted".
-            </summary>
-    </member>
-    <member name="F:MongoDB.Driver.CollationMaxVariable.Punctuation">
-      <summary>
-            Punctuation and spaces are affected (the default).
-            </summary>
-    </member>
-    <member name="F:MongoDB.Driver.CollationMaxVariable.Space">
-      <summary>
-            Only spaces.
-            </summary>
-    </member>
-    <member name="T:MongoDB.Driver.CollationStrength">
-      <summary>
-            Prioritizes the comparison properties.
-            </summary>
-    </member>
-    <member name="F:MongoDB.Driver.CollationStrength.Primary">
-      <summary>
-            Primary.
-            </summary>
-    </member>
-    <member name="F:MongoDB.Driver.CollationStrength.Secondary">
-      <summary>
-            Secondary.
-            </summary>
-    </member>
-    <member name="F:MongoDB.Driver.CollationStrength.Tertiary">
-      <summary>
-            Tertiary (the default).
-            </summary>
-    </member>
-    <member name="F:MongoDB.Driver.CollationStrength.Quaternary">
-      <summary>
-            Quaternary.
-            </summary>
-    </member>
-    <member name="F:MongoDB.Driver.CollationStrength.Identical">
-      <summary>
-            Identical.
-            </summary>
-    </member>
     <member name="T:MongoDB.Driver.CollectionNamespace">
       <summary>
             Represents a collection namespace.
@@ -1433,11 +1234,6 @@
             Gets the level.
             </summary>
     </member>
-    <member name="P:MongoDB.Driver.ReadConcern.Linearizable">
-      <summary>
-            Gets a linearizable read concern.
-            </summary>
-    </member>
     <member name="P:MongoDB.Driver.ReadConcern.Local">
       <summary>
             Gets a local read concern.
@@ -1445,7 +1241,7 @@
     </member>
     <member name="P:MongoDB.Driver.ReadConcern.Majority">
       <summary>
-            Gets a majority read concern.
+            Gets a majority read concern
             </summary>
     </member>
     <member name="M:MongoDB.Driver.ReadConcern.ToBsonDocument">
@@ -1488,27 +1284,17 @@
             Reads data committed to a majority of nodes.
             </summary>
     </member>
-    <member name="F:MongoDB.Driver.ReadConcernLevel.Linearizable">
-      <summary>
-            Avoids returning data from a "stale" primary 
-            (one that has already been superseded by a new primary but doesn't know it yet). 
-            It is important to note that readConcern level linearizable does not by itself 
-            produce linearizable reads; they must be issued in conjunction with w:majority 
-            writes to the same document(s) in order to be linearizable.
-            </summary>
-    </member>
     <member name="T:MongoDB.Driver.ReadPreference">
       <summary>
             Represents a read preference.
             </summary>
     </member>
-    <member name="M:MongoDB.Driver.ReadPreference.#ctor(MongoDB.Driver.ReadPreferenceMode,System.Collections.Generic.IEnumerable{MongoDB.Driver.TagSet},System.Nullable{System.TimeSpan})">
+    <member name="M:MongoDB.Driver.ReadPreference.#ctor(MongoDB.Driver.ReadPreferenceMode,System.Collections.Generic.IEnumerable{MongoDB.Driver.TagSet})">
       <summary>
             Initializes a new instance of the <see cref="T:MongoDB.Driver.ReadPreference" /> class.
             </summary>
       <param name="mode">The read preference mode.</param>
       <param name="tagSets">The tag sets.</param>
-      <param name="maxStaleness">The maximum staleness.</param>
     </member>
     <member name="M:MongoDB.Driver.ReadPreference.Equals(MongoDB.Driver.ReadPreference)">
       <summary>Indicates whether the current object is equal to another object of the same type.</summary>
@@ -1523,11 +1309,6 @@
     <member name="M:MongoDB.Driver.ReadPreference.GetHashCode">
       <summary>Serves as the default hash function. </summary>
       <returns>A hash code for the current object.</returns>
-    </member>
-    <member name="P:MongoDB.Driver.ReadPreference.MaxStaleness">
-      <summary>
-            Gets the maximum staleness.
-            </summary>
     </member>
     <member name="P:MongoDB.Driver.ReadPreference.Nearest">
       <summary>
@@ -1580,13 +1361,6 @@
             Returns a new instance of ReadPreference with some values changed.
             </summary>
       <param name="tagSets">The tag sets.</param>
-      <returns>A new instance of ReadPreference.</returns>
-    </member>
-    <member name="M:MongoDB.Driver.ReadPreference.With(System.Nullable{System.TimeSpan})">
-      <summary>
-            Returns a new instance of ReadPreference with some values changed.
-            </summary>
-      <param name="maxStaleness">The maximum staleness.</param>
       <returns>A new instance of ReadPreference.</returns>
     </member>
     <member name="T:MongoDB.Driver.ReadPreferenceMode">
@@ -4141,19 +3915,13 @@
             Represents settings for a connection.
             </summary>
     </member>
-    <member name="M:MongoDB.Driver.Core.Configuration.ConnectionSettings.#ctor(MongoDB.Driver.Optional{System.Collections.Generic.IEnumerable{MongoDB.Driver.Core.Authentication.IAuthenticator}},MongoDB.Driver.Optional{System.TimeSpan},MongoDB.Driver.Optional{System.TimeSpan},MongoDB.Driver.Optional{System.String})">
+    <member name="M:MongoDB.Driver.Core.Configuration.ConnectionSettings.#ctor(MongoDB.Driver.Optional{System.Collections.Generic.IEnumerable{MongoDB.Driver.Core.Authentication.IAuthenticator}},MongoDB.Driver.Optional{System.TimeSpan},MongoDB.Driver.Optional{System.TimeSpan})">
       <summary>
             Initializes a new instance of the <see cref="T:MongoDB.Driver.Core.Configuration.ConnectionSettings" /> class.
             </summary>
       <param name="authenticators">The authenticators.</param>
       <param name="maxIdleTime">The maximum idle time.</param>
       <param name="maxLifeTime">The maximum life time.</param>
-      <param name="applicationName">The application name.</param>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Configuration.ConnectionSettings.ApplicationName">
-      <summary>
-            Gets the name of the application.
-            </summary>
     </member>
     <member name="P:MongoDB.Driver.Core.Configuration.ConnectionSettings.Authenticators">
       <summary>
@@ -4170,14 +3938,13 @@
             Gets the maximum life time.
             </summary>
     </member>
-    <member name="M:MongoDB.Driver.Core.Configuration.ConnectionSettings.With(MongoDB.Driver.Optional{System.Collections.Generic.IEnumerable{MongoDB.Driver.Core.Authentication.IAuthenticator}},MongoDB.Driver.Optional{System.TimeSpan},MongoDB.Driver.Optional{System.TimeSpan},MongoDB.Driver.Optional{System.String})">
+    <member name="M:MongoDB.Driver.Core.Configuration.ConnectionSettings.With(MongoDB.Driver.Optional{System.Collections.Generic.IEnumerable{MongoDB.Driver.Core.Authentication.IAuthenticator}},MongoDB.Driver.Optional{System.TimeSpan},MongoDB.Driver.Optional{System.TimeSpan})">
       <summary>
             Returns a new ConnectionSettings instance with some settings changed.
             </summary>
       <param name="authenticators">The authenticators.</param>
       <param name="maxIdleTime">The maximum idle time.</param>
       <param name="maxLifeTime">The maximum life time.</param>
-      <param name="applicationName">The application name.</param>
       <returns>A new ConnectionSettings instance.</returns>
     </member>
     <member name="T:MongoDB.Driver.Core.Configuration.ConnectionString">
@@ -4199,11 +3966,6 @@
     <member name="P:MongoDB.Driver.Core.Configuration.ConnectionString.AllUnknownOptionNames">
       <summary>
             Gets all the unknown option names.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Configuration.ConnectionString.ApplicationName">
-      <summary>
-            Gets the application name.
             </summary>
     </member>
     <member name="P:MongoDB.Driver.Core.Configuration.ConnectionString.AuthMechanism">
@@ -4248,16 +4010,6 @@
       <param name="name">The name.</param>
       <returns>The option with the specified name.</returns>
     </member>
-    <member name="P:MongoDB.Driver.Core.Configuration.ConnectionString.HeartbeatInterval">
-      <summary>
-            Gets the heartbeat interval.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Configuration.ConnectionString.HeartbeatTimeout">
-      <summary>
-            Gets the heartbeat timeout.
-            </summary>
-    </member>
     <member name="P:MongoDB.Driver.Core.Configuration.ConnectionString.Hosts">
       <summary>
             Gets the hosts.
@@ -4291,11 +4043,6 @@
     <member name="P:MongoDB.Driver.Core.Configuration.ConnectionString.MaxPoolSize">
       <summary>
             Gets the max size of the connection pool.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Configuration.ConnectionString.MaxStaleness">
-      <summary>
-            Gets the max staleness.
             </summary>
     </member>
     <member name="P:MongoDB.Driver.Core.Configuration.ConnectionString.MinPoolSize">
@@ -4398,16 +4145,6 @@
             </summary>
       <param name="heartbeatInterval">The heartbeat interval.</param>
       <param name="heartbeatTimeout">The heartbeat timeout.</param>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Configuration.ServerSettings.DefaultHeartbeatInterval">
-      <summary>
-            Gets the default heartbeat interval.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Configuration.ServerSettings.DefaultHeartbeatTimeout">
-      <summary>
-            Gets the default heartbeat timeout.
-            </summary>
     </member>
     <member name="P:MongoDB.Driver.Core.Configuration.ServerSettings.HeartbeatInterval">
       <summary>
@@ -4916,11 +4653,6 @@
     <member name="P:MongoDB.Driver.Core.Connections.IsMasterResult.IsReplicaSetMember">
       <summary>
             Gets a value indicating whether this instance is a replica set member.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Connections.IsMasterResult.LastWriteTimestamp">
-      <summary>
-            Gets the last write timestamp.
             </summary>
     </member>
     <member name="P:MongoDB.Driver.Core.Connections.IsMasterResult.MaxBatchCount">
@@ -6827,45 +6559,6 @@
             The state information, if any, that the consumer wishes to associate with the overflow item.
             </summary>
     </member>
-    <member name="T:MongoDB.Driver.Core.Misc.CollationFeature">
-      <summary>
-            Represents the collation feature.
-            </summary>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Misc.CollationFeature.#ctor(System.String,MongoDB.Driver.Core.Misc.SemanticVersion)">
-      <summary>
-            Initializes a new instance of the <see cref="T:MongoDB.Driver.Core.Misc.CollationFeature" /> class.
-            </summary>
-      <param name="name">The name of the feature.</param>
-      <param name="firstSupportedVersion">The first server version that supports the feature.</param>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Misc.CollationFeature.ThrowIfNotSupported(MongoDB.Driver.Core.Misc.SemanticVersion,MongoDB.Driver.Collation)">
-      <summary>
-            Throws if collation value is not null and collations are not supported.
-            </summary>
-      <param name="serverVersion">The server version.</param>
-      <param name="value">The value.</param>
-    </member>
-    <member name="T:MongoDB.Driver.Core.Misc.CommandsThatWriteAcceptWriteConcernFeature">
-      <summary>
-            Represents the commands that write accept write concern concern feature.
-            </summary>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Misc.CommandsThatWriteAcceptWriteConcernFeature.#ctor(System.String,MongoDB.Driver.Core.Misc.SemanticVersion)">
-      <summary>
-            Initializes a new instance of the <see cref="T:MongoDB.Driver.Core.Misc.CommandsThatWriteAcceptWriteConcernFeature" /> class.
-            </summary>
-      <param name="name">The name of the feature.</param>
-      <param name="firstSupportedVersion">The first server version that supports the feature.</param>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Misc.CommandsThatWriteAcceptWriteConcernFeature.ShouldSendWriteConcern(MongoDB.Driver.Core.Misc.SemanticVersion,MongoDB.Driver.WriteConcern)">
-      <summary>
-            Returns true if the write concern value supplied is one that should be sent to the server and the server version supports the commands that write accept write concern feature.
-            </summary>
-      <param name="serverVersion">The server version.</param>
-      <param name="value">The write concern value.</param>
-      <returns>Whether the write concern should be sent to the server.</returns>
-    </member>
     <member name="T:MongoDB.Driver.Core.Misc.EndPointHelper">
       <summary>
             Represents helper methods for EndPoints.
@@ -7030,14 +6723,6 @@
       <param name="paramName">The name of the parameter.</param>
       <returns>The value of the parameter.</returns>
     </member>
-    <member name="M:MongoDB.Driver.Core.Misc.Ensure.IsInfiniteOrGreaterThanZero(System.TimeSpan,System.String)">
-      <summary>
-            Ensures that the value of a parameter is infinite or greater than zero.
-            </summary>
-      <param name="value">The value of the parameter.</param>
-      <param name="paramName">The name of the parameter.</param>
-      <returns>The value of the parameter.</returns>
-    </member>
     <member name="M:MongoDB.Driver.Core.Misc.Ensure.IsNotNull``1(``0,System.String)">
       <summary>
             Ensures that the value of a parameter is not null.
@@ -7143,14 +6828,6 @@
       <param name="assertion">The assertion.</param>
       <param name="message">The message to use with the exception that is thrown if the assertion is false.</param>
     </member>
-    <member name="M:MongoDB.Driver.Core.Misc.Ensure.That(System.Boolean,System.String,System.String)">
-      <summary>
-            Ensures that an assertion is true.
-            </summary>
-      <param name="assertion">The assertion.</param>
-      <param name="message">The message to use with the exception that is thrown if the assertion is false.</param>
-      <param name="paramName">The parameter name.</param>
-    </member>
     <member name="M:MongoDB.Driver.Core.Misc.Ensure.That``1(``0,System.Func{``0,System.Boolean},System.String,System.String)">
       <summary>
             Ensures that the value of a parameter meets an assertion.
@@ -7161,208 +6838,6 @@
       <param name="message">The message to use with the exception that is thrown if the assertion is false.</param>
       <typeparam name="T">Type type of the value.</typeparam>
       <returns>The value of the parameter.</returns>
-    </member>
-    <member name="T:MongoDB.Driver.Core.Misc.Feature">
-      <summary>
-            Represents a feature that is not supported by all versions of the server.
-            </summary>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Misc.Feature.#ctor(System.String,MongoDB.Driver.Core.Misc.SemanticVersion)">
-      <summary>
-            Initializes a new instance of the <see cref="T:MongoDB.Driver.Core.Misc.Feature" /> class.
-            </summary>
-      <param name="name">The name of the feature.</param>
-      <param name="firstSupportedVersion">The first server version that supports the feature.</param>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.Aggregate">
-      <summary>
-            Gets the aggregate feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.AggregateAllowDiskUse">
-      <summary>
-            Gets the aggregate allow disk use feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.AggregateBucketStage">
-      <summary>
-            Gets the aggregate bucket stage feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.AggregateCountStage">
-      <summary>
-            Gets the aggregate count stage feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.AggregateCursorResult">
-      <summary>
-            Gets the aggregate cursor result feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.AggregateExplain">
-      <summary>
-            Gets the aggregate explain feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.AggregateFacetStage">
-      <summary>
-            Gets the aggregate $facet stage feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.AggregateGraphLookupStage">
-      <summary>
-            Gets the aggregate $graphLookup stage feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.AggregateOut">
-      <summary>
-            Gets the aggregate out feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.BypassDocumentValidation">
-      <summary>
-            Gets the bypass document validation feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.Collation">
-      <summary>
-            Gets the collation feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.CommandsThatWriteAcceptWriteConcern">
-      <summary>
-            Gets the commands that write accept write concern feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.CreateIndexesCommand">
-      <summary>
-            Gets the create indexes command feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.CurrentOpCommand">
-      <summary>
-            Gets the current op command feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.DocumentValidation">
-      <summary>
-            Gets the document validation feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.ExplainCommand">
-      <summary>
-            Gets the explain command feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.FailPoints">
-      <summary>
-            Gets the fail points feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.FindAndModifyWriteConcern">
-      <summary>
-            Gets the find and modify write concern feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.FindCommand">
-      <summary>
-            Gets the find command feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.FirstSupportedVersion">
-      <summary>
-            Gets the first server version that supports the feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.IndexOptionsDefaults">
-      <summary>
-            Gets the index options defaults feature.
-            </summary>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Misc.Feature.IsSupported(MongoDB.Driver.Core.Misc.SemanticVersion)">
-      <summary>
-            Determines whether a feature is supported by a version of the server.
-            </summary>
-      <param name="serverVersion">The server version.</param>
-      <returns>Whether a feature is supported by a version of the server.</returns>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.LastNotSupportedVersion">
-      <summary>
-            Gets the last server version that does not support the feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.ListCollectionsCommand">
-      <summary>
-            Gets the list collections command feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.ListIndexesCommand">
-      <summary>
-            Gets the list indexes command feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.MaxStaleness">
-      <summary>
-            Gets the maximum staleness feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.MaxTime">
-      <summary>
-            Gets the maximum time feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.Name">
-      <summary>
-            Gets the name of the feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.PartialIndexes">
-      <summary>
-            Gets the partial indexes feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.ReadConcern">
-      <summary>
-            Gets the read concern feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.ScramSha1Authentication">
-      <summary>
-            Gets the scram sha1 authentication feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.ServerExtractsUsernameFromX509Certificate">
-      <summary>
-            Gets the server extracts username from X509 certificate feature.
-            </summary>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Misc.Feature.SupportedOrNotSupportedVersion(System.Boolean)">
-      <summary>
-            Returns a version of the server where the feature is or is not supported.
-            </summary>
-      <param name="isSupported">Whether the feature is supported or not.</param>
-      <returns>A version of the server where the feature is or is not supported.</returns>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Misc.Feature.ThrowIfNotSupported(MongoDB.Driver.Core.Misc.SemanticVersion)">
-      <summary>
-            Throws if the feature is not supported by a version of the server.
-            </summary>
-      <param name="serverVersion">The server version.</param>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.UserManagementCommands">
-      <summary>
-            Gets the user management commands feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.Views">
-      <summary>
-            Gets the views feature.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Misc.Feature.WriteCommands">
-      <summary>
-            Gets the write commands feature.
-            </summary>
     </member>
     <member name="T:MongoDB.Driver.Core.Misc.Range`1">
       <summary>
@@ -7411,25 +6886,6 @@
     <member name="M:MongoDB.Driver.Core.Misc.Range`1.ToString">
       <summary>Returns a string that represents the current object.</summary>
       <returns>A string that represents the current object.</returns>
-    </member>
-    <member name="T:MongoDB.Driver.Core.Misc.ReadConcernFeature">
-      <summary>
-            Represents the read concern feature.
-            </summary>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Misc.ReadConcernFeature.#ctor(System.String,MongoDB.Driver.Core.Misc.SemanticVersion)">
-      <summary>
-            Initializes a new instance of the <see cref="T:MongoDB.Driver.Core.Misc.ReadConcernFeature" /> class.
-            </summary>
-      <param name="name">The name of the feature.</param>
-      <param name="firstSupportedVersion">The first server version that supports the feature.</param>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Misc.ReadConcernFeature.ThrowIfNotSupported(MongoDB.Driver.Core.Misc.SemanticVersion,MongoDB.Driver.ReadConcern)">
-      <summary>
-            Throws if the read concern value is not the server default and read concern is not supported.
-            </summary>
-      <param name="serverVersion">The server version.</param>
-      <param name="value">The value.</param>
     </member>
     <member name="T:MongoDB.Driver.Core.Misc.SemanticVersion">
       <summary>
@@ -7609,11 +7065,6 @@
             Gets or sets a value indicating whether the server is allowed to use the disk.
             </summary>
     </member>
-    <member name="P:MongoDB.Driver.Core.Operations.AggregateExplainOperation.Collation">
-      <summary>
-            Gets or sets the collation.
-            </summary>
-    </member>
     <member name="P:MongoDB.Driver.Core.Operations.AggregateExplainOperation.CollectionNamespace">
       <summary>
             Gets the collection namespace.
@@ -7673,11 +7124,6 @@
     <member name="P:MongoDB.Driver.Core.Operations.AggregateOperation`1.BatchSize">
       <summary>
             Gets or sets the size of a batch.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.AggregateOperation`1.Collation">
-      <summary>
-            Gets or sets the collation.
             </summary>
     </member>
     <member name="P:MongoDB.Driver.Core.Operations.AggregateOperation`1.CollectionNamespace">
@@ -7761,11 +7207,6 @@
             Gets or sets a value indicating whether to bypass document validation.
             </summary>
     </member>
-    <member name="P:MongoDB.Driver.Core.Operations.AggregateToCollectionOperation.Collation">
-      <summary>
-            Gets or sets the collation.
-            </summary>
-    </member>
     <member name="P:MongoDB.Driver.Core.Operations.AggregateToCollectionOperation.CollectionNamespace">
       <summary>
             Gets the collection namespace.
@@ -7800,11 +7241,6 @@
     <member name="P:MongoDB.Driver.Core.Operations.AggregateToCollectionOperation.Pipeline">
       <summary>
             Gets the pipeline.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.AggregateToCollectionOperation.WriteConcern">
-      <summary>
-            Gets or sets the write concern.
             </summary>
     </member>
     <member name="T:MongoDB.Driver.Core.Operations.AsyncCursor`1">
@@ -8254,11 +7690,6 @@
       <param name="collectionNamespace">The collection namespace.</param>
       <param name="messageEncoderSettings">The message encoder settings.</param>
     </member>
-    <member name="P:MongoDB.Driver.Core.Operations.CountOperation.Collation">
-      <summary>
-            Gets or sets the collation.
-            </summary>
-    </member>
     <member name="P:MongoDB.Driver.Core.Operations.CountOperation.CollectionNamespace">
       <summary>
             Gets the collection namespace.
@@ -8337,11 +7768,6 @@
             Gets or sets a value indicating whether the collection is a capped collection.
             </summary>
     </member>
-    <member name="P:MongoDB.Driver.Core.Operations.CreateCollectionOperation.Collation">
-      <summary>
-            Gets or sets the collation.
-            </summary>
-    </member>
     <member name="P:MongoDB.Driver.Core.Operations.CreateCollectionOperation.CollectionNamespace">
       <summary>
             Gets the collection namespace.
@@ -8408,11 +7834,6 @@
             Gets or sets the validator.
             </summary>
     </member>
-    <member name="P:MongoDB.Driver.Core.Operations.CreateCollectionOperation.WriteConcern">
-      <summary>
-            Gets or sets the write concern.
-            </summary>
-    </member>
     <member name="T:MongoDB.Driver.Core.Operations.CreateIndexesOperation">
       <summary>
             Represents a create indexes operation.
@@ -8469,7 +7890,7 @@
     </member>
     <member name="M:MongoDB.Driver.Core.Operations.CreateIndexesUsingCommandOperation.#ctor(MongoDB.Driver.CollectionNamespace,System.Collections.Generic.IEnumerable{MongoDB.Driver.Core.Operations.CreateIndexRequest},MongoDB.Driver.Core.WireProtocol.Messages.Encoders.MessageEncoderSettings)">
       <summary>
-            Initializes a new instance of the <see cref="T:MongoDB.Driver.Core.Operations.CreateIndexesUsingCommandOperation" /> class.
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.Core.Operations.CreateIndexesOperation" /> class.
             </summary>
       <param name="collectionNamespace">The collection namespace.</param>
       <param name="requests">The requests.</param>
@@ -8518,7 +7939,7 @@
     </member>
     <member name="M:MongoDB.Driver.Core.Operations.CreateIndexesUsingInsertOperation.#ctor(MongoDB.Driver.CollectionNamespace,System.Collections.Generic.IEnumerable{MongoDB.Driver.Core.Operations.CreateIndexRequest},MongoDB.Driver.Core.WireProtocol.Messages.Encoders.MessageEncoderSettings)">
       <summary>
-            Initializes a new instance of the <see cref="T:MongoDB.Driver.Core.Operations.CreateIndexesUsingInsertOperation" /> class.
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.Core.Operations.CreateIndexesOperation" /> class.
             </summary>
       <param name="collectionNamespace">The collection namespace.</param>
       <param name="requests">The requests.</param>
@@ -8555,6 +7976,11 @@
             Gets the create index requests.
             </summary>
     </member>
+    <member name="P:MongoDB.Driver.Core.Operations.CreateIndexesUsingInsertOperation.WriteConcern">
+      <summary>
+            Gets or sets the write concern.
+            </summary>
+    </member>
     <member name="T:MongoDB.Driver.Core.Operations.CreateIndexRequest">
       <summary>
             Represents a create index request.
@@ -8584,11 +8010,6 @@
     <member name="P:MongoDB.Driver.Core.Operations.CreateIndexRequest.BucketSize">
       <summary>
             Gets or sets the size of the bucket for geo haystack indexes.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.CreateIndexRequest.Collation">
-      <summary>
-            Gets or sets the collation.
             </summary>
     </member>
     <member name="P:MongoDB.Driver.Core.Operations.CreateIndexRequest.DefaultLanguage">
@@ -8670,72 +8091,6 @@
     <member name="P:MongoDB.Driver.Core.Operations.CreateIndexRequest.Weights">
       <summary>
             Gets or sets the weights for text indexes.
-            </summary>
-    </member>
-    <member name="T:MongoDB.Driver.Core.Operations.CreateViewOperation">
-      <summary>
-            Represents a create view operation.
-            </summary>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Operations.CreateViewOperation.#ctor(MongoDB.Driver.DatabaseNamespace,System.String,System.String,System.Collections.Generic.IEnumerable{MongoDB.Bson.BsonDocument},MongoDB.Driver.Core.WireProtocol.Messages.Encoders.MessageEncoderSettings)">
-      <summary>
-            Initializes a new instance of the <see cref="T:MongoDB.Driver.Core.Operations.CreateCollectionOperation" /> class.
-            </summary>
-      <param name="databaseNamespace">The name of the database.</param>
-      <param name="viewName">The name of the view.</param>
-      <param name="viewOn">The name of the collection that the view is on.</param>
-      <param name="pipeline">The pipeline.</param>
-      <param name="messageEncoderSettings">The message encoder settings.</param>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.CreateViewOperation.Collation">
-      <summary>
-            Gets or sets the collation.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.CreateViewOperation.DatabaseNamespace">
-      <summary>
-            Gets the namespace of the database.
-            </summary>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Operations.CreateViewOperation.Execute(MongoDB.Driver.Core.Bindings.IWriteBinding,System.Threading.CancellationToken)">
-      <summary>
-            Executes the operation.
-            </summary>
-      <param name="binding">The binding.</param>
-      <param name="cancellationToken">The cancellation token.</param>
-      <returns>The result of the operation.</returns>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Operations.CreateViewOperation.ExecuteAsync(MongoDB.Driver.Core.Bindings.IWriteBinding,System.Threading.CancellationToken)">
-      <summary>
-            Executes the operation.
-            </summary>
-      <param name="binding">The binding.</param>
-      <param name="cancellationToken">The cancellation token.</param>
-      <returns>A Task whose result is the result of the operation.</returns>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.CreateViewOperation.MessageEncoderSettings">
-      <summary>
-            Gets the message encoder settings.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.CreateViewOperation.Pipeline">
-      <summary>
-            Gets the pipeline.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.CreateViewOperation.ViewName">
-      <summary>
-            Gets the name of the view.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.CreateViewOperation.ViewOn">
-      <summary>
-            Gets the name of the collection that the view is on.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.CreateViewOperation.WriteConcern">
-      <summary>
-            Gets or sets the write concern.
             </summary>
     </member>
     <member name="T:MongoDB.Driver.Core.Operations.CursorType">
@@ -8856,11 +8211,6 @@
             </summary>
       <param name="filter">The filter.</param>
     </member>
-    <member name="P:MongoDB.Driver.Core.Operations.DeleteRequest.Collation">
-      <summary>
-            Gets or sets the collation.
-            </summary>
-    </member>
     <member name="P:MongoDB.Driver.Core.Operations.DeleteRequest.Filter">
       <summary>
             Gets or sets the filter.
@@ -8885,11 +8235,6 @@
       <param name="valueSerializer">The value serializer.</param>
       <param name="fieldName">The name of the field.</param>
       <param name="messageEncoderSettings">The message encoder settings.</param>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.DistinctOperation`1.Collation">
-      <summary>
-            Gets or sets the collation.
-            </summary>
     </member>
     <member name="P:MongoDB.Driver.Core.Operations.DistinctOperation`1.CollectionNamespace">
       <summary>
@@ -8980,11 +8325,6 @@
             Gets the message encoder settings.
             </summary>
     </member>
-    <member name="P:MongoDB.Driver.Core.Operations.DropCollectionOperation.WriteConcern">
-      <summary>
-            Gets or sets the write concern.
-            </summary>
-    </member>
     <member name="T:MongoDB.Driver.Core.Operations.DropDatabaseOperation">
       <summary>
             Represents a drop database operation.
@@ -9021,11 +8361,6 @@
     <member name="P:MongoDB.Driver.Core.Operations.DropDatabaseOperation.MessageEncoderSettings">
       <summary>
             Gets the message encoder settings.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.DropDatabaseOperation.WriteConcern">
-      <summary>
-            Gets or sets the write concern.
             </summary>
     </member>
     <member name="T:MongoDB.Driver.Core.Operations.DropIndexOperation">
@@ -9078,11 +8413,6 @@
     <member name="P:MongoDB.Driver.Core.Operations.DropIndexOperation.MessageEncoderSettings">
       <summary>
             Gets the message encoder settings.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.DropIndexOperation.WriteConcern">
-      <summary>
-            Gets or sets the write concern.
             </summary>
     </member>
     <member name="T:MongoDB.Driver.Core.Operations.EvalOperation">
@@ -9245,11 +8575,6 @@
       <param name="resultSerializer">The result serializer.</param>
       <param name="messageEncoderSettings">The message encoder settings.</param>
     </member>
-    <member name="P:MongoDB.Driver.Core.Operations.FindAndModifyOperationBase`1.Collation">
-      <summary>
-            Gets or sets the collation.
-            </summary>
-    </member>
     <member name="P:MongoDB.Driver.Core.Operations.FindAndModifyOperationBase`1.CollectionNamespace">
       <summary>
             Gets the collection namespace.
@@ -9334,11 +8659,6 @@
     <member name="P:MongoDB.Driver.Core.Operations.FindCommandOperation`1.BatchSize">
       <summary>
             Gets or sets the size of a batch.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.FindCommandOperation`1.Collation">
-      <summary>
-            Gets or sets the collation.
             </summary>
     </member>
     <member name="P:MongoDB.Driver.Core.Operations.FindCommandOperation`1.CollectionNamespace">
@@ -9818,11 +9138,6 @@
             Gets or sets the size of a batch.
             </summary>
     </member>
-    <member name="P:MongoDB.Driver.Core.Operations.FindOperation`1.Collation">
-      <summary>
-            Gets or sets the collation.
-            </summary>
-    </member>
     <member name="P:MongoDB.Driver.Core.Operations.FindOperation`1.CollectionNamespace">
       <summary>
             Gets the collection namespace.
@@ -9979,11 +9294,6 @@
       <param name="resultSerializer">The result serializer.</param>
       <param name="messageEncoderSettings">The message encoder settings.</param>
     </member>
-    <member name="P:MongoDB.Driver.Core.Operations.GeoNearOperation`1.Collation">
-      <summary>
-            Gets or sets the collation.
-            </summary>
-    </member>
     <member name="P:MongoDB.Driver.Core.Operations.GeoNearOperation`1.CollectionNamespace">
       <summary>
             Gets the collection namespace.
@@ -10073,7 +9383,7 @@
     </member>
     <member name="M:MongoDB.Driver.Core.Operations.GeoSearchOperation`1.#ctor(MongoDB.Driver.CollectionNamespace,MongoDB.Bson.BsonValue,MongoDB.Bson.Serialization.IBsonSerializer{`0},MongoDB.Driver.Core.WireProtocol.Messages.Encoders.MessageEncoderSettings)">
       <summary>
-            Initializes a new instance of the <see cref="T:MongoDB.Driver.Core.Operations.GeoSearchOperation`1" /> class.
+            Initializes a new instance of the <see cref="T:MongoDB.Driver.Core.Operations.GeoNearOperation`1" /> class.
             </summary>
       <param name="collectionNamespace">The collection namespace.</param>
       <param name="near">The point for which to find the closest documents.</param>
@@ -10168,11 +9478,6 @@
       <param name="reduceFunction">The reduce function.</param>
       <param name="filter">The filter.</param>
       <param name="messageEncoderSettings">The message encoder settings.</param>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.GroupOperation`1.Collation">
-      <summary>
-            Gets or sets the collation.
-            </summary>
     </member>
     <member name="P:MongoDB.Driver.Core.Operations.GroupOperation`1.CollectionNamespace">
       <summary>
@@ -10792,11 +10097,6 @@
       <param name="reduceFunction">The reduce function.</param>
       <param name="messageEncoderSettings">The message encoder settings.</param>
     </member>
-    <member name="P:MongoDB.Driver.Core.Operations.MapReduceOperationBase.Collation">
-      <summary>
-            Gets or sets the collation.
-            </summary>
-    </member>
     <member name="P:MongoDB.Driver.Core.Operations.MapReduceOperationBase.CollectionNamespace">
       <summary>
             Gets the collection namespace.
@@ -10960,11 +10260,6 @@
     <member name="P:MongoDB.Driver.Core.Operations.MapReduceOutputToCollectionOperation.ShardedOutput">
       <summary>
             Gets or sets a value indicating whether the output collection should be sharded.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.MapReduceOutputToCollectionOperation.WriteConcern">
-      <summary>
-            Gets or sets the write concern.
             </summary>
     </member>
     <member name="T:MongoDB.Driver.Core.Operations.MongoBulkWriteOperationException">
@@ -11188,49 +10483,6 @@
       <param name="cancellationToken">The cancellation token.</param>
       <returns>A Task whose result is the result of the operation.</returns>
     </member>
-    <member name="T:MongoDB.Driver.Core.Operations.ReIndexOperation">
-      <summary>
-            Represents a reindex operation.
-            </summary>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Operations.ReIndexOperation.#ctor(MongoDB.Driver.CollectionNamespace,MongoDB.Driver.Core.WireProtocol.Messages.Encoders.MessageEncoderSettings)">
-      <summary>
-            Initializes a new instance of the <see cref="T:MongoDB.Driver.Core.Operations.ReIndexOperation" /> class.
-            </summary>
-      <param name="collectionNamespace">The collection namespace.</param>
-      <param name="messageEncoderSettings">The message encoder settings.</param>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.ReIndexOperation.CollectionNamespace">
-      <summary>
-            Gets the collection namespace.
-            </summary>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Operations.ReIndexOperation.Execute(MongoDB.Driver.Core.Bindings.IWriteBinding,System.Threading.CancellationToken)">
-      <summary>
-            Executes the operation.
-            </summary>
-      <param name="binding">The binding.</param>
-      <param name="cancellationToken">The cancellation token.</param>
-      <returns>The result of the operation.</returns>
-    </member>
-    <member name="M:MongoDB.Driver.Core.Operations.ReIndexOperation.ExecuteAsync(MongoDB.Driver.Core.Bindings.IWriteBinding,System.Threading.CancellationToken)">
-      <summary>
-            Executes the operation.
-            </summary>
-      <param name="binding">The binding.</param>
-      <param name="cancellationToken">The cancellation token.</param>
-      <returns>A Task whose result is the result of the operation.</returns>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.ReIndexOperation.MessageEncoderSettings">
-      <summary>
-            Gets the message encoder settings.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.ReIndexOperation.WriteConcern">
-      <summary>
-            Gets or sets the write concern.
-            </summary>
-    </member>
     <member name="T:MongoDB.Driver.Core.Operations.RenameCollectionOperation">
       <summary>
             Represents a rename collection operation.
@@ -11278,11 +10530,6 @@
     <member name="P:MongoDB.Driver.Core.Operations.RenameCollectionOperation.NewCollectionNamespace">
       <summary>
             Gets the new collection namespace.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.RenameCollectionOperation.WriteConcern">
-      <summary>
-            Gets or sets the write concern.
             </summary>
     </member>
     <member name="T:MongoDB.Driver.Core.Operations.ReturnDocument">
@@ -11371,11 +10618,6 @@
       <param name="updateType">The update type.</param>
       <param name="filter">The filter.</param>
       <param name="update">The update.</param>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Operations.UpdateRequest.Collation">
-      <summary>
-            Gets or sets the collation.
-            </summary>
     </member>
     <member name="P:MongoDB.Driver.Core.Operations.UpdateRequest.Filter">
       <summary>
@@ -11678,7 +10920,7 @@
             Represents information about a server.
             </summary>
     </member>
-    <member name="M:MongoDB.Driver.Core.Servers.ServerDescription.#ctor(MongoDB.Driver.Core.Servers.ServerId,System.Net.EndPoint,MongoDB.Driver.Optional{System.TimeSpan},MongoDB.Driver.Optional{System.Net.EndPoint},MongoDB.Driver.Optional{MongoDB.Driver.Core.Clusters.ElectionId},MongoDB.Driver.Optional{System.Exception},MongoDB.Driver.Optional{System.TimeSpan},MongoDB.Driver.Optional{System.DateTime},MongoDB.Driver.Optional{System.Nullable{System.DateTime}},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{MongoDB.Driver.Core.Clusters.ReplicaSetConfig},MongoDB.Driver.Optional{MongoDB.Driver.Core.Servers.ServerState},MongoDB.Driver.Optional{MongoDB.Driver.TagSet},MongoDB.Driver.Optional{MongoDB.Driver.Core.Servers.ServerType},MongoDB.Driver.Optional{MongoDB.Driver.Core.Misc.SemanticVersion},MongoDB.Driver.Optional{MongoDB.Driver.Core.Misc.Range{System.Int32}})">
+    <member name="M:MongoDB.Driver.Core.Servers.ServerDescription.#ctor(MongoDB.Driver.Core.Servers.ServerId,System.Net.EndPoint,MongoDB.Driver.Optional{System.TimeSpan},MongoDB.Driver.Optional{System.Net.EndPoint},MongoDB.Driver.Optional{MongoDB.Driver.Core.Clusters.ElectionId},MongoDB.Driver.Optional{System.Exception},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{MongoDB.Driver.Core.Clusters.ReplicaSetConfig},MongoDB.Driver.Optional{MongoDB.Driver.Core.Servers.ServerState},MongoDB.Driver.Optional{MongoDB.Driver.TagSet},MongoDB.Driver.Optional{MongoDB.Driver.Core.Servers.ServerType},MongoDB.Driver.Optional{MongoDB.Driver.Core.Misc.SemanticVersion},MongoDB.Driver.Optional{MongoDB.Driver.Core.Misc.Range{System.Int32}})">
       <summary>
             Initializes a new instance of the <see cref="T:MongoDB.Driver.Core.Servers.ServerDescription" /> class.
             </summary>
@@ -11688,9 +10930,6 @@
       <param name="canonicalEndPoint">The canonical end point.</param>
       <param name="electionId">The election identifier.</param>
       <param name="heartbeatException">The heartbeat exception.</param>
-      <param name="heartbeatInterval">The heartbeat interval.</param>
-      <param name="lastUpdateTimestamp">The last update timestamp.</param>
-      <param name="lastWriteTimestamp">The last write timestamp.</param>
       <param name="maxBatchCount">The maximum batch count.</param>
       <param name="maxDocumentSize">The maximum size of a document.</param>
       <param name="maxMessageSize">The maximum size of a message.</param>
@@ -11701,6 +10940,7 @@
       <param name="type">The server type.</param>
       <param name="version">The server version.</param>
       <param name="wireVersionRange">The wire version range.</param>
+      <exception cref="T:System.ArgumentException">EndPoint and ServerId.EndPoint must match.</exception>
     </member>
     <member name="P:MongoDB.Driver.Core.Servers.ServerDescription.AverageRoundTripTime">
       <summary>
@@ -11741,21 +10981,6 @@
     <member name="P:MongoDB.Driver.Core.Servers.ServerDescription.HeartbeatException">
       <summary>
             Gets the most recent heartbeat exception.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Servers.ServerDescription.HeartbeatInterval">
-      <summary>
-            Gets the heartbeat interval.
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Servers.ServerDescription.LastUpdateTimestamp">
-      <summary>
-            Gets the last update timestamp (when the ServerDescription itself was last updated).
-            </summary>
-    </member>
-    <member name="P:MongoDB.Driver.Core.Servers.ServerDescription.LastWriteTimestamp">
-      <summary>
-            Gets the last write timestamp (from the lastWrite field of the isMaster result).
             </summary>
     </member>
     <member name="P:MongoDB.Driver.Core.Servers.ServerDescription.MaxBatchCount">
@@ -11817,7 +11042,7 @@
             Gets the wire version range.
             </summary>
     </member>
-    <member name="M:MongoDB.Driver.Core.Servers.ServerDescription.With(MongoDB.Driver.Optional{System.TimeSpan},MongoDB.Driver.Optional{System.Net.EndPoint},MongoDB.Driver.Optional{MongoDB.Driver.Core.Clusters.ElectionId},MongoDB.Driver.Optional{System.Exception},MongoDB.Driver.Optional{System.TimeSpan},MongoDB.Driver.Optional{System.DateTime},MongoDB.Driver.Optional{System.Nullable{System.DateTime}},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{MongoDB.Driver.Core.Clusters.ReplicaSetConfig},MongoDB.Driver.Optional{MongoDB.Driver.Core.Servers.ServerState},MongoDB.Driver.Optional{MongoDB.Driver.TagSet},MongoDB.Driver.Optional{MongoDB.Driver.Core.Servers.ServerType},MongoDB.Driver.Optional{MongoDB.Driver.Core.Misc.SemanticVersion},MongoDB.Driver.Optional{MongoDB.Driver.Core.Misc.Range{System.Int32}})">
+    <member name="M:MongoDB.Driver.Core.Servers.ServerDescription.With(MongoDB.Driver.Optional{System.TimeSpan},MongoDB.Driver.Optional{System.Net.EndPoint},MongoDB.Driver.Optional{MongoDB.Driver.Core.Clusters.ElectionId},MongoDB.Driver.Optional{System.Exception},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{System.Int32},MongoDB.Driver.Optional{MongoDB.Driver.Core.Clusters.ReplicaSetConfig},MongoDB.Driver.Optional{MongoDB.Driver.Core.Servers.ServerState},MongoDB.Driver.Optional{MongoDB.Driver.TagSet},MongoDB.Driver.Optional{MongoDB.Driver.Core.Servers.ServerType},MongoDB.Driver.Optional{MongoDB.Driver.Core.Misc.SemanticVersion},MongoDB.Driver.Optional{MongoDB.Driver.Core.Misc.Range{System.Int32}})">
       <summary>
             Returns a new instance of ServerDescription with some values changed.
             </summary>
@@ -11825,9 +11050,6 @@
       <param name="canonicalEndPoint">The canonical end point.</param>
       <param name="electionId">The election identifier.</param>
       <param name="heartbeatException">The heartbeat exception.</param>
-      <param name="heartbeatInterval">The heartbeat interval.</param>
-      <param name="lastUpdateTimestamp">The last update timestamp.</param>
-      <param name="lastWriteTimestamp">The last write timestamp.</param>
       <param name="maxBatchCount">The maximum batch count.</param>
       <param name="maxDocumentSize">The maximum size of a document.</param>
       <param name="maxMessageSize">The maximum size of a message.</param>

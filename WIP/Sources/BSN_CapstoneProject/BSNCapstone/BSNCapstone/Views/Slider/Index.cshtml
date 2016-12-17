@@ -1,9 +1,6 @@
-﻿@model PagedList.IPagedList<BSNCapstone.Models.Slider>
-@using PagedList.Mvc;
-@{
+﻿@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewBag.Title = "Admin-Slider";
-    var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
 }
 
 <!DOCTYPE html>
@@ -80,12 +77,12 @@
                             <tbody>
                                 @*HuyenPT. Create. Start. 30-10-2016*@
                                 @{int i = 1;}
-                                @foreach (var img in Model)
+                                @foreach (BSNCapstone.Models.Slider img in @Model.Sliders)
                                 {
                                     <tr id=@i>
                                         <td>@i</td>
                                         <td>
-                                            @cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                            @Model.Cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                     .Height(130).Width(130).Crop("fill")).BuildImageTag(img.PublicId,
                                     new CloudinaryDotNet.StringDictionary("class=thumbnail inline"))
                                         </td>
@@ -116,9 +113,6 @@
                                 @*HuyenPT. Create. End*@
                             </tbody>
                         </table>
-                        <br />
-                        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) trên tổng số @Model.PageCount trang
-                        @Html.PagedListPager(Model, page => Url.Action("Index", "Slider", new { page }))
                     </div>
                 </div>
             </div>

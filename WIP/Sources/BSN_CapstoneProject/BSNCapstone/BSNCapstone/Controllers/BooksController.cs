@@ -9,7 +9,6 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using Microsoft.AspNet.Identity;
 using System;
-using PagedList;
 
 namespace BSNCapstone.Controllers
 {
@@ -46,7 +45,7 @@ namespace BSNCapstone.Controllers
 
         //
         // GET: /Books/
-        public ActionResult Index(string searchString, string currentFilter, int? page)
+        public ActionResult Index(string searchString)
         {
             //DangVH. Create. Start (02/11/2016)
             ViewBag.currentUser = Context.Users.Find(x => x.Id.Equals(new ObjectId(User.Identity.GetUserId()))).FirstOrDefault();
@@ -57,15 +56,6 @@ namespace BSNCapstone.Controllers
             ViewBag.allAuthors = Context.Authors.Find(_ => true).ToList();
             var books = Context.Books.Find(x => x.Requested.Equals(false)).ToEnumerable();
             //DangVH. Create. Start (02/11/2016)
-            if (searchString != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
-            ViewBag.currentFilter = searchString;
             if (!string.IsNullOrEmpty(searchString))
             {
                 var authors = Context.Authors.Find(_ => true).ToList().Where(x => x.AuthorName.Contains(searchString)).ToList();
@@ -76,10 +66,8 @@ namespace BSNCapstone.Controllers
                 }
                 books = books.Where(x => x.BookName.Contains(searchString) || x.Authors.Intersect(searchAuthors).Any());
             }
-            int pageSize = 6;
-            int pageNumber = (page ?? 1);
             //DangVH. Create. End (02/11/2016)
-            return View(books.ToPagedList(pageNumber, pageSize));
+            return View(books);
         }
 
         //

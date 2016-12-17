@@ -5,23 +5,20 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using BSNCapstone.Models;
-using PagedList;
 
 namespace BSNCapstone.ViewModels
 {
     public class ReportContentViewModel
     {
-        //public List<Report> ListReportUser { get; set; }
-        public PagedList.IPagedList<Report> ListReportUser { get; set; }
+        public List<Report> ListReportUser { get; set; }
 
-        public PagedList.IPagedList<Report> ListReportGroup { get; set; }
-        //public List<Report> ListReportGroup { get; set; }
+        public List<Report> ListReportGroup { get; set; }
 
-        //public ReportContentViewModel()
-        //{
-        //    ListReportUser = new List<Report>();
-        //    ListReportGroup = new List<Report>();
-        //}
+        public ReportContentViewModel()
+        {
+            ListReportUser = new List<Report>();
+            ListReportGroup = new List<Report>();
+        }
 
         public enum ReportUser
         {

@@ -13,7 +13,6 @@ using System.IO;
 using MongoDB.Driver.Builders;
 using BSNCapstone.App_Start;
 using BSNCapstone.ControllerHelpers;
-using PagedList;
 
 namespace BSNCapstone.Controllers
 {
@@ -25,13 +24,18 @@ namespace BSNCapstone.Controllers
         //DangVH. Create. End (02/11/2016)
         //
         // GET: /Slider/
-        public ActionResult Index(int? page)
+        public ActionResult Index()
         {
-            var sliders = Context.Sliders.Find(_ => true).ToList();
-            ViewBag.cloudinary = cloudinary;
-            int pageSize = 3;
-            int pageNumber = (page ?? 1);
-            return View(sliders.ToPagedList(pageNumber, pageSize));
+            //Configuration
+            //DangVH. Delete. Start (02/11/2016)
+            //Account account = new Account("dsddvwiqz", "677568653855233", "_RCoQNjMqr8Nt7-FAgs5T_guiWM");
+            //var cloudinary = new Cloudinary(account);
+            //var cloudinary = ImageUploadHelper.GetCloudinaryAccount();
+            //DangVH. Delete. End (02/11/2016)
+
+            //List of photos from MongoDB
+            List<Slider> sliders = Context.Sliders.Find(_ => true).ToList();
+            return View(new SliderPhotoModel(cloudinary, sliders));
         }
 
         [HttpPost]

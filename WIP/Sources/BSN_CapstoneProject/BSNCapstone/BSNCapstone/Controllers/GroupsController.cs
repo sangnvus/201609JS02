@@ -10,7 +10,6 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using Microsoft.AspNet.Identity;
 using BSNCapstone.ViewModels;
-using PagedList;
 
 namespace BSNCapstone.Controllers
 {
@@ -49,29 +48,16 @@ namespace BSNCapstone.Controllers
 
         //
         // GET: /Groups/
-        public ActionResult Index(string searchString, string currentFilter, int? page)
+        public ActionResult Index(string searchString)
         {
             ViewBag.groupNumber = GroupsControllerHelper.GetGroupNumber();
             ViewBag.groupJustCreated = GroupsControllerHelper.GetGroupJustCreatedNumber();
             var groups = Context.Groups.Find(_ => true).ToEnumerable();
-            if (searchString != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
-            ViewBag.currentFilter = searchString;
-            ViewBag.groups = Context.Groups.Find(_ => true).ToList();
-            ViewBag.books = Context.Books.Find(_ => true).ToList();
             if (!string.IsNullOrEmpty(searchString))
             {
                 groups = groups.Where(x => x.GroupName.Contains(searchString) || x.Tag.Contains(searchString));
             }
-            int pageSize = 6;
-            int pageNumber = (page ?? 1);
-            return View(groups.ToPagedList(pageNumber, pageSize));
+            return View(groups);
         }
 
         //

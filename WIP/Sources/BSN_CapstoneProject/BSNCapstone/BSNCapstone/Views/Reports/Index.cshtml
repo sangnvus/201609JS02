@@ -1,5 +1,4 @@
 ﻿@model BSNCapstone.ViewModels.ReportContentViewModel
-@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Admin-Báo cáo";
@@ -66,9 +65,6 @@
                                         }
                                     </tbody>
                                 </table>
-                                <br />
-                                Trang @(Model.ListReportUser.PageCount < Model.ListReportUser.PageNumber ? 0 : Model.ListReportUser.PageNumber) trên tổng số @Model.ListReportUser.PageCount trang
-                                @Html.PagedListPager(Model.ListReportUser, page => Url.Action("Index", "Reports", new { page@*, currentFilter = ViewBag.currentFilter*@ }))
                             </div>
                         </div>
                         <div class="tab-pane" id="reportgroup">
@@ -104,7 +100,7 @@
                                                         var beReportedGroup = allGroup.Find(x => x.Id.Equals(group.ReportedGroupId));
                                                         var creatorId = beReportedGroup.GroupMembers.Find(x => x.RoleInGroup.Equals("creator")).UserId;
                                                     }
-                                                    @allUser.Find(x => x.Id.Equals(creatorId)).UserName
+                                                    @allUser.Find(x => x.Id.Equals(creatorId)).UserName;
                                                 </td>
                                                 <td>@allUser.Find(x => x.Id.Equals(creatorId)).Email</td>
                                                 <td>
@@ -115,9 +111,6 @@
                                         }
                                     </tbody>
                                 </table>
-                                <br />
-                                Trang @(Model.ListReportGroup.PageCount < Model.ListReportGroup.PageNumber ? 0 : Model.ListReportGroup.PageNumber) trên tổng số @Model.ListReportGroup.PageCount trang
-                                @Html.PagedListPager(Model.ListReportGroup, page => Url.Action("Index", "Reports", new { page@*, currentFilter = ViewBag.currentFilter*@ }))
                             </div>
                         </div>
                     </div>
