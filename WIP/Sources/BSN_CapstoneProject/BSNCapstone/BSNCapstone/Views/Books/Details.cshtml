@@ -1,4 +1,5 @@
 ﻿@model BSNCapstone.Models.Book
+@using Microsoft.AspNet.Identity
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,9 +11,9 @@
     <!--DangVH. Create. End (02/11/2016)-->
     double avarageRatingPoint = ViewBag.avarageRatingPoint;
     var listSameBook = (List<BSNCapstone.ViewModels.BooksSuggestViewModel>)ViewBag.listSameBook;
-    var currentUser = (BSNCapstone.Models.ApplicationUser)ViewBag.currentUser;
     var allAuthor = (List<BSNCapstone.Models.Author>)ViewBag.allAuthor;
     var allUser = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUser;
+    var currentUser = allUser.Find(x => x.Id.Equals(User.Identity.GetUserId()));
     var listGroupHaveTagIsCurrentBook = (List<BSNCapstone.Models.Group>)ViewBag.listGroupHaveTagIsCurrentBook;
 }
 

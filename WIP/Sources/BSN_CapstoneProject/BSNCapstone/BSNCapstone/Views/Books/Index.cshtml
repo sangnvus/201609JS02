@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BSNCapstone.Models.Book>
+﻿@model PagedList.IPagedList<BSNCapstone.Models.Book>
+@using PagedList.Mvc;
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewBag.Title = "Admin-Sách";
@@ -53,22 +54,22 @@
                                 <tr>
                                     <th style="width:1px">#</th>
                                     <th style="width: 10%;">
-                                        @Html.DisplayNameFor(model => model.BookName)
+                                        Tên sách
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Authors)
+                                        Tác giả
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Categories)
+                                        Thể loại
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.ReleaseDay)
+                                        Ngày xuất bản
                                     </th>
                                     <th style="width: 15%;">
-                                        @Html.DisplayNameFor(model => model.Publishers)
+                                        Nhà xuất bản
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Description)
+                                        Miêu tả
                                     </th>
                                     <th style="width: 15%;">Hành động</th>
                                 </tr>
@@ -139,6 +140,9 @@
                                 }
                             </tbody>
                         </table>
+                        <br />
+                        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) trên tổng số @Model.PageCount trang
+                        @Html.PagedListPager(Model, page => Url.Action("Index", "Books", new { page, currentFilter = ViewBag.currentFilter }))
                     </div>
                 </div>
             </div>

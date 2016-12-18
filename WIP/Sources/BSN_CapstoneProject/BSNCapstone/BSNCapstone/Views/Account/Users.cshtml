@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BSNCapstone.Models.ApplicationUser>
+﻿@model PagedList.IPagedList<BSNCapstone.Models.ApplicationUser>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Admin-Người dùng";
@@ -27,7 +28,7 @@
             </div>
             <div class="info">
                 <h4 class="text-center">Người dùng mới</h4>
-                <p>1234</p>
+                <p>@ViewBag.numberUsersJustCreated</p>
             </div>
         </div>
 
@@ -79,6 +80,9 @@
                         }
                     </tbody>
                 </table>
+                <br />
+                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) trên tổng số @Model.PageCount trang
+                @Html.PagedListPager(Model, page => Url.Action("Users", "Account", new { page, currentFilter = ViewBag.currentFilter }))
             </div>
             <!-------NÚT SANG TRANG------->
         </div>

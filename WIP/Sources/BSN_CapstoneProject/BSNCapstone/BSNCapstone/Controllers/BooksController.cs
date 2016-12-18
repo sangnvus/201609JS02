@@ -9,6 +9,7 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using Microsoft.AspNet.Identity;
 using System;
+using PagedList;
 
 namespace BSNCapstone.Controllers
 {
@@ -45,7 +46,7 @@ namespace BSNCapstone.Controllers
 
         //
         // GET: /Books/
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string searchString, string currentFilter, int? page)
         {
             //DangVH. Create. Start (02/11/2016)
             ViewBag.currentUser = Context.Users.Find(x => x.Id.Equals(new ObjectId(User.Identity.GetUserId()))).FirstOrDefault();
@@ -55,6 +56,15 @@ namespace BSNCapstone.Controllers
             ViewBag.allPublishers = Context.Publishers.Find(_ => true).ToList();
             ViewBag.allAuthors = Context.Authors.Find(_ => true).ToList();
             var books = Context.Books.Find(x => x.Requested.Equals(false)).ToEnumerable();
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.currentFilter = searchString;
             //DangVH. Create. Start (02/11/2016)
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -66,8 +76,10 @@ namespace BSNCapstone.Controllers
                 }
                 books = books.Where(x => x.BookName.Contains(searchString) || x.Authors.Intersect(searchAuthors).Any());
             }
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
             //DangVH. Create. End (02/11/2016)
-            return View(books);
+            return View(books.ToPagedList(pageNumber, pageSize));
         }
 
         //
@@ -88,6 +100,7 @@ namespace BSNCapstone.Controllers
             ViewBag.allCategories = BooksControllerHelper.ListAllCategory();
             ViewBag.allPublishers = Context.Publishers.Find(_ => true).ToList();
             ViewBag.avarageRatingPoint = BooksControllerHelper.GetAverageRatingPoint(book.RatingPoint, book.RateTime);
+            // Đoạn này để tính số lượt truy cập của sách
             var booksStatistic = Context.BooksStatistic.Find(_ => true).ToList();
             var date = DateTime.Now;
             var builder = Builders<BookStatistic>.Filter;
@@ -107,11 +120,21 @@ namespace BSNCapstone.Controllers
                 };
                 Context.BooksStatistic.InsertOneAsync(bookStatistic);
             }
-            ViewBag.listSameBook = BooksControllerHelper.SuggestBook(id, 4);
+            // Hết đoạn tính số lượt truy cập sách
+            // Xử lý sách đã xem và đánh giá gần đây của người dùng hiện tại
+            var userInteractFilter = Builders<ApplicationUser>.Filter.Where(x => x.Id.Equals(User.Identity.GetUserId()));
+            var userInteractUpdate = Builders<ApplicationUser>.Update.Push(x => x.Interacbook, new InteractBookViewModel
+            {
+                Id = ObjectId.GenerateNewId(),
+                BookId = book.Id,
+                InteractTime = DateTime.Now.AddHours(7)
+            });
+            Context.Users.UpdateOneAsync(userInteractFilter, userInteractUpdate);
+            // Hết phần xử lí sách đã xem và đánh giá gần đây của người dùng hiện tại
+            ViewBag.listSameBook = BooksControllerHelper.SuggestBook(id, 4); // Lấy list sách có chung thể loại
             Random random = new Random((int)(DateTime.Now.Ticks));
-            ViewBag.randomGroup = Context.Groups.Find(_ => true).ToList().OrderBy(x => random.Next()).Take(4).ToList();
-            ViewBag.currentUser = Context.Users.Find(x => x.Id.Equals(new ObjectId(User.Identity.GetUserId()))).FirstOrDefault();
-            ViewBag.listGroupHaveTagIsCurrentBook = GroupsControllerHelper.SuggestGroup(id); 
+            ViewBag.randomGroup = Context.Groups.Find(_ => true).ToList().OrderBy(x => random.Next()).Take(4).ToList(); // List nhóm ngẫu nhiên
+            ViewBag.listGroupHaveTagIsCurrentBook = GroupsControllerHelper.SuggestGroup(id); // List nhóm có thẻ là sách hiện tại
             ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
             ViewBag.allUser = Context.Users.Find(_ => true).ToList();
             return View(book);

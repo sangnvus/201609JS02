@@ -1,9 +1,13 @@
-﻿@{
+﻿@model PagedList.IPagedList<BSNCapstone.Models.Slider>
+@using PagedList.Mvc;
+
+@{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewBag.Title = "Admin-Slider";
+    var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
 }
 
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 
 <body>
@@ -77,12 +81,12 @@
                             <tbody>
                                 @*HuyenPT. Create. Start. 30-10-2016*@
                                 @{int i = 1;}
-                                @foreach (BSNCapstone.Models.Slider img in @Model.Sliders)
+                                @foreach (var img in Model)
                                 {
                                     <tr id=@i>
                                         <td>@i</td>
                                         <td>
-                                            @Model.Cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                            @cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                     .Height(130).Width(130).Crop("fill")).BuildImageTag(img.PublicId,
                                     new CloudinaryDotNet.StringDictionary("class=thumbnail inline"))
                                         </td>
@@ -118,6 +122,11 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $("#adminSlider").addClass("active");
+        });
+    </script>
 </body>
 </html>
 

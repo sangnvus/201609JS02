@@ -46,6 +46,7 @@ namespace BSNCapstone.Controllers
             var user = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
             ViewBag.currentUser = User.Identity.GetUserId();
             ViewBag.cloudinary = cloudinary;
+            ViewBag.allBook = Context.Books.Find(_ => true).ToList();
             ViewBag.allUser = Context.Users.Find(_ => true).ToList();
             return View(user);
         }
