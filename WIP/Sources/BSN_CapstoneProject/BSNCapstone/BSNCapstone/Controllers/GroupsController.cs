@@ -105,6 +105,8 @@ namespace BSNCapstone.Controllers
             ViewBag.currentUser = User.Identity.GetUserId();
             ViewBag.allUser = Context.Users.Find(_ => true).ToList();
             ViewBag.groupReport = GroupReportContent();
+            ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
+            ViewBag.listInteractBook = BooksControllerHelper.LastestBookInteracted(User.Identity.GetUserId());
             var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
             if (group.Locked == true)
             {

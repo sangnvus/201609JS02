@@ -48,6 +48,8 @@ namespace BSNCapstone.Controllers
             ViewBag.cloudinary = cloudinary;
             ViewBag.allBook = Context.Books.Find(_ => true).ToList();
             ViewBag.allUser = Context.Users.Find(_ => true).ToList();
+            ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
+            ViewBag.listInteractBook = BooksControllerHelper.LastestBookInteracted(id);
             return View(user);
         }
 
@@ -68,6 +70,8 @@ namespace BSNCapstone.Controllers
             ViewBag.user = user;
             ViewBag.currentUser = User.Identity.GetUserId();
             ViewBag.allUser = Context.Users.Find(_ => true).ToList();
+            ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
+            ViewBag.listInteractBook = BooksControllerHelper.LastestBookInteracted(id);
             return View(newprofile);
         }
 
@@ -112,6 +116,8 @@ namespace BSNCapstone.Controllers
             ViewBag.user = Context.Users.Find(x => x.Id.Equals(new ObjectId(user1.id))).FirstOrDefault();
             ViewBag.currentUser = User.Identity.GetUserId();
             ViewBag.allUser = allUser;
+            ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
+            ViewBag.listInteractBook = BooksControllerHelper.LastestBookInteracted(user1.id);
             return View(user1);
         }
 

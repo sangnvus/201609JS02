@@ -117,6 +117,7 @@
                                 @*HuyenPT. Create. End*@
                             </tbody>
                         </table>
+                        @Html.PagedListPager(Model, page => Url.Action("Index", "Slider"))
                     </div>
                 </div>
             </div>

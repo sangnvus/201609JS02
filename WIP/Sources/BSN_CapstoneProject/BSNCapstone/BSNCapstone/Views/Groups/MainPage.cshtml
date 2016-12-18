@@ -7,6 +7,8 @@
     var currentUserId = ViewBag.currentUser;
     var reportContentList = (List<string>)ViewBag.groupReport;
     var allUser = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUser;
+    var listInteractBook = (List<BSNCapstone.Models.Book>)ViewBag.listInteractBook;
+    var allAuthor = (List<BSNCapstone.Models.Author>)ViewBag.allAuthor;
 }
 
 <!DOCTYPE html>
@@ -558,231 +560,78 @@
 
             <!--------------------------------Hết BÌNH LUẬN VÀ TRẢ LỜI BÌNH LUẬN----------->
             <!------------------------Phần bên phải -------------------------------->
-            <div class="col-md-4 sidenav">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="text-center" class="panel-heading">
-                            <h4><strong>ĐÁNH GIÁ VÀ ĐỌC GẦN ĐÂY</strong></h4>
-                        </div>
-                    </div>
+            <div class="col-md-4 col-sm-4 col-xs-12 sidenav">
+                <div class="text-center" class="panel-heading">
+                    <h4><strong>ĐÁNH GIÁ VÀ ĐỌC GẦN ĐÂY</strong></h4>
                 </div>
                 <br>
+                <br />
                 <!--  Bắt đầu phần trending now -->
                 <div class="row">
-                    <div class="col-md-3">
-                        <img src="/Anhsach/nhagiakim.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
-
-                    </div>
-                    <div class="col-md-3">
-                        <fieldset class="rating">
-                            <input type="radio" id="star5" name="rating" value="5" />
-                            <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                            <input type="radio" id="star4" name="rating" value="4" />
-                            <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                            <input type="radio" id="star3" name="rating" value="3" />
-                            <label class="full" for="star3" title="Meh - 3 stars"></label>
-                            <input type="radio" id="star2" name="rating" value="2" />
-                            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                            <input type="radio" id="star1" name="rating" value="1" />
-                            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                        </fieldset>
-                        <p>345 đánh giá</p>
-                        <br>
-                        <br>
-                        <button class="button buttonRe">Nhận xét</button>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="/Anhsach/ngayxuacomotchuyentinh.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
-
-                    </div>
-                    <div class="col-md-3">
-                        <fieldset class="rating">
-                            <input type="radio" id="star5" name="rating" value="5" />
-                            <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                            <input type="radio" id="star4" name="rating" value="4" />
-                            <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                            <input type="radio" id="star3" name="rating" value="3" />
-                            <label class="full" for="star3" title="Meh - 3 stars"></label>
-                            <input type="radio" id="star2" name="rating" value="2" />
-                            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                            <input type="radio" id="star1" name="rating" value="1" />
-                            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                        </fieldset>
-                        <p>345 đánh giá</p>
-                        <br>
-                        <br>
-                        <button class="button buttonRe">Nhận xét</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <ul class="list-group">
-                                <li>
-                                    <span>
-                                        <strong data-toggle="tooltip" title="NHÀ GIẢ KIM">NHÀ GIẢ KIM</strong>
-                                        <br><i data-toggle="tooltip" title="Paulo Coelho" class="authorname"><strong>Paulo Coelho </strong> </i>
-                                    </span>
-                                </li>
-                            </ul>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <ul class="list-group">
-                                <li>
-                                    <span>
-                                        <strong data-toggle="tooltip" title="NGÀY XƯA CÓ MỘT CHUYỆN TÌNH">NGÀY XƯA CÓ MỘT CHUYỆN TÌNH</strong>
-                                        <br><i data-toggle="tooltip" title="Nguyễn Nhật Ánh" class="authorname"><strong>Nguyễn Nhật Ánh </strong> </i>
-                                    </span>
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="/Anhsach/trenduongbang.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
-
-                    </div>
-                    <div class="col-md-3">
-                        <fieldset class="rating">
-                            <input type="radio" id="star5" name="rating" value="5" />
-                            <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                            <input type="radio" id="star4" name="rating" value="4" />
-                            <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                            <input type="radio" id="star3" name="rating" value="3" />
-                            <label class="full" for="star3" title="Meh - 3 stars"></label>
-                            <input type="radio" id="star2" name="rating" value="2" />
-                            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                            <input type="radio" id="star1" name="rating" value="1" />
-                            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                        </fieldset>
-                        <p>345 đánh giá</p>
-                        <br>
-                        <br>
-                        <button class="button buttonRe">Nhận xét</button>
-                    </div>
-                    <div class="col-md-3">
-                        <img src="/Anhsach/tottochanbencuaso.jpg" class="img-rounded" alt="Trolltunga Norway" width="100" height="130">
-
-                    </div>
-                    <div class="col-md-3">
-                        <fieldset class="rating">
-                            <input type="radio" id="star5" name="rating" value="5" />
-                            <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                            <input type="radio" id="star4" name="rating" value="4" />
-                            <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                            <input type="radio" id="star3" name="rating" value="3" />
-                            <label class="full" for="star3" title="Meh - 3 stars"></label>
-                            <input type="radio" id="star2" name="rating" value="2" />
-                            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                            <input type="radio" id="star1" name="rating" value="1" />
-                            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                        </fieldset>
-                        <p>345 đánh giá</p>
-                        <br>
-                        <br>
-                        <button class="button buttonRe" data-toggle="modal" data-target="#myModal">Nhận xét</button>
-                        <div id="myModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog modal-lg">
-
-                                <!-- Modal content-->
-                                <div class="modal-content">
-
-                                    <div style="background-color: #F7E8AF;" class="modal-header clearfix">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <h3 class="modal-title"><a style="padding-left: 18%;" href="http://127.0.0.1:7211/Sach.html" class="modal-title on-story-details"><b>TOTTO CHAN BÊN CỬA SỔ</b></a></h3>
-                                            </div>
-                                            <div class="col-md-6">
-
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-body clearfix">
-                                        <div class="content">
-                                            <div class="row">
-                                                <div class="col-md-1" style="margin-top: 5px;">
-                                                    <img src="/AnhAvaNguoiDung/avaVan.jpg" style="width:50px;height:50px" />
-                                                </div>
-                                                <div class="col-md-11">
-                                                    <div class="post-card" style="padding-top: 2px;">
-                                                        <textarea class="write-post" placeholder="Bạn đang nghĩ gì ?"></textarea>
-                                                        <div class="divider-horizontal"></div>
-                                                        <div class="row" style="padding: 5px 15px;">
-                                                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                                                <div class="tag-area">
-                                                                    <ul class="list-book-tag">
-                                                                        <li>
-                                                                            <span>#Tottochanbencuaso</span>
-                                                                            <i class="glyphicon glyphicon-remove"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
-                                                                <button id="buttonPost" style="background-color: #224A86" class="btn btn-default">Đăng</button>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-
-                                </div>
+                    @foreach (var interactBook in listInteractBook)
+                    {
+                        <div class="col-md-6" style="padding-left:15px;">
+                            <!--VÒNG FOR BẮT ĐẦU TỪ DIV NÀY-->
+                            <div class="col-md-6" style="padding-left:0px;">
+                                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                            .Height(117).Width(90).Crop("fill")).BuildImageTag(interactBook.ImgPublicId,
+                                new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                            </div>
+                            <fieldset class="rating" style="padding-left:px;">
+                                <input type="radio" id="star5" name="rating" value="5" />
+                                <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio" id="star4" name="rating" value="4" />
+                                <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio" id="star3" name="rating" value="3" />
+                                <label class="full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio" id="star2" name="rating" value="2" />
+                                <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio" id="star1" name="rating" value="1" />
+                                <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                            </fieldset>
+                            <h5 style="float:left;">@interactBook.RateTime đánh giá</h5>
+                            <br>
+                            <br>
+                            <div class="col-md-12 list-group">
+                                <span>
+                                    <strong data-toggle="tooltip" title="@interactBook.BookName.ToUpper()">@interactBook.BookName.ToUpper()</strong>
+                                    <br>
+                                    @foreach (var author in interactBook.Authors)
+                                    {
+                                        if (interactBook.Authors.Last() == author)
+                                        {
+                                            <i data-toggle="tooltip" title="@allAuthor.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName" class="authorname">
+                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthor.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName.ToLower()) </strong>
+                                            </i>
+                                        }
+                                        else
+                                        {
+                                            <i data-toggle="tooltip" title="@allAuthor.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName" class="authorname">
+                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthor.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName.ToLower()), </strong>
+                                            </i>
+                                        }
+                                    }
+                                </span>
                             </div>
                         </div>
-
-                    </div>
+                    }
                 </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <ul class="list-group">
-                                <li>
-                                    <span>
-                                        <strong data-toggle="tooltip" title="TRÊN ĐƯỜNG BĂNG">TRÊN ĐƯỜNG BĂNG</strong>
-                                        <br><i data-toggle="tooltip" title="Tony Buổi Sáng" class="authorname"><strong>Tony Buổi Sáng</strong> </i>
-                                    </span>
-                                </li>
-                            </ul>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-6">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <ul class="list-group">
-                                <li>
-                                    <span>
-                                        <strong data-toggle="tooltip" title="Totto chan bên cửa sổ">Totto chan bên cửa sổ</strong>
-                                        <br><i data-toggle="tooltip" title="Kuroyanagi Tetsuko" class="authorname"><strong>Kuroyanagi Tetsuko</strong> </i>
-                                    </span>
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+    <div id="loader" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="width: 100%; height: 100%; margin: 0;">
+            <!-- Modal content-->
+            <div class="modal-content" style="background-color: transparent; height: 100%; box-shadow: initial; border-bottom-color: transparent;">
+                <div class="loader"></div>
             </div>
         </div>
     </div>
 </body>
 </html>
 @section scripts {
+    <link rel="stylesheet" href="~/Content/loader.css" />
     <link rel="stylesheet" href="~/Content/Trangnhom.css">
     <script src="~/Scripts/Custom/group.js"></script>
     <script src="~/Scripts/Custom/report-action.js"></script>

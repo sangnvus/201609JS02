@@ -84,8 +84,6 @@
                         }
                     </tbody>
                 </table>
-                <br />
-                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) trên tổng số @Model.PageCount trang
                 @Html.PagedListPager(Model, page => Url.Action("Authors", "Account", new { page, currentFilter = ViewBag.currentFilter }))
             </div>
             <!-------NÚT SANG TRANG------->
