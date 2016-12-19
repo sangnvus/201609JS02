@@ -1,12 +1,13 @@
 ﻿@model PagedList.IPagedList<BSNCapstone.Models.Slider>
 @using PagedList.Mvc;
+
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewBag.Title = "Admin-Slider";
     var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
 }
 
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 
 <body>
@@ -116,14 +117,17 @@
                                 @*HuyenPT. Create. End*@
                             </tbody>
                         </table>
-                        <br />
-                        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) trên tổng số @Model.PageCount trang
-                        @Html.PagedListPager(Model, page => Url.Action("Index", "Slider", new { page }))
+                        @Html.PagedListPager(Model, page => Url.Action("Index", "Slider"))
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $("#adminSlider").addClass("active");
+        });
+    </script>
 </body>
 </html>
 

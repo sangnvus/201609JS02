@@ -42,14 +42,6 @@
             A value indicating whether to bypass document validation.
             </value>
         </member>
-        <member name="P:MongoDB.Driver.AggregateArgs.Collation">
-            <summary>
-            Gets or sets the collation.
-            </summary>
-            <value>
-            The collation.
-            </value>
-        </member>
         <member name="P:MongoDB.Driver.AggregateArgs.MaxTime">
             <summary>
             Gets or sets the max time the server should spend on the aggregation command.
@@ -73,11 +65,6 @@
         <member name="T:MongoDB.Driver.CountArgs">
             <summary>
             Represents arguments for the Count command helper method.
-            </summary>
-        </member>
-        <member name="P:MongoDB.Driver.CountArgs.Collation">
-            <summary>
-            Gets or sets the collation.
             </summary>
         </member>
         <member name="P:MongoDB.Driver.CountArgs.Hint">
@@ -113,11 +100,6 @@
         <member name="T:MongoDB.Driver.DistinctArgs">
             <summary>
             Represents arguments for the Distinct command helper method.
-            </summary>
-        </member>
-        <member name="P:MongoDB.Driver.DistinctArgs.Collation">
-            <summary>
-            Gets or sets the collation.
             </summary>
         </member>
         <member name="P:MongoDB.Driver.DistinctArgs.Key">
@@ -278,14 +260,6 @@
             A value indicating whether to bypass document validation.
             </value>
         </member>
-        <member name="P:MongoDB.Driver.FindAndModifyArgs.Collation">
-            <summary>
-            Gets or sets the collation.
-            </summary>
-            <value>
-            The collation.
-            </value>
-        </member>
         <member name="P:MongoDB.Driver.FindAndModifyArgs.Fields">
             <summary>
             Gets or sets the fields specification.
@@ -326,11 +300,6 @@
             Represents options for the FindAndRemove command.
             </summary>
         </member>
-        <member name="P:MongoDB.Driver.FindAndRemoveArgs.Collation">
-            <summary>
-            Gets or sets the collation.
-            </summary>
-        </member>
         <member name="P:MongoDB.Driver.FindAndRemoveArgs.Fields">
             <summary>
             Gets or sets the fields specification.
@@ -354,11 +323,6 @@
         <member name="T:MongoDB.Driver.FindOneArgs">
             <summary>
             Represents arguments to the FindOne method.
-            </summary>
-        </member>
-        <member name="P:MongoDB.Driver.FindOneArgs.Collation">
-            <summary>
-            Gets or sets the collation.
             </summary>
         </member>
         <member name="P:MongoDB.Driver.FindOneArgs.Fields">
@@ -457,11 +421,6 @@
         <member name="T:MongoDB.Driver.GeoNearArgs">
             <summary>
             Represents the arguments to the GeoNear method.
-            </summary>
-        </member>
-        <member name="P:MongoDB.Driver.GeoNearArgs.Collation">
-            <summary>
-            Gets or sets the collation.
             </summary>
         </member>
         <member name="P:MongoDB.Driver.GeoNearArgs.DistanceMultiplier">
@@ -702,11 +661,6 @@
             Represents arguments for the Group command helper method.
             </summary>
         </member>
-        <member name="P:MongoDB.Driver.GroupArgs.Collation">
-            <summary>
-            Gets or sets the collation.
-            </summary>
-        </member>
         <member name="P:MongoDB.Driver.GroupArgs.FinalizeFunction">
             <summary>
             Gets or sets the finalize function.
@@ -750,11 +704,6 @@
         <member name="T:MongoDB.Driver.IMongoCommand">
             <summary>
             A marker interface that represents a command (see CommandDocument).
-            </summary>
-        </member>
-        <member name="T:MongoDB.Driver.IMongoCreateViewOptions">
-            <summary>
-            A marker interface that represents options for creating a view (see CreateViewOptionsDocument and the CreateViewOptions builder).
             </summary>
         </member>
         <member name="T:MongoDB.Driver.IMongoFields">
@@ -851,14 +800,6 @@
             <summary>
             Represents arguments for the MapReduce command helper method.
             </summary>
-        </member>
-        <member name="P:MongoDB.Driver.MapReduceArgs.Collation">
-            <summary>
-            Gets or sets the collation.
-            </summary>
-            <value>
-            The collation.
-            </value>
         </member>
         <member name="P:MongoDB.Driver.MapReduceArgs.BypassDocumentValidation">
             <summary>
@@ -1651,13 +1592,6 @@
             <param name="writeConcern">The write concern to use for this Insert.</param>
             <returns>A WriteConcernResult (or null if WriteConcern is disabled).</returns>
         </member>
-        <member name="M:MongoDB.Driver.MongoCollection.Remove(MongoDB.Driver.RemoveArgs)">
-            <summary>
-            Removes documents from this collection that match a query.
-            </summary>
-            <param name="args">The arguments.</param>
-            <returns>A WriteConcernResult (or null if WriteConcern is disabled).</returns>
-        </member>
         <member name="M:MongoDB.Driver.MongoCollection.RemoveAll">
             <summary>
             Removes all documents from this collection (see also <see cref="M:MongoDB.Driver.MongoCollection.Drop"/>).
@@ -1976,27 +1910,6 @@
             <param name="writeConcern">The write concern to use for this Insert.</param>
             <returns>A WriteConcernResult (or null if WriteConcern is disabled).</returns>
         </member>
-        <member name="M:MongoDB.Driver.MongoCollection`1.WithReadConcern(MongoDB.Driver.ReadConcern)">
-            <summary>
-            Returns a new MongoCollection instance with a different read concern setting.
-            </summary>
-            <param name="readConcern">The read concern.</param>
-            <returns>A new MongoCollection instance with a different read concern setting.</returns>
-        </member>
-        <member name="M:MongoDB.Driver.MongoCollection`1.WithReadPreference(MongoDB.Driver.ReadPreference)">
-            <summary>
-            Returns a new MongoCollection instance with a different read preference setting.
-            </summary>
-            <param name="readPreference">The read preference.</param>
-            <returns>A new MongoCollection instance with a different read preference setting.</returns>
-        </member>
-        <member name="M:MongoDB.Driver.MongoCollection`1.WithWriteConcern(MongoDB.Driver.WriteConcern)">
-            <summary>
-            Returns a new MongoCollection instance with a different write concern setting.
-            </summary>
-            <param name="writeConcern">The write concern.</param>
-            <returns>A new MongoCollection instance with a different write concern setting.</returns>
-        </member>
         <member name="T:MongoDB.Driver.MongoCursor">
             <summary>
             An object that can be enumerated to fetch the results of a query. The query is not sent
@@ -2030,11 +1943,6 @@
         <member name="P:MongoDB.Driver.MongoCursor.Database">
             <summary>
             Gets the database that constains the collection that is being queried.
-            </summary>
-        </member>
-        <member name="P:MongoDB.Driver.MongoCursor.Collation">
-            <summary>
-            Gets the collation.
             </summary>
         </member>
         <member name="P:MongoDB.Driver.MongoCursor.Collection">
@@ -2184,13 +2092,6 @@
             </summary>
             <param name="verbose">Whether the explanation should contain more details.</param>
             <returns>An explanation of thow the query was executed.</returns>
-        </member>
-        <member name="M:MongoDB.Driver.MongoCursor.SetCollation(MongoDB.Driver.Collation)">
-            <summary>
-            Sets the collation.
-            </summary>
-            <param name="collation">The collation.</param>
-            <returns>The cursor (so you can chain method calls to it).</returns>
         </member>
         <member name="M:MongoDB.Driver.MongoCursor.SetBatchSize(System.Int32)">
             <summary>
@@ -2389,13 +2290,6 @@
             to enumerate the cursor (foreach will call GetEnumerator for you).
             </summary>
             <returns>An enumerator that can be used to iterate over the cursor.</returns>
-        </member>
-        <member name="M:MongoDB.Driver.MongoCursor`1.SetCollation(MongoDB.Driver.Collation)">
-            <summary>
-            Sets the collation.
-            </summary>
-            <param name="collation">The collation.</param>
-            <returns>The cursor (so you can chain method calls to it).</returns>
         </member>
         <member name="M:MongoDB.Driver.MongoCursor`1.SetBatchSize(System.Int32)">
             <summary>
@@ -2636,16 +2530,6 @@
             </summary>
             <param name="collectionName">The name of the collection.</param>
             <param name="options">Options for creating this collection (usually a CollectionOptionsDocument or constructed using the CollectionOptions builder).</param>
-            <returns>A CommandResult.</returns>
-        </member>
-        <member name="M:MongoDB.Driver.MongoDatabase.CreateView(System.String,System.String,System.Collections.Generic.IEnumerable{MongoDB.Bson.BsonDocument},MongoDB.Driver.IMongoCreateViewOptions)">
-            <summary>
-            Creates a view.
-            </summary>
-            <param name="viewName">The name of the view.</param>
-            <param name="viewOn">The name of the collection that the view is on.</param>
-            <param name="pipeline">The pipeline.</param>
-            <param name="options">The options.</param>
             <returns>A CommandResult.</returns>
         </member>
         <member name="M:MongoDB.Driver.MongoDatabase.Drop">
@@ -2961,27 +2845,6 @@
             Gets a canonical string representation for this database.
             </summary>
             <returns>A canonical string representation for this database.</returns>
-        </member>
-        <member name="M:MongoDB.Driver.MongoDatabase.WithReadConcern(MongoDB.Driver.ReadConcern)">
-            <summary>
-            Returns a new MongoDatabase instance with a different read concern setting.
-            </summary>
-            <param name="readConcern">The read concern.</param>
-            <returns>A new MongoDatabase instance with a different read concern setting.</returns>
-        </member>
-        <member name="M:MongoDB.Driver.MongoDatabase.WithReadPreference(MongoDB.Driver.ReadPreference)">
-            <summary>
-            Returns a new MongoDatabase instance with a different read preference setting.
-            </summary>
-            <param name="readPreference">The read preference.</param>
-            <returns>A new MongoDatabase instance with a different read preference setting.</returns>
-        </member>
-        <member name="M:MongoDB.Driver.MongoDatabase.WithWriteConcern(MongoDB.Driver.WriteConcern)">
-            <summary>
-            Returns a new MongoDatabase instance with a different write concern setting.
-            </summary>
-            <param name="writeConcern">The write concern.</param>
-            <returns>A new MongoDatabase instance with a different write concern setting.</returns>
         </member>
         <member name="T:MongoDB.Driver.MongoInsertOptions">
             <summary>
@@ -3324,27 +3187,6 @@
             <param name="serverInstance">The server instance this request should be tied to.</param>
             <returns>A helper object that implements IDisposable and calls <see cref="M:MongoDB.Driver.MongoServer.RequestDone"/> from the Dispose method.</returns>
         </member>
-        <member name="M:MongoDB.Driver.MongoServer.WithReadConcern(MongoDB.Driver.ReadConcern)">
-            <summary>
-            Returns a new MongoServer instance with a different read concern setting.
-            </summary>
-            <param name="readConcern">The read concern.</param>
-            <returns>A new MongoServer instance with a different read concern setting.</returns>
-        </member>
-        <member name="M:MongoDB.Driver.MongoServer.WithReadPreference(MongoDB.Driver.ReadPreference)">
-            <summary>
-            Returns a new MongoServer instance with a different read preference setting.
-            </summary>
-            <param name="readPreference">The read preference.</param>
-            <returns>A new MongoServer instance with a different read preference setting.</returns>
-        </member>
-        <member name="M:MongoDB.Driver.MongoServer.WithWriteConcern(MongoDB.Driver.WriteConcern)">
-            <summary>
-            Returns a new MongoServer instance with a different write concern setting.
-            </summary>
-            <param name="writeConcern">The write concern.</param>
-            <returns>A new MongoServer instance with a different write concern setting.</returns>
-        </member>
         <member name="T:MongoDB.Driver.MongoServerBuildInfo">
             <summary>
             Represents build info about a server instance.
@@ -3388,11 +3230,6 @@
             Gets the AddressFamily for the IPEndPoint (derived from the IPv6 setting).
             </summary>
         </member>
-        <member name="P:MongoDB.Driver.MongoServerSettings.ApplicationName">
-            <summary>
-            Gets or sets the application name.
-            </summary>
-        </member>
         <member name="P:MongoDB.Driver.MongoServerSettings.ClusterConfigurator">
             <summary>
             Gets or sets the cluster configurator.
@@ -3416,16 +3253,6 @@
         <member name="P:MongoDB.Driver.MongoServerSettings.GuidRepresentation">
             <summary>
             Gets or sets the representation to use for Guids.
-            </summary>
-        </member>
-        <member name="P:MongoDB.Driver.MongoServerSettings.HeartbeatInterval">
-            <summary>
-            Gets or sets the heartbeat interval.
-            </summary>
-        </member>
-        <member name="P:MongoDB.Driver.MongoServerSettings.HeartbeatTimeout">
-            <summary>
-            Gets or sets the heartbeat timeout.
             </summary>
         </member>
         <member name="P:MongoDB.Driver.MongoServerSettings.IsFrozen">
@@ -3672,14 +3499,6 @@
             </summary>
             <param name="collection">The collection from which to get default settings for the options.</param>
         </member>
-        <member name="P:MongoDB.Driver.MongoUpdateOptions.Collation">
-            <summary>
-            Gets or sets the collation.
-            </summary>
-            <value>
-            The collation.
-            </value>
-        </member>
         <member name="P:MongoDB.Driver.MongoUpdateOptions.BypassDocumentValidation">
             <summary>
             Gets or sets a value indicating whether to bypass document validation.
@@ -3895,43 +3714,6 @@
             <summary>
             Allow partial results in a sharded system if some of the shards are down.
             </summary>
-        </member>
-        <member name="T:MongoDB.Driver.RemoveArgs">
-            <summary>
-            Represents arguments to the Remove method.
-            </summary>
-        </member>
-        <member name="P:MongoDB.Driver.RemoveArgs.Collation">
-            <summary>
-            Gets or sets the collation.
-            </summary>
-            <value>
-            The collation.
-            </value>
-        </member>
-        <member name="P:MongoDB.Driver.RemoveArgs.Flags">
-            <summary>
-            Gets or sets the flags.
-            </summary>
-            <value>
-            The flags.
-            </value>
-        </member>
-        <member name="P:MongoDB.Driver.RemoveArgs.Query">
-            <summary>
-            Gets or sets the query.
-            </summary>
-            <value>
-            The query.
-            </value>
-        </member>
-        <member name="P:MongoDB.Driver.RemoveArgs.WriteConcern">
-            <summary>
-            Gets or sets the write concern.
-            </summary>
-            <value>
-            The write concern.
-            </value>
         </member>
         <member name="T:MongoDB.Driver.RemoveFlags">
             <summary>
@@ -4385,13 +4167,6 @@
             <param name="value">Whether the collection is capped.</param>
             <returns>The builder (so method calls can be chained).</returns>
         </member>
-        <member name="M:MongoDB.Driver.Builders.CollectionOptions.SetCollation(MongoDB.Driver.Collation)">
-            <summary>
-            Sets the collation.
-            </summary>
-            <param name="value">The collation.</param>
-            <returns>The builder (so method calls can be chained).</returns>
-        </member>
         <member name="M:MongoDB.Driver.Builders.CollectionOptions.SetIndexOptionDefaults(MongoDB.Driver.IndexOptionDefaults)">
             <summary>
             Sets the index options defaults.
@@ -4465,13 +4240,6 @@
             <param name="value">Whether the collection is capped.</param>
             <returns>The builder (so method calls can be chained).</returns>
         </member>
-        <member name="M:MongoDB.Driver.Builders.CollectionOptionsBuilder.SetCollation(MongoDB.Driver.Collation)">
-            <summary>
-            Sets the collation.
-            </summary>
-            <param name="value">The collation.</param>
-            <returns>The builder (so method calls can be chained).</returns>
-        </member>
         <member name="M:MongoDB.Driver.Builders.CollectionOptionsBuilder.SetIndexOptionDefaults(MongoDB.Driver.IndexOptionDefaults)">
             <summary>
             Sets the index options defaults.
@@ -4526,38 +4294,6 @@
             Returns the result of the builder as a BsonDocument.
             </summary>
             <returns>A BsonDocument.</returns>
-        </member>
-        <member name="T:MongoDB.Driver.Builders.CreateViewOptions">
-            <summary>
-            A builder for the options used when creating a view.
-            </summary>
-        </member>
-        <member name="M:MongoDB.Driver.Builders.CreateViewOptions.SetCollation(MongoDB.Driver.Collation)">
-            <summary>
-            Sets the collation.
-            </summary>
-            <param name="collation">The collation.</param>
-            <returns>The builder (so method calls can be chained).</returns>
-        </member>
-        <member name="T:MongoDB.Driver.Builders.CreateViewOptionsBuilder">
-            <summary>
-            A builder for the options used when creating a view.
-            </summary>
-        </member>
-        <member name="M:MongoDB.Driver.Builders.CreateViewOptionsBuilder.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:MongoDB.Driver.Builders.CreateViewOptionsBuilder"/> class.
-            </summary>
-        </member>
-        <member name="M:MongoDB.Driver.Builders.CreateViewOptionsBuilder.SetCollation(MongoDB.Driver.Collation)">
-            <summary>
-            Sets the collation.
-            </summary>
-            <param name="collation">The collation.</param>
-            <returns>The builder (so method calls can be chained).</returns>
-        </member>
-        <member name="M:MongoDB.Driver.Builders.CreateViewOptionsBuilder.ToBsonDocument">
-            <inheritdoc/>
         </member>
         <member name="T:MongoDB.Driver.Builders.Fields">
             <summary>
@@ -12638,12 +12374,11 @@
             <param name="writeConcern">The write concern for this bulk operation.</param>
             <returns>A BulkWriteResult.</returns>
         </member>
-        <member name="M:MongoDB.Driver.BulkWriteOperation`1.Find(MongoDB.Driver.IMongoQuery,MongoDB.Driver.Collation)">
+        <member name="M:MongoDB.Driver.BulkWriteOperation`1.Find(MongoDB.Driver.IMongoQuery)">
             <summary>
             Creates a builder for a new write request (either a remove or an update).
             </summary>
             <param name="query">The query.</param>
-            <param name="collation">The collation.</param>
             <returns>A FluentWriteRequestBuilder.</returns>
         </member>
         <member name="M:MongoDB.Driver.BulkWriteOperation`1.Insert(`0)">
@@ -12751,24 +12486,6 @@
             </summary>
             <param name="command">The wrapped object.</param>
             <returns>A new instance of CommandWrapper or null.</returns>
-        </member>
-        <member name="T:MongoDB.Driver.Wrappers.CreateViewOptionsWrapper">
-            <summary>
-            Represents a wrapped object that can be used where an IMongoCreateViewOptions is expected (the wrapped object is expected to serialize properly).
-            </summary>
-        </member>
-        <member name="M:MongoDB.Driver.Wrappers.CreateViewOptionsWrapper.#ctor(System.Object)">
-            <summary>
-            Initializes a new instance of the CreateViewOptionsWrapper class.
-            </summary>
-            <param name="options">The wrapped object.</param>
-        </member>
-        <member name="M:MongoDB.Driver.Wrappers.CreateViewOptionsWrapper.Create(System.Object)">
-            <summary>
-            Creates a new instance of the CreateViewOptionsWrapper class.
-            </summary>
-            <param name="options">The wrapped object.</param>
-            <returns>A new instance of CreateViewOptionsWrapper or null.</returns>
         </member>
         <member name="T:MongoDB.Driver.Wrappers.FieldsWrapper">
             <summary>
@@ -13119,87 +12836,6 @@
         <member name="M:MongoDB.Driver.CommandDocument.#ctor(System.String,MongoDB.Bson.BsonValue)">
             <summary>
             Initializes a new instance of the CommandDocument class and creates and adds a new element.
-            </summary>
-            <param name="name">The name of the element to add to the document.</param>
-            <param name="value">The value of the element to add to the document.</param>
-        </member>
-        <member name="T:MongoDB.Driver.CreateViewOptionsDocument">
-            <summary>
-            Represents a BSON document that can be used where an IMongoCreateViewOptions is expected.
-            </summary>
-        </member>
-        <member name="M:MongoDB.Driver.CreateViewOptionsDocument.#ctor">
-            <summary>
-            Initializes a new instance of the CreateViewOptionsDocument class.
-            </summary>
-        </member>
-        <member name="M:MongoDB.Driver.CreateViewOptionsDocument.#ctor(System.Boolean)">
-            <summary>
-            Initializes a new instance of the CreateViewOptionsDocument class specifying whether duplicate element names are allowed
-            (allowing duplicate element names is not recommended).
-            </summary>
-            <param name="allowDuplicateNames">Whether duplicate element names are allowed.</param>
-        </member>
-        <member name="M:MongoDB.Driver.CreateViewOptionsDocument.#ctor(MongoDB.Bson.BsonElement)">
-            <summary>
-            Initializes a new instance of the CreateViewOptionsDocument class and adds one element.
-            </summary>
-            <param name="element">An element to add to the document.</param>
-        </member>
-        <member name="M:MongoDB.Driver.CreateViewOptionsDocument.#ctor(System.Collections.Generic.Dictionary{System.String,System.Object})">
-            <summary>
-            Initializes a new instance of the CreateViewOptionsDocument class and adds new elements from a dictionary of key/value pairs.
-            </summary>
-            <param name="dictionary">A dictionary to initialize the document from.</param>
-        </member>
-        <member name="M:MongoDB.Driver.CreateViewOptionsDocument.#ctor(System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Initializes a new instance of the CreateViewOptionsDocument class and adds new elements from a dictionary of key/value pairs.
-            </summary>
-            <param name="dictionary">A dictionary to initialize the document from.</param>
-            <param name="keys">A list of keys to select values from the dictionary.</param>
-        </member>
-        <member name="M:MongoDB.Driver.CreateViewOptionsDocument.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
-            <summary>
-            Initializes a new instance of the CreateViewOptionsDocument class and adds new elements from a dictionary of key/value pairs.
-            </summary>
-            <param name="dictionary">A dictionary to initialize the document from.</param>
-        </member>
-        <member name="M:MongoDB.Driver.CreateViewOptionsDocument.#ctor(System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Initializes a new instance of the CreateViewOptionsDocument class and adds new elements from a dictionary of key/value pairs.
-            </summary>
-            <param name="dictionary">A dictionary to initialize the document from.</param>
-            <param name="keys">A list of keys to select values from the dictionary.</param>
-        </member>
-        <member name="M:MongoDB.Driver.CreateViewOptionsDocument.#ctor(System.Collections.IDictionary)">
-            <summary>
-            Initializes a new instance of the CreateViewOptionsDocument class and adds new elements from a dictionary of key/value pairs.
-            </summary>
-            <param name="dictionary">A dictionary to initialize the document from.</param>
-        </member>
-        <member name="M:MongoDB.Driver.CreateViewOptionsDocument.#ctor(System.Collections.IDictionary,System.Collections.IEnumerable)">
-            <summary>
-            Initializes a new instance of the CreateViewOptionsDocument class and adds new elements from a dictionary of key/value pairs.
-            </summary>
-            <param name="dictionary">A dictionary to initialize the document from.</param>
-            <param name="keys">A list of keys to select values from the dictionary.</param>
-        </member>
-        <member name="M:MongoDB.Driver.CreateViewOptionsDocument.#ctor(System.Collections.Generic.IEnumerable{MongoDB.Bson.BsonElement})">
-            <summary>
-            Initializes a new instance of the CreateViewOptionsDocument class and adds new elements from a list of elements.
-            </summary>
-            <param name="elements">A list of elements to add to the document.</param>
-        </member>
-        <member name="M:MongoDB.Driver.CreateViewOptionsDocument.#ctor(MongoDB.Bson.BsonElement[])">
-            <summary>
-            Initializes a new instance of the CreateViewOptionsDocument class and adds one or more elements.
-            </summary>
-            <param name="elements">One or more elements to add to the document.</param>
-        </member>
-        <member name="M:MongoDB.Driver.CreateViewOptionsDocument.#ctor(System.String,MongoDB.Bson.BsonValue)">
-            <summary>
-            Initializes a new instance of the CreateViewOptionsDocument class and creates and adds a new element.
             </summary>
             <param name="name">The name of the element to add to the document.</param>
             <param name="value">The value of the element to add to the document.</param>

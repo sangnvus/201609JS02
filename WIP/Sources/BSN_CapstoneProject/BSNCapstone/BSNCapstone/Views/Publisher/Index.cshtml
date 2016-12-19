@@ -173,12 +173,15 @@
                         @*HuyenPT. Create. End. 02-11-2016*@
                     </tbody>
                 </table>
-                <br />
-                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) trên tổng số @Model.PageCount trang
-                @Html.PagedListPager(Model, page => Url.Action("Index", "Publisher", new { page }))
+                @Html.PagedListPager(Model, page => Url.Action("Index", "Publisher"))
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $("#adminPublisher").addClass("active");
+        });
+    </script>
 </body>
 </html>
 

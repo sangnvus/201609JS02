@@ -30,7 +30,7 @@
                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
                     {
                         @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true)
+                        @*@Html.ValidationSummary(true)*@
                         <div class="col-md-5" style="padding-top:1.5%">
                             @Html.TextBoxFor(model => model.Login.Email, new { @class = "form-control", @placeholder = "Email", @style = "width: 220px;" })
                         </div>
@@ -99,14 +99,14 @@
             }
         </div>
         <!--Khung dang ky-->
-        <div class="dangnhap container-fluid text-left" style="margin-top: 10%">
-            <span style="color:whitesmoke; font-size:200%;position:absolute;top:-27%;right:46%">ĐĂNG KÝ</span>
+        <div class="dangnhap container-fluid text-left">
             <div class="row content ">
                 @*<form class="form-horizontal" style="padding-left:30%;position:relative;right:10%">*@
                 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", @style = "padding-left:30%; position:relative; right:10%;" }))
                 {
                     @Html.AntiForgeryToken()
-                    @Html.ValidationSummary()
+                    @Html.ValidationSummary("", new { @style = "position: fixed;margin-left: 50%;background-color: #cc2926;color: white;border-radius: 10px;padding-top: 8px;padding-right: 20px;" })
+                    <span style="color:whitesmoke; font-size:200%;position:relative;left:35%;">ĐĂNG KÝ</span>
                     <div class="form-group ">
                         @Html.TextBoxFor(model => model.Register.UserName, new { @class = "form-control", @placeholder = "Tên tài khoản" })
                     </div>

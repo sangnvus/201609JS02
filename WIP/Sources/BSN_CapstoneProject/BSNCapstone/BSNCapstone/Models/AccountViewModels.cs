@@ -39,12 +39,12 @@ namespace BSNCapstone.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Email không được để trống.")]
         [Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Mật khẩu không được để trống.")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -55,48 +55,48 @@ namespace BSNCapstone.Models
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Tên không được để trống.")]
         [Display(Name="UserName")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Email không được để trống.")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage = "Mật khẩu không được để trống.")]
+        [StringLength(100, ErrorMessage = "Mật khẩu phải dài ít nhất 6 kí tự.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Mật khẩu xác nhận không khớp với mật khẩu.")]
         public string ConfirmPassword { get; set; }
     }
 
     public class AuthorRegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Tên không được để trống")]
         [Display(Name = "UserName")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Email không được để trống.")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage = "Mật khẩu không được để trống.")]
+        [StringLength(100, ErrorMessage = "Mật khẩu phải dài ít nhất 6 kí tự.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Mật khẩu xác nhận không được để trống.")]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Mật khẩu xác nhận không khớp với mật khẩu.")]
         public string ConfirmPassword { get; set; }
 
         [Display(Name = "Ảnh CMT")]
@@ -105,7 +105,7 @@ namespace BSNCapstone.Models
 
     public class ForgotPasswordViewModel
     {
-        [Required]
+        [Required(ErrorMessage="Email không được để trống")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -113,20 +113,20 @@ namespace BSNCapstone.Models
 
     public class ResetPasswordViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Email không được để trống.")]
         [EmailAddress]
         [Display(Name= "Email")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Mật khẩu không được để trống.")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Mật khẩu xác nhận không được để trống.")]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Mật khẩu xác nhận không khớp với mật khẩu.")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }

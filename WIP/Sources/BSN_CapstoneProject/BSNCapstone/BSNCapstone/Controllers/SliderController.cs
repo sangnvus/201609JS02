@@ -27,9 +27,17 @@ namespace BSNCapstone.Controllers
         // GET: /Slider/
         public ActionResult Index(int? page)
         {
-            var sliders = Context.Sliders.Find(_ => true).ToList();
+            //Configuration
+            //DangVH. Delete. Start (02/11/2016)
+            //Account account = new Account("dsddvwiqz", "677568653855233", "_RCoQNjMqr8Nt7-FAgs5T_guiWM");
+            //var cloudinary = new Cloudinary(account);
+            //var cloudinary = ImageUploadHelper.GetCloudinaryAccount();
+            //DangVH. Delete. End (02/11/2016)
+
+            //List of photos from MongoDB
+            List<Slider> sliders = Context.Sliders.Find(_ => true).ToList();
             ViewBag.cloudinary = cloudinary;
-            int pageSize = 3;
+            int pageSize = 6;
             int pageNumber = (page ?? 1);
             return View(sliders.ToPagedList(pageNumber, pageSize));
         }

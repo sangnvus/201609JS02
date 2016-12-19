@@ -654,6 +654,7 @@ namespace BSNCapstone.Controllers
         {
             var users = Context.Users.Find(x => x.EmailConfirmed.Equals(true)).ToEnumerable();
             ViewBag.cloudiray = cloudinary;
+            ViewBag.numberUsersJustCreated = users.Where(x => x.CreatedTime.ToShortDateString().Equals(DateTime.Now.ToShortDateString())).Count();
             if (searchString != null)
             {
                 page = 1;
@@ -677,6 +678,7 @@ namespace BSNCapstone.Controllers
         public ActionResult Authors(string searchString, string currentFilter, int? page)
         {
             var authors = Context.Users.Find(x => x.Roles.Contains("author")).ToEnumerable();
+            ViewBag.numberAuthorsJustCreated = authors.Where(x => x.CreatedTime.ToShortDateString().Equals(DateTime.Now.ToShortDateString())).Count();
             ViewBag.cloudinary = cloudinary;
             if (searchString != null)
             {

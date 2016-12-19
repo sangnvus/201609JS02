@@ -1,5 +1,4 @@
-﻿@*@model IEnumerable<BSNCapstone.Models.Book>*@
-@model PagedList.IPagedList<BSNCapstone.Models.Book>
+﻿@model PagedList.IPagedList<BSNCapstone.Models.Book>
 @using PagedList.Mvc;
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -35,7 +34,7 @@
                     <div class="form-group add">
                         @using (Html.BeginForm("Index", "Books", FormMethod.Get, new { @class = "searchForm" }))
                         {
-                            @Html.TextBox("searchString", ViewBag.currentFilter as string)
+                            @Html.TextBox("searchString")
                             <input type="submit" value="Tìm" />
                 <!-- <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Tìm kiếm..." />  ---->
                         }
@@ -53,11 +52,11 @@
                         <table class="table table-striped table-bordered table-hover" id="example-table">
                             <thead>
                                 <tr>
-                                    <th style="width: 1px;">#</th>
+                                    <th style="width:1px">#</th>
                                     <th style="width: 10%;">
                                         Tên sách
                                     </th>
-                                    <th style="width: 10%;">
+                                    <th>
                                         Tác giả
                                     </th>
                                     <th>
@@ -141,8 +140,6 @@
                                 }
                             </tbody>
                         </table>
-                        <br />
-                        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) trên tổng số @Model.PageCount trang
                         @Html.PagedListPager(Model, page => Url.Action("Index", "Books", new { page, currentFilter = ViewBag.currentFilter }))
                     </div>
                 </div>
@@ -153,5 +150,4 @@
 </html>
 @section Scripts {
     <script src="~/Scripts/Custom/book.js"></script>
-    <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 }

@@ -1,5 +1,4 @@
-﻿@*@model IEnumerable<BSNCapstone.Models.Group>*@
-@model PagedList.IPagedList<BSNCapstone.Models.Group>
+﻿@model PagedList.IPagedList<BSNCapstone.Models.Group>
 @using PagedList.Mvc;
 
 @{
@@ -7,8 +6,6 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     int numberOfGroup = ViewBag.groupNumber;
     int numberOfGroupJustCreated = ViewBag.groupJustCreated;
-    var groups = (List<BSNCapstone.Models.Group>)ViewBag.groups;
-    var books = (List<BSNCapstone.Models.Book>)ViewBag.books;
 }
 
 <!DOCTYPE html>
@@ -43,9 +40,10 @@
                 <div class="form-group add">
                     @using (Html.BeginForm("Index", "Groups", FormMethod.Get, new { @class = "searchForm" }))
                     {
-                        @Html.TextBox("searchString", ViewBag.currentFilter as string)
+                        @Html.TextBox("searchString")
                         <input type="submit" value="Tìm" />
                     }
+                    @*<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Tìm kiếm..." />*@
                 </div>
             </div>
             <div class="divider-horizontal"></div>
@@ -72,15 +70,7 @@
                                     @Html.DisplayFor(modelItem => item.GroupName)
                                 </td>
                                 <td>
-                                    @if (groups.Find(x => x.Id.Equals(item.Tag)) != null)
-                                    {
-                                        @Html.DisplayFor(modelItem => groups.Find(x => x.Id.Equals(item.Tag)).GroupName)
-                                    }
-                                    else
-                                    {
-                                        @Html.DisplayFor(modelItem => books.Find(x => x.Id.Equals(item.Tag)).BookName)
-                                    }
-                                    
+                                    @Html.DisplayFor(modelItem => item.Tag)
                                 </td>
                                 <td style="text-align:center">
                                     @item.GroupMembers.Count()
@@ -111,12 +101,15 @@
                         }
                     </tbody>
                 </table>
-                <br />
-                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) trên tổng số @Model.PageCount trang
                 @Html.PagedListPager(Model, page => Url.Action("Index", "Groups", new { page, currentFilter = ViewBag.currentFilter }))
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $("#adminGroup").addClass("active");
+        });
+    </script>
 </body>
 </html>
 

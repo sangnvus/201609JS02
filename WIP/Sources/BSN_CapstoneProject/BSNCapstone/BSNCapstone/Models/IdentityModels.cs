@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using BSNCapstone.ViewModels;
 
 namespace BSNCapstone.Models
 {
@@ -43,7 +44,7 @@ namespace BSNCapstone.Models
 
        public List<string> Following { get; set; }
 
-       public List<string> Interacbook { get; set; }
+       public List<InteractBookViewModel> Interacbook { get; set; }
 
        public bool AuthorConfirmed { get; set; }
 
@@ -58,6 +59,7 @@ namespace BSNCapstone.Models
            AuthorConfirmed = false;
            Locked = false;
            CreatedTime = DateTime.Now.AddHours(7);
+           Interacbook = new List<InteractBookViewModel>();
        }
     }
 

@@ -74,14 +74,7 @@ $(document).ready(function () {
     var groupUrl = $("#ImageChangeUrl").data('url');
     $("#imgInpAva").change(function () {
         var avatarImg = this;
-        if (avatarImg.files && avatarImg.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('.avatar-img').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(avatarImg.files[0]);
-        }
+        $("#loader").modal();
         var formData = new FormData();
         formData.append("id", groupId);
         formData.append("file", avatarImg.files[0]);
@@ -95,7 +88,17 @@ $(document).ready(function () {
             processData: false,
 
             success: function (result) {
-                alert(result);
+                //alert(result);
+                $("#loader").modal("hide");
+                if (avatarImg.files && avatarImg.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('.avatar-img').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(avatarImg.files[0]);
+                }
+                $("#imgInpAva").val("");
             },
             error: function (err) {
                 alert(err.statusText);

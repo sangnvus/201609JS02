@@ -63,8 +63,6 @@ namespace BSNCapstone.Controllers
                 searchString = currentFilter;
             }
             ViewBag.currentFilter = searchString;
-            ViewBag.groups = Context.Groups.Find(_ => true).ToList();
-            ViewBag.books = Context.Books.Find(_ => true).ToList();
             if (!string.IsNullOrEmpty(searchString))
             {
                 groups = groups.Where(x => x.GroupName.Contains(searchString) || x.Tag.Contains(searchString));
@@ -107,6 +105,8 @@ namespace BSNCapstone.Controllers
             ViewBag.currentUser = User.Identity.GetUserId();
             ViewBag.allUser = Context.Users.Find(_ => true).ToList();
             ViewBag.groupReport = GroupReportContent();
+            ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
+            ViewBag.listInteractBook = BooksControllerHelper.LastestBookInteracted(User.Identity.GetUserId());
             var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
             if (group.Locked == true)
             {

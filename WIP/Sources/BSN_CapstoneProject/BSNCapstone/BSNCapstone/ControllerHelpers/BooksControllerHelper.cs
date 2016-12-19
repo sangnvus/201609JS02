@@ -8,6 +8,7 @@ using MongoDB.Driver.Builders;
 using BSNCapstone.Models;
 using BSNCapstone.ViewModels;
 using MongoDB.Driver;
+using MoreLinq;
 
 namespace BSNCapstone.ControllerHelpers
 {
@@ -192,6 +193,23 @@ namespace BSNCapstone.ControllerHelpers
             {
                 return book.Id.GetHashCode();
             }
+        }
+
+        public static List<Book> LastestBookInteracted(string userId)
+        {
+            List<Book> listBook = new List<Book>();
+            ApplicationIdentityContext Context = ApplicationIdentityContext.Create();
+            var user = Context.Users.Find(x => x.Id.Equals(userId)).FirstOrDefault();
+            var currentDate = DateTime.Now;
+            foreach (var interactBook in user.Interacbook.DistinctBy(x => x.BookId).ToList())
+            {
+                if (interactBook.InteractTime.Date > currentDate.AddDays(-7).Date)
+                {
+                    listBook.Add(Context.Books.Find(x => x.Id.Equals(interactBook.BookId)).FirstOrDefault());
+                }
+            }
+            listBook = listBook.Take(4).ToList();
+            return listBook;
         }
     }
 }
