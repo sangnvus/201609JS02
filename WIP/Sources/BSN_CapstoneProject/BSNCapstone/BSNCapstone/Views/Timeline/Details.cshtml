@@ -162,7 +162,193 @@
                 <br>
             </div>
             <!-------------------------------Center Post---------------------------------------->
+            <div class="col-md-6 col-sm-8 col-xs-12 text-left">
+                <br />
+                <div class="row">
+                    <!---------PHẦN NHẬP NỘI DUNG BÀI POST VÀ TAG SÁCH------------>
+                    <div class="col-md-12">
+                        <div class="post-card" style="background-color: white;">
+                            <!--TextBox để nhập nội dung post-->
+                            <textarea class="write-post" placeholder="Bạn đang nghĩ gì ?"
+                                      id="txtPostContent" data-bind="value: newMessage"></textarea>
 
+                            <div class="divider-horizontal"></div>
+
+                            <div class="row" style="padding: 5px 15px;">
+                                <!--Hiển thị thẻ sách - chờ design update-->
+                                <div class="col-md-6 col-sm-12 col-xs-12"></div>
+                                <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
+                                    <!--Button đăng bài post-->
+                                    <input class="btn btn-default" type="button" style="background-color: #224A86" value="Đăng"
+                                           data-url="/Index/SavePost" id="btnShare" data-bind="click: addPost" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------------HIỂN THỊ CÁC BÀI POST-------------------------->
+                <div class="col-md-12" style="margin-top: 7px;" id="msgHolder" data-bind="foreach: posts">
+                    <div class="post-card" style="padding-top: 5%; padding: 5px 15px">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!--Hiển thị thông tin người dùng-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!--Ảnh đại diện-->
+                                        <div class="owner-avatar">
+                                            <img data-bind="attr: { src : PostedByAvatar }" />
+                                        </div>
+
+                                        <div class="owner-info">
+                                            <!--Tên người dùng-->
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <a class="owner-name" data-bind="text : PostedByName"></a>
+                                                </div>
+                                                <!--Drop down list gồm chức năng sửa và xóa post-->
+                                                <div class="col-md-6 pull-right">
+                                                    <button type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="fa fa-angle-down"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <!--Button edit post-->
+                                                        <li>
+                                                            <a href="#" data-toggle="modal" data-target="#editDialog">Sửa</a>
+                                                        </li>
+                                                        <!--Button xóa post-->
+                                                        <li>
+                                                            <a href="#" data-bind="click: deletePost"> Xóa</a>
+                                                        </li>
+                                                    </ul>
+                                                    <!--Pop-up edit post-->
+                                                    <div class="modal fade" id="editDialog" role="dialog">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                    <h4 class="modal-title">Edit Post</h4>
+                                                                </div>
+                                                                <div class="midle-modal">
+                                                                    <div class="row content" style="margin-top:10px;">
+                                                                        <div class="owner-avatar" style="margin:0 0 5px 26px;">
+                                                                            <img src="" style="float:left">
+                                                                            <input type="text" class="write-post" style="float:left; width:auto" data-bind="value: Message" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">Hùy</button>
+                                                                    <input type="button" class="btn btn-default" style="background-color: #224A86; color:white"
+                                                                           data-dismiss="modal" data-toggle="modal" data-bind="click: editPost" value="Lưu">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Thời gian post bài-->
+                                            <div class="row">
+                                                <div class="col-md-12" style="color:grey; font-size: 12px">
+                                                    <i class="glyphicon glyphicon-time"></i>
+                                                    <span data-bind="text : PostedDate"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Nội dung bài post-->
+                                <p class="post-content"><span data-bind="html : Message"></span></p>
+
+                                <div class="divider-horizontal"></div>
+                                <div class="row">
+                                    <!--Thẻ sách-->
+                                    <div class="col-md-6 col-sm-12">
+                                    </div>
+                                    <!--Các button để tương tác với post-->
+                                    <div class="col-md-6 col-sm-12" style="text-align: right;">
+                                        <ul class="interaction-list">
+                                            <!--Nút thích-->
+                                            <li>
+                                                <button class="post-interaction-btn" data-bind="click: addPostLike" style="color:hotpink ">
+                                                    <i class="glyphicon glyphicon-thumbs-up"></i>
+                                                    <span data-bind="text : NumOfPostLike"></span>
+                                                    <span>Thích</span>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="divider-horizontal"></div>
+
+                                <!--Notify của phần comment-->
+                                <a data-bind="click: loadNewComments, visible: NewComments().length > 0">
+                                    <span data-bind="    text: NewComments().length"></span> bình luận mới
+                                </a>
+                                <!--Ô ĐỂ NHẬP BÌNH LUẬN-->
+                                <div>
+                                    <div class="jumbotron">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <!--Ảnh của nười dùng hiện tại-->
+                                                <div class="owner-avatar">
+                                                    <img src="/Images/profileimages/user.png" style="width:40px;height:40px" />
+                                                </div>
+                                                <div class="owner-info">
+                                                    <div class="pull-left form-inline">
+                                                        <!--Textbox để viết bình luận-->
+                                                        <input type="text" class="form-control" style="width: 150%; height: 30px;" data-bind="value : newCommentMessage" placeholder="Viết bình luận..." />
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <!--Button để bình luận-->
+                                                        <input type="button" class="btn btn-warning" value="Bình luận" data-bind="click: addComment" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <!--------------------------------HIẾN THỊ CÁC COMMENT CỦA BÀI POST -------------------------->
+                                        <ul data-bind="foreach: PostComments">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <!--Ảnh của người cmt-->
+                                                    <div class="owner-avatar">
+                                                        <img style="width:40px;height:40px" data-bind="attr: { src: CommentedByAvatar }" />
+                                                    </div>
+
+                                                    <div class="owner-info">
+                                                        <div class="row">
+                                                            <!--Tên người cmt-->
+                                                            <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>
+                                                            <!--Nội dung cmt-->
+                                                            <p data-bind="    html: Message" style="font-size: 15px; margin-left: 5%;"></p>
+                                                        </div>
+                                                    </div>
+
+                                                    <!--Các chức năng tương tác với comment-->
+                                                    <ul class="interaction-list" style="padding-left: 8%;">
+                                                        <li>
+                                                            <button class="post-interaction-btn" style="color:grey; font-size: 12px">
+                                                                <i class="glyphicon glyphicon-time"></i>
+                                                                <span data-bind="text: CommentedDate"></span>
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="post-interaction-btn" style="color:grey; font-size: 12px">
+                                                                <i class="glyphicon glyphicon-remove-sign"></i>
+                                                                <span>Xóa</span>
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--  Bắt đầu phần bên phải -->
             <div class="col-md-4 sidenav">
                 <div class="text-center" class="panel-heading">
@@ -242,7 +428,7 @@
     <script src="~/signalr/hubs"></script>
     <script src="~/Scripts/jquery.timeago.js"></script>
     <script src="~/Scripts/knockout-2.2.0.js"></script>
-    <script src="~/Scripts/Custom/post.js"></script>
+    <script src="~/Scripts/Custom/timeline-post.js"></script>
     <script src="~/Scripts/Custom/group.js"></script>
     <script src="~/Scripts/Custom/follow-handle.js"></script>
     <link rel="stylesheet" href="~/Content/loader.css" />
