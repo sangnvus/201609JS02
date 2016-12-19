@@ -66,8 +66,17 @@ namespace BSNCapstone.Controllers
             return Json(books, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult LockedPage() {
-            return View();
+        public ActionResult LockedPage()
+        {
+            ViewBag.allAuthors = Context.Authors.Find(_ => true).ToList();
+            ViewBag.cloudinary = cloudinary;
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            ViewBag.listHotBook = BooksControllerHelper.SuggestBook("", 1);
+            Random random = new Random((int)(DateTime.Now.Ticks));
+            ViewBag.randomAuthor = Context.Authors.Find(x => x.UserId != user.Id.ToString()).ToList().OrderBy(x => random.Next()).Take(2).ToList();
+            ViewBag.randomPublisher = Context.Publishers.Find(_ => true).ToList().OrderBy(x => random.Next()).Take(2).ToList();
+            return View(user);
         }
+
     }
 }

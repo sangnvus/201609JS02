@@ -273,8 +273,10 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\Image\avatar_default.png" />
     <Content Include="Content\Image\cover_default.jpg" />
+    <Content Include="Content\Image\logo.png" />
     <Content Include="Content\Layout.css" />
     <Content Include="Content\loader.css" />
+    <Content Include="Content\lock-page.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\pagination.css" />
     <Content Include="Content\Sach.css" />
