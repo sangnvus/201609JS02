@@ -252,8 +252,8 @@
                                                 <!--Ảnh của nười dùng hiện tại-->
                                                 <div class="owner-avatar">
                                                     @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
-                                                        .Height(40).Width(40).Crop("fill")).BuildImageTag(@Model.Avatar,
-                                                            new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                                                    .Height(40).Width(40).Crop("fill")).BuildImageTag(@Model.Avatar,
+                                                     new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                                                 </div>
                                                 <div class="owner-info">
                                                     <div class="pull-left form-inline">

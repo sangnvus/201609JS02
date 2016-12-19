@@ -15,7 +15,10 @@ namespace BSNCapstone.Hubs
     public class TimelineHub : Hub
     {
         private readonly ApplicationIdentityContext con = ApplicationIdentityContext.Create();
-
+        
+        /*
+         * Timeline chỉ hiển thị các bài post của user hiện tại
+         */
         public void GetTimelinePosts()
         {
             // get dữ liệu từ db
@@ -61,6 +64,7 @@ namespace BSNCapstone.Hubs
                 var ret = new
                 {
                     Message = item.Message,
+                    PostedById = item.PostedById,
                     PostedByName = userpost.UserName,
                     PostedByAvatar = "/Images/profileimages/user.png",
                     PostedDate = item.PostedDate,
@@ -72,7 +76,7 @@ namespace BSNCapstone.Hubs
             }
 
             // calls loadPosts javascript method at client side.
-            Clients.All.loadPosts(listPost.ToArray());
+            Clients.Caller.loadPosts(listPost.ToArray());
         }
 
         public void AddPost(Post post)
@@ -82,9 +86,6 @@ namespace BSNCapstone.Hubs
             {
                 Message = post.Message,
                 PostedById = Context.User.Identity.GetUserId(),
-                // HuyenPT. Delete. Start. 06-12-2016
-                //PostedBy = Context.User.Identity.Name,
-                // HuyenPT. 06-12. Delete. End. 06-12-2016
                 PostedDate = DateTime.Now
             };
             con.Posts.InsertOneAsync(newPost);
@@ -92,30 +93,17 @@ namespace BSNCapstone.Hubs
             //Hiển thị post vừa lưu
             //Lấy info của post mới nhất <vừa lưu> để truyền qua view
             Post disPost = con.Posts.Find(_ => true).Limit(1).SortByDescending(m => m.PostedDate).FirstOrDefault();
-            // HuyenPT. Create. Start. 06-12-2016
             var userpost = con.Users.Find(x => x.Id == newPost.PostedById).FirstOrDefault().UserName;
-            // HuyenPT. Create. End. 06-12-2016
             var ret = new
             {
                 PostId = disPost.Id,
                 Message = disPost.Message,
-                // HuyenPT. Delete. Start. 06-12-2016
-                //PostedById = disPost.PostedById,
-                //PostedBy = Context.User.Identity.Name,
-                // HuyenPT. Delete. End. 06-12-2016
-
-                // HuyenPT. Update. Start. 06-12-2016
-                //PostedBy = disPost.PostedBy,
-                PostedBy = userpost,
-                // HuyenPT. Update. End. 06-12-2016
+                PostedByName = userpost,
                 PostedByAvatar = "/Images/profileimages/user.png",
+                PostedById = disPost.PostedById,
                 PostedDate = disPost.PostedDate
             };
-            // addPost method is called for caller
             Clients.Caller.addPost(ret);
-            // newPost method is called for other users
-            Clients.Others.newPost(ret);
-            Clients.Others.loadNewPosts(ret);
         }
 
         public dynamic AddComment(Comment postcomment)
@@ -132,10 +120,7 @@ namespace BSNCapstone.Hubs
             var newCmt = new Comment
             {
                 CommentId = disId,
-                // HuyenPT. Update. Start. 06-12-2016
-                //CommentedBy = Context.User.Identity.Name,
                 CommentedBy = Context.User.Identity.GetUserId(),
-                // HuyenPT. Update. End. 06-12-2016
                 CommentedDate = DateTime.UtcNow,
                 Message = postcomment.Message,
                 PostId = postcomment.PostId
@@ -153,28 +138,20 @@ namespace BSNCapstone.Hubs
              */
             Post postCmt = con.Posts.Find(x => x.Id == postcomment.PostId).FirstOrDefault();
             Comment disCmt = new List<Comment>(postCmt.PostComments).LastOrDefault();
-            // HuyenPT. 06-12. Add.  Start
             /*
              * Để sau khi user edit tên thì sẽ luôn load ra tên hiện tại
              */
             var userComment = con.Users.Find(x => x.Id == newCmt.CommentedBy).FirstOrDefault().UserName;
-            // HuyenPT. 06-12. Add.  End
             var ret = new
             {
                 CommentId = disCmt.CommentId,
-                // HuyenPT. Update. Start. 06-12-2016
-                //CommentedBy = Context.User.Identity.Name,
                 CommentedBy = userComment,
-                // HuyenPT. Update. End. 06-12-2016
                 CommentedByAvatar = "/Images/profileimages/user.png",
                 CommentedDate = disCmt.CommentedDate,
                 Message = disCmt.Message,
                 PostId = disCmt.PostId
             };
 
-            //Clients.Caller.addCommet
-            Clients.Others.newComment(ret, postcomment.PostId);
-            Clients.Others.loadNewComments();
             return ret;
         }
 
@@ -194,10 +171,7 @@ namespace BSNCapstone.Hubs
             var newLike = new PostLike
             {
                 PostId = like.PostId,
-                // HuyenPT. Update. Start. 06-12-2016
-                //LikedBy = Context.User.Identity.Name
                 LikedBy = Context.User.Identity.GetUserId()
-                // HuyenPT. Update. End. 06-12-2016
             };
             if (!isUnlike)
             {
@@ -233,7 +207,6 @@ namespace BSNCapstone.Hubs
                 };
 
                 GetTimelinePosts();
-                //Clients.All.loadNewLikes(post);
                 return ret;
             }
 

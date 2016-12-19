@@ -12,7 +12,7 @@ function Post(data, hub) {
 
     self.PostId = data.PostId;
     self.Message = ko.observable(data.Message || "");
-    self.PostedBy = data.PostedBy || "";
+    self.PostedById = data.PostedById || "";
     self.PostedByName = data.PostedByName || "";
     self.PostedByAvatar = data.PostedByAvatar || "";
     self.PostedDate = getTimeAgo(data.PostedDate);
@@ -90,7 +90,6 @@ function Post(data, hub) {
     }
 }
 
-
 /* Desc:
 * get ra các cmt -> gán vào self để để hiển thị lên view
 */
@@ -108,13 +107,6 @@ function Comment(data) {
     self.CommentedDate = getTimeAgo(data.CommentedDate);
     self.NumOfCmtLike = data.NumOfCmtLike;
     self.error = ko.observable();
-    //self.hub = hub;
-
-    //self.addCmtLike = function () {
-    //    self.hub.server.addCmtLike({"PostId": self.PostId, "CommentId": self.CommentId }).fail(function (err) {
-    //        self.error(err);
-    //    });
-    //}
 }
 
 
@@ -168,7 +160,7 @@ function viewModel() {
         var mappedPosts = $.map(data, function (item) { return new Post(item, self.hub); });
         console.log(mappedPosts);
         mappedPosts.forEach(function (i, a) {
-            console.log(i.PostedBy);
+            console.log(i.PostedByName);
         })
         self.posts(mappedPosts);
     }

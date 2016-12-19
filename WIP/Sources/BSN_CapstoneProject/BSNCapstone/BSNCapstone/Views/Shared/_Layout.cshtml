@@ -42,7 +42,10 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-bell"></i></a>
                         <div class="dropdown-menu" style="top: 50px;" data-bind="foreach: posts">
-                            <div style="margin-left: 5%;"><span data-bind="text : PostedBy"></span></div>
+                            @*HuyenPT. Update. Start*@
+                            @*<div style="margin-left: 5%;"><span data-bind="text : PostedBy"></span></div>*@
+                            <div style="margin-left: 5%;"><span data-bind="text : PostedByName"></span></div>
+                            @*HuyenPT. Update. End*@
                         </div>
                     </li>
                     <li class="dropdown">

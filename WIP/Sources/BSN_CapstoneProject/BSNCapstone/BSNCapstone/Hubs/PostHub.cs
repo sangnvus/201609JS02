@@ -150,6 +150,7 @@ namespace BSNCapstone.Hubs
                 //PostedBy = disPost.PostedBy,
                 PostedByName = userpost,
                 // HuyenPT. Update. End. 06-12-2016
+                PostedById = disPost.PostedById,
                 PostedByAvatar = "/Images/profileimages/user.png",
                 PostedDate = disPost.PostedDate
             };

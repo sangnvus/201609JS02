@@ -1,4 +1,5 @@
 ﻿
+
 /*==================================== CLIENT SIDE MODEL ======================================*/
 
 function Post(data, hub) {
@@ -90,7 +91,6 @@ function Post(data, hub) {
     }
 }
 
-
 /* Desc:
 * get ra các cmt -> gán vào self để để hiển thị lên view
 */
@@ -119,14 +119,14 @@ function viewModel() {
     self.newMessage = ko.observable();
     self.error = ko.observable();
     self.newPosts = ko.observableArray();   // SignalR related
-    self.hub = $.connection.timelineHub;        // Reference the proxy for the hub. 
+    self.hub = $.connection.groupHub;        // Reference the proxy for the hub. 
 
     /*
     * khi vào view sẽ gọi hàm này đầu tiên để call function getPosts bên Hub
     */
     self.init = function () {
         self.error(null);
-        self.hub.server.getTimelinePosts().fail(function (err) {
+        self.hub.server.getGroupPosts().fail(function (err) {
             self.error(err);
         });
     }
@@ -233,8 +233,8 @@ function getTimeAgo(varDate) {
 /*
 * Activate Knockout and start Hub
 */
-var timeline = new viewModel();
-ko.applyBindings(timeline);
+var groupPost = new viewModel();
+ko.applyBindings(groupPost);
 $.connection.hub.start().done(function () {
-    timeline.init();
+    groupPost.init();
 });

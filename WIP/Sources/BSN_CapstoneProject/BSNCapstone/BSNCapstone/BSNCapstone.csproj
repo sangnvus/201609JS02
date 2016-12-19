@@ -228,6 +228,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\GroupHub.cs" />
     <Compile Include="Hubs\PostHub.cs" />
     <Compile Include="Hubs\TimelineHub.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -312,6 +313,7 @@
     <Content Include="Scripts\Custom\book.js" />
     <Content Include="Scripts\Custom\follow-handle.js" />
     <Content Include="Scripts\Custom\group-add.js" />
+    <Content Include="Scripts\Custom\group-post.js" />
     <Content Include="Scripts\Custom\group.js" />
     <Content Include="Scripts\Custom\newfeed-post.js" />
     <Content Include="Scripts\Custom\publisher.js" />
