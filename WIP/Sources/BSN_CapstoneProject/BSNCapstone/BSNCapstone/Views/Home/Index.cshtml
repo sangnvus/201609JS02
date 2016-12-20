@@ -10,7 +10,7 @@
     var listGroup = (List<BSNCapstone.Models.Group>)ViewBag.listGroup;
     var allUsers = (List<BSNCapstone.Models.ApplicationUser>)ViewBag.allUsers;
     var allAuthors = (List<BSNCapstone.Models.Author>)ViewBag.allAuthors;
- }
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,61 +20,69 @@
         <div class="row content">
             <!-------------------------------Phần bên trái-------------------------------------->
             @*HaiCM. Create. Start. 19-11-2016*@
-            <div class="col-md-2 col-sm-4 col-xs-12 sidenav">
-                <div class="col-md-2" style="padding-left:0; margin-top: 10px;">
-                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
-                            .Height(25).Width(25).Crop("fill")).BuildImageTag(@Model.Avatar,
+            <div class="col-md-3 col-sm-4 col-xs-12 sidenav">
+                <div class="row">
+                    <div class="col-md-12" style="padding-left:10px; margin-top:20px">
+                        <div class="col-md-6" style="padding-left:20%;">
+                            @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                            .Height(150).Width(150).Crop("fill")).BuildImageTag(@Model.Avatar,
                                 new CloudinaryDotNet.StringDictionary("class=img-rounded")))
-                </div>
-                <div class="col-md-10 col-sm-8" style="padding-left:0;margin-top:15px">
-                    <a href="@Url.Action("Details", "Timeline", new { id = @Model.Id })"><strong>@Model.UserName</strong></a>
-                </div>
+                        </div>
+                        <br>
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
+                            <ul class="list-group">
+                                <a href="@Url.Action("Details", "Timeline", new { id = @Model.Id })"><strong>@Model.UserName</strong></a>
+                                <br>
+                                <a href="@Url.Action("EditProfile", "Timeline", new { id = @Model.Id })">Chỉnh sửa thông tin cá nhân</a>
+                            </ul>
 
-                <a href="@Url.Action("EditProfile", "Timeline", new { id = @Model.Id })">Chỉnh sửa thông tin cá nhân</a>
-
-                <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 5%;">
-                    <div class="text-left" class="panel-heading">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="text-left" class="panel-heading" style="padding-left:15%">
                         <h5><strong>NHÓM</strong></h5>
                     </div>
                 </div>
-                <div class="row" style="margin-top: 20%;">
+                <div class="row">
                     <ul class="list-group">
                         @foreach (var group in listGroup)
                         {
                             <a href="@Url.Action("MainPage", "Groups", new { id = @group.Id })" data-toggle="tooltip" title="@group.GroupName">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="col-md-1">
-                                        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-4" style="padding-left:22%">
+                                            @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                             .Height(20).Width(20).Crop("fill")).BuildImageTag(group.AvaImg,
                                                 new CloudinaryDotNet.StringDictionary("class=img-rounded")))
-                                    </div>
-                                    <div class="col-md-8">
-                                        <li>
-                                            <span>
-                                                @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@group.GroupName.ToLower())
-                                            </span>
-                                        </li>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p>@group.GroupMembers.Count</p>
+                                        </div>
+                                        <div class="col-md-6" style="text-align:left">
+                                            <li>
+                                                <span data-toggle="tooltip" title="@group.GroupName">
+                                                    @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@group.GroupName.ToLower())
+                                                </span>
+                                            </li>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p>@group.GroupMembers.Count</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
                         }
                     </ul>
                 </div>
                 <!--------------------------->
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="text-left" class="panel-heading">
-                        <h5><strong>MỚI XUẤT BẢN</strong></h5>
+                    <div class="text-left" class="panel-heading" style="padding-left:15%">
+                        <h5><strong>MỚI XUẤT BẢN</strong></h5><br>
                     </div>
                 </div>
+
                 @foreach (var book in listNewBook)
                 {
-                    <div class="row" style="padding-left: 20px;">
-                        <div class="col-md-6" style="padding-left:5px;">
+                    <br><div class="row" style="padding-left: 20px;">
+                        <div class="col-md-6" style="padding-left:15%;">
                             @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                 .Height(117).Width(90).Crop("fill")).BuildImageTag(book.ImgPublicId,
                                     new CloudinaryDotNet.StringDictionary("class=img-rounded")))
@@ -94,27 +102,29 @@
                         <h5 style="float:right;padding-right:5px;">@book.RateTime lượt đánh giá</h5>
                         <br>
                         <br>
-                        <div class="col-md-12 list-group" style="padding-left:6px">
-                            <span>
+                        <div class="row">
+                            <div class="col-md-10" style="padding-left:15%;">
                                 <strong data-toggle="tooltip" title="@book.BookName">
                                     <a href="@Url.Action("Details", "Books", new { id = @book.BookId })">@book.BookName.ToUpper()</a>
                                 </strong>
                                 <br>@foreach (var author in book.AuthorName)
+                                {
+                                    if (book.AuthorName.Last().Equals(author))
                                     {
-                                        if (book.AuthorName.Last().Equals(author))
-                                        {
-                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName" class="authorname">
-                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName.ToLower()) </strong>
-                                            </i>
-                                        }
-                                        else
-                                        {
-                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName" class="authorname">
-                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName.ToLower()), </strong>
-                                            </i>
-                                        }
+                                        <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName" class="authorname">
+                                            <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName.ToLower()) </strong>
+                                        </i>
                                     }
-                            </span>
+                                    else
+                                    {
+                                        <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName" class="authorname">
+                                            <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName.ToLower()), </strong>
+                                        </i>
+                                    }
+                                }
+
+                            </div>
+
                         </div>
                     </div>
                 }
@@ -129,24 +139,25 @@
                     <div class="col-md-12">
                         <div class="post-card" style="background-color: white;">
                             <!--TextBox để nhập nội dung post-->
-                            <textarea class="write-post" placeholder="Bạn đang nghĩ gì ?"
+                            <textarea class="write-post" placeholder="Bạn muốn chia sẻ điều gì về cuốn sách này ?"
                                       id="txtPostContent" data-bind="value: newMessage"></textarea>
-
                             <div class="divider-horizontal"></div>
-
                             <div class="row" style="padding: 5px 15px;">
                                 <!--Hiển thị thẻ sách - chờ design update-->
                                 <div class="col-md-6 col-sm-12 col-xs-12"></div>
                                 <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
                                     <!--Button đăng bài post-->
-                                    <input class="btn btn-default" type="button" style="background-color: #224A86" value="Đăng"
-                                           data-url="/Index/SavePost" id="btnShare" data-bind="click: addPost" />
+                                    <input type="text" id="txtAutocomplete" class="txt" placeholder="Nhập thẻ sách" required />
+                                    <input type="hidden" id="hiddenBookTag" />
+                                    <input id="btnShare" class="btn btn-default" type="button" value="Đăng"
+                                           data-url="/Index/SavePost" data-bind="click: addPost" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!------------------------HIỂN THỊ CÁC BÀI POST-------------------------->
+
                 <div class="col-md-12" style="margin-top: 7px;" id="msgHolder" data-bind="foreach: posts">
                     <div class="post-card" style="padding-top: 5%; padding: 5px 15px">
                         <div class="row">
@@ -164,6 +175,13 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <a class="owner-name" data-bind="text : PostedByName"></a>
+                                                    <!--Thời gian post bài-->
+                                                    <div class="row">
+                                                        <div class="col-md-12" style="color:grey; font-size: 12px">
+                                                            <i class="glyphicon glyphicon-time"></i>
+                                                            <span data-bind="text : PostedDate"></span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <!--Drop down list gồm chức năng sửa và xóa post-->
                                                 <div class="col-md-6 pull-right">
@@ -186,18 +204,18 @@
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                    <h4 class="modal-title">Edit Post</h4>
+                                                                    <h4 class="modal-title">CHỈNH SỬA NỘI DUNG BÀI ĐĂNG</h4>
                                                                 </div>
                                                                 <div class="midle-modal">
                                                                     <div class="row content" style="margin-top:10px;">
                                                                         <div class="owner-avatar" style="margin:0 0 5px 26px;">
-                                                                            <img src="" style="float:left">
-                                                                            <input type="text" class="write-post" style="float:left; width:auto" data-bind="value: Message" />
+                                                                            <img data-bind="attr: { src :'http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill/' + PostedByAvatar }" />
+                                                                            <textarea class="write-post" style="float:left; width:200%;" data-bind="value: Message"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">Hùy</button>
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">Hủy</button>
                                                                     <input type="button" class="btn btn-default" style="background-color: #224A86; color:white"
                                                                            data-dismiss="modal" data-toggle="modal" data-bind="click: editPost" value="Lưu">
                                                                 </div>
@@ -206,19 +224,20 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!--Thời gian post bài-->
-                                            <div class="row">
-                                                <div class="col-md-12" style="color:grey; font-size: 12px">
-                                                    <i class="glyphicon glyphicon-time"></i>
-                                                    <span data-bind="text : PostedDate"></span>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
                                 <!--Nội dung bài post-->
-                                <p class="post-content"><span data-bind="html : Message"></span></p>
-
+                                <!-- ko if : GroupName == "" || GroupName == null -->
+                                <h6 id="eff1">chia sẻ về cuốn sách <a data-bind="text : BookTag"></a></h6>
+                                <!-- /ko -->
+                                <!-- ko if : GroupName!= "" -->
+                                <h6 id="eff1">đã đăng trong nhóm <a data-bind="text : GroupName"></a></h6>
+                                <!-- /ko -->
+                                <br>
+                                <div class="divider-horizontal"></div>
+                                <p class="post-content"><p style="word-wrap:break-word;" data-bind="html : Message"></></p>
                                 <div class="divider-horizontal"></div>
                                 <div class="row">
                                     <!--Thẻ sách-->
@@ -229,7 +248,7 @@
                                         <ul class="interaction-list">
                                             <!--Nút thích-->
                                             <li>
-                                                <button class="post-interaction-btn" data-bind="click: addPostLike" style="color:hotpink ">
+                                                <button class="post-interaction-btn" data-bind="click: addPostLike" style="color:#224A86; ">
                                                     <i class="glyphicon glyphicon-thumbs-up"></i>
                                                     <span data-bind="text : NumOfPostLike"></span>
                                                     <span>Thích</span>
@@ -256,13 +275,14 @@
                                                      new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                                                 </div>
                                                 <div class="owner-info">
-                                                    <div class="pull-left form-inline">
+                                                    <div class="col-md-10 col-sm-12 col-xs-12" class="pull-left form-inline">
                                                         <!--Textbox để viết bình luận-->
-                                                        <input type="text" class="form-control" style="width: 150%; height: 30px;" data-bind="value : newCommentMessage" placeholder="Viết bình luận..."/>
+                                                        <input type="text" class="form-control" style="width: 100%; height: 30px;" data-bind="value : newCommentMessage" placeholder="Viết bình luận..." />
                                                     </div>
-                                                    <div class="pull-right">
+                                                    <div class="col-md-2 col-sm-12 col-xs-12">
                                                         <!--Button để bình luận-->
-                                                        <input type="button" class="btn btn-warning" value="Bình luận" data-bind="click: addComment"/>
+                                                        <input style="text-align: right; " id="binhluan1" class="btn btn-default" type="button" value="Bình luận" data-bind="click: addComment" />
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -279,28 +299,31 @@
 
                                                     <div class="owner-info">
                                                         <div class="row">
+
                                                             <!--Tên người cmt-->
                                                             <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>
                                                             <!--Nội dung cmt-->
-                                                            <p data-bind="    html: Message" style="font-size: 15px; margin-left: 5%;"></p>
+                                                            <p style="word-wrap: break-word; font-size: 15px; margin-left: 5%;" data-bind="    html: Message"></p>
+                                                            <!--Các chức năng tương tác với comment-->
+                                                            <ul class="interaction-list" style="padding-left: 5%;">
+                                                                <li>
+                                                                    <button class="post-interaction-btn" style="color:grey; font-size: 12px">
+                                                                        <i class="glyphicon glyphicon-time"></i>
+                                                                        <span data-bind="text: CommentedDate"></span>
+                                                                    </button>
+                                                                </li>
+                                                                <li>
+                                                                    <button class="post-interaction-btn" style="color:grey; font-size: 12px">
+                                                                        <i class="glyphicon glyphicon-remove-sign"></i>
+                                                                        <span>Xóa</span>
+                                                                    </button>
+                                                                </li>
+                                                            </ul>
+
                                                         </div>
                                                     </div>
 
-                                                    <!--Các chức năng tương tác với comment-->
-                                                    <ul class="interaction-list" style="padding-left: 8%;">
-                                                        <li>
-                                                            <button class="post-interaction-btn" style="color:grey; font-size: 12px">
-                                                                <i class="glyphicon glyphicon-time"></i>
-                                                                <span data-bind="text: CommentedDate"></span>
-                                                            </button>
-                                                        </li>
-                                                        <li>
-                                                            <button class="post-interaction-btn" style="color:grey; font-size: 12px">
-                                                                <i class="glyphicon glyphicon-remove-sign"></i>
-                                                                <span>Xóa</span>
-                                                            </button>
-                                                        </li>
-                                                    </ul>
+
                                                 </div>
                                             </div>
                                         </ul>
@@ -310,11 +333,12 @@
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <!--------------------------------Phần bên phải------------------------------------->
             @*HaiCM. Create. Start. 19-11-2016*@
-            <div class="col-md-4 sidenav">
+            <div class="col-md-3 sidenav">
                 <div class="text-center" class="panel-heading">
                     <h5 style="margin-top: 4%;"><strong>XU HƯỚNG HIỆN NAY</strong></h5>
                 </div>
@@ -376,11 +400,11 @@
                     <!--  Bắt đầu phần tác giả -->
                     <div class="row">
                         <div class="text-left" class="panel-heading">
-                            <h5><strong>TÁC GIẢ</strong></h5>
+                            <h5><strong style="padding-left:15%;">TÁC GIẢ</strong></h5>
                         </div>
                         @foreach (var author in randomAuthor)
                         {
-                            <div class="col-md-6" style="padding-left:10px;">
+                            <div class="col-md-6" style="padding-left:15%;">
                                 <div class="col-md-6" style="padding-left:0;">
                                     @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                         .Height(117).Width(90).Crop("fill")).BuildImageTag(author.AuthorImg,
@@ -400,46 +424,47 @@
                                     <button class="button buttonFo" style="margin-left: 14px; display: none;" data-option="1" data-author="@author.UserId">Theo dõi</button>
                                     <button class="button buttonFo" style="margin-left:14px;" data-option="2" data-author="@author.UserId">Bỏ Theo dõi</button>
                                 }
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <ul class="list-group">
-                                    <i class="authorname">
-                                        <strong data-toggle="tooltip" title="@author.AuthorName">
-                                            @if (!author.UserId.IsEmpty())
-                                            {
-                                                <a href="@Url.Action("Details", "Timeline", new { id = @author.UserId })">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <ul class="list-group">
+                                        <i class="authorname">
+                                            <strong data-toggle="tooltip" title="@author.AuthorName">
+                                                @if (!author.UserId.IsEmpty())
+                                                {
+                                                    <a href="@Url.Action("Details", "Timeline", new { id = @author.UserId })">
+                                                        @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.AuthorName.ToLower())
+                                                    </a>
+                                                }
+                                                else
+                                                {
                                                     @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.AuthorName.ToLower())
-                                                </a>
-                                            }
-                                            else
-                                            {
-                                                @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.AuthorName.ToLower())
-                                            }
-                                        </strong> 
-                                    </i>
-                                </ul>
+                                                }
+                                            </strong>
+                                        </i>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
                         }
                     </div>
                     <!--  Kết thúc phần tác giả -->
                     <!--  Bắt đầu phần nhà xuất bản -->
                     <br>
                     <div class="text-left" class="panel-heading">
-                        <h5><strong>NHÀ XUẤT BẢN</strong></h5>
+                        <h5><strong style="padding-left:13%;">NHÀ XUẤT BẢN</strong></h5>
                     </div>
-                    <div class="row">
-                        @foreach (var publisher in randomPublisher)
-                        {
-                            <div class="col-md-6" style="padding-left:10px; margin-top:10px;">
-                                <div class="col-md-6" style="padding-left:0">
-                                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                    <br>
+                    @foreach (var publisher in randomPublisher)
+                    {
+                        <div class="col-md-6" style="padding-left:15%">
+                            @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                         .Height(117).Width(90).Crop("fill")).BuildImageTag(publisher.ImagePublicId,
                                             new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                            <div class="row">
+                                <div class="col-md-12" style="padding-left:18%">
+                                    <ul class="list-group">
+                                        <h6 data-toggle="tooltip" title="@publisher.Name">@publisher.Name</h6>
+                                    </ul>
                                 </div>
-                                <ul class="list-group">
-                                    <h6 data-toggle="tooltip" title="@publisher.Name">@publisher.Name</h6>
-                                </ul>
-                                <fieldset class="pull-right">
+                                <fieldset style="padding-left:18%">
                                     <i id="star" class="glyphicon glyphicon-star"></i>
                                     <i id="star" class="glyphicon glyphicon-star"></i>
                                     <i id="star" class="glyphicon glyphicon-star"></i>
@@ -447,10 +472,11 @@
                                     <i id="star" class="glyphicon glyphicon-star"></i>
                                 </fieldset>
                             </div>
-                        }
-                    </div>
-                    <!--  Kết thúc phần tác giả  -->
+                        </div>
+                    }
                 </div>
+                <!--  Kết thúc phần tác giả  -->
+
             </div>
             @*HaiCM. Create. End. 19-11-2016*@
             <!--------------------------------Hết phần bên phải------------------------------------->
@@ -480,37 +506,40 @@
     <script src="~/Tageditor/js/jquery.caret.min.js"></script>
     <script src="~/Tageditor/js/jquery.tag-editor.js"></script>
     <script src="~/Tageditor/js/jquery.tag-editor.min.js"></script>
+
+    @*<script src="~/Scripts/jquery-ui-1.12.1.js"></script>*@
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
 }
 
 <script>
     $(document).ready(function () {
-        $('#s').tagEditor({
-            autocomplete: {
-                delay: 0,
-                position: { collision: 'flip' },
+        $("#txtAutocomplete").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("GetBookTag", "Home")',
+                    dataType: 'Json',
+                    type: 'POST',
+                    data: { input: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.BookName, value: item.Id
+                            };
+                        }))
+                    }
+                });
 
-                source: function (request, response) {
-                    $.ajax({
-                        type: 'POST',
-                        //url: 'Home/GetListBookTag',
-                        url: "@Url.Action("GetListBookTag", "Home")",
-                        dataType: 'Json',
-                        data: { input: request.term },
-                        error: function (xhr, textStatus, errorThrown) {
-                            alert('Error: ' + xhr.responseText);
-                        },
-                        success: function (data) {
-                            response($.map(data, function (c) {
-                                return {
-                                    label: c.BookName,
-                                    value: c.BookName
-                                }
-                            }));
-                        }
-                    });
-                },
-                forceLowercase: false,
-            }
-        })
+            },
+            focus: function (event, ui) {
+                $(this).val(ui.item.label)
+                return false;
+            },
+
+            select: function (event, ui) {
+                $("#hiddenBookTag").val(ui.item.value);
+                $(this).val(ui.item.label)
+                return false;
+            },
+        });
     })
 </script>

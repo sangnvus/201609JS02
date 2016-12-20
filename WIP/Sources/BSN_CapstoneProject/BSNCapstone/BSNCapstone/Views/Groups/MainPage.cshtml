@@ -244,18 +244,18 @@
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                    <h4 class="modal-title">Edit Post</h4>
+                                                                    <h4 class="modal-title">CHỈNH SỬA NỘI DUNG BÀI ĐĂNG</h4>
                                                                 </div>
                                                                 <div class="midle-modal">
                                                                     <div class="row content" style="margin-top:10px;">
                                                                         <div class="owner-avatar" style="margin:0 0 5px 26px;">
-                                                                            <img src="" style="float:left">
+                                                                            <img data-bind="attr: { src :'http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill/' + PostedByAvatar }" />
                                                                             <input type="text" class="write-post" style="float:left; width:auto" data-bind="value: Message" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">Hùy</button>
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">Hủy</button>
                                                                     <input type="button" class="btn btn-default" style="background-color: #224A86; color:white"
                                                                            data-dismiss="modal" data-toggle="modal" data-bind="click: editPost" value="Lưu">
                                                                 </div>

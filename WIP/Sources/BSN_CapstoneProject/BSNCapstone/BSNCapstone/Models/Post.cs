@@ -28,6 +28,8 @@ namespace BSNCapstone.Models
 
         public string GroupId { get; set; }
 
+        public string BookTag { get; set; }
+
         public virtual ICollection<Comment> PostComments { get; set; }
 
         public virtual ICollection<PostLike> PostLikes { get; set; }

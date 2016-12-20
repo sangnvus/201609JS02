@@ -16,6 +16,8 @@ function Post(data, hub) {
     self.PostedByName = data.PostedByName || "";
     self.PostedByAvatar = data.PostedByAvatar || "";
     self.PostedDate = getTimeAgo(data.PostedDate);
+    self.BookTag = data.BookTag || "";
+    self.GroupName = data.GroupName || "";
 
     self.PostComments = ko.observableArray();
     self.NewComments = ko.observableArray();
@@ -137,7 +139,8 @@ function viewModel() {
     */
     self.addPost = function () {
         self.error(null);
-        self.hub.server.addPost({ "Message": self.newMessage() }).fail(function (err) {
+        var bookTag = $("#hiddenBookTag").val();
+        self.hub.server.addPost({ "Message": self.newMessage(), "BookTag": bookTag }).fail(function (err) {
             self.error(err);
         });
     }

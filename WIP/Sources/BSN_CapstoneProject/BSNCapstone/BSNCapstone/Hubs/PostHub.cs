@@ -32,26 +32,42 @@ namespace BSNCapstone.Hubs
         {
             // get dữ liệu từ db
             List<Post> postsForShow = new List<Post>();
-            List<Post> posts = con.Posts.Find(_ => true).SortByDescending(m => m.PostedDate).ToList();
+            List<Post> posts = con.Posts.Find(_ => true).ToList();
             var currentUserId = Context.User.Identity.GetUserId();
             var user = con.Users.Find(x => x.Id.Equals(currentUserId)).FirstOrDefault();
-            foreach (var following in user.Following)
+
+            foreach (var post in posts)
             {
-                if (posts.FindAll(x => x.PostedById.Equals(following)) != null)
+                if (post.GroupId == null || post.GroupId == "")
                 {
-                    foreach (var post in posts.FindAll(x => x.PostedById.Equals(following)))
+                    //  bài post của chính mình
+                    if(post.PostedById.Equals(currentUserId))
+                    {
+                        postsForShow.Add(post);
+                    }
+                    else
+                    {
+                        // bài post của người mình follow post trên trang cá nhân của họ
+                        foreach (var following in user.Following)
+                        {
+                            if (post.PostedById.Equals(following))
+                            {
+                                postsForShow.Add(post);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    // bài post trong 1 group mà mình tham gia
+                    var group = con.Groups.Find(x => x.Id == post.GroupId).FirstOrDefault();
+                    if (group.GroupMembers.Find(x => x.UserId == currentUserId) != null)
                     {
                         postsForShow.Add(post);
                     }
                 }
             }
-            if (posts.FindAll(x => x.PostedById.Equals(currentUserId)) != null)
-            {
-                foreach (var post in posts.FindAll(x => x.PostedById.Equals(currentUserId)))
-                {
-                    postsForShow.Add(post);
-                }
-            }
+
 
             // HuyenPT. Create. Start
             postsForShow = postsForShow.OrderByDescending(x => x.PostedDate).ToList();
@@ -65,8 +81,8 @@ namespace BSNCapstone.Hubs
 
             foreach (var item in postsForShow)
             {
-                List<Comment>  listPostCmt = new List<Comment>(item.PostComments);
-                List<PostLike>  listPostLike = new List<PostLike>(item.PostLikes);
+                List<Comment> listPostCmt = new List<Comment>(item.PostComments);
+                List<PostLike> listPostLike = new List<PostLike>(item.PostLikes);
 
                 // lấy dữ liệu comment của từng post gán vào listComment để truyền vào ret
                 List<Object> listComment = new List<object>();
@@ -98,23 +114,46 @@ namespace BSNCapstone.Hubs
                  * nếu user đã edit tên thì sẽ luôn get ra tên hiện tại
                  */
                 var userPost = con.Users.Find(x => x.Id == item.PostedById).FirstOrDefault();
+
                 // HuyenPT. 06-12. Add. End
-                var ret = new
+                if (item.GroupId != null)
                 {
-                    Message = item.Message,
-                    PostedById = item.PostedById,
-                    PostedByName = userPost.UserName,
-                    PostedByAvatar = userPost.Avatar,
-                    PostedDate = item.PostedDate,
-                    PostId = item.Id,
-                    PostComments = listComment,
-                    NumOfPostLike = listPostLike.Count
-                };
-                listPost.Add(ret);
+                    var group = con.Groups.Find(x => x.Id == item.GroupId).FirstOrDefault();
+                    var ret = new
+                    {
+                        Message = item.Message,
+                        PostedById = item.PostedById,
+                        PostedByName = userPost.UserName,
+                        PostedByAvatar = userPost.Avatar,
+                        PostedDate = item.PostedDate,
+                        PostId = item.Id,
+                        PostComments = listComment,
+                        NumOfPostLike = listPostLike.Count,
+                        GroupName = group.GroupName
+                    };
+                    listPost.Add(ret);
+                }
+                else
+                {
+                    var book = con.Books.Find(x => x.Id == item.BookTag).FirstOrDefault();
+                    var ret = new
+                    {
+                        Message = item.Message,
+                        PostedById = item.PostedById,
+                        PostedByName = userPost.UserName,
+                        PostedByAvatar = userPost.Avatar,
+                        PostedDate = item.PostedDate,
+                        PostId = item.Id,
+                        PostComments = listComment,
+                        NumOfPostLike = listPostLike.Count,
+                        BookTag = book.BookName
+                    };
+                    listPost.Add(ret);
+                }
             }
 
             // calls loadPosts javascript method at client side.
-            Clients.All.loadPosts(listPost.ToArray());
+            Clients.Caller.loadPosts(listPost.ToArray());
         }
 
         public void AddPost(Post post)
@@ -127,7 +166,8 @@ namespace BSNCapstone.Hubs
                 // HuyenPT. Delete. Start. 06-12-2016
                 //PostedBy = Context.User.Identity.Name,
                 // HuyenPT. 06-12. Delete. End. 06-12-2016
-                PostedDate = DateTime.Now
+                PostedDate = DateTime.Now,
+                BookTag = post.BookTag
             };
             con.Posts.InsertOneAsync(newPost);
 
@@ -137,6 +177,7 @@ namespace BSNCapstone.Hubs
             // HuyenPT. Create. Start. 06-12-2016
             var userPost = con.Users.Find(x => x.Id == newPost.PostedById).FirstOrDefault();
             // HuyenPT. Create. End. 06-12-2016
+            var book = con.Books.Find(x => x.Id == disPost.BookTag).FirstOrDefault();
             var ret = new
             {
                 PostId = disPost.Id,
@@ -152,7 +193,8 @@ namespace BSNCapstone.Hubs
                 // HuyenPT. Update. End. 06-12-2016
                 PostedById = disPost.PostedById,
                 PostedByAvatar = userPost.Avatar,
-                PostedDate = disPost.PostedDate
+                PostedDate = disPost.PostedDate,
+                BookTag = book.BookName
             };
             // addPost method is called for caller
             Clients.Caller.addPost(ret);
@@ -166,7 +208,7 @@ namespace BSNCapstone.Hubs
             /* Lưu cmt vào DB */
             // tìm comment cuối cùng trong post rồi +1 để làm id cho cmt hiện tại
             Post findPost = con.Posts.Find(x => x.Id == postcomment.PostId).FirstOrDefault();
-            
+
             var newCmt = new Comment
             {
                 // HuyenPT. Update. Start. 06-12-2016

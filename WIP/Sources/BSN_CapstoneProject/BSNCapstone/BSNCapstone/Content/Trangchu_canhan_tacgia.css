@@ -151,10 +151,36 @@ label {
 
 /*****************************BUTTON POST************************/
 
-#buttonShare {
-    color: white;
+#btnShare{
+    color:white;
+  
+    background-color: #224A86;
+}
+#binhluan1{
+    color:white;
+    text-decoration-color:white;
+    background-color: #224A86;
+    font-size:10px;
 }
 /***********************************POST*************************************************/
+h6:hover {
+    position:relative; top:-3px; left:-3px;/*lệch lên trên về phía bên trái 3px so với chữ NTUTS.COM cũ*/
+    text-shadow:0.5px 0.5px #ff0000/*đặtt shadow 6 lớp để tạo hiệu ứng nâng ảnh*/
+}
+#eff1{
+    text-transform: uppercase;
+   
+}
+
+
+#inputbooktag{
+    width: 50%;
+    border: 2px solid #365899;
+    border-radius: 10px;
+    height: 30px;
+    text-align:center;
+}
+
 .center-post {
 	background-color: white;
 	min-height: 100vh;
@@ -164,6 +190,7 @@ label {
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: white;
+    width: 100%;
 }
 
 .write-post {

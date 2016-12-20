@@ -25,7 +25,7 @@
             <div class="change-cover">
                 <span class="btn btn-file">
                     <i class="glyphicon glyphicon-camera" style="color: white;"></i>
-                        <span style="color: white;">Thay đổi ảnh bìa</span>
+                    <span style="color: white;">Thay đổi ảnh bìa</span>
                     <input type="file" id="imgInpCover" accept=".jpg, .jpeg, .png, .bmp">
                 </span>
             </div>
@@ -40,14 +40,14 @@
                     <div class="change-avatar">
                         <span class="btn btn-file">
                             <i class="glyphicon glyphicon-camera" style="color: white;"></i>
-                                <span style="color: white;">Thay đổi ảnh cá nhân</span>
+                            <span style="color: white;">Thay đổi ảnh cá nhân</span>
                             <input type="file" id="imgInpAva" accept=".jpg, .jpeg, .png, .bmp">
                         </span>
                     </div>
                 }
             </div>
             <div class="cover-interaction">
-                <div class="hidden" id="FollowHandleUrl" data-url="@Url.Action("FollowHandle", "Timeline")" 
+                <div class="hidden" id="FollowHandleUrl" data-url="@Url.Action("FollowHandle", "Timeline")"
                      data-followerid="@currentUserId" data-followeduserid="@Model.Id"></div>
                 @if (currentUserId != Model.Id)
                 {
@@ -101,7 +101,7 @@
                                             <button id="buttonPost" class="btn btn-default" onclick="PostReport()"
                                                     data-url="@Url.Action("GetReport", "Reports")"
                                                     data-userid="@currentUserId"
-                                                    data-bereportedid="@Model.Id" 
+                                                    data-bereportedid="@Model.Id"
                                                     data-option="1">
                                                 Gửi
                                             </button>
@@ -148,7 +148,7 @@
                                                             <a href="@Url.Action("Details", "Timeline", new { id = @flwing })">
                                                                 @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@user.UserName.ToLower())
                                                             </a>
-                                                        </strong> 
+                                                        </strong>
                                                     </i>
                                                 </span>
                                             </li>
@@ -169,18 +169,17 @@
                     <div class="col-md-12">
                         <div class="post-card" style="background-color: white;">
                             <!--TextBox để nhập nội dung post-->
-                            <textarea class="write-post" placeholder="Bạn đang nghĩ gì ?"
+                            <textarea class="write-post" placeholder="Bạn muốn chia sẻ điều gì về cuốn sách này ?"
                                       id="txtPostContent" data-bind="value: newMessage"></textarea>
-
                             <div class="divider-horizontal"></div>
-
                             <div class="row" style="padding: 5px 15px;">
                                 <!--Hiển thị thẻ sách - chờ design update-->
                                 <div class="col-md-6 col-sm-12 col-xs-12"></div>
                                 <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
                                     <!--Button đăng bài post-->
-                                    <input class="btn btn-default" type="button" style="background-color: #224A86" value="Đăng"
-                                           data-url="/Index/SavePost" id="btnShare" data-bind="click: addPost" />
+                                    <input type="text" id="inputbooktag" class="txt" placeholder="Nhập thẻ sách" required />
+                                    <input id="btnShare" class="btn btn-default" type="button" value="Đăng"
+                                           data-url="/Index/SavePost" data-bind="click: addPost" />
                                 </div>
                             </div>
                         </div>
@@ -204,6 +203,13 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <a class="owner-name" data-bind="text : PostedByName"></a>
+                                                    <!--Thời gian post bài-->
+                                                    <div class="row">
+                                                        <div class="col-md-12" style="color:grey; font-size: 12px">
+                                                            <i class="glyphicon glyphicon-time"></i>
+                                                            <span data-bind="text : PostedDate"></span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <!--Drop down list gồm chức năng sửa và xóa post-->
                                                 <div class="col-md-6 pull-right">
@@ -226,18 +232,18 @@
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                    <h4 class="modal-title">Edit Post</h4>
+                                                                    <h4 class="modal-title">CHỈNH SỬA NỘI DUNG BÀI ĐĂNG</h4>
                                                                 </div>
                                                                 <div class="midle-modal">
                                                                     <div class="row content" style="margin-top:10px;">
                                                                         <div class="owner-avatar" style="margin:0 0 5px 26px;">
-                                                                            <img src="" style="float:left">
+                                                                            <img data-bind="attr: { src :'http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill/' + PostedByAvatar }" />
                                                                             <input type="text" class="write-post" style="float:left; width:auto" data-bind="value: Message" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">Hùy</button>
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal">Hủy</button>
                                                                     <input type="button" class="btn btn-default" style="background-color: #224A86; color:white"
                                                                            data-dismiss="modal" data-toggle="modal" data-bind="click: editPost" value="Lưu">
                                                                 </div>
@@ -246,18 +252,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!--Thời gian post bài-->
-                                            <div class="row">
-                                                <div class="col-md-12" style="color:grey; font-size: 12px">
-                                                    <i class="glyphicon glyphicon-time"></i>
-                                                    <span data-bind="text : PostedDate"></span>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
                                 <!--Nội dung bài post-->
-                                <p class="post-content"><span data-bind="html : Message"></span></p>
+                                <h6 id="eff1"><strong> Bài viết chia sẻ về cuốn sách <a>#Tên sách</a></strong></h6>
+                                <br>
+                                <div class="divider-horizontal"></div>
+                                <p class="post-content"><span style="word-wrap:break-word;" data-bind="html : Message"></span></p>
 
                                 <div class="divider-horizontal"></div>
                                 <div class="row">
@@ -350,6 +353,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
             <!--  Bắt đầu phần bên phải -->
             <div class="col-md-4 sidenav">
