@@ -31,13 +31,13 @@ namespace BSNCapstone.Hubs
             List<Object> listPost = new List<object>();
             //list comment, like dùng để gán vào PostComments trong ret
             List<Object> listComment;
-            List<Object> listLike;
+            //List<Object> listLike;
 
             foreach (var item in posts)
             {
                 //mỗi lần loop phải reset listComment để tránh trường hợp khi listPostCmt null -> vẫn lưu listComment cũ -> load cmt sai
                 listComment = new List<object>();
-                listLike = new List<object>();
+                //listLike = new List<object>();
 
                 //lấy dữ liệu comment của từng post gán vào listComment
                 listPostCmt = new List<Comment>(item.PostComments);
@@ -70,7 +70,7 @@ namespace BSNCapstone.Hubs
                     PostedDate = item.PostedDate,
                     PostId = item.Id,
                     PostComments = listComment,
-                    NumOfPostLike = listLike.Count
+                    NumOfPostLike = listPostLike.Count
                 };
                 listPost.Add(ret);
             }
