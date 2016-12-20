@@ -1,0 +1,26 @@
+﻿﻿.error-area {
+    background-color: snow;
+    width: 600px;
+    height: 120px;
+    border: solid 1px gray;
+    border-radius: 5px;
+    margin-top: 75px;
+    position: inherit;
+    left: 12.5%;
+}
+
+.header-error {
+    margin-left: 20px;
+    margin-top: 15px;
+    
+}
+.header-error span {
+    font-size: 130%;
+    font-weight: 600; 
+}
+
+.footer-error {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+

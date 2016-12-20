@@ -1,7 +1,177 @@
 ﻿@{
-    ViewBag.Title = "LockedPage";
+    ViewBag.Title = "Trang không khả dụng";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var listHotBook = (List<BSNCapstone.ViewModels.BooksSuggestViewModel>)ViewBag.listHotBook;
+    var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
+    var randomAuthor = (List<BSNCapstone.Models.Author>)ViewBag.randomAuthor;
+    var randomPublisher = (List<BSNCapstone.Models.Publisher>)ViewBag.randomPublisher;
+    var allAuthors = (List<BSNCapstone.Models.Author>)ViewBag.allAuthors;
+
 }
 
-<h2>LockedPage</h2>
-
+<body>
+    <div class="container-fluid text-left">
+        <div class="row content">
+            <div class="col-md-8 col-sm-8 col-xs-12 text-left" style="margin-top: 10px;">
+                <div class="error-area">
+                    <div class="header-error">
+                        <i class="fa fa-exclamation-triangle"></i>
+                        <span>Xin lỗi, nội dung này hiện không khả dụng</span>
+                    </div>
+                    <div class="divider-horizontal"></div>
+                    <div class="footer-error">
+                        <p>Liên kết bạn đã theo dõi có thể đã hết hạn hoặc đang bị khóa.</p>
+                        <a href="@Url.Action("Index", "Home")">Quay lại trang chủ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 sidenav">
+                <div class="text-center" class="panel-heading">
+                    <h5><strong>XU HƯỚNG HIỆN NAY</strong></h5>
+                </div>
+                <!--  Bắt đầu phần trending now -->
+                <div class="row">
+                    <!--VÒNG FOR BẮT ĐẦU TỪ DIV NÀY-->
+                    @foreach (var hotBook in listHotBook)
+                    {
+                        <div class="col-md-6" style="padding-left:10px;">
+                            <div class="col-md-6" style="padding-left:0px;">
+                                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                .Height(117).Width(90).Crop("fill")).BuildImageTag(hotBook.ImgPublicId,
+                                    new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                            </div>
+                            <fieldset class="rating">
+                                <input type="radio" id="star5" name="rating" value="5" />
+                                <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio" id="star4" name="rating" value="4" />
+                                <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio" id="star3" name="rating" value="3" />
+                                <label class="full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio" id="star2" name="rating" value="2" />
+                                <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio" id="star1" name="rating" value="1" />
+                                <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                            </fieldset>
+                            <h5 style="float:left;">@hotBook.RateTime lượt đánh giá</h5>
+                            <br>
+                            <br>
+                            <div class="col-md-12 list-group">
+                                <span>
+                                    <strong data-toggle="tooltip" title="@hotBook.BookName.ToUpper()">@hotBook.BookName.ToUpper()</strong>
+                                    <br>
+                                    @foreach (var author in hotBook.AuthorName)
+                                    {
+                                        if (hotBook.AuthorName.Last().Equals(author))
+                                        {
+                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName" class="authorname">
+                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName.ToLower()) </strong>
+                                            </i>
+                                        }
+                                        else
+                                        {
+                                            <i data-toggle="tooltip" title="@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName" class="authorname">
+                                                <strong>@System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@allAuthors.Where(x => x.Id.ToString().Equals(author)).FirstOrDefault().AuthorName.ToLower()), </strong>
+                                            </i>
+                                        }
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                    }
+                    <!--VÒNG FOR KẾT THÚC Ở ĐÂY-->
+                </div>
+                <!-- Kết thúc phần trending now -->
+                <!--  Bắt đầu phần tác giả -->
+                <div class="row">
+                    @foreach (var author in randomAuthor)
+                    {
+                        <div class="col-md-6" style="padding-left:10px;">
+                            <div class="col-md-6" style="padding-left:0;">
+                                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                        .Height(117).Width(90).Crop("fill")).BuildImageTag(author.AuthorImg,
+                                            new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="hidden" id="FollowHandleHomePage" data-followerid="@Model.Id" data-url="@Url.Action("FollowHandle", "Timeline")"></div>
+                            @if (!Model.Following.Contains(author.UserId))
+                            {
+                                <button class="button buttonFo" style="margin-left:14px;" data-option="1" data-author="@author.UserId">Theo dõi</button>
+                                <button class="button buttonFo" style="margin-left:14px; display:none;" data-option="2" data-author="@author.UserId">Bỏ Theo dõi</button>
+                            }
+                            else
+                            {
+                                <button class="button buttonFo" style="margin-left: 14px; display: none;" data-option="1" data-author="@author.UserId">Theo dõi</button>
+                                <button class="button buttonFo" style="margin-left:14px;" data-option="2" data-author="@author.UserId">Bỏ Theo dõi</button>
+                            }
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <ul class="list-group">
+                                    <i class="authorname">
+                                        <strong data-toggle="tooltip" title="@author.AuthorName">
+                                            @if (!author.UserId.IsEmpty())
+                                            {
+                                                <a href="@Url.Action("Details", "Timeline", new { id = @author.UserId })">
+                                                    @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.AuthorName.ToLower())
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.AuthorName.ToLower())
+                                            }
+                                        </strong>
+                                    </i>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <!--
+                                <p class="text-right">
+                                    <button type="button" class="btn btn-link">Xem thêm </button>
+                                </p>
+                -->
+                <!--  Kết thúc phần tác giả -->
+                <!--  Bắt đầu phần nhà xuất bản -->
+                <br>
+                <div class="text-left" class="panel-heading">
+                    <h5><strong>NHÀ XUẤT BẢN</strong></h5>
+                </div>
+                <div class="row">
+                    @foreach (var publisher in randomPublisher)
+                    {
+                        <div class="col-md-6" style="padding-left:10px; margin-top:10px;">
+                            <div class="col-md-6" style="padding-left:0">
+                                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                        .Height(117).Width(90).Crop("fill")).BuildImageTag(publisher.ImagePublicId,
+                                            new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                            </div>
+                            <ul class="list-group">
+                                <h6 data-toggle="tooltip" title="@publisher.Name">@publisher.Name</h6>
+                            </ul>
+                            <fieldset class="pull-right">
+                                <i id="star" class="glyphicon glyphicon-star"></i>
+                                <i id="star" class="glyphicon glyphicon-star"></i>
+                                <i id="star" class="glyphicon glyphicon-star"></i>
+                                <i id="star" class="glyphicon glyphicon-star"></i>
+                                <i id="star" class="glyphicon glyphicon-star"></i>
+                            </fieldset>
+                        </div>
+                    }
+                </div>
+                <!--
+                                <p class="text-right">
+                                    <button type="button" class="btn btn-link">Xem thêm </button>
+                                </p>
+                -->
+                <!--  Kết thúc phần tác giả  -->
+            </div>
+            <!--------------------------------Hết phần bên phải------------------------------------->
+        </div>
+    </div>
+</body>
+@section scripts {
+    <link rel="stylesheet" href="~/Content/Trangchu_canhan_tacgia.css">
+    <link rel="stylesheet" href="~/Content/lock-page.css">
+    <script src="~/Scripts/Custom/follow-handle.js"></script>
+}

@@ -196,7 +196,7 @@
                                     <div class="col-md-12">
                                         <!--Ảnh đại diện-->
                                         <div class="owner-avatar">
-                                            <img data-bind="attr: { src : PostedByAvatar }" />
+                                            <img data-bind="attr: { src :'http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill/' + PostedByAvatar }" />
                                         </div>
 
                                         <div class="owner-info">
@@ -291,7 +291,9 @@
                                             <div class="col-md-12">
                                                 <!--Ảnh của nười dùng hiện tại-->
                                                 <div class="owner-avatar">
-                                                    <img src="/Images/profileimages/user.png" style="width:40px;height:40px" />
+                                                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                                    .Height(40).Width(40).Crop("fill")).BuildImageTag(@Model.Avatar,
+                                                    new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                                                 </div>
                                                 <div class="owner-info">
                                                     <div class="pull-left form-inline">
@@ -312,7 +314,7 @@
                                                 <div class="col-md-12">
                                                     <!--Ảnh của người cmt-->
                                                     <div class="owner-avatar">
-                                                        <img style="width:40px;height:40px" data-bind="attr: { src: CommentedByAvatar }" />
+                                                        <img style="width:40px;height:40px" data-bind="attr: { src:'http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill/' + CommentedByAvatar }" />
                                                     </div>
 
                                                     <div class="owner-info">

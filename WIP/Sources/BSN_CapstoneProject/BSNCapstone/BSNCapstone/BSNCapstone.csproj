@@ -214,6 +214,7 @@
     <Compile Include="Common\Constant.cs" />
     <Compile Include="ControllerHelpers\BooksControllerHelper.cs" />
     <Compile Include="ControllerHelpers\CategoriesControllerHelper.cs" />
+    <Compile Include="ControllerHelpers\CommonHelper.cs" />
     <Compile Include="ControllerHelpers\GroupsControllerHelper.cs" />
     <Compile Include="ControllerHelpers\ImageUploadHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -228,6 +229,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\GroupHub.cs" />
     <Compile Include="Hubs\PostHub.cs" />
     <Compile Include="Hubs\TimelineHub.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -273,8 +275,10 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\Image\avatar_default.png" />
     <Content Include="Content\Image\cover_default.jpg" />
+    <Content Include="Content\Image\logo.png" />
     <Content Include="Content\Layout.css" />
     <Content Include="Content\loader.css" />
+    <Content Include="Content\lock-page.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\pagination.css" />
     <Content Include="Content\Sach.css" />
@@ -310,6 +314,7 @@
     <Content Include="Scripts\Custom\book.js" />
     <Content Include="Scripts\Custom\follow-handle.js" />
     <Content Include="Scripts\Custom\group-add.js" />
+    <Content Include="Scripts\Custom\group-post.js" />
     <Content Include="Scripts\Custom\group.js" />
     <Content Include="Scripts\Custom\newfeed-post.js" />
     <Content Include="Scripts\Custom\publisher.js" />

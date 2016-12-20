@@ -82,6 +82,18 @@ namespace BSNCapstone.Controllers
             return View(books.ToPagedList(pageNumber, pageSize));
         }
 
+        [HttpPost]
+        public ActionResult Search(string searchString)
+        {
+            //var find = new BsonDocument{{"$regex", CommonHelper.SearchString(searchString)}, {"$options", "i"}};
+            var builder = Builders<Book>.Filter;
+            var filter = builder.Regex("BookName", new BsonRegularExpression(searchString, "i"));
+            var books = Context.Books.Find(filter).ToList();
+            var a = Context.Books.Find(x => x.Text.Contains(CommonHelper.SearchString(searchString))).ToList();
+            Console.Write(books);
+            return Json("");
+        }
+
         //
         // GET: /Books/Details/5
         public ActionResult Details(string id)

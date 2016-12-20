@@ -101,20 +101,22 @@ namespace BSNCapstone.Controllers
         // GET: /Groups/id/MainPage/
         public ActionResult MainPage(string id)
         {
-            ViewBag.cloudinary = cloudinary;
-            ViewBag.currentUser = User.Identity.GetUserId();
-            ViewBag.allUser = Context.Users.Find(_ => true).ToList();
-            ViewBag.groupReport = GroupReportContent();
-            ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
-            ViewBag.listInteractBook = BooksControllerHelper.LastestBookInteracted(User.Identity.GetUserId());
-            var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
-            if (group.Locked == true)
             {
-                return RedirectToAction("LockedPage", "Home");
-            }
-            else
-            {
-                return View(group);
+                var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+                if (group.Locked == true)
+                {
+                    return RedirectToAction("LockedPage", "Home");
+                }
+                else
+                {
+                    ViewBag.cloudinary = cloudinary;
+                    ViewBag.currentUser = User.Identity.GetUserId();
+                    ViewBag.allUser = Context.Users.Find(_ => true).ToList();
+                    ViewBag.groupReport = GroupReportContent();
+                    ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
+                    ViewBag.listInteractBook = BooksControllerHelper.LastestBookInteracted(User.Identity.GetUserId());
+                    return View(group);
+                }
             }
         }
 
@@ -129,7 +131,16 @@ namespace BSNCapstone.Controllers
             ViewBag.userForAdd = GetUserForAdd(null, group.Id);
             ViewBag.groupReport = GroupReportContent();
             ViewBag.cloudinary = cloudinary;
-            return View(group);
+            ViewBag.userForAdd = GetUserForAdd(null, group.Id);
+            if (group.Locked)
+            {
+                return RedirectToAction("LockedPage", "Home");
+            }
+            else
+            {
+                return View(group);
+            }
+
         }
 
         //
@@ -220,23 +231,31 @@ namespace BSNCapstone.Controllers
         public ActionResult Setting(string id)
         {
             var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
-            var groupSetting = new GroupSettingViewModel()
+            if (group.Locked)
             {
-                Id = group.Id,
-                CreatorId = group.CreatorId,
-                GroupName = group.GroupName,
-                Description = group.Description,
-                Lock = group.Locked,
-                Tag = group.Tag,
-                GroupType = group.GroupType
-            };
-            ViewBag.currentUser = User.Identity.GetUserId();
-            ViewBag.groupReport = GroupReportContent();
-            ViewBag.cloudinary = cloudinary;
-            ViewBag.group = group;
-            var allUser = Context.Users.Find(_ => true).ToList();
-            ViewBag.allUser = allUser;
-            return View(groupSetting);
+                return RedirectToAction("LockedPage", "Home");
+            }
+            else
+            {
+                var groupSetting = new GroupSettingViewModel()
+                {
+                    Id = group.Id,
+                    CreatorId = group.CreatorId,
+                    GroupName = group.GroupName,
+                    Description = group.Description,
+                    Lock = group.Locked,
+                    Tag = group.Tag,
+                    GroupType = group.GroupType
+                };
+                ViewBag.currentUser = User.Identity.GetUserId();
+                ViewBag.groupReport = GroupReportContent();
+                ViewBag.cloudinary = cloudinary;
+                ViewBag.group = group;
+                var allUser = Context.Users.Find(_ => true).ToList();
+                ViewBag.allUser = allUser;
+                return View(groupSetting);
+            }
+
         }
 
         //

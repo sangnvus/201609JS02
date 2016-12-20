@@ -6,6 +6,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System.ComponentModel.DataAnnotations;
 using BSNCapstone.ViewModels;
+using BSNCapstone.ControllerHelpers;
 
 namespace BSNCapstone.Models
 {
@@ -80,6 +81,8 @@ namespace BSNCapstone.Models
 
         public string RequestedBookAuthor { get; set; }
 
+        public string Text { get; set; }
+
         public Book()
         {
             //DangVH. Update. Start (14/11/2016)
@@ -92,6 +95,7 @@ namespace BSNCapstone.Models
             RateTime = 0;
             RatingPoint = 0;
             AvarageRating = 0;
+            Text = CommonHelper.SearchString(BookName);
             //DangVH. Update. End (14/11/2016)
         }
     }
