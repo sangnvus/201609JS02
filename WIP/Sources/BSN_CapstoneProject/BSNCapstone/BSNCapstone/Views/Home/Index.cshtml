@@ -173,7 +173,7 @@
                                                     <ul class="dropdown-menu">
                                                         <!--Button edit post-->
                                                         <li>
-                                                            <a href="#" data-toggle="modal" data-target="#editDialog">Sửa</a>
+                                                            <a href="#" data-toggle="modal" data-bind="attr: { 'data-target': '#'+PostId }">Sửa</a>
                                                         </li>
                                                         <!--Button xóa post-->
                                                         <li>
@@ -181,7 +181,7 @@
                                                         </li>
                                                     </ul>
                                                     <!--Pop-up edit post-->
-                                                    <div class="modal fade" id="editDialog" role="dialog">
+                                                    <div class="modal fade" data-bind="attr:{'id': PostId}" role="dialog">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">

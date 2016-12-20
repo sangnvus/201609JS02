@@ -148,7 +148,7 @@ namespace BSNCapstone.Hubs
 
                 // HuyenPT. Update. Start. 06-12-2016
                 //PostedBy = disPost.PostedBy,
-                PostedByName = userPost,
+                PostedByName = userPost.UserName,
                 // HuyenPT. Update. End. 06-12-2016
                 PostedById = disPost.PostedById,
                 PostedByAvatar = userPost.Avatar,
@@ -166,15 +166,9 @@ namespace BSNCapstone.Hubs
             /* Lưu cmt vào DB */
             // tìm comment cuối cùng trong post rồi +1 để làm id cho cmt hiện tại
             Post findPost = con.Posts.Find(x => x.Id == postcomment.PostId).FirstOrDefault();
-
-            int disId = 0;
-            if (findPost.PostComments.Count != 0)
-            {
-                disId = ++findPost.PostComments.Last().CommentId;
-            }
+            
             var newCmt = new Comment
             {
-                CommentId = disId,
                 // HuyenPT. Update. Start. 06-12-2016
                 //CommentedBy = Context.User.Identity.Name,
                 CommentedBy = Context.User.Identity.GetUserId(),
@@ -207,7 +201,7 @@ namespace BSNCapstone.Hubs
                 CommentId = disCmt.CommentId,
                 // HuyenPT. Update. Start. 06-12-2016
                 //CommentedBy = Context.User.Identity.Name,
-                CommentedBy = userComment.Avatar,
+                CommentedBy = userComment.UserName,
                 // HuyenPT. Update. End. 06-12-2016
                 CommentedByAvatar = userComment.Avatar,
                 CommentedDate = disCmt.CommentedDate,

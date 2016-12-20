@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<body>
+<body id="body" data-groupid="@Model.Id">
     <!-------------------Dưới thanh bar-------------------------->
     <!-------------------Cover & avatar------------------------->
 
@@ -31,7 +31,7 @@
                 <div class="change-cover">
                     <span class="btn btn-file">
                         <i class="glyphicon glyphicon-camera" style="color: white;"></i>
-                            <span style="color: white;">Thay đổi ảnh bìa</span>
+                        <span style="color: white;">Thay đổi ảnh bìa</span>
                         <input type="file" id="imgInpCover" accept=".jpg, .jpeg, .png, .bmp">
                     </span>
                 </div>
@@ -50,7 +50,7 @@
                             <div class="change-avatar">
                                 <span class="btn btn-file">
                                     <i class="glyphicon glyphicon-camera" style="color: white;"></i>
-                                        <span style="color: white;">Thay đổi ảnh cá nhân</span>
+                                    <span style="color: white;">Thay đổi ảnh cá nhân</span>
                                     <input type="file" id="imgInpAva" accept=".jpg, .jpeg, .png, .bmp">
                                 </span>
                             </div>
@@ -114,7 +114,7 @@
                                                 <button id="buttonPost" class="btn btn-default" onclick="PostReport()"
                                                         data-url="@Url.Action("GetReport", "Reports")"
                                                         data-userid="@currentUserId"
-                                                        data-bereportedid="@Model.Id" 
+                                                        data-bereportedid="@Model.Id"
                                                         data-option="2">
                                                     Gửi
                                                 </button>
@@ -198,7 +198,7 @@
                                 <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
                                     <!--Button đăng bài post-->
                                     <input class="btn btn-default" type="button" style="background-color: #224A86" value="Đăng"
-                                           data-url="/Index/SavePost" id="btnShare" data-bind="click: addPost('@Model.Id')" />
+                                           data-url="/Index/SavePost" id="btnShare" data-bind="click: addPost" data-groupid="@Model.Id" />
                                 </div>
                             </div>
                         </div>
@@ -214,7 +214,7 @@
                                     <div class="col-md-12">
                                         <!--Ảnh đại diện-->
                                         <div class="owner-avatar">
-                                            <img data-bind="attr: { src : PostedByAvatar }" />
+                                            <img data-bind="attr: { src :'http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill/' + PostedByAvatar }" />
                                         </div>
 
                                         <div class="owner-info">
@@ -231,7 +231,7 @@
                                                     <ul class="dropdown-menu">
                                                         <!--Button edit post-->
                                                         <li>
-                                                            <a href="#" data-toggle="modal" data-target="#editDialog">Sửa</a>
+                                                            <a href="#" data-toggle="modal" data-bind="attr: { 'data-target': '#'+PostId }">Sửa</a>
                                                         </li>
                                                         <!--Button xóa post-->
                                                         <li>
@@ -239,7 +239,7 @@
                                                         </li>
                                                     </ul>
                                                     <!--Pop-up edit post-->
-                                                    <div class="modal fade" id="editDialog" role="dialog">
+                                                    <div class="modal fade" data-bind="attr:{'id': PostId}" role="dialog">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -309,7 +309,7 @@
                                             <div class="col-md-12">
                                                 <!--Ảnh của nười dùng hiện tại-->
                                                 <div class="owner-avatar">
-                                                    
+
                                                 </div>
                                                 <div class="owner-info">
                                                     <div class="pull-left form-inline">
@@ -330,7 +330,7 @@
                                                 <div class="col-md-12">
                                                     <!--Ảnh của người cmt-->
                                                     <div class="owner-avatar">
-                                                        <img style="width:40px;height:40px" data-bind="attr: { src: CommentedByAvatar }" />
+                                                        <img style="width:40px;height:40px" data-bind="attr: { src:'http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill/' + CommentedByAvatar }" />
                                                     </div>
 
                                                     <div class="owner-info">

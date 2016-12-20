@@ -126,7 +126,8 @@ function viewModel() {
     */
     self.init = function () {
         self.error(null);
-        self.hub.server.getGroupPosts().fail(function (err) {
+        var groupId = $("#body").data('groupid');
+        self.hub.server.getGroupPosts({ "Id": groupId }).fail(function (err) {
             self.error(err);
         });
     }
@@ -138,7 +139,8 @@ function viewModel() {
     */
     self.addPost = function () {
         self.error(null);
-        self.hub.server.addPost({ "Message": self.newMessage() }).fail(function (err) {
+        var groupId = $("#btnShare").data('groupid');
+        self.hub.server.addPost({ "Message": self.newMessage(), "GroupId": groupId }).fail(function (err) {
             self.error(err);
         });
     }
@@ -157,12 +159,7 @@ function viewModel() {
     * khi A post 1 bài post mới thì nó cũng sẽ hiển thị lên newfeed của B
     */
     self.hub.client.loadPosts = function (data) {
-        console.log("abc");
         var mappedPosts = $.map(data, function (item) { return new Post(item, self.hub); });
-        console.log(mappedPosts);
-        mappedPosts.forEach(function (i, a) {
-            console.log(i.PostedByName);
-        })
         self.posts(mappedPosts);
     }
 

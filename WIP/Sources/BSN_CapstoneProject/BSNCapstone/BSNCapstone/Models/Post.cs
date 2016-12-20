@@ -24,11 +24,9 @@ namespace BSNCapstone.Models
 
         public string PostedById { get; set; }
 
-        // HuyenPT. Delete. Start. 06-12-2016
-        //public string PostedBy { get; set; }
-        // HuyenPT. Delete. End. 06-12-2016
-
         public System.DateTime PostedDate { get; set; }
+
+        public string GroupId { get; set; }
 
         public virtual ICollection<Comment> PostComments { get; set; }
 
