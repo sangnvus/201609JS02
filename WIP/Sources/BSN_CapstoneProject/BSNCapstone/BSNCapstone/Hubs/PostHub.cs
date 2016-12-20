@@ -75,16 +75,16 @@ namespace BSNCapstone.Hubs
                 {
                     //tạo 1 colection với các biến giống với view để hiển thị comment
                     // HuyenPT. Create. Start. 06-12-2016
-                    var userComment = con.Users.Find(x => x.Id == cmt.CommentedBy).FirstOrDefault().UserName;
+                    var userComment = con.Users.Find(x => x.Id == cmt.CommentedBy).FirstOrDefault();
                     // HuyenPT.  Create. End. 06-12-2016
                     var comment = new
                     {
                         CommentId = cmt.CommentId,
                         // HuyenPT. Update. Start. 06-12-2016
                         //CommentedBy = cmt.CommentedBy,
-                        CommentedBy = userComment,
+                        CommentedBy = userComment.UserName,
                         // HuyenPT. Update. End. 06-12-2016
-                        CommentedByAvatar = "/Images/profileimages/user.png",
+                        CommentedByAvatar = userComment.Avatar,
                         CommentedDate = cmt.CommentedDate,
                         Message = cmt.Message,
                         PostId = cmt.PostId
@@ -97,14 +97,14 @@ namespace BSNCapstone.Hubs
                 /*
                  * nếu user đã edit tên thì sẽ luôn get ra tên hiện tại
                  */
-                var userpost = con.Users.Find(x => x.Id == item.PostedById).FirstOrDefault();
+                var userPost = con.Users.Find(x => x.Id == item.PostedById).FirstOrDefault();
                 // HuyenPT. 06-12. Add. End
                 var ret = new
                 {
                     Message = item.Message,
                     PostedById = item.PostedById,
-                    PostedByName = userpost.UserName,
-                    PostedByAvatar = "/Images/profileimages/user.png",
+                    PostedByName = userPost.UserName,
+                    PostedByAvatar = userPost.Avatar,
                     PostedDate = item.PostedDate,
                     PostId = item.Id,
                     PostComments = listComment,
@@ -135,7 +135,7 @@ namespace BSNCapstone.Hubs
             //Lấy info của post mới nhất <vừa lưu> để truyền qua view
             Post disPost = con.Posts.Find(_ => true).Limit(1).SortByDescending(m => m.PostedDate).FirstOrDefault();
             // HuyenPT. Create. Start. 06-12-2016
-            var userpost = con.Users.Find(x => x.Id == newPost.PostedById).FirstOrDefault().UserName;
+            var userPost = con.Users.Find(x => x.Id == newPost.PostedById).FirstOrDefault();
             // HuyenPT. Create. End. 06-12-2016
             var ret = new
             {
@@ -148,10 +148,10 @@ namespace BSNCapstone.Hubs
 
                 // HuyenPT. Update. Start. 06-12-2016
                 //PostedBy = disPost.PostedBy,
-                PostedByName = userpost,
+                PostedByName = userPost,
                 // HuyenPT. Update. End. 06-12-2016
                 PostedById = disPost.PostedById,
-                PostedByAvatar = "/Images/profileimages/user.png",
+                PostedByAvatar = userPost.Avatar,
                 PostedDate = disPost.PostedDate
             };
             // addPost method is called for caller
@@ -200,16 +200,16 @@ namespace BSNCapstone.Hubs
             /*
              * Để sau khi user edit tên thì sẽ luôn load ra tên hiện tại
              */
-            var userComment = con.Users.Find(x => x.Id == newCmt.CommentedBy).FirstOrDefault().UserName;
+            var userComment = con.Users.Find(x => x.Id == newCmt.CommentedBy).FirstOrDefault();
             // HuyenPT. 06-12. Add.  End
             var ret = new
             {
                 CommentId = disCmt.CommentId,
                 // HuyenPT. Update. Start. 06-12-2016
                 //CommentedBy = Context.User.Identity.Name,
-                CommentedBy = userComment,
+                CommentedBy = userComment.Avatar,
                 // HuyenPT. Update. End. 06-12-2016
-                CommentedByAvatar = "/Images/profileimages/user.png",
+                CommentedByAvatar = userComment.Avatar,
                 CommentedDate = disCmt.CommentedDate,
                 Message = disCmt.Message,
                 PostId = disCmt.PostId

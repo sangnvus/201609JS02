@@ -32,7 +32,6 @@ namespace BSNCapstone.Controllers
             }
         }
 
-
         public ActionResult Index()
         {
             var user = UserManager.FindById(User.Identity.GetUserId());

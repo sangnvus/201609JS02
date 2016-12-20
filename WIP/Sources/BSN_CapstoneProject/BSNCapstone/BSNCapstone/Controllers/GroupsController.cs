@@ -101,20 +101,22 @@ namespace BSNCapstone.Controllers
         // GET: /Groups/id/MainPage/
         public ActionResult MainPage(string id)
         {
-            var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
-            if (group.Locked == true)
             {
-                return RedirectToAction("LockedPage", "Home");
-            }
-            else
-            {
-                ViewBag.cloudinary = cloudinary;
-                ViewBag.currentUser = User.Identity.GetUserId();
-                ViewBag.allUser = Context.Users.Find(_ => true).ToList();
-                ViewBag.groupReport = GroupReportContent();
-                ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
-                ViewBag.listInteractBook = BooksControllerHelper.LastestBookInteracted(User.Identity.GetUserId());
-                return View(group);
+                var group = Context.Groups.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+                if (group.Locked == true)
+                {
+                    return RedirectToAction("LockedPage", "Home");
+                }
+                else
+                {
+                    ViewBag.cloudinary = cloudinary;
+                    ViewBag.currentUser = User.Identity.GetUserId();
+                    ViewBag.allUser = Context.Users.Find(_ => true).ToList();
+                    ViewBag.groupReport = GroupReportContent();
+                    ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
+                    ViewBag.listInteractBook = BooksControllerHelper.LastestBookInteracted(User.Identity.GetUserId());
+                    return View(group);
+                }
             }
         }
 

@@ -214,6 +214,7 @@
     <Compile Include="Common\Constant.cs" />
     <Compile Include="ControllerHelpers\BooksControllerHelper.cs" />
     <Compile Include="ControllerHelpers\CategoriesControllerHelper.cs" />
+    <Compile Include="ControllerHelpers\CommonHelper.cs" />
     <Compile Include="ControllerHelpers\GroupsControllerHelper.cs" />
     <Compile Include="ControllerHelpers\ImageUploadHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />

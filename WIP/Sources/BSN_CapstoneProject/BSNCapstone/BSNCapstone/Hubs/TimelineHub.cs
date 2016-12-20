@@ -46,12 +46,12 @@ namespace BSNCapstone.Hubs
                 foreach (var cmt in listPostCmt)
                 {
                     //tạo 1 colection với các biến giống với view để hiển thị comment
-                    var userComment = con.Users.Find(x => x.Id == cmt.CommentedBy).FirstOrDefault().UserName;
+                    var userComment = con.Users.Find(x => x.Id == cmt.CommentedBy).FirstOrDefault();
                     var comment = new
                     {
                         CommentId = cmt.CommentId,
-                        CommentedBy = userComment,
-                        CommentedByAvatar = "/Images/profileimages/user.png",
+                        CommentedBy = userComment.UserName,
+                        CommentedByAvatar = userComment.Avatar,
                         CommentedDate = cmt.CommentedDate,
                         Message = cmt.Message,
                         PostId = cmt.PostId
@@ -60,13 +60,13 @@ namespace BSNCapstone.Hubs
                 }
 
                 //tạo 1 colection với các biến giống với view để hiển thị Post và comment
-                var userpost = con.Users.Find(x => x.Id == item.PostedById).FirstOrDefault();
+                var userPost = con.Users.Find(x => x.Id == item.PostedById).FirstOrDefault();
                 var ret = new
                 {
                     Message = item.Message,
                     PostedById = item.PostedById,
-                    PostedByName = userpost.UserName,
-                    PostedByAvatar = "/Images/profileimages/user.png",
+                    PostedByName = userPost.UserName,
+                    PostedByAvatar = userPost.Avatar,
                     PostedDate = item.PostedDate,
                     PostId = item.Id,
                     PostComments = listComment,
@@ -93,13 +93,13 @@ namespace BSNCapstone.Hubs
             //Hiển thị post vừa lưu
             //Lấy info của post mới nhất <vừa lưu> để truyền qua view
             Post disPost = con.Posts.Find(_ => true).Limit(1).SortByDescending(m => m.PostedDate).FirstOrDefault();
-            var userpost = con.Users.Find(x => x.Id == newPost.PostedById).FirstOrDefault().UserName;
+            var userPost = con.Users.Find(x => x.Id == newPost.PostedById).FirstOrDefault();
             var ret = new
             {
                 PostId = disPost.Id,
                 Message = disPost.Message,
-                PostedByName = userpost,
-                PostedByAvatar = "/Images/profileimages/user.png",
+                PostedByName = userPost.UserName,
+                PostedByAvatar = userPost.Avatar,
                 PostedById = disPost.PostedById,
                 PostedDate = disPost.PostedDate
             };
@@ -141,12 +141,12 @@ namespace BSNCapstone.Hubs
             /*
              * Để sau khi user edit tên thì sẽ luôn load ra tên hiện tại
              */
-            var userComment = con.Users.Find(x => x.Id == newCmt.CommentedBy).FirstOrDefault().UserName;
+            var userComment = con.Users.Find(x => x.Id == newCmt.CommentedBy).FirstOrDefault();
             var ret = new
             {
                 CommentId = disCmt.CommentId,
-                CommentedBy = userComment,
-                CommentedByAvatar = "/Images/profileimages/user.png",
+                CommentedBy = userComment.UserName,
+                CommentedByAvatar = userComment.Avatar,
                 CommentedDate = disCmt.CommentedDate,
                 Message = disCmt.Message,
                 PostId = disCmt.PostId

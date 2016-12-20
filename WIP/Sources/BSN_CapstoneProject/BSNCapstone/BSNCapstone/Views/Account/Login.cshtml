@@ -105,7 +105,7 @@
                 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", @style = "padding-left:30%; position:relative; right:10%;" }))
                 {
                     @Html.AntiForgeryToken()
-                    @Html.ValidationSummary("", new { @style = "position: fixed;margin-left: 50%;background-color: #cc2926;color: white;border-radius: 10px;padding-top: 8px;padding-right: 20px;" })
+                    @Html.ValidationSummary("", new { @class = "errorDiv"@*, @style = "position: fixed;margin-left: 50%;background-color: #cc2926;color: white;border-radius: 10px;padding-top: 8px;padding-right: 20px;"*@ })
                     <span style="color:whitesmoke; font-size:200%;position:relative;left:35%;">ĐĂNG KÝ</span>
                     <div class="form-group ">
                         @Html.TextBoxFor(model => model.Register.UserName, new { @class = "form-control", @placeholder = "Tên tài khoản" })
