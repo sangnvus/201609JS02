@@ -48,7 +48,7 @@ function GroupRequestHandle(groupId, userId, option) {
 
 function AddMember() {
     var url = $("#AddNewMember").data('url');
-    var groupId = $("#AddNewMember").data('groupId');
+    var groupId = $("#AddNewMember").data('groupid');
     var user = $("#addMemberSelect").val();
     var formData = new FormData();
     formData.append("addUser", user);
@@ -109,14 +109,7 @@ $(document).ready(function () {
     //Change Cover
     $("#imgInpCover").change(function () {
         var coverImg = this;
-        if (coverImg.files && coverImg.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('.cover-img').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(coverImg.files[0]);
-        }
+        $("#loader").modal();
         var formData = new FormData();
         formData.append("id", groupId);
         formData.append("file", coverImg.files[0]);
@@ -130,7 +123,16 @@ $(document).ready(function () {
             processData: false,
 
             success: function (result) {
-                alert(result);
+                $("#loader").modal("hide");
+                //alert(result);
+                if (coverImg.files && coverImg.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('.cover-img').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(coverImg.files[0]);
+                }
             },
             error: function (err) {
                 alert(err.statusText);

@@ -109,6 +109,7 @@ namespace BSNCapstone.Controllers
                 user2.DOB = DateTime.ParseExact(user1.DOB, "dd/MM/yyyy", CultureInfo.InvariantCulture).AddHours(7);
                 user2.Gender = user1.Gender;
                 user2.UserName = user1.UserName;
+                user2.Text = CommonHelper.SearchString(user1.UserName.ToLower());
                 await Context.Users.ReplaceOneAsync(x => x.Id.Equals(new ObjectId(user2.Id)), user2);
                 return RedirectToAction("Index", "Home");
             }

@@ -1,4 +1,5 @@
 ﻿@model BSNCapstone.ViewModels.GroupSettingViewModel
+@using MongoDB.Bson;
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -258,10 +259,15 @@
                                                     @foreach (var request in group.ListJoinRequest)
                                                     {
                                                         <div class="col-md-3 avatarthanhvien">
-                                                            <img src="Anhtacgia/James%20Patterson_tacgia.jpg" alt="username" style="margin-bottom:10px;">
-                                                            <a href="@Url.Action("Details", "Users", new { id = request })">
+                                                            @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                                                .Height(150).Width(150).Crop("fill")).BuildImageTag(allUser.Find(x => x.Id.Equals(request)).Avatar,
+                                                                    new CloudinaryDotNet.StringDictionary("class=requestImg")))
+                                                            @*<img src="Anhtacgia/James%20Patterson_tacgia.jpg" alt="username" style="margin-bottom:10px;">*@
+                                                            <a href="@Url.Action("Details", "Users", new { id = request })" style="float: left;">
                                                                 <b>@allUser.Where(x => x.Id.Equals(request)).FirstOrDefault().UserName</b>
                                                             </a>
+                                                            <br />
+                                                            <br />
                                                             <button type="submit" class="btn btn-default btn-xs" onclick="GroupRequestHandle('@Model.Id', '@request', '3')">Chấp nhận</button>
                                                             <button type="submit" class="btn btn-default btn-xs" onclick="GroupRequestHandle('@Model.Id', '@request', '4')">Từ chối</button>
                                                         </div>

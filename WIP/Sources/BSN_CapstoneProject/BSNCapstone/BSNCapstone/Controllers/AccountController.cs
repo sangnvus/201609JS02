@@ -98,22 +98,28 @@ namespace BSNCapstone.Controllers
                     return View("Error");
                 }
             }
-
-            // This doen't count login failures towards lockout only two factor authentication
-            // To enable password failures to trigger lockout, change to shouldLockout: true
-            var result = await SignInHelper.PasswordSignIn(model.Login.Email, model.Login.Password, model.Login.RememberMe, shouldLockout: false);
-            switch (result)
+            if (user.Roles.FirstOrDefault().Equals("Admin"))
             {
-                case IdentityConfig.SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case IdentityConfig.SignInStatus.LockedOut:
-                    return View("Lockout");
-                case IdentityConfig.SignInStatus.RequiresTwoFactorAuthentication:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl });
-                case IdentityConfig.SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                return RedirectToAction("Users", "Account");
+            }
+            else
+            {
+                // This doen't count login failures towards lockout only two factor authentication
+                // To enable password failures to trigger lockout, change to shouldLockout: true
+                var result = await SignInHelper.PasswordSignIn(model.Login.Email, model.Login.Password, model.Login.RememberMe, shouldLockout: false);
+                switch (result)
+                {
+                    case IdentityConfig.SignInStatus.Success:
+                        return RedirectToLocal(returnUrl);
+                    case IdentityConfig.SignInStatus.LockedOut:
+                        return View("Lockout");
+                    case IdentityConfig.SignInStatus.RequiresTwoFactorAuthentication:
+                        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl });
+                    case IdentityConfig.SignInStatus.Failure:
+                    default:
+                        ModelState.AddModelError("", "Invalid login attempt.");
+                        return View(model);
+                }
             }
         }
 
@@ -150,8 +156,7 @@ namespace BSNCapstone.Controllers
                 var user = new ApplicationUser { 
                     UserName = model.Register.UserName, 
                     Email = model.Register.Email,
-                    Avatar=Common.Constant.DefaultAvatarLink,
-                    Cover = Common.Constant.DefaultCoverLink
+                    Text = CommonHelper.SearchString(model.Register.UserName.ToLower())
                 };
                 user.Roles.Add("user");
                 var result = await UserManager.CreateAsync(user, model.Register.Password);
@@ -193,14 +198,13 @@ namespace BSNCapstone.Controllers
                     UserName = model.AuthorRegister.UserName, 
                     Email = model.AuthorRegister.Email, 
                     SSNImgId = uploadResult.PublicId, 
-                    Avatar = Common.Constant.DefaultAvatarLink, 
-                    Cover = Common.Constant.DefaultCoverLink
+                    Text = CommonHelper.SearchString(model.AuthorRegister.UserName.ToLower())
                 };
                 user.Roles.Add("author");
                 var result = await UserManager.CreateAsync(user, model.AuthorRegister.Password);
                 if (result.Succeeded)
                 {
-                    ViewBag.Message = "Cảm ơn bạn đã đăng kí, chúng tôi sẽ xác nhận và liên hệ lại qua Email mà bạn đã đăng kí";
+                    ViewBag.Message = "Cảm ơn bạn đã đăng kí, chúng tôi sẽ xác nhận và liên hệ lại qua Email mà bạn đã đăng kí.";
                     ViewBag.sliders = Context.Sliders.Find(_ => true).ToList();
                     ViewBag.cloudinary = cloudinary;
                     return View();
@@ -648,7 +652,7 @@ namespace BSNCapstone.Controllers
             }
         }
         #endregion
-
+        [Authorize(Roles="Admin")]
         //GET: /Account/Users
         public ActionResult Users(string searchString, string currentFilter, int? page)
         {
@@ -673,7 +677,7 @@ namespace BSNCapstone.Controllers
             return View(users.ToPagedList(pageNumber, pageSize));
         }
 
-
+        [Authorize(Roles="Admin")]
         //GET: /Account/Authors
         public ActionResult Authors(string searchString, string currentFilter, int? page)
         {
@@ -698,6 +702,7 @@ namespace BSNCapstone.Controllers
             return View(authors.ToPagedList(pageNumber, pageSize));
         }
 
+        [Authorize(Roles="Admin")]
         //POST: /Account/AuthorConfirm/id
         [HttpPost]
         public async Task<ActionResult> AuthorConfirm(string id)

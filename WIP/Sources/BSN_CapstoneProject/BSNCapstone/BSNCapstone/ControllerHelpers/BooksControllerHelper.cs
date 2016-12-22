@@ -78,7 +78,8 @@ namespace BSNCapstone.ControllerHelpers
                                 BookName = listBook.Find(x => x.Id.Equals(c1.BookId)).BookName,
                                 AuthorName = listBook.Find(x => x.Id.Equals(c1.BookId)).Authors,
                                 ImgPublicId = listBook.Find(x => x.Id.Equals(c1.BookId)).ImgPublicId,
-                                RateTime = listBook.Find(x => x.Id.Equals(c1.BookId)).RateTime
+                                RateTime = listBook.Find(x => x.Id.Equals(c1.BookId)).RateTime,
+                                AvarageRatingPoint = listBook.Find(x => x.Id.Equals(c1.BookId)).AvarageRating
                             });
                         }
                     }
@@ -97,7 +98,8 @@ namespace BSNCapstone.ControllerHelpers
                                         BookName = listBook.Find(x => x.Id.Equals(c1.BookId)).BookName,
                                         AuthorName = listBook.Find(x => x.Id.Equals(c1.BookId)).Authors,
                                         ImgPublicId = listBook.Find(x => x.Id.Equals(c1.BookId)).ImgPublicId,
-                                        RateTime = listBook.Find(x => x.Id.Equals(c1.BookId)).RateTime
+                                        RateTime = listBook.Find(x => x.Id.Equals(c1.BookId)).RateTime,
+                                        AvarageRatingPoint = listBook.Find(x => x.Id.Equals(c1.BookId)).AvarageRating
                                     });
                                 }
                                 else
@@ -109,9 +111,9 @@ namespace BSNCapstone.ControllerHelpers
                                         BookName = listBook.Find(x => x.Id.Equals(b1.BookId)).BookName,
                                         AuthorName = listBook.Find(x => x.Id.Equals(b1.BookId)).Authors,
                                         ImgPublicId = listBook.Find(x => x.Id.Equals(b1.BookId)).ImgPublicId,
-                                        RateTime = listBook.Find(x => x.Id.Equals(b1.BookId)).RateTime
+                                        RateTime = listBook.Find(x => x.Id.Equals(b1.BookId)).RateTime,
+                                        AvarageRatingPoint = listBook.Find(x => x.Id.Equals(b1.BookId)).AvarageRating
                                     });
-                                    Console.Write(newList);
                                 }
                             }
                         }
@@ -130,7 +132,8 @@ namespace BSNCapstone.ControllerHelpers
                             BookName = book.BookName,
                             AuthorName = book.Authors,
                             ImgPublicId = book.ImgPublicId,
-                            RateTime = book.RateTime
+                            RateTime = book.RateTime,
+                            AvarageRatingPoint = book.AvarageRating
                         });
                     }
                     break;
@@ -144,7 +147,8 @@ namespace BSNCapstone.ControllerHelpers
                             BookName = book.BookName,
                             AuthorName = book.Authors,
                             ImgPublicId = book.ImgPublicId,
-                            RateTime = book.RateTime
+                            RateTime = book.RateTime,
+                            AvarageRatingPoint = book.AvarageRating
                         });
                     }
                     break;
@@ -169,7 +173,8 @@ namespace BSNCapstone.ControllerHelpers
                                 AuthorName = book.Authors,
                                 ImgPublicId = book.ImgPublicId,
                                 RateTime = book.RateTime,
-                                Count = count
+                                Count = count,
+                                AvarageRatingPoint = book.AvarageRating
                             });
                         }
                     }

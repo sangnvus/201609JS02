@@ -52,6 +52,8 @@ namespace BSNCapstone.Models
 
        public DateTime CreatedTime { get; set; }
 
+       public string Text { get; set; }
+
        public ApplicationUser()
        {
            Follower = new List<string>();
@@ -60,6 +62,7 @@ namespace BSNCapstone.Models
            Locked = false;
            CreatedTime = DateTime.Now.AddHours(7);
            Interacbook = new List<InteractBookViewModel>();
+           Text = "";
        }
     }
 

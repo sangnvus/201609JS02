@@ -30,12 +30,29 @@
                 <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img id="logo" src="~/Content/Image/logo.png" class="img-rounded" alt="Trolltunga Norway" style="width:180px; height:40px;margin-top:-5%"> </a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <form class="navbar-form navbar-left" style="padding-left: 10%;">
+                <div class="navbar-form navbar-left" style="padding-left: 10%;">
                     <div class="nav-space"></div>
                     <div class="form-group">
-                        <input type="text" class="form-control" style="width:150%;" placeholder="Tìm kiếm">
+                        <input type="text" autocomplete="off" id="searchString" class="form-control" style="width:350px;" placeholder="Tìm kiếm">
                     </div>
-                </form>
+                </div>
+                <div class="searchResult" style="display: none;">
+                    <div>
+                        <h5 class="resultTitle">Sách</h5>
+                        <ul id="searchBookResult" class="resultUl"></ul>
+                    </div>
+                    <hr />
+                    <div>
+                        <h5 class="resultTitle">Người dùng</h5>
+                        <ul id="searchUserResult" class="resultUl"></ul>
+                    </div>
+                    <hr />
+                    <div>
+                        <h5 class="resultTitle">Nhóm</h5>
+                        <ul id="searchGroupResult" class="resultUl"></ul>
+                    </div>
+                    <hr />
+                </div>
                 <ul class="nav navbar-nav navbar-right" style="padding-right: 15%;">
                     <li><a href="@Url.Action("Details", "Timeline", new { id = @User.Identity.GetUserId() })"><i class="glyphicon glyphicon-user"></i> </a></li>
                     <li><a href="@Url.Action("Index", "Home")"><i class="glyphicon glyphicon-home"></i> </a></li>
@@ -181,6 +198,7 @@
 </html>
 <script src="@Url.Content("~/Content/Chosen/chosen.jquery.js")" type="text/javascript"></script>
 <link href="@Url.Content("~/Content/Chosen/chosen.css")" rel="stylesheet" type="text/css" />
+@*<script src="~/Scripts/Custom/search.js"></script>*@
 @*<script src="~/Scripts/knockout-2.2.0.js"></script>
 <script src="~/Scripts/jquery.signalR-2.2.1.js"></script>
 <script src="~/signalr/hubs"></script>
@@ -188,6 +206,7 @@
 <script src="~/Scripts/Custom/newfeed-post.js"></script>*@
 <script>
     $(".chzn-select").chosen({ width: "100%" }); @*Hookup Chosen Plugin*@
+    $(".chzn-select").chosen({ no_results_text: "Không có kết quả - " });
     $(".tag-chzn-select").chosen({ width: "100%" });
     $(".radio-tag").change(function () {
         var type = $('input[type=radio][name=tag]:checked').val();
@@ -200,4 +219,66 @@
             $("#AuthorTag_chosen").hide();
         }
     })
+    $(document).click(function (e) {
+        var container = $(".searchResult");
+        var searchInput = $("#searchString");
+
+        if (!container.is(e.target) && container.has(e.target).length === 0
+            && !searchInput.is(e.target) && searchInput.has(e.target).length === 0) {
+            $(".searchResult").hide();
+        }
+    });
+
+    $("#searchString").keyup(function () {
+        if ($(this).val() == "") {
+            $(".searchResult").hide();
+            console.log("abc");
+        } else {
+            $(".searchResult").show();
+        }
+        var searchString = $("#searchString").val();
+        var url = "@Url.Action("Search", "Home")";
+        console.log(searchString);
+        var formData = new FormData();
+        formData.append("searchString", searchString);
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: formData,
+            dataType: 'json',
+            contentType: false,
+            processData: false,
+
+            success: function (json) {
+                console.log(json.returnResult.books);
+                $("#searchBookResult").html('');
+                $("#searchUserResult").html('');
+                $("#searchGroupResult").html('');
+                for (var i = 0; i < json.returnResult.books.length; i++) {
+                    var id = json.returnResult.books[i].Id;
+                    var name = json.returnResult.books[i].BookName;
+                    var img = json.returnResult.books[i].ImgPublicId;
+                    var cloudinary = "http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill,h_30,w_30/";
+                    var link = "http://localhost:57185/Books/Details/"
+                    $("#searchBookResult").append("<li class='eachResultLi'><div class='eachResultDiv'><a href='" +link+ id + "'><img src='" + cloudinary + img + "'/><span class='eachResultSpan'>" + name + "</span></a></div></li>");
+                }
+                for (var i = 0; i < json.returnResult.users.length; i++) {
+                    var id = json.returnResult.users[i].Id;
+                    var name = json.returnResult.users[i].UserName;
+                    var img = json.returnResult.users[i].Avatar;
+                    var cloudinary = "http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill,h_30,w_30/";
+                    var link = "http://localhost:57185/Timeline/Details/"
+                    $("#searchUserResult").append("<li class='eachResultLi'><div class='eachResultDiv'><a href='" + link + id + "'><img src='" + cloudinary + img + "'/><span class='eachResultSpan'>" + name + "</span></a></div></li>");
+                }
+                for (var i = 0; i < json.returnResult.groups.length; i++) {
+                    var id = json.returnResult.groups[i].Id;
+                    var name = json.returnResult.groups[i].GroupName;
+                    var img = json.returnResult.groups[i].AvaImg;
+                    var cloudinary = "http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill,h_30,w_30/";
+                    var link = "http://localhost:57185/Groups/" + id + "/MainPage";
+                    $("#searchGroupResult").append("<li class='eachResultLi'><div class='eachResultDiv'><a href='" + link + "'><img src='" + cloudinary + img + "'/><span class='eachResultSpan'>" + name + "</span></a></div></li>");
+                }
+            }
+        });
+    });
 </script>

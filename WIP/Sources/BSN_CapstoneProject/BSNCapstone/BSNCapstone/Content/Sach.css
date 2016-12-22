@@ -145,73 +145,82 @@ p1 {
 
 
 /*****************************RATING************************************************/
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }
 
-
-/*******************************RATING STAR *************************************************/
-
-fieldset,
-label {
-    margin: 0;
-    padding: 0;
-}
-
-.rating {
+/****** Style Star Rating Widget *****/
+.showRating {
     border: none;
     float: left;
-}
-
-.rating > input {
-    display: none;
-}
-
-.rating > label:before {
-    margin: 2px;
-    font-size: 1em;
-    font-family: FontAwesome;
-    display: inline-block;
-    content: "\f005";
-}
-
-.rating > label {
-    color: #ddd;
-    float: right;
-}
-
-
-/***** CSS Magic to Highlight Stars on Hover *****/
-
-.rating > input:checked ~ label,
-
-/* show gold star when clicked */
-
-.rating:not(:checked) > label:hover,
-
-/* hover current star */
-
-.rating:not(:checked) > label:hover ~ label {
-    color: #FFD700;
-}
-
-
-/* hover previous stars in list */
-
-.rating > input:checked + label:hover,
-
-/* hover current star when changing rating */
-
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label,
-
-/* lighten current selection */
-
-.rating > input:checked ~ label:hover ~ label {
-    color: #FFED85;
+    font-size: 14px;
 }
 
 #ratingbook {
-    font-size: 300%;
-    padding-left: 3%;
+    font-size: 250%;
+    padding-left: 0px;
+    float: left;
 }
+.showRating > input { display: none; } 
+.showRating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.showRating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+.showRating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+.showRating > input:checked ~ label, /* show gold star when clicked */
+.showRating:not(:checked) > label:hover, /* hover current star */
+.showRating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.showRating > input:checked + label:hover, /* hover current star when changing rating */
+.showRating > input:checked ~ label:hover,
+.showRating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.showRating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+
+/*******************************RATING STAR *************************************************/
 
 #coverbook {
     height: 80%;

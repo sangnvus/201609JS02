@@ -22,7 +22,7 @@
     <nav class="thanhbar" style="height: 11%;">
         <div class="container-fluid">
             <div class="navbar-header">
-                <img src="~/Content/Logos/logo.png" alt="Bookaholic.com" style="width:180px; height:40px;margin-top:9%" onclick="window.location.href='@Url.Action("Login", "Account")'">
+                <img src="~/Content/Image/logo.png" alt="Bookaholic.com" style="width:180px; height:40px;margin-top:9%" onclick="window.location.href='@Url.Action("Login", "Account")'">
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse">
@@ -30,7 +30,6 @@
                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
                     {
                         @Html.AntiForgeryToken()
-                        @*@Html.ValidationSummary(true)*@
                         <div class="col-md-5" style="padding-top:1.5%">
                             @Html.TextBoxFor(model => model.Login.Email, new { @class = "form-control", @placeholder = "Email", @style = "width: 220px;" })
                         </div>
@@ -105,7 +104,7 @@
                 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", @style = "padding-left:30%; position:relative; right:10%;" }))
                 {
                     @Html.AntiForgeryToken()
-                    @Html.ValidationSummary("", new { @class = "errorDiv"@*, @style = "position: fixed;margin-left: 50%;background-color: #cc2926;color: white;border-radius: 10px;padding-top: 8px;padding-right: 20px;"*@ })
+                    @Html.ValidationSummary("", new { @class = "errorDiv" })
                     <span style="color:whitesmoke; font-size:200%;position:relative;left:35%;">ĐĂNG KÝ</span>
                     <div class="form-group ">
                         @Html.TextBoxFor(model => model.Register.UserName, new { @class = "form-control", @placeholder = "Tên tài khoản" })
@@ -142,6 +141,11 @@
         $('.carousel').carousel({
             interval: 3000 //changes the speed
         })
+        if ($(".errorDiv ul li").css("display") != "none") {
+            $(".errorDiv").show();
+        } else {
+            $(".errorDiv").hide();
+        }
     </script>
 </body>
 </html>

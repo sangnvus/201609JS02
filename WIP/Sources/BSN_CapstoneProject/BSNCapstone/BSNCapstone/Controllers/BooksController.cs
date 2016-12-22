@@ -46,6 +46,7 @@ namespace BSNCapstone.Controllers
 
         //
         // GET: /Books/
+        [Authorize(Roles="Admin")]
         public ActionResult Index(string searchString, string currentFilter, int? page)
         {
             //DangVH. Create. Start (02/11/2016)
@@ -80,18 +81,6 @@ namespace BSNCapstone.Controllers
             int pageNumber = (page ?? 1);
             //DangVH. Create. End (02/11/2016)
             return View(books.ToPagedList(pageNumber, pageSize));
-        }
-
-        [HttpPost]
-        public ActionResult Search(string searchString)
-        {
-            //var find = new BsonDocument{{"$regex", CommonHelper.SearchString(searchString)}, {"$options", "i"}};
-            var builder = Builders<Book>.Filter;
-            var filter = builder.Regex("BookName", new BsonRegularExpression(searchString, "i"));
-            var books = Context.Books.Find(filter).ToList();
-            var a = Context.Books.Find(x => x.Text.Contains(CommonHelper.SearchString(searchString))).ToList();
-            Console.Write(books);
-            return Json("");
         }
 
         //
@@ -165,6 +154,7 @@ namespace BSNCapstone.Controllers
 
         //
         // POST: /Books/Create
+        [Authorize(Roles="Admin")]
         [HttpPost]
         public ActionResult Create(Book book)
         {
@@ -202,7 +192,8 @@ namespace BSNCapstone.Controllers
                     ReleaseDay = book.ReleaseDay.ToLocalTime(),
                     Description = book.Description,
                     ImgPublicId = uploadResult.PublicId,
-                    Requested = false
+                    Requested = false,
+                    Text = CommonHelper.SearchString(book.BookName.ToLower())
                 };
                 foreach (var publisherId in book.Publishers)
                 {
@@ -294,6 +285,7 @@ namespace BSNCapstone.Controllers
                     editBook.ReleaseDay = book.ReleaseDay.ToLocalTime();
                     editBook.Description = book.Description;
                     editBook.Requested = false;
+                    editBook.Text = CommonHelper.SearchString(book.BookName.ToLower());
                     if (file.ContentLength == 0)
                     {
                         editBook.ImgPublicId = book.ImgPublicId;

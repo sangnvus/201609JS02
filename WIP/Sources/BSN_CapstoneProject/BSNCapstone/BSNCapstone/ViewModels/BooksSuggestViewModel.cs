@@ -13,6 +13,7 @@ namespace BSNCapstone.ViewModels
         public List<string> AuthorName { get; set; }
         public string ImgPublicId { get; set; }
         public int RateTime { get; set; }
+        public double AvarageRatingPoint { get; set; }
 
         public BooksSuggestViewModel()
         {

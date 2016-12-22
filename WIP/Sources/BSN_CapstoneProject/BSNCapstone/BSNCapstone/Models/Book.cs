@@ -95,7 +95,7 @@ namespace BSNCapstone.Models
             RateTime = 0;
             RatingPoint = 0;
             AvarageRating = 0;
-            Text = CommonHelper.SearchString(BookName);
+            Text = "";
             //DangVH. Update. End (14/11/2016)
         }
     }

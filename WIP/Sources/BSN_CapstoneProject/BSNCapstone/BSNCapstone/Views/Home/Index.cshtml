@@ -23,13 +23,13 @@
             <div class="col-md-3 col-sm-4 col-xs-12 sidenav">
                 <div class="row">
                     <div class="col-md-12" style="padding-left:10px; margin-top:20px">
-                        <div class="col-md-6" style="padding-left:20%;">
+                        <div class="col-md-6" style="padding-left:7%;">
                             @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                             .Height(150).Width(150).Crop("fill")).BuildImageTag(@Model.Avatar,
                                 new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                         </div>
                         <br>
-                        <div class="col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 7%;">
                             <ul class="list-group">
                                 <a href="@Url.Action("Details", "Timeline", new { id = @Model.Id })"><strong>@Model.UserName</strong></a>
                                 <br>
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="text-left" class="panel-heading" style="padding-left:15%">
+                    <div class="text-left" class="panel-heading" style="padding-left:7%">
                         <h5><strong>NHÓM</strong></h5>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                             <a href="@Url.Action("MainPage", "Groups", new { id = @group.Id })" data-toggle="tooltip" title="@group.GroupName">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="col-md-4" style="padding-left:22%">
+                                        <div class="col-md-4" style="padding-left:20%">
                                             @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                             .Height(20).Width(20).Crop("fill")).BuildImageTag(group.AvaImg,
                                                 new CloudinaryDotNet.StringDictionary("class=img-rounded")))
@@ -74,36 +74,23 @@
                 </div>
                 <!--------------------------->
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="text-left" class="panel-heading" style="padding-left:15%">
+                    <div class="text-left" class="panel-heading" style="padding-left:7%">
                         <h5><strong>MỚI XUẤT BẢN</strong></h5><br>
                     </div>
                 </div>
-
+                @{ int newBook = 1; }
                 @foreach (var book in listNewBook)
                 {
-                    <br><div class="row" style="padding-left: 20px;">
-                        <div class="col-md-6" style="padding-left:15%;">
+                    <br><div class="row" style="padding-left: 7%;">
+                        <div class="col-md-6" style="text-align: center; padding-left:20%;">
                             @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                 .Height(117).Width(90).Crop("fill")).BuildImageTag(book.ImgPublicId,
                                     new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                         </div>
-                        <fieldset class="rating" style="padding-right:15px;">
-                            <input type="radio" id="star5" name="rating" value="5" />
-                            <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                            <input type="radio" id="star4" name="rating" value="4" />
-                            <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                            <input type="radio" id="star3" name="rating" value="3" />
-                            <label class="full" for="star3" title="Meh - 3 stars"></label>
-                            <input type="radio" id="star2" name="rating" value="2" />
-                            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                            <input type="radio" id="star1" name="rating" value="1" />
-                            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                        </fieldset>
-                        <h5 style="float:right;padding-right:5px;">@book.RateTime lượt đánh giá</h5>
                         <br>
                         <br>
                         <div class="row">
-                            <div class="col-md-10" style="padding-left:15%;">
+                            <div class="col-md-10" style="padding-left:25%;">
                                 <strong data-toggle="tooltip" title="@book.BookName">
                                     <a href="@Url.Action("Details", "Books", new { id = @book.BookId })">@book.BookName.ToUpper()</a>
                                 </strong>
@@ -122,11 +109,24 @@
                                         </i>
                                     }
                                 }
-
                             </div>
-
                         </div>
+                        <fieldset class="rating" id="@newBook" style="padding-left:20%;" disabled>
+                            <input type="radio" id="star5" name="@book.BookName" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
+                            <input type="radio" id="star4half" name="@book.BookName" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                            <input type="radio" id="star4" name="@book.BookName" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                            <input type="radio" id="star3half" name="@book.BookName" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                            <input type="radio" id="star3" name="@book.BookName" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
+                            <input type="radio" id="star2half" name="@book.BookName" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                            <input type="radio" id="star2" name="@book.BookName" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                            <input type="radio" id="star1half" name="@book.BookName" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                            <input type="radio" id="star1" name="@book.BookName" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                            <input type="radio" id="starhalf" name="@book.BookName" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                        </fieldset>
+                        <script>$("#@newBook input[value='@book.AvarageRatingPoint']").attr('checked', true);</script>
+                        <h5 style="float:left;padding-left:20%;">@book.RateTime lượt đánh giá</h5>
                     </div>
+                    newBook++;
                 }
             </div>
             @*HaiCM. Creat. End. 19-11-2016*@
@@ -173,8 +173,16 @@
                                         <div class="owner-info">
                                             <!--Tên người dùng-->
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <a class="owner-name" data-bind="text : PostedByName"></a>
+                                                <div class="col-md-11">
+                                                    <span>
+                                                        <a class="owner-name" data-bind="text : PostedByName"></a>
+                                                        <!-- ko if : GroupName == "" || GroupName == null -->
+                                                        chia sẻ về cuốn sách <a data-bind="text : BookTag"></a>
+                                                        <!-- /ko -->
+                                                        <!-- ko if : GroupName!= "" -->
+                                                        đã đăng trong nhóm <a data-bind="text : GroupName"></a>
+                                                        <!-- /ko -->
+                                                    </span>
                                                     <!--Thời gian post bài-->
                                                     <div class="row">
                                                         <div class="col-md-12" style="color:grey; font-size: 12px">
@@ -184,7 +192,7 @@
                                                     </div>
                                                 </div>
                                                 <!--Drop down list gồm chức năng sửa và xóa post-->
-                                                <div class="col-md-6 pull-right">
+                                                <div class="col-md-1 pull-right">
                                                     <button type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="fa fa-angle-down"></span>
                                                     </button>
@@ -229,14 +237,6 @@
                                     </div>
                                 </div>
                                 <!--Nội dung bài post-->
-                                <!-- ko if : GroupName == "" || GroupName == null -->
-                                <h6 id="eff1">chia sẻ về cuốn sách <a data-bind="text : BookTag"></a></h6>
-                                <!-- /ko -->
-                                <!-- ko if : GroupName!= "" -->
-                                <h6 id="eff1">đã đăng trong nhóm <a data-bind="text : GroupName"></a></h6>
-                                <!-- /ko -->
-                                <br>
-                                <div class="divider-horizontal"></div>
                                 <p class="post-content"><p style="word-wrap:break-word;" data-bind="html : Message"></></p>
                                 <div class="divider-horizontal"></div>
                                 <div class="row">
@@ -282,7 +282,6 @@
                                                     <div class="col-md-2 col-sm-12 col-xs-12">
                                                         <!--Button để bình luận-->
                                                         <input style="text-align: right; " id="binhluan1" class="btn btn-default" type="button" value="Bình luận" data-bind="click: addComment" />
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -319,11 +318,8 @@
                                                                     </button>
                                                                 </li>
                                                             </ul>
-
                                                         </div>
                                                     </div>
-
-
                                                 </div>
                                             </div>
                                         </ul>
@@ -333,18 +329,17 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
             <!--------------------------------Phần bên phải------------------------------------->
             @*HaiCM. Create. Start. 19-11-2016*@
             <div class="col-md-3 sidenav">
-                <div class="text-center" class="panel-heading">
+                <div class="text-center" class="panel-heading" style="padding-right:16%;">
                     <h5 style="margin-top: 4%;"><strong>XU HƯỚNG HIỆN NAY</strong></h5>
                 </div>
                 <!--  Bắt đầu phần trending now -->
                 <div class="row" style="margin-top: 6.5%;">
                     <!--VÒNG FOR BẮT ĐẦU TỪ DIV NÀY-->
+                    @{int hotBookFieldSet = 5;}
                     @foreach (var hotBook in listHotBook)
                     {
                         <div class="col-md-6" style="padding-left:10px;">
@@ -353,24 +348,25 @@
                                     .Height(117).Width(90).Crop("fill")).BuildImageTag(hotBook.ImgPublicId,
                                         new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                             </div>
-                            <fieldset class="rating">
-                                <input type="radio" id="star5" name="rating" value="5" />
-                                <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                                <input type="radio" id="star4" name="rating" value="4" />
-                                <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                                <input type="radio" id="star3" name="rating" value="3" />
-                                <label class="full" for="star3" title="Meh - 3 stars"></label>
-                                <input type="radio" id="star2" name="rating" value="2" />
-                                <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                                <input type="radio" id="star1" name="rating" value="1" />
-                                <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                            <fieldset class="rating" id="@hotBookFieldSet" disabled>
+                                <input type="radio" id="star5" name="hot @hotBook.BookName" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio" id="star4half" name="hot @hotBook.BookName" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                <input type="radio" id="star4" name="hot @hotBook.BookName" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio" id="star3half" name="hot @hotBook.BookName" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                <input type="radio" id="star3" name="hot @hotBook.BookName" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio" id="star2half" name="hot @hotBook.BookName" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                <input type="radio" id="star2" name="hot @hotBook.BookName" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio" id="star1half" name="hot @hotBook.BookName" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                <input type="radio" id="star1" name="hot @hotBook.BookName" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                                <input type="radio" id="starhalf" name="hot @hotBook.BookName" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
                             </fieldset>
-                            <h5 style="float:right;">@hotBook.RateTime lượt đánh giá</h5>
+                            <script>$("#@hotBookFieldSet input[value='@hotBook.AvarageRatingPoint']").attr('checked', true);</script>
+                            <h5 style="float:left;">@hotBook.RateTime lượt đánh giá</h5>
                             <br>
                             <br>
                             <div class="col-md-12 list-group">
                                 <span>
-                                    <strong data-toggle="tooltip" title="@hotBook.BookName">
+                                    <strong data-toggle="tooltip" title="@hotBook.BookName.ToUpper()">
                                         <a href="@Url.Action("Details", "Books", new { id = @hotBook.BookId })">@hotBook.BookName.ToUpper()</a>
                                     </strong>
                                     <br>
@@ -392,7 +388,9 @@
                                 </span>
                             </div>
                         </div>
+                        hotBookFieldSet++;
                     }
+                    </div>
                     <!--VÒNG FOR KẾT THÚC Ở ĐÂY-->
                     <br>
                     <br>
@@ -400,11 +398,12 @@
                     <!--  Bắt đầu phần tác giả -->
                     <div class="row">
                         <div class="text-left" class="panel-heading">
-                            <h5><strong style="padding-left:15%;">TÁC GIẢ</strong></h5>
+                            <h5><strong style="padding-left:35%;">TÁC GIẢ</strong></h5>
                         </div>
+                        <br/>
                         @foreach (var author in randomAuthor)
                         {
-                            <div class="col-md-6" style="padding-left:15%;">
+                            <div class="col-md-6">
                                 <div class="col-md-6" style="padding-left:0;">
                                     @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                         .Height(117).Width(90).Crop("fill")).BuildImageTag(author.AuthorImg,
@@ -416,15 +415,15 @@
                                 <div class="hidden" id="FollowHandleHomePage" data-followerid="@Model.Id" data-url="@Url.Action("FollowHandle", "Timeline")"></div>
                                 @if (!Model.Following.Contains(author.UserId))
                                 {
-                                    <button class="button buttonFo" style="margin-left:14px;" data-option="1" data-author="@author.UserId">Theo dõi</button>
-                                    <button class="button buttonFo" style="margin-left:14px; display:none;" data-option="2" data-author="@author.UserId">Bỏ Theo dõi</button>
+                                    <button class="button buttonFo" style="margin-left:4px;" data-option="1" data-author="@author.UserId">Theo dõi</button>
+                                    <button class="button buttonFo" style="margin-left:4px; display:none;" data-option="2" data-author="@author.UserId">Bỏ Theo dõi</button>
                                 }
                                 else
                                 {
-                                    <button class="button buttonFo" style="margin-left: 14px; display: none;" data-option="1" data-author="@author.UserId">Theo dõi</button>
-                                    <button class="button buttonFo" style="margin-left:14px;" data-option="2" data-author="@author.UserId">Bỏ Theo dõi</button>
+                                    <button class="button buttonFo" style="margin-left:4px; display: none;" data-option="1" data-author="@author.UserId">Theo dõi</button>
+                                    <button class="button buttonFo" style="margin-left:4px;" data-option="2" data-author="@author.UserId">Bỏ Theo dõi</button>
                                 }
-                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 0;">
                                     <ul class="list-group">
                                         <i class="authorname">
                                             <strong data-toggle="tooltip" title="@author.AuthorName">
@@ -449,28 +448,21 @@
                     <!--  Bắt đầu phần nhà xuất bản -->
                     <br>
                     <div class="text-left" class="panel-heading">
-                        <h5><strong style="padding-left:13%;">NHÀ XUẤT BẢN</strong></h5>
+                        <h5><strong style="padding-left:26%;">NHÀ XUẤT BẢN</strong></h5>
                     </div>
                     <br>
                     @foreach (var publisher in randomPublisher)
                     {
-                        <div class="col-md-6" style="padding-left:15%">
+                        <div class="col-md-6" style="padding-left: 0;">
                             @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                         .Height(117).Width(90).Crop("fill")).BuildImageTag(publisher.ImagePublicId,
                                             new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                             <div class="row">
-                                <div class="col-md-12" style="padding-left:18%">
+                                <div class="col-md-12" style="padding-left:6%;">
                                     <ul class="list-group">
-                                        <h6 data-toggle="tooltip" title="@publisher.Name">@publisher.Name</h6>
+                                        <h5 data-toggle="tooltip" title="@publisher.Name">@publisher.Name</h5>
                                     </ul>
                                 </div>
-                                <fieldset style="padding-left:18%">
-                                    <i id="star" class="glyphicon glyphicon-star"></i>
-                                    <i id="star" class="glyphicon glyphicon-star"></i>
-                                    <i id="star" class="glyphicon glyphicon-star"></i>
-                                    <i id="star" class="glyphicon glyphicon-star"></i>
-                                    <i id="star" class="glyphicon glyphicon-star"></i>
-                                </fieldset>
                             </div>
                         </div>
                     }

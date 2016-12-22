@@ -78,6 +78,21 @@ namespace BSNCapstone.Controllers
         }
 
         [HttpPost]
+        public JsonResult Search(string searchString)
+        {
+            var books = Context.Books.Find(x => x.Text.Contains(CommonHelper.SearchString(searchString.ToLower()))).ToList().Take(4).ToList();
+            var users = Context.Users.Find(x => x.Text.Contains(CommonHelper.SearchString(searchString.ToLower()))).ToList().Take(4).ToList();
+            var groups = Context.Groups.Find(x => x.Text.Contains(CommonHelper.SearchString(searchString.ToLower()))).ToList().Take(4).ToList();
+            var returnList = new 
+            { 
+                books,
+                users,
+                groups
+            };
+            return Json(new { returnResult = returnList });
+        }
+
+        [HttpPost]
         public ActionResult GetBookTag(string input)
         {
 

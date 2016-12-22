@@ -271,7 +271,8 @@ namespace BSNCapstone.Controllers
                 var update = Builders<Group>.Update.
                     Set(x => x.GroupName, groupSetting.GroupName).
                     Set(x => x.Description, groupSetting.Description).
-                    Set(x => x.GroupType, groupSetting.GroupType);
+                    Set(x => x.GroupType, groupSetting.GroupType).
+                    Set(x => x.Text, CommonHelper.SearchString(groupSetting.GroupName.ToLower()));
                 Context.Groups.UpdateOneAsync(filter, update);
                 var editGroup = Context.Groups.Find(x => x.Id.Equals(new ObjectId(groupSetting.Id))).FirstOrDefault();
                 return RedirectToAction("MainPage", "Groups", editGroup.Id);
@@ -337,7 +338,8 @@ namespace BSNCapstone.Controllers
                         CreatorId = User.Identity.GetUserId(),
                         Tag = groupTag,
                         GroupType = groupType,
-                        Description = groupDesc
+                        Description = groupDesc,
+                        Text = CommonHelper.SearchString(groupName.ToLower())
                     };
                     newGroup.GroupMembers.Add(new GroupMembersViewModel()
                     {

@@ -58,7 +58,7 @@
                     }
                 </div>
             </div>
-            <ul class="nav nav-tabs" style="bottom:3%;">
+            <ul class="nav nav-tabs" style="bottom:3%; padding-left: 0.6%;">
                 <li role="presentation" class="active">@Html.ActionLink("Thảo luận", "MainPage", "Groups", new { id = Model.Id })</li>
                 <li role="presentation">@Html.ActionLink("Thành viên", "Members", "Groups", new { id = Model.Id })</li>
             </ul>
@@ -131,6 +131,20 @@
             </div>
         </div>
     </div>
+    <div class="tennhom">
+        <a href="@Url.Action("MainPage", "Groups", new { id = Model.Id })"><span style="color:white;">@Html.DisplayFor(model => model.GroupName)</span></a>
+        <i class="glyphicon glyphicon-lock" style="font-size:50%; color:white;"></i>
+        <span class="" style="top:-33px;font-size:60%;">
+            @if (Model.GroupType == "Public")
+            {
+                <span style="color: white;">Nhóm công khai</span>
+            }
+            else
+            {
+                <span style="color: white;">Nhóm kím</span>
+            }
+        </span>
+    </div>
     <div class="container-fluid text-left">
         <div class="row content">
             <!-----------------------Phần bên trái--------------------------------->
@@ -175,9 +189,6 @@
                         </a>
                     </ul>
                 </div>
-                <p class="text-right">
-                    <button type="button" class="btn btn-link">Xem thêm</button>
-                </p>
             </div>
             <!-------------------------------Center Post---------------------------------------->
             <div class="col-md-6 col-sm-8 col-xs-12 text-left">
@@ -187,16 +198,16 @@
                     <div class="col-md-12">
                         <div class="post-card" style="background-color: white;">
                             <!--TextBox để nhập nội dung post-->
-                            <textarea class="write-post" placeholder="Bạn đang nghĩ gì ?"
+                            <textarea class="write-post" placeholder="Bạn muốn chia sẻ điều gì về cuốn sách này ?"
                                       id="txtPostContent" data-bind="value: newMessage"></textarea>
-
                             <div class="divider-horizontal"></div>
-
                             <div class="row" style="padding: 5px 15px;">
                                 <!--Hiển thị thẻ sách - chờ design update-->
                                 <div class="col-md-6 col-sm-12 col-xs-12"></div>
                                 <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
                                     <!--Button đăng bài post-->
+                                    <input type="text" id="txtAutocomplete" class="inputbooktag txt" placeholder="Nhập thẻ sách" required />
+                                    <input type="hidden" id="hiddenBookTag" />
                                     <input class="btn btn-default" type="button" style="background-color: #224A86" value="Đăng"
                                            data-url="/Index/SavePost" id="btnShare" data-bind="click: addPost" data-groupid="@Model.Id" />
                                 </div>
@@ -224,7 +235,7 @@
                                                     <a class="owner-name" data-bind="text : PostedByName"></a>
                                                 </div>
                                                 <!--Drop down list gồm chức năng sửa và xóa post-->
-                                                <div class="col-md-6 pull-right">
+                                                <div class="col-md-1 pull-right">
                                                     <button type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="fa fa-angle-down"></span>
                                                     </button>
@@ -309,7 +320,9 @@
                                             <div class="col-md-12">
                                                 <!--Ảnh của nười dùng hiện tại-->
                                                 <div class="owner-avatar">
-
+                                                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                                        .Height(40).Width(40).Crop("fill")).BuildImageTag(allUser.Find(x => x.Id.Equals(currentUserId)).Avatar,
+                                                            new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                                                 </div>
                                                 <div class="owner-info">
                                                     <div class="pull-left form-inline">
@@ -376,6 +389,7 @@
                 <br />
                 <!--  Bắt đầu phần trending now -->
                 <div class="row">
+                    @{int hotBookFieldSet = 1;}
                     @foreach (var interactBook in listInteractBook)
                     {
                         <div class="col-md-6" style="padding-left:15px;">
@@ -385,24 +399,27 @@
                             .Height(117).Width(90).Crop("fill")).BuildImageTag(interactBook.ImgPublicId,
                                 new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                             </div>
-                            <fieldset class="rating" style="padding-left:px;">
-                                <input type="radio" id="star5" name="rating" value="5" />
-                                <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                                <input type="radio" id="star4" name="rating" value="4" />
-                                <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                                <input type="radio" id="star3" name="rating" value="3" />
-                                <label class="full" for="star3" title="Meh - 3 stars"></label>
-                                <input type="radio" id="star2" name="rating" value="2" />
-                                <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                                <input type="radio" id="star1" name="rating" value="1" />
-                                <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                            <fieldset class="rating" id="@hotBookFieldSet" disabled>
+                                <input type="radio" id="star5" name="hot @interactBook.BookName" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio" id="star4half" name="hot @interactBook.BookName" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                <input type="radio" id="star4" name="hot @interactBook.BookName" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio" id="star3half" name="hot @interactBook.BookName" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                <input type="radio" id="star3" name="hot @interactBook.BookName" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio" id="star2half" name="hot @interactBook.BookName" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                <input type="radio" id="star2" name="hot @interactBook.BookName" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio" id="star1half" name="hot @interactBook.BookName" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                <input type="radio" id="star1" name="hot @interactBook.BookName" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                                <input type="radio" id="starhalf" name="hot @interactBook.BookName" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
                             </fieldset>
+                            <script>$("#@hotBookFieldSet input[value='@interactBook.AvarageRating']").attr('checked', true);</script>
                             <h5 style="float:left;">@interactBook.RateTime đánh giá</h5>
                             <br>
                             <br>
                             <div class="col-md-12 list-group">
                                 <span>
-                                    <strong data-toggle="tooltip" title="@interactBook.BookName.ToUpper()">@interactBook.BookName.ToUpper()</strong>
+                                    <strong data-toggle="tooltip" title="@interactBook.BookName.ToUpper()">
+                                        <a href="@Url.Action("Details", "Books", new { id = interactBook.Id })">@interactBook.BookName.ToUpper()</a>
+                                    </strong>
                                     <br>
                                     @foreach (var author in interactBook.Authors)
                                     {
@@ -422,6 +439,7 @@
                                 </span>
                             </div>
                         </div>
+                        hotBookFieldSet++;
                     }
                 </div>
                 <br />

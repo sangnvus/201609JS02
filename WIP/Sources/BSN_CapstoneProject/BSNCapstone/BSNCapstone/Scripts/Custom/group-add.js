@@ -57,7 +57,6 @@
 
     $(document).ready(function () {
         $('#createGroupModal').on('hidden.bs.modal', function (e) {
-            console.log("123");
             $(this)
                 .find("input,textarea,select,span")
                     .val('')

@@ -54,9 +54,6 @@
                 }
             </div>
         </div>
-        @*<div>
-                <i class="glyphicon glyphicon-tag grouptag"></i><span class="grouptag" style="top:-33px;"> [Harry Potter & the Deathly Hallows]   </span>
-            </div>*@
         <div class="cover-interaction">
             <button class="button buttonRe" onclick="location.href='@Url.Action("Setting", "Groups", new { id = Model.Id })'">Cài đặt</button>
             @if (Model.GroupMembers.Find(x => x.UserId.Equals(currentUserId)) == null)
@@ -126,7 +123,7 @@
 
     </div>
 
-    <ul class="nav nav-tabs" style="bottom: 31%;">
+    <ul class="nav nav-tabs" style="bottom: 34.5%; padding-left: 0.6%;">
         <li role="presentation">@Html.ActionLink("Thảo luận", "MainPage", "Groups", new { id = Model.Id })</li>
         <li role="presentation" class="active">@Html.ActionLink("Thành viên", "Members", "Groups", new { id = Model.Id })</li>
     </ul>
@@ -168,7 +165,7 @@
                         @Html.ListBox("ApplicationUser", ViewBag.userForAdd as MultiSelectList, new { @class = "chzn-select", @id = "addMemberSelect", @style = "width: 40%;", @data_placeholder = "Nhập tên..." })
                     </div>
                     <div class="modal-footer">
-                        <button id="AddNewMember" class="btn btn-info" type="button" style="background-color: #224A86 " onclick="AddMember()" data-url="@Url.Action("AddNewMember", "Groups")" data-groupId="@Model.Id">Thêm</button>
+                        <button id="AddNewMember" class="btn btn-info" type="button" style="background-color: #224A86 " onclick="AddMember()" data-url="@Url.Action("AddNewMember", "Groups")" data-groupid="@Model.Id">Thêm</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                     </div>
                 </div>
@@ -277,7 +274,17 @@
     <!-----------------------Dưới cover & ava--------------------------------->
     <div class="tennhom">
         <a href="@Url.Action("MainPage", "Groups", new { id = Model.Id })" style="color: white;">@Model.GroupName</a>
-        <i class="glyphicon glyphicon-lock" style="font-size:50%;"></i><span class="" style="top:-33px;font-size:60%;">@Html.DisplayFor(m => m.GroupType)</span>
+        <i class="glyphicon glyphicon-lock" style="font-size:50%; color:white;"></i>
+        <span class="" style="top:-33px;font-size:60%;">
+            @if (Model.GroupType == "Public")
+            {
+                <span style="color: white;">Nhóm công khai</span>
+            }
+            else
+            {
+                <span style="color: white;">Nhóm kím</span>
+            }
+        </span>
     </div>
     <!-----------------------List thành viên--------------------------------->
     <!-----------------------Hết List thành viên--------------------------------->
@@ -292,11 +299,7 @@
 </body>
 
 </html>
-<script src="@Url.Content("~/Content/Chosen/chosen.jquery.js")" type="text/javascript"></script>
-<link href="@Url.Content("~/Content/Chosen/chosen.css")" rel="stylesheet" type="text/css" />
 <script>
-    $(".chzn-select").chosen({ no_results_text: "Không có kết quả - " }); @*Hookup Chosen Plugin*@
-
     $(document).ready(function () {
         $('#ModalAddMember').on('hidden.bs.modal', function (e) {
             console.log("abc");

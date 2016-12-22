@@ -46,12 +46,15 @@ namespace BSNCapstone.Models
 
         public List<string> ListJoinRequest { get; set; }
 
+        public string Text { get; set; }
+
         public Group()
         {
             Locked = false;
             CreatedDate = DateTime.Now.AddHours(7);
             GroupMembers = new List<GroupMembersViewModel>();
             ListJoinRequest = new List<string>();
+            Text = "";
         }
     }
 }
