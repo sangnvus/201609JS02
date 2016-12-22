@@ -65,7 +65,8 @@ namespace BSNCapstone.Hubs
                         PostedDate = item.PostedDate,
                         PostId = item.Id,
                         PostComments = listComment,
-                        NumOfPostLike = listPostLike.Count
+                        NumOfPostLike = listPostLike.Count,
+                        GroupId = item.GroupId
                     };
                     listPost.Add(ret);
                 }
@@ -104,7 +105,8 @@ namespace BSNCapstone.Hubs
                 PostedByName = userpost.UserName,
                 PostedById = disPost.PostedById,
                 PostedByAvatar = userpost.Avatar,
-                PostedDate = disPost.PostedDate
+                PostedDate = disPost.PostedDate,
+                GroupId = disPost.GroupId
             };
 
             Clients.Caller.addPost(ret);

@@ -58,25 +58,22 @@
                     }
                 </div>
             </div>
-            <ul class="nav nav-tabs" style="bottom:3%; padding-left: 0.6%;">
-                <li role="presentation" class="active">@Html.ActionLink("Thảo luận", "MainPage", "Groups", new { id = Model.Id })</li>
-                <li role="presentation">@Html.ActionLink("Thành viên", "Members", "Groups", new { id = Model.Id })</li>
-            </ul>
+
 
             <div class="cover-interaction">
-                <button class="button buttonRe" onclick="location.href='@Url.Action("Setting", "Groups", new { id = Model.Id })'">Cài đặt</button>
+                <button class="button buttonRe btn-success" style="color:white;" onclick="location.href='@Url.Action("Setting", "Groups", new { id = Model.Id })'">Cài đặt</button>
                 @if (Model.GroupMembers.Find(x => x.UserId.Equals(currentUserId)) == null)
                 {
-                    <button class="button buttonRe" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '1')">Tham gia</button>
+                    <button class="button buttonRe btn-success" style="color:white;" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '1')">Tham gia</button>
                 }
                 else
                 {
                     if (Model.GroupMembers.Find(x => x.UserId.Equals(currentUserId)).RoleInGroup != "creator")
                     {
-                        <button class="button buttonRe" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '2')">Đã Tham gia</button>
+                        <button class="button buttonRe btn-success" style="color:white;" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '2')">Đã Tham gia</button>
                     }
                 }
-                <button class="button buttonRe" data-toggle="modal" data-target="#ModalReport">Báo cáo</button>
+                <button class="button buttonRe btn-success" style="color:white;" data-toggle="modal" data-target="#ModalReport">Báo cáo</button>
                 <div id="ModalReport" class="modal fade" role="dialog">
                     <div class="modal-dialog ">
                         <!-- Modal content-->
@@ -131,9 +128,13 @@
             </div>
         </div>
     </div>
-    <div class="tennhom">
+    <ul class="nav nav-tabs" style="position: absolute; top: 410px; width: 75vw; height: 50px;">
+        <li role="presentation" class="active">@Html.ActionLink("Thảo luận", "MainPage", "Groups", new { id = Model.Id })</li>
+        <li role="presentation">@Html.ActionLink("Thành viên", "Members", "Groups", new { id = Model.Id })</li>
+    </ul>
+    <div class="tennhom" style="position: absolute; top: 320px; font-size: 24px; max-width: 350px; overflow: hidden; text-overflow: ellipsis; display: block; text-shadow: 0 0 3px rgba(0, 0, 0, .8); white-space: nowrap;">
         <a href="@Url.Action("MainPage", "Groups", new { id = Model.Id })"><span style="color:white;">@Html.DisplayFor(model => model.GroupName)</span></a>
-        <i class="glyphicon glyphicon-lock" style="font-size:50%; color:white;"></i>
+        <br />
         <span class="" style="top:-33px;font-size:60%;">
             @if (Model.GroupType == "Public")
             {
@@ -206,9 +207,7 @@
                                 <div class="col-md-6 col-sm-12 col-xs-12"></div>
                                 <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
                                     <!--Button đăng bài post-->
-                                    <input type="text" id="txtAutocomplete" class="inputbooktag txt" placeholder="Nhập thẻ sách" required />
-                                    <input type="hidden" id="hiddenBookTag" />
-                                    <input class="btn btn-default" type="button" style="background-color: #224A86" value="Đăng"
+                                    <input class="btn btn-default" style="background-color: #B4CDCD; color:black;" type="button" value="Đăng"
                                            data-url="/Index/SavePost" id="btnShare" data-bind="click: addPost" data-groupid="@Model.Id" />
                                 </div>
                             </div>
@@ -231,11 +230,21 @@
                                         <div class="owner-info">
                                             <!--Tên người dùng-->
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <a class="owner-name" data-bind="text : PostedByName"></a>
+                                                <div class="col-md-11">
+                                                    <span>
+                                                        <a class="owner-name" data-bind="text : PostedByName"></a>
+                                                    </span>
+                                                        <!--Thời gian post bài-->
+                                                    <div class="row">
+                                                        <div class="col-md-12" style="color:grey; font-size: 12px">
+                                                            <i class="glyphicon glyphicon-time"></i>
+                                                            <span data-bind="text : PostedDate"></span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <!--Drop down list gồm chức năng sửa và xóa post-->
                                                 <div class="col-md-1 pull-right">
+                                                    <!-- ko if: PostedById == '@Model.Id' -->
                                                     <button type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="fa fa-angle-down"></span>
                                                     </button>
@@ -249,6 +258,7 @@
                                                             <a href="#" data-bind="click: deletePost"> Xóa</a>
                                                         </li>
                                                     </ul>
+                                                    <!-- /ko -->
                                                     <!--Pop-up edit post-->
                                                     <div class="modal fade" data-bind="attr:{'id': PostId}" role="dialog">
                                                         <div class="modal-dialog">
@@ -259,9 +269,14 @@
                                                                 </div>
                                                                 <div class="midle-modal">
                                                                     <div class="row content" style="margin-top:10px;">
-                                                                        <div class="owner-avatar" style="margin:0 0 5px 26px;">
-                                                                            <img data-bind="attr: { src :'http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill/' + PostedByAvatar }" />
-                                                                            <input type="text" class="write-post" style="float:left; width:auto" data-bind="value: Message" />
+                                                                        <div class="col-md-1">
+                                                                            <div class="owner-avatar" style="margin:0 0 5px 26px">
+                                                                                <img data-bind="attr: { src :'http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill/' + PostedByAvatar }" />
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-11">
+                                                                            <textarea class="write-post" style="float:left; width:500px; margin-left:20px;margin-top:-10px;" data-bind="value: Message"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -275,18 +290,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!--Thời gian post bài-->
-                                            <div class="row">
-                                                <div class="col-md-12" style="color:grey; font-size: 12px">
-                                                    <i class="glyphicon glyphicon-time"></i>
-                                                    <span data-bind="text : PostedDate"></span>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
                                 <!--Nội dung bài post-->
-                                <p class="post-content"><span data-bind="html : Message"></span></p>
+
+                                <br>
+                                <div class="divider-horizontal"></div>
+                                <p class="post-content"><span style="word-wrap:break-word;" data-bind="html : Message"></span></p>
 
                                 <div class="divider-horizontal"></div>
                                 <div class="row">
@@ -298,7 +310,7 @@
                                         <ul class="interaction-list">
                                             <!--Nút thích-->
                                             <li>
-                                                <button class="post-interaction-btn" data-bind="click: addPostLike" style="color:hotpink ">
+                                                <button class="post-interaction-btn" data-bind="click: addPostLike" style="color: #224A86;">
                                                     <i class="glyphicon glyphicon-thumbs-up"></i>
                                                     <span data-bind="text : NumOfPostLike"></span>
                                                     <span>Thích</span>
@@ -311,7 +323,7 @@
 
                                 <!--Notify của phần comment-->
                                 <a data-bind="click: loadNewComments, visible: NewComments().length > 0">
-                                    <span data-bind="    text: NewComments().length"></span> bình luận mới
+                                    <span data-bind="    text: NewComments().length"></span>
                                 </a>
                                 <!--Ô ĐỂ NHẬP BÌNH LUẬN-->
                                 <div>
@@ -319,19 +331,15 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <!--Ảnh của nười dùng hiện tại-->
-                                                <div class="owner-avatar">
-                                                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
-                                                        .Height(40).Width(40).Crop("fill")).BuildImageTag(allUser.Find(x => x.Id.Equals(currentUserId)).Avatar,
-                                                            new CloudinaryDotNet.StringDictionary("class=img-rounded")))
-                                                </div>
+
                                                 <div class="owner-info">
-                                                    <div class="pull-left form-inline">
+                                                    <div class="col-md-10 col-sm-12 col-xs-12" class="pull-left form-inline">
                                                         <!--Textbox để viết bình luận-->
-                                                        <input type="text" class="form-control" style="width: 150%; height: 30px;" data-bind="value : newCommentMessage" placeholder="Viết bình luận..." />
+                                                        <input type="text" class="form-control" style="width: 100%; height: 30px;" data-bind="value : newCommentMessage" placeholder="Viết bình luận..." />
                                                     </div>
-                                                    <div class="pull-right">
+                                                    <div class="col-md-2 col-sm-12 col-xs-12">
                                                         <!--Button để bình luận-->
-                                                        <input type="button" class="btn btn-warning" value="Bình luận" data-bind="click: addComment" />
+                                                        <input style="text-align: right; color: black; text-decoration-color: black; background-color: #B4CDCD; font-size: 10px;" id="binhluan1" class="btn btn-default" type="button" value="Bình luận" data-bind="click: addComment" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -351,25 +359,18 @@
                                                             <!--Tên người cmt-->
                                                             <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>
                                                             <!--Nội dung cmt-->
-                                                            <p data-bind="    html: Message" style="font-size: 15px; margin-left: 5%;"></p>
+                                                            <p data-bind="    html: Message" style="word-wrap: break-word; font-size: 15px; margin-left: 5%;"></p>
+                                                            <!--Các chức năng tương tác với comment-->
+                                                            <ul class="interaction-list" style="padding-left: 8%;">
+                                                                <li>
+                                                                    <button class="post-interaction-btn" style="color:grey; font-size: 12px">
+                                                                        <i class="glyphicon glyphicon-time"></i>
+                                                                        <span data-bind="text: CommentedDate"></span>
+                                                                    </button>
+                                                                </li>
+                                                            </ul>
                                                         </div>
                                                     </div>
-
-                                                    <!--Các chức năng tương tác với comment-->
-                                                    <ul class="interaction-list" style="padding-left: 8%;">
-                                                        <li>
-                                                            <button class="post-interaction-btn" style="color:grey; font-size: 12px">
-                                                                <i class="glyphicon glyphicon-time"></i>
-                                                                <span data-bind="text: CommentedDate"></span>
-                                                            </button>
-                                                        </li>
-                                                        <li>
-                                                            <button class="post-interaction-btn" style="color:grey; font-size: 12px">
-                                                                <i class="glyphicon glyphicon-remove-sign"></i>
-                                                                <span>Xóa</span>
-                                                            </button>
-                                                        </li>
-                                                    </ul>
                                                 </div>
                                             </div>
                                         </ul>
@@ -439,7 +440,7 @@
                                 </span>
                             </div>
                         </div>
-                        hotBookFieldSet++;
+                                    hotBookFieldSet++;
                     }
                 </div>
                 <br />
@@ -457,12 +458,13 @@
 </body>
 </html>
 @section scripts {
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/loader.css" />
     <link rel="stylesheet" href="~/Content/Trangnhom.css">
     <script src="~/Scripts/Custom/group.js"></script>
     <script src="~/Scripts/Custom/report-action.js"></script>
 
-        <!--Reference the SignalR library. -->
+    <!--Reference the SignalR library. -->
     <script src="~/Scripts/jquery.signalR-2.2.1.js"></script>
     <!--Reference the autogenerated SignalR hub script. -->
     <script src="~/signalr/hubs"></script>

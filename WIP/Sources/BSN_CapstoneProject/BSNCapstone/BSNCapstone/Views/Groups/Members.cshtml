@@ -28,7 +28,7 @@
                 <div class="change-cover">
                     <span class="btn btn-file">
                         <i class="glyphicon glyphicon-camera" style="color: white;"></i>
-                            <span style="color: white;">Thay đổi ảnh bìa</span>
+                        <span style="color: white;">Thay đổi ảnh bìa</span>
                         <input type="file" id="imgInpCover" accept=".jpg, .jpeg, .png, .bmp">
                     </span>
                 </div>
@@ -46,7 +46,7 @@
                         <div class="change-avatar">
                             <span class="btn btn-file">
                                 <i class="glyphicon glyphicon-camera" style="color: white;"></i>
-                                    <span style="color: white;">Thay đổi ảnh cá nhân</span>
+                                <span style="color: white;">Thay đổi ảnh cá nhân</span>
                                 <input type="file" id="imgInpAva" accept=".jpg, .jpeg, .png, .bmp">
                             </span>
                         </div>
@@ -55,19 +55,19 @@
             </div>
         </div>
         <div class="cover-interaction">
-            <button class="button buttonRe" onclick="location.href='@Url.Action("Setting", "Groups", new { id = Model.Id })'">Cài đặt</button>
+            <button class="button buttonRe btn-success" style="color:white;" onclick="location.href='@Url.Action("Setting", "Groups", new { id = Model.Id })'">Cài đặt</button>
             @if (Model.GroupMembers.Find(x => x.UserId.Equals(currentUserId)) == null)
             {
-                <button class="button buttonRe" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '1')">Tham gia</button>
+                <button class="button buttonRe btn-success" style="color:white;" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '1')">Tham gia</button>
             }
             else
             {
                 if (Model.GroupMembers.Find(x => x.UserId.Equals(currentUserId)).RoleInGroup != "creator")
                 {
-                    <button class="button buttonRe" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '2')">Đã Tham gia</button>
+                    <button class="button buttonRe btn-success" style="color:white;" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '2')">Đã Tham gia</button>
                 }
             }
-            <button class="button buttonRe" data-toggle="modal" data-target="#ModalReport">Báo cáo</button>
+            <button class="button buttonRe btn-success" style="color:white;" data-toggle="modal" data-target="#ModalReport">Báo cáo</button>
             <div id="ModalReport" class="modal fade" role="dialog">
                 <div class="modal-dialog ">
                     <!-- Modal content-->
@@ -123,11 +123,8 @@
 
     </div>
 
-    <ul class="nav nav-tabs" style="bottom: 34.5%; padding-left: 0.6%;">
-        <li role="presentation">@Html.ActionLink("Thảo luận", "MainPage", "Groups", new { id = Model.Id })</li>
-        <li role="presentation" class="active">@Html.ActionLink("Thành viên", "Members", "Groups", new { id = Model.Id })</li>
-    </ul>
-    <div class="container pills">
+
+    <div class="container pills" style="width: 80%;margin-top: 0px;margin-left: 0px;position: absolute;top: 80%;left: 10%;">
         <div class="row">
             <div class="col-md-8">
                 <ul class="nav nav-pills" style="text-align: right;">
@@ -272,9 +269,15 @@
         </div>
     </div>
     <!-----------------------Dưới cover & ava--------------------------------->
-    <div class="tennhom">
+    <ul class="nav nav-tabs" style="position: absolute; top: 410px; width: 75vw; height: 50px;">
+        <li role="presentation">@Html.ActionLink("Thảo luận", "MainPage", "Groups", new { id = Model.Id })</li>
+        <li role="presentation" class="active">@Html.ActionLink("Thành viên", "Members", "Groups", new { id = Model.Id })</li>
+    </ul>
+    <div class="tennhom"
+         style="position: absolute; top: 320px; font-size: 24px; max-width: 350px; overflow: hidden; 
+        text-overflow: ellipsis; display: block; text-shadow: 0 0 3px rgba(0, 0, 0, .8); white-space: nowrap;">
         <a href="@Url.Action("MainPage", "Groups", new { id = Model.Id })" style="color: white;">@Model.GroupName</a>
-        <i class="glyphicon glyphicon-lock" style="font-size:50%; color:white;"></i>
+        <br />
         <span class="" style="top:-33px;font-size:60%;">
             @if (Model.GroupType == "Public")
             {
@@ -309,7 +312,7 @@
                     .end();
         })
     });
-</script> 
+</script>
 @section scripts {
     <link rel="stylesheet" href="~/Content/loader.css" />
     <link rel="stylesheet" href="~/Content/Trangnhom.css">

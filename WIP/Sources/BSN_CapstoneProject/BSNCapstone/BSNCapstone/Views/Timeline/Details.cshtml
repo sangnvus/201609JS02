@@ -117,7 +117,11 @@
         </div>
     </div>
     <!-----------------------UNDER cover & ava--------------------------------->
-    <div class="tencanhan"><a href="@Url.Action("Details", "Timeline", new { id = @Model.Id })"><b>@Model.UserName</b></a></div>
+    <div class="tencanhan" style="position:absolute; top:350px; left: 250px">
+        <a href="@Url.Action("Details", "Timeline", new { id = @Model.Id })">
+            <b>@Model.UserName</b>
+        </a>
+    </div>
     <div class="container-fluid text-left">
         <div class="row content">
             <!------------LEFT SIDE--------------->
@@ -162,7 +166,9 @@
             </div>
             <!-------------------------------Center Post---------------------------------------->
             <div class="col-md-6 col-sm-8 col-xs-12 text-left">
-                <br />
+            <br />
+            @if (Model.Id == currentUserId)
+            {
                 <div class="row">
                     <!---------PHẦN NHẬP NỘI DUNG BÀI POST VÀ TAG SÁCH------------>
                     <div class="col-md-12">
@@ -185,6 +191,7 @@
                         </div>
                     </div>
                 </div>
+             }
                 <!------------------------HIỂN THỊ CÁC BÀI POST-------------------------->
                 <div class="col-md-12" style="margin-top: 7px;" id="msgHolder" data-bind="foreach: posts">
                     <div class="post-card" style="padding-top: 5%; padding: 5px 15px">
@@ -340,12 +347,6 @@
                                                                     <button class="post-interaction-btn" style="color:grey; font-size: 12px">
                                                                         <i class="glyphicon glyphicon-time"></i>
                                                                         <span data-bind="text: CommentedDate"></span>
-                                                                    </button>
-                                                                </li>
-                                                                <li>
-                                                                    <button class="post-interaction-btn" style="color:grey; font-size: 12px">
-                                                                        <i class="glyphicon glyphicon-remove-sign"></i>
-                                                                        <span>Xóa</span>
                                                                     </button>
                                                                 </li>
                                                             </ul>

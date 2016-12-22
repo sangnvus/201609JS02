@@ -17,6 +17,7 @@ function Post(data, hub) {
     self.PostedByName = data.PostedByName || "";
     self.PostedByAvatar = data.PostedByAvatar || "";
     self.PostedDate = getTimeAgo(data.PostedDate);
+    self.GroupId = data.GroupId;
 
     self.PostComments = ko.observableArray();
     self.NewComments = ko.observableArray();

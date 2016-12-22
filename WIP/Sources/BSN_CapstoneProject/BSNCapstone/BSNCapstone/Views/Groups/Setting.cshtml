@@ -61,19 +61,19 @@
         </div>
         <div>
             <div class="cover-interaction">
-                <button class="button buttonRe" onclick="location.href='@Url.Action("Setting", "Groups", new { id = Model.Id })'">Cài đặt</button>
+                <button class="button buttonRe btn-success" style="color:white;" onclick="location.href='@Url.Action("Setting", "Groups", new { id = Model.Id })'">Cài đặt</button>
                 @if (group.GroupMembers.Find(x => x.UserId.Equals(currentUserId)) == null)
                 {
-                    <button class="button buttonRe" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '1')">Tham gia</button>
+                    <button class="button buttonRe btn-success" style="color:white;" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '1')">Tham gia</button>
                 }
                 else
                 {
                     if (group.GroupMembers.Find(x => x.UserId.Equals(currentUserId)).RoleInGroup != "creator")
                     {
-                        <button class="button buttonRe" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '2')">Rời nhóm</button>
+                        <button class="button buttonRe btn-success" style="color:white;" onclick="GroupRequestHandle('@Model.Id', '@currentUserId', '2')">Rời nhóm</button>
                     }
                 }
-                <button class="button buttonRe" data-toggle="modal" data-target="#ModalReport">Báo cáo</button>
+                <button class="button buttonRe btn-success" style="color:white;" data-toggle="modal" data-target="#ModalReport">Báo cáo</button>
                 <div id="ModalReport" class="modal fade" role="dialog">
                     <div class="modal-dialog ">
                         <!-- Modal content-->
@@ -128,7 +128,22 @@
         </div>
     </div>
     <!--------------------------Tên nhóm----------------------------->
-    <div class="tennhom"><a href="@Url.Action("MainPage", "Groups", new { id = Model.Id })"><b>@Html.DisplayFor(model => model.GroupName)</b></a></div>
+    <div class="tennhom"
+         style="position: absolute; top: 320px; font-size: 24px; max-width: 350px; overflow: hidden; 
+        text-overflow: ellipsis; display: block; text-shadow: 0 0 3px rgba(0, 0, 0, .8); white-space: nowrap;">
+        <a style="color: white;" href="@Url.Action("MainPage", "Groups", new { id = Model.Id })">@Html.DisplayFor(model => model.GroupName)</a>
+        <br />
+        <span class="" style="top:-33px;font-size:60%;">
+            @if (Model.GroupType == "Public")
+            {
+                <span style="color: white;">Nhóm công khai</span>
+            }
+            else
+            {
+                <span style="color: white;">Nhóm kím</span>
+            }
+        </span>
+    </div>
     <!-------------------Dưới Covers & Avatar------------------------->
     <div class="container-fluid text-left">
         <div class="row content">
@@ -251,11 +266,11 @@
                                             <div class="memberRequest" style="margin-top:5%">
                                                 <div class="form-inline">
                                                     <label style="margin-left:30px;font-size:130%;">Yêu cầu tham gia</label>
-                                                    <button type="submit" class="btn btn-default" style="margin-left:400px;" onclick="GroupRequestHandle('@Model.Id', '', '5')">Chấp nhận tất cả</button>
+                                                    <button type="submit" class="btn btn-default" style="margin-left:300px;" onclick="GroupRequestHandle('@Model.Id', '', '5')">Chấp nhận tất cả</button>
                                                     <button type="submit" class="btn btn-default" onclick="GroupRequestHandle('@Model.Id', '', '6')">Từ chối tất cả</button>
                                                 </div>
                                                 <div class="divider-horizontal"></div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-12" style="min-height: 50vh;">
                                                     @foreach (var request in group.ListJoinRequest)
                                                     {
                                                         <div class="col-md-3 avatarthanhvien">
@@ -297,7 +312,7 @@
 </html>
 @section scripts {
     <link rel="stylesheet" href="~/Content/loader.css" />
-    <link rel="stylesheet" href="~/Content/Trangnhom-caidat.css"/>
+    <link rel="stylesheet" href="~/Content/Trangnhom-caidat.css" />
     <script src="~/Scripts/capstone-rename-later-v1.0.js"></script>
     <script src="~/Scripts/Custom/group.js"></script>
     <script src="~/Scripts/Custom/report-action.js"></script>

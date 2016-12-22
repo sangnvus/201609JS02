@@ -92,9 +92,10 @@
                         <div class="row">
                             <div class="col-md-10" style="padding-left:25%;">
                                 <strong data-toggle="tooltip" title="@book.BookName">
-                                    <a href="@Url.Action("Details", "Books", new { id = @book.BookId })">@book.BookName.ToUpper()</a>
+                                    <a style="overflow: hidden;text-overflow: ellipsis;display: block;white-space: nowrap;"
+                                       href="@Url.Action("Details", "Books", new { id = @book.BookId })">@book.BookName.ToUpper()</a>
                                 </strong>
-                                <br>@foreach (var author in book.AuthorName)
+                                @foreach (var author in book.AuthorName)
                                 {
                                     if (book.AuthorName.Last().Equals(author))
                                     {
@@ -147,7 +148,8 @@
                                 <div class="col-md-6 col-sm-12 col-xs-12"></div>
                                 <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
                                     <!--Button đăng bài post-->
-                                    <input class="inputbooktag txt" type="text" id="txtAutocomplete" placeholder="Nhập thẻ sách" required>
+                                    <input class="inputbooktag txt" type="text" id="txtAutocomplete" placeholder="Nhập thẻ sách" 
+                                           required>
                                     <input type="hidden" id="hiddenBookTag" />
                                     <input id="btnShare" class="btn btn-default" type="button" value="Đăng"
                                            data-url="/Index/SavePost" data-bind="click: addPost" />
@@ -193,6 +195,7 @@
                                                 </div>
                                                 <!--Drop down list gồm chức năng sửa và xóa post-->
                                                 <div class="col-md-1 pull-right">
+                                                    <!-- ko if: PostedById == '@Model.Id' -->
                                                     <button type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="fa fa-angle-down"></span>
                                                     </button>
@@ -206,6 +209,8 @@
                                                             <a href="#" data-bind="click: deletePost"> Xóa</a>
                                                         </li>
                                                     </ul>
+                                                    <!-- /ko -->
+                                                    
                                                     <!--Pop-up edit post-->
                                                     <div class="modal fade" data-bind="attr:{'id': PostId}" role="dialog">
                                                         <div class="modal-dialog">
@@ -222,7 +227,8 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-11">
-                                                                            <textarea class="write-post" style="float:left; width:500px; margin-left:20px;margin-top:-10px;" data-bind="value: Message"></textarea>
+                                                                            <textarea class="write-post" style="float:left; width:500px; margin-left:20px;margin-top:-10px;" 
+                                                                                      data-bind="value: Message"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -303,11 +309,8 @@
                                                     <div class="owner-info">
                                                         <div class="row">
 
-                                                            <!--Tên người cmt-->
-                                                            <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>
-                                                            <!--Nội dung cmt-->
+                                                            <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>                                                            <!--Nội dung cmt-->
                                                             <p style="word-wrap: break-word; font-size: 15px; margin-left: 5%;" data-bind="    html: Message"></p>
-                                                            <!--Các chức năng tương tác với comment-->
                                                             <ul class="interaction-list" style="padding-left: 5%;">
                                                                 <li>
                                                                     <button class="post-interaction-btn" style="color:grey; font-size: 12px">
@@ -315,13 +318,8 @@
                                                                         <span data-bind="text: CommentedDate"></span>
                                                                     </button>
                                                                 </li>
-                                                                <li>
-                                                                    <button class="post-interaction-btn" style="color:grey; font-size: 12px">
-                                                                        <i class="glyphicon glyphicon-remove-sign"></i>
-                                                                        <span>Xóa</span>
-                                                                    </button>
-                                                                </li>
                                                             </ul>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -358,9 +356,9 @@
                             <div class="col-md-12 list-group">
                                 <span>
                                     <strong data-toggle="tooltip" title="@hotBook.BookName.ToUpper()">
-                                        <a href="@Url.Action("Details", "Books", new { id = @hotBook.BookId })">@hotBook.BookName.ToUpper()</a>
+                                        <a style="overflow: hidden;text-overflow: ellipsis;display: block;white-space: nowrap;"
+                                           href="@Url.Action("Details", "Books", new { id = @hotBook.BookId })">@hotBook.BookName.ToUpper()</a>
                                     </strong>
-                                    <br>
                                     @foreach (var author in hotBook.AuthorName)
                                     {
                                         if (hotBook.AuthorName.Last().Equals(author))
@@ -506,6 +504,7 @@
 
     @*<script src="~/Scripts/jquery-ui-1.12.1.js"></script>*@
     <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/Custom/newfeed.js"></script>
 }
 
 <script>
