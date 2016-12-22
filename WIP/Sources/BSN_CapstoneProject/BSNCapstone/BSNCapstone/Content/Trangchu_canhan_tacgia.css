@@ -199,9 +199,9 @@ h1 { font-size: 1.5em; margin: 10px; }
     background-color: #224A86;
 }
 #binhluan1{
-    color:white;
-    text-decoration-color:white;
-    background-color: #224A86;
+    color:black;
+    text-decoration-color:black;
+    background-color: #B4CDCD;
     font-size:10px;
 }
 /***********************************POST*************************************************/
@@ -215,9 +215,9 @@ h6:hover {
 }
 
 
-#inputbooktag{
+.txt{
     width: 50%;
-    border: 2px solid #365899;
+    border: 2px solid #B4CDCD;
     border-radius: 10px;
     height: 30px;
     text-align:center;

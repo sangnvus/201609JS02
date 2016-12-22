@@ -657,6 +657,7 @@ namespace BSNCapstone.Controllers
             }
         }
         #endregion
+        [AllowAnonymous]
         [Authorize(Roles="Admin")]
         //GET: /Account/Users
         public ActionResult Users(string searchString, string currentFilter, int? page)
@@ -682,6 +683,7 @@ namespace BSNCapstone.Controllers
             return View(users.ToPagedList(pageNumber, pageSize));
         }
 
+        [AllowAnonymous]
         [Authorize(Roles="Admin")]
         //GET: /Account/Authors
         public ActionResult Authors(string searchString, string currentFilter, int? page)
@@ -707,6 +709,7 @@ namespace BSNCapstone.Controllers
             return View(authors.ToPagedList(pageNumber, pageSize));
         }
 
+        [AllowAnonymous]
         [Authorize(Roles="Admin")]
         //POST: /Account/AuthorConfirm/id
         [HttpPost]

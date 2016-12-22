@@ -218,5 +218,15 @@ namespace BSNCapstone.Controllers
             Context.Users.UpdateOneAsync(x => x.Id.Equals(new ObjectId(id)), update);
             return Json("");
         }
+
+        [HttpPost]
+        public ActionResult GetBookTag(string input)
+        {
+
+            var authors = Context.Books.AsQueryable().Where(p => p.BookName.ToLower().Contains(input));
+            //.Select(p => new { p.AuthorName ,p.Id}).Distinct();
+            return Json(authors, JsonRequestBehavior.AllowGet);
+
+        }
     }
 }

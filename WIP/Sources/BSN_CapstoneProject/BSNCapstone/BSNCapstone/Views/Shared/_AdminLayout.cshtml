@@ -40,14 +40,14 @@
     <div class="col-md-12" style="position: relative; top: 50px;">
         <div class="col-md-2">
             <div class="row">
-                <div class="thumbnail">
+                @*<div class="thumbnail">
                     @cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                         .Height(200).Width(200).Crop("fill")).BuildImageTag(user.Avatar,
                             new CloudinaryDotNet.StringDictionary("class=thumbnail inline"))
                     <div class="caption">
                         <h4>@user.UserName.ToUpper()</h4>
                     </div>
-                </div>
+                </div>*@
             </div>
             <div class="btn-group-vertical" role="group" aria-label="group">
                 @*<button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Index", "Home")'">Tổng quan</button>*@

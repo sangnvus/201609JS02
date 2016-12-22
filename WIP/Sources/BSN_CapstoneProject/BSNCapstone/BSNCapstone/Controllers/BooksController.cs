@@ -46,6 +46,7 @@ namespace BSNCapstone.Controllers
 
         //
         // GET: /Books/
+        [AllowAnonymous]
         [Authorize(Roles="Admin")]
         public ActionResult Index(string searchString, string currentFilter, int? page)
         {
@@ -153,6 +154,7 @@ namespace BSNCapstone.Controllers
 
         //
         // GET: /Books/Create
+        [AllowAnonymous]
         public ActionResult Create()
         {
             ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
@@ -165,6 +167,7 @@ namespace BSNCapstone.Controllers
         //
         // POST: /Books/Create
         [Authorize(Roles="Admin")]
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult Create(Book book)
         {

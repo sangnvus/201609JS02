@@ -68,7 +68,6 @@ namespace BSNCapstone.Hubs
                 }
             }
 
-
             // HuyenPT. Create. Start
             postsForShow = postsForShow.OrderByDescending(x => x.PostedDate).ToList();
             // HuyenPT. Create. End

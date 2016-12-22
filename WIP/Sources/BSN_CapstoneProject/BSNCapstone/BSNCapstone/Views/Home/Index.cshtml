@@ -20,7 +20,7 @@
         <div class="row content">
             <!-------------------------------Phần bên trái-------------------------------------->
             @*HaiCM. Create. Start. 19-11-2016*@
-            <div class="col-md-3 col-sm-4 col-xs-12 sidenav">
+            <div class="col-md-2 col-sm-4 col-xs-12 sidenav">
                 <div class="row">
                     <div class="col-md-12" style="padding-left:10px; margin-top:20px">
                         <div class="col-md-6" style="padding-left:7%;">
@@ -29,18 +29,18 @@
                                 new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                         </div>
                         <br>
-                        <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 7%;">
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 10%;">
                             <ul class="list-group">
-                                <a href="@Url.Action("Details", "Timeline", new { id = @Model.Id })"><strong>@Model.UserName</strong></a>
+                                <a style="color: #8B3A3A;" href="@Url.Action("Details", "Timeline", new { id = @Model.Id })">@Model.UserName</a>
                                 <br>
-                                <a href="@Url.Action("EditProfile", "Timeline", new { id = @Model.Id })">Chỉnh sửa thông tin cá nhân</a>
+                                <a style="font-size:13px;" href="@Url.Action("EditProfile", "Timeline", new { id = @Model.Id })">Chỉnh sửa thông tin cá nhân</a>
                             </ul>
 
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="text-left" class="panel-heading" style="padding-left:7%">
+                    <div style="text-align:center" class="panel-heading" style="padding-left:7%">
                         <h5><strong>NHÓM</strong></h5>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
                         <script>$("#@newBook input[value='@book.AvarageRatingPoint']").attr('checked', true);</script>
                         <h5 style="float:left;padding-left:20%;">@book.RateTime lượt đánh giá</h5>
                     </div>
-                    newBook++;
+                                newBook++;
                 }
             </div>
             @*HaiCM. Creat. End. 19-11-2016*@
@@ -147,7 +147,7 @@
                                 <div class="col-md-6 col-sm-12 col-xs-12"></div>
                                 <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
                                     <!--Button đăng bài post-->
-                                    <input type="text" id="txtAutocomplete" class="txt" placeholder="Nhập thẻ sách" required />
+                                    <input class="inputbooktag txt" type="text" id="txtAutocomplete" placeholder="Nhập thẻ sách" required>
                                     <input type="hidden" id="hiddenBookTag" />
                                     <input id="btnShare" class="btn btn-default" type="button" value="Đăng"
                                            data-url="/Index/SavePost" data-bind="click: addPost" />
@@ -216,9 +216,13 @@
                                                                 </div>
                                                                 <div class="midle-modal">
                                                                     <div class="row content" style="margin-top:10px;">
-                                                                        <div class="owner-avatar" style="margin:0 0 5px 26px;">
-                                                                            <img data-bind="attr: { src :'http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill/' + PostedByAvatar }" />
-                                                                            <textarea class="write-post" style="float:left; width:200%;" data-bind="value: Message"></textarea>
+                                                                        <div class="col-md-1">
+                                                                            <div class="owner-avatar" style="margin:0 0 5px 26px">
+                                                                                <img data-bind="attr: { src :'http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill/' + PostedByAvatar }" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-11">
+                                                                            <textarea class="write-post" style="float:left; width:500px; margin-left:20px;margin-top:-10px;" data-bind="value: Message"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -333,7 +337,7 @@
             <!--------------------------------Phần bên phải------------------------------------->
             @*HaiCM. Create. Start. 19-11-2016*@
             <div class="col-md-3 sidenav">
-                <div class="text-center" class="panel-heading" style="padding-right:16%;">
+                <div style="text-align:center" class="panel-heading" style="padding-right:16%;">
                     <h5 style="margin-top: 4%;"><strong>XU HƯỚNG HIỆN NAY</strong></h5>
                 </div>
                 <!--  Bắt đầu phần trending now -->
@@ -348,20 +352,7 @@
                                     .Height(117).Width(90).Crop("fill")).BuildImageTag(hotBook.ImgPublicId,
                                         new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                             </div>
-                            <fieldset class="rating" id="@hotBookFieldSet" disabled>
-                                <input type="radio" id="star5" name="hot @hotBook.BookName" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
-                                <input type="radio" id="star4half" name="hot @hotBook.BookName" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                                <input type="radio" id="star4" name="hot @hotBook.BookName" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                                <input type="radio" id="star3half" name="hot @hotBook.BookName" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                                <input type="radio" id="star3" name="hot @hotBook.BookName" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
-                                <input type="radio" id="star2half" name="hot @hotBook.BookName" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                                <input type="radio" id="star2" name="hot @hotBook.BookName" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                                <input type="radio" id="star1half" name="hot @hotBook.BookName" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                                <input type="radio" id="star1" name="hot @hotBook.BookName" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                                <input type="radio" id="starhalf" name="hot @hotBook.BookName" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                            </fieldset>
-                            <script>$("#@hotBookFieldSet input[value='@hotBook.AvarageRatingPoint']").attr('checked', true);</script>
-                            <h5 style="float:left;">@hotBook.RateTime lượt đánh giá</h5>
+                            
                             <br>
                             <br>
                             <div class="col-md-12 list-group">
@@ -386,93 +377,107 @@
                                         }
                                     }
                                 </span>
+                                <fieldset class="rating" id="@hotBookFieldSet" disabled>
+                                    <input type="radio" id="star5" name="hot @hotBook.BookName" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
+                                    <input type="radio" id="star4half" name="hot @hotBook.BookName" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                    <input type="radio" id="star4" name="hot @hotBook.BookName" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                                    <input type="radio" id="star3half" name="hot @hotBook.BookName" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                    <input type="radio" id="star3" name="hot @hotBook.BookName" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
+                                    <input type="radio" id="star2half" name="hot @hotBook.BookName" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                    <input type="radio" id="star2" name="hot @hotBook.BookName" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                                    <input type="radio" id="star1half" name="hot @hotBook.BookName" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                    <input type="radio" id="star1" name="hot @hotBook.BookName" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                                    <input type="radio" id="starhalf" name="hot @hotBook.BookName" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                                </fieldset>
+                                <script>$("#@hotBookFieldSet input[value='@hotBook.AvarageRatingPoint']").attr('checked', true);</script>
+                                <h5 style="float:left;">@hotBook.RateTime lượt đánh giá</h5>
                             </div>
                         </div>
-                        hotBookFieldSet++;
+                                    hotBookFieldSet++;
                     }
+                </div>
+                <!--VÒNG FOR KẾT THÚC Ở ĐÂY-->
+                <br>
+                <br>
+                <!-- Kết thúc phần trending now -->
+                <!--  Bắt đầu phần tác giả -->
+                <div class="row">
+                    <div style="text-align:center" class="panel-heading">
+                        <h5><strong>TÁC GIẢ</strong></h5>
                     </div>
-                    <!--VÒNG FOR KẾT THÚC Ở ĐÂY-->
-                    <br>
-                    <br>
-                    <!-- Kết thúc phần trending now -->
-                    <!--  Bắt đầu phần tác giả -->
-                    <div class="row">
-                        <div class="text-left" class="panel-heading">
-                            <h5><strong style="padding-left:35%;">TÁC GIẢ</strong></h5>
-                        </div>
-                        <br/>
-                        @foreach (var author in randomAuthor)
-                        {
-                            <div class="col-md-6">
-                                <div class="col-md-6" style="padding-left:0;">
-                                    @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                    <br />
+                    @foreach (var author in randomAuthor)
+                    {
+                        <div class="col-md-6">
+                            <div class="col-md-6" style="padding-left:0;">
+                                @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                                         .Height(117).Width(90).Crop("fill")).BuildImageTag(author.AuthorImg,
                                             new CloudinaryDotNet.StringDictionary("class=img-rounded")))
-                                </div>
-                                <br>
-                                <br>
-                                <br>
-                                <div class="hidden" id="FollowHandleHomePage" data-followerid="@Model.Id" data-url="@Url.Action("FollowHandle", "Timeline")"></div>
-                                @if (!Model.Following.Contains(author.UserId))
-                                {
-                                    <button class="button buttonFo" style="margin-left:4px;" data-option="1" data-author="@author.UserId">Theo dõi</button>
-                                    <button class="button buttonFo" style="margin-left:4px; display:none;" data-option="2" data-author="@author.UserId">Bỏ Theo dõi</button>
-                                }
-                                else
-                                {
-                                    <button class="button buttonFo" style="margin-left:4px; display: none;" data-option="1" data-author="@author.UserId">Theo dõi</button>
-                                    <button class="button buttonFo" style="margin-left:4px;" data-option="2" data-author="@author.UserId">Bỏ Theo dõi</button>
-                                }
-                                <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 0;">
-                                    <ul class="list-group">
-                                        <i class="authorname">
-                                            <strong data-toggle="tooltip" title="@author.AuthorName">
-                                                @if (!author.UserId.IsEmpty())
-                                                {
-                                                    <a href="@Url.Action("Details", "Timeline", new { id = @author.UserId })">
-                                                        @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.AuthorName.ToLower())
-                                                    </a>
-                                                }
-                                                else
-                                                {
-                                                    @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.AuthorName.ToLower())
-                                                }
-                                            </strong>
-                                        </i>
-                                    </ul>
-                                </div>
                             </div>
-                        }
-                    </div>
-                    <!--  Kết thúc phần tác giả -->
-                    <!--  Bắt đầu phần nhà xuất bản -->
-                    <br>
-                    <div class="text-left" class="panel-heading">
-                        <h5><strong style="padding-left:26%;">NHÀ XUẤT BẢN</strong></h5>
-                    </div>
-                    <br>
-                    @foreach (var publisher in randomPublisher)
-                    {
-                        <div class="col-md-6" style="padding-left: 0;">
-                            @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
-                                        .Height(117).Width(90).Crop("fill")).BuildImageTag(publisher.ImagePublicId,
-                                            new CloudinaryDotNet.StringDictionary("class=img-rounded")))
-                            <div class="row">
-                                <div class="col-md-12" style="padding-left:6%;">
-                                    <ul class="list-group">
-                                        <h5 data-toggle="tooltip" title="@publisher.Name">@publisher.Name</h5>
-                                    </ul>
-                                </div>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="hidden" id="FollowHandleHomePage" data-followerid="@Model.Id" data-url="@Url.Action("FollowHandle", "Timeline")"></div>
+                            @if (!Model.Following.Contains(author.UserId))
+                            {
+                                <button class="button buttonFo" style="margin-left:4px;" data-option="1" data-author="@author.UserId">Theo dõi</button>
+                                <button class="button buttonFo" style="margin-left:4px; display:none;" data-option="2" data-author="@author.UserId">Bỏ Theo dõi</button>
+                            }
+                            else
+                            {
+                                <button class="button buttonFo" style="margin-left:4px; display: none;" data-option="1" data-author="@author.UserId">Theo dõi</button>
+                                <button class="button buttonFo" style="margin-left:4px;" data-option="2" data-author="@author.UserId">Bỏ Theo dõi</button>
+                            }
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 2px;">
+                                <ul class="list-group">
+                                    <i class="authorname">
+                                        <strong data-toggle="tooltip" title="@author.AuthorName">
+                                            @if (!author.UserId.IsEmpty())
+                                            {
+                                                <a href="@Url.Action("Details", "Timeline", new { id = @author.UserId })">
+                                                    @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.AuthorName.ToLower())
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                @System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(@author.AuthorName.ToLower())
+                                            }
+                                        </strong>
+                                    </i>
+                                </ul>
                             </div>
                         </div>
                     }
                 </div>
-                <!--  Kết thúc phần tác giả  -->
-
+                <!--  Kết thúc phần tác giả -->
+                <!--  Bắt đầu phần nhà xuất bản -->
+                <br>
+                <div style="text-align:center" class="panel-heading">
+                    <h5><strong style="padding-left:26%;">NHÀ XUẤT BẢN</strong></h5>
+                </div>
+                <br>
+                @foreach (var publisher in randomPublisher)
+                {
+                    <div class="col-md-6" style="padding-left: 0;">
+                        @(cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
+                                        .Height(117).Width(90).Crop("fill")).BuildImageTag(publisher.ImagePublicId,
+                                            new CloudinaryDotNet.StringDictionary("class=img-rounded")))
+                        <div class="row">
+                            <div class="col-md-12" style="padding-left:18%;">
+                                <ul class="list-group">
+                                    <h5 data-toggle="tooltip" title="@publisher.Name">@publisher.Name</h5>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
-            @*HaiCM. Create. End. 19-11-2016*@
-            <!--------------------------------Hết phần bên phải------------------------------------->
+            <!--  Kết thúc phần tác giả  -->
+
         </div>
+        @*HaiCM. Create. End. 19-11-2016*@
+        <!--------------------------------Hết phần bên phải------------------------------------->
+    </div>
 </body>
 </html>
 

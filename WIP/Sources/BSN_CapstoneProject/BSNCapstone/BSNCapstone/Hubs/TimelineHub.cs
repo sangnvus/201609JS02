@@ -61,6 +61,7 @@ namespace BSNCapstone.Hubs
 
                 //tạo 1 colection với các biến giống với view để hiển thị Post và comment
                 var userPost = con.Users.Find(x => x.Id == item.PostedById).FirstOrDefault();
+                var book = con.Books.Find(x => x.Id == item.BookTag).FirstOrDefault();
                 var ret = new
                 {
                     Message = item.Message,
@@ -70,7 +71,8 @@ namespace BSNCapstone.Hubs
                     PostedDate = item.PostedDate,
                     PostId = item.Id,
                     PostComments = listComment,
-                    NumOfPostLike = listPostLike.Count
+                    NumOfPostLike = listPostLike.Count,
+                    BookTag = book.BookName
                 };
                 listPost.Add(ret);
             }
@@ -86,7 +88,8 @@ namespace BSNCapstone.Hubs
             {
                 Message = post.Message,
                 PostedById = Context.User.Identity.GetUserId(),
-                PostedDate = DateTime.Now
+                PostedDate = DateTime.Now,
+                BookTag = post.BookTag
             };
             con.Posts.InsertOneAsync(newPost);
 
@@ -94,6 +97,7 @@ namespace BSNCapstone.Hubs
             //Lấy info của post mới nhất <vừa lưu> để truyền qua view
             Post disPost = con.Posts.Find(_ => true).Limit(1).SortByDescending(m => m.PostedDate).FirstOrDefault();
             var userPost = con.Users.Find(x => x.Id == newPost.PostedById).FirstOrDefault();
+            var book = con.Books.Find(x => x.Id == disPost.BookTag).FirstOrDefault();
             var ret = new
             {
                 PostId = disPost.Id,
@@ -101,7 +105,8 @@ namespace BSNCapstone.Hubs
                 PostedByName = userPost.UserName,
                 PostedByAvatar = userPost.Avatar,
                 PostedById = disPost.PostedById,
-                PostedDate = disPost.PostedDate
+                PostedDate = disPost.PostedDate,
+                BookTag = book.BookName
             };
             Clients.Caller.addPost(ret);
         }

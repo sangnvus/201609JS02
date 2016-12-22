@@ -176,7 +176,8 @@
                                 <div class="col-md-6 col-sm-12 col-xs-12"></div>
                                 <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: right;">
                                     <!--Button đăng bài post-->
-                                    <input type="text" id="inputbooktag" class="txt" placeholder="Nhập thẻ sách" required />
+                                    <input type="text" id="txtAutocomplete" class="txt" placeholder="Nhập thẻ sách" required />
+                                    <input type="hidden" id="hiddenBookTag" />
                                     <input id="btnShare" class="btn btn-default" type="button" value="Đăng"
                                            data-url="/Index/SavePost" data-bind="click: addPost" />
                                 </div>
@@ -200,18 +201,21 @@
                                         <div class="owner-info">
                                             <!--Tên người dùng-->
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <a class="owner-name" data-bind="text : PostedByName"></a>
-                                                    <!--Thời gian post bài-->
-                                                    <div class="row">
-                                                        <div class="col-md-12" style="color:grey; font-size: 12px">
-                                                            <i class="glyphicon glyphicon-time"></i>
-                                                            <span data-bind="text : PostedDate"></span>
-                                                        </div>
-                                                    </div>
+                                                <div class="col-md-11">
+                                                    <span>
+                                                        <a class="owner-name" data-bind="text : PostedByName"></a>
+                                                        chia sẻ về cuốn sách <a data-bind="text : BookTag"></a>
+                                                    </span>
+                                                <!--Thời gian post bài-->
+                                                   <div class="row">
+                                                       <div class="col-md-12" style="color:grey; font-size: 12px">
+                                                           <i class="glyphicon glyphicon-time"></i>
+                                                           <span data-bind="text : PostedDate"></span>
+                                                       </div>
+                                                   </div>
                                                 </div>
                                                 <!--Drop down list gồm chức năng sửa và xóa post-->
-                                                <div class="col-md-6 pull-right">
+                                                <div class="col-md-1 pull-right">
                                                     <button type="button" class="btn btn-default dropdown-toggle buttondropdown pull-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="fa fa-angle-down"></span>
                                                     </button>
@@ -235,9 +239,14 @@
                                                                 </div>
                                                                 <div class="midle-modal">
                                                                     <div class="row content" style="margin-top:10px;">
-                                                                        <div class="owner-avatar" style="margin:0 0 5px 26px;">
-                                                                            <img data-bind="attr: { src :'http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill/' + PostedByAvatar }" />
-                                                                            <input type="text" class="write-post" style="float:left; width:auto" data-bind="value: Message" />
+                                                                        <div class="col-md-1">
+                                                                            <div class="owner-avatar" style="margin:0 0 5px 26px">
+                                                                                <img data-bind="attr: { src :'http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill/' + PostedByAvatar }" />
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-11">
+                                                                            <textarea class="write-post" style="float:left; width:500px; margin-left:20px;margin-top:-10px;" data-bind="value: Message"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -256,7 +265,7 @@
                                     </div>
                                 </div>
                                 <!--Nội dung bài post-->
-                                <h6 id="eff1"><strong> Bài viết chia sẻ về cuốn sách <a>#Tên sách</a></strong></h6>
+
                                 <br>
                                 <div class="divider-horizontal"></div>
                                 <p class="post-content"><span style="word-wrap:break-word;" data-bind="html : Message"></span></p>
@@ -271,7 +280,7 @@
                                         <ul class="interaction-list">
                                             <!--Nút thích-->
                                             <li>
-                                                <button class="post-interaction-btn" data-bind="click: addPostLike" style="color:hotpink ">
+                                                <button class="post-interaction-btn" data-bind="click: addPostLike" style="color: #224A86;">
                                                     <i class="glyphicon glyphicon-thumbs-up"></i>
                                                     <span data-bind="text : NumOfPostLike"></span>
                                                     <span>Thích</span>
@@ -284,7 +293,7 @@
 
                                 <!--Notify của phần comment-->
                                 <a data-bind="click: loadNewComments, visible: NewComments().length > 0">
-                                    <span data-bind="    text: NewComments().length"></span> bình luận mới
+                                    <span data-bind="    text: NewComments().length"></span>
                                 </a>
                                 <!--Ô ĐỂ NHẬP BÌNH LUẬN-->
                                 <div>
@@ -298,13 +307,13 @@
                                                     new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                                                 </div>
                                                 <div class="owner-info">
-                                                    <div class="pull-left form-inline">
+                                                    <div class="col-md-10 col-sm-12 col-xs-12" class="pull-left form-inline">
                                                         <!--Textbox để viết bình luận-->
-                                                        <input type="text" class="form-control" style="width: 150%; height: 30px;" data-bind="value : newCommentMessage" placeholder="Viết bình luận..." />
+                                                        <input type="text" class="form-control" style="width: 100%; height: 30px;" data-bind="value : newCommentMessage" placeholder="Viết bình luận..." />
                                                     </div>
-                                                    <div class="pull-right">
+                                                    <div class="col-md-2 col-sm-12 col-xs-12">
                                                         <!--Button để bình luận-->
-                                                        <input type="button" class="btn btn-warning" value="Bình luận" data-bind="click: addComment" />
+                                                        <input style="text-align: right; " id="binhluan1" class="btn btn-default" type="button" value="Bình luận" data-bind="click: addComment" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -324,25 +333,24 @@
                                                             <!--Tên người cmt-->
                                                             <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>
                                                             <!--Nội dung cmt-->
-                                                            <p data-bind="    html: Message" style="font-size: 15px; margin-left: 5%;"></p>
+                                                            <p data-bind="    html: Message" style="word-wrap: break-word; font-size: 15px; margin-left: 5%;"></p>
+                                                            <!--Các chức năng tương tác với comment-->
+                                                            <ul class="interaction-list" style="padding-left: 8%;">
+                                                                <li>
+                                                                    <button class="post-interaction-btn" style="color:grey; font-size: 12px">
+                                                                        <i class="glyphicon glyphicon-time"></i>
+                                                                        <span data-bind="text: CommentedDate"></span>
+                                                                    </button>
+                                                                </li>
+                                                                <li>
+                                                                    <button class="post-interaction-btn" style="color:grey; font-size: 12px">
+                                                                        <i class="glyphicon glyphicon-remove-sign"></i>
+                                                                        <span>Xóa</span>
+                                                                    </button>
+                                                                </li>
+                                                            </ul>
                                                         </div>
                                                     </div>
-
-                                                    <!--Các chức năng tương tác với comment-->
-                                                    <ul class="interaction-list" style="padding-left: 8%;">
-                                                        <li>
-                                                            <button class="post-interaction-btn" style="color:grey; font-size: 12px">
-                                                                <i class="glyphicon glyphicon-time"></i>
-                                                                <span data-bind="text: CommentedDate"></span>
-                                                            </button>
-                                                        </li>
-                                                        <li>
-                                                            <button class="post-interaction-btn" style="color:grey; font-size: 12px">
-                                                                <i class="glyphicon glyphicon-remove-sign"></i>
-                                                                <span>Xóa</span>
-                                                            </button>
-                                                        </li>
-                                                    </ul>
                                                 </div>
                                             </div>
                                         </ul>
@@ -354,6 +362,7 @@
                 </div>
 
             </div>
+                
             <!--  Bắt đầu phần bên phải -->
             <div class="col-md-4 sidenav">
                 <div class="text-center" class="panel-heading">
@@ -372,20 +381,7 @@
                                     .Height(117).Width(90).Crop("fill")).BuildImageTag(interactBook.ImgPublicId,
                                         new CloudinaryDotNet.StringDictionary("class=img-rounded")))
                             </div>
-                            <fieldset class="rating" id="@interactBookId" disabled>
-                                <input type="radio" id="star5" name="hot @interactBook.BookName" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
-                                <input type="radio" id="star4half" name="hot @interactBook.BookName" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                                <input type="radio" id="star4" name="hot @interactBook.BookName" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                                <input type="radio" id="star3half" name="hot @interactBook.BookName" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                                <input type="radio" id="star3" name="hot @interactBook.BookName" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
-                                <input type="radio" id="star2half" name="hot @interactBook.BookName" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                                <input type="radio" id="star2" name="hot @interactBook.BookName" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                                <input type="radio" id="star1half" name="hot @interactBook.BookName" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                                <input type="radio" id="star1" name="hot @interactBook.BookName" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                                <input type="radio" id="starhalf" name="hot @interactBook.BookName" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                            </fieldset>
-                            <script>$("#@interactBookId input[value='@interactBook.AvarageRating']").attr('checked', true);</script>
-                            <h5 style="float:left;">@interactBook.RateTime đánh giá</h5>
+                            
                             <br>
                             <br>
                             <div class="col-md-12 list-group">
@@ -410,6 +406,20 @@
                                         }
                                     }
                                 </span>
+                                <fieldset class="rating" id="@interactBookId" disabled>
+                                    <input type="radio" id="star5" name="hot @interactBook.BookName" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
+                                    <input type="radio" id="star4half" name="hot @interactBook.BookName" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                    <input type="radio" id="star4" name="hot @interactBook.BookName" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                                    <input type="radio" id="star3half" name="hot @interactBook.BookName" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                    <input type="radio" id="star3" name="hot @interactBook.BookName" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
+                                    <input type="radio" id="star2half" name="hot @interactBook.BookName" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                    <input type="radio" id="star2" name="hot @interactBook.BookName" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                                    <input type="radio" id="star1half" name="hot @interactBook.BookName" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                    <input type="radio" id="star1" name="hot @interactBook.BookName" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                                    <input type="radio" id="starhalf" name="hot @interactBook.BookName" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                                </fieldset>
+                                <script>$("#@interactBookId input[value='@interactBook.AvarageRating']").attr('checked', true);</script>
+                                <h5 style="float:left;">@interactBook.RateTime đánh giá</h5>
                             </div>
                         </div>
                         interactBookId++;
@@ -446,4 +456,40 @@
     <link rel="stylesheet" href="~/Content/Trangchu_canhan_tacgia.css">
     <link rel="stylesheet" href="~/Content/font-awesome.css">
     <script src="~/Scripts/Custom/report-action.js"></script>
+
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
 }
+
+<script>
+    $(document).ready(function () {
+        $("#txtAutocomplete").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("GetBookTag", "Timeline")',
+                    dataType: 'Json',
+                    type: 'POST',
+                    data: { input: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.BookName, value: item.Id
+                            };
+                        }))
+                    }
+                });
+
+            },
+            focus: function (event, ui) {
+                $(this).val(ui.item.label)
+                return false;
+            },
+
+            select: function (event, ui) {
+                $("#hiddenBookTag").val(ui.item.value);
+                $(this).val(ui.item.label)
+                return false;
+            },
+        });
+    })
+</script>

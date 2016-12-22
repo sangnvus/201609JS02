@@ -276,9 +276,6 @@
     <Content Include="Content\DangkySlide-Tgdk.css" />
     <Content Include="Content\datatables.css" />
     <Content Include="Content\font-awesome.css" />
-    <Content Include="Content\Image\avatar_default.png" />
-    <Content Include="Content\Image\cover_default.jpg" />
-    <Content Include="Content\Image\logo.png" />
     <Content Include="Content\Layout.css" />
     <Content Include="Content\loader.css" />
     <Content Include="Content\lock-page.css" />
@@ -368,15 +365,6 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Custom\timeline-post.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="SearchBox\css\style.css" />
-    <Content Include="SearchBox\images\bg.jpg" />
-    <Content Include="SearchBox\images\search-icon.png" />
-    <Content Include="SearchBox\js\jquery.color.js" />
-    <Content Include="SearchBox\js\script.js" />
-    <Content Include="Tageditor\css\jquery.tag-editor.css" />
-    <Content Include="Tageditor\js\jquery.caret.min.js" />
-    <Content Include="Tageditor\js\jquery.tag-editor.js" />
-    <Content Include="Tageditor\js\jquery.tag-editor.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
