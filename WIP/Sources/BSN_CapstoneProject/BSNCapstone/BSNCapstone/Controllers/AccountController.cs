@@ -98,6 +98,11 @@ namespace BSNCapstone.Controllers
                     return View("Error");
                 }
             }
+            if (user.Locked == true)
+            {
+                ViewBag.errorMessage = "Hiện tại tài khoản của bạn đang bị khóa";
+                return View("Error");
+            }
             if (user.Roles.FirstOrDefault().Equals("Admin"))
             {
                 return RedirectToAction("Users", "Account");

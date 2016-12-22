@@ -1,9 +1,26 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
 
 @{
-    ViewBag.Title = "Error";
+    Layout = null;
 }
+<head>
+    <title>Lỗi đăng nhập</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="~/Content/DangkySlide-Tgdk.css" rel="stylesheet">
+    <!-----Sử dụng DangkySlide-tgdk.css------>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">@ViewBag.errorMessage</h2>
-
+<body>
+    <!-- Navigation -->
+    <nav class="thanhbar" style="height: 11%;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="~/Content/Image/logo.png" alt="Bookaholic.com" style="width:180px; height:40px;margin-top:9%" onclick="window.location.href='@Url.Action("Login", "Account")'">
+            </div>
+        </div>
+    </nav>
+    <h4 class="text-danger" style="text-align:center;">@ViewBag.errorMessage</h4>
+</body>

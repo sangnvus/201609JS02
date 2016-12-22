@@ -41,38 +41,55 @@ namespace BSNCapstone.Controllers
             {
                 list.Add(ReportContentViewModel.GetEnumDescription(x));
             }
-            Console.Write(list);
             ViewBag.reportContentList = list;
-            var user = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
-            ViewBag.currentUser = User.Identity.GetUserId();
-            ViewBag.cloudinary = cloudinary;
-            ViewBag.allBook = Context.Books.Find(_ => true).ToList();
-            ViewBag.allUser = Context.Users.Find(_ => true).ToList();
-            ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
-            ViewBag.listInteractBook = BooksControllerHelper.LastestBookInteracted(id);
-            return View(user);
+            var allUser = Context.Users.Find(_ => true).ToList();
+            if (allUser.Where(x => x.Id.Equals(id)).Any() == false)
+            {
+                ViewBag.errorMessage = "Không có kết quả!";
+                return View("NotFoundError");
+            }
+            else
+            {
+                var user = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+                ViewBag.currentUser = User.Identity.GetUserId();
+                ViewBag.cloudinary = cloudinary;
+                ViewBag.allUser = allUser;
+                ViewBag.allBook = Context.Books.Find(_ => true).ToList();
+                ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
+                ViewBag.listInteractBook = BooksControllerHelper.LastestBookInteracted(id);
+                return View(user);
+            }
         }
 
         //
         // GET: /UserProfile/Edit/5
         public ActionResult EditProfile(string id)
         {
-            var user = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
-            UserProfile newprofile = new UserProfile()
+            var allUser = Context.Users.Find(_ => true).ToList();
+            if (allUser.Where(x => x.Id.Equals(id)).Any() == false)
             {
-                id = user.Id,
-                UserName = user.UserName,
-                DOB = Convert.ToDateTime(user.DOB).ToString("dd/MM/yyyy"),
-                Gender = user.Gender,
-                Address = user.Address
-            };
-            ViewBag.cloudinary = cloudinary;
-            ViewBag.user = user;
-            ViewBag.currentUser = User.Identity.GetUserId();
-            ViewBag.allUser = Context.Users.Find(_ => true).ToList();
-            ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
-            ViewBag.listInteractBook = BooksControllerHelper.LastestBookInteracted(id);
-            return View(newprofile);
+                ViewBag.errorMessage = "Không có kết quả!";
+                return View("NotFoundError");
+            }
+            else
+            {
+                var user = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+                UserProfile newprofile = new UserProfile()
+                {
+                    id = user.Id,
+                    UserName = user.UserName,
+                    DOB = Convert.ToDateTime(user.DOB).ToString("dd/MM/yyyy"),
+                    Gender = user.Gender,
+                    Address = user.Address
+                };
+                ViewBag.cloudinary = cloudinary;
+                ViewBag.user = user;
+                ViewBag.currentUser = User.Identity.GetUserId();
+                ViewBag.allUser = allUser;
+                ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
+                ViewBag.listInteractBook = BooksControllerHelper.LastestBookInteracted(id);
+                return View(newprofile);
+            }
         }
 
         //

@@ -431,6 +431,7 @@
     <Content Include="Views\Books\BookRequest.cshtml" />
     <Content Include="Views\Timeline\Details.cshtml" />
     <Content Include="Views\Reports\Index.cshtml" />
+    <Content Include="Views\Shared\NotFoundError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

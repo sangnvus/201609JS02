@@ -90,55 +90,65 @@ namespace BSNCapstone.Controllers
             //DangVH. Create. Start (02/11/2016)
             ViewBag.cloudinary = cloudinary;
             //DangVH. Create. End (02/11/2016)
-            var book = Context.Books.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
-            foreach (var comment in book.Comments)
+            var allBook = Context.Books.Find(_ => true).ToList();
+            var check = allBook.Where(x => x.Id.Equals(id)).Any();
+            if (check == false)
             {
-                comment.LinesDescription = comment.Description.Split(new string[] { "\r\n" }, StringSplitOptions.None).ToList();
-            }
-            book.Comments = book.Comments.OrderByDescending(x => x.CreatedTime).ToList();
-            Console.Write(book);
-            var allCategory = Context.Categories.Find(_ => true).ToEnumerable();
-            ViewBag.allCategories = BooksControllerHelper.ListAllCategory();
-            ViewBag.allPublishers = Context.Publishers.Find(_ => true).ToList();
-            ViewBag.avarageRatingPoint = BooksControllerHelper.GetAverageRatingPoint(book.RatingPoint, book.RateTime);
-            // Đoạn này để tính số lượt truy cập của sách
-            var booksStatistic = Context.BooksStatistic.Find(_ => true).ToList();
-            var date = DateTime.Now;
-            var builder = Builders<BookStatistic>.Filter;
-            var filter = builder.Eq("BookId", book.Id) & builder.Eq("EachDate", date.Date.AddHours(7));
-            if (Context.BooksStatistic.Find(filter).FirstOrDefault() != null)
-            {
-                int count = Context.BooksStatistic.Find(filter).FirstOrDefault().Count + 1;
-                var update = Builders<BookStatistic>.Update.Set(x => x.Count, count);
-                Context.BooksStatistic.UpdateOneAsync(filter, update);
+                ViewBag.errorMessage = "Không có kết quả!";
+                return View("NotFoundError");
             }
             else
             {
-                var bookStatistic = new BookStatistic()
+                var book = Context.Books.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+                foreach (var comment in book.Comments)
                 {
+                    comment.LinesDescription = comment.Description.Split(new string[] { "\r\n" }, StringSplitOptions.None).ToList();
+                }
+                book.Comments = book.Comments.OrderByDescending(x => x.CreatedTime).ToList();
+                Console.Write(book);
+                var allCategory = Context.Categories.Find(_ => true).ToEnumerable();
+                ViewBag.allCategories = BooksControllerHelper.ListAllCategory();
+                ViewBag.allPublishers = Context.Publishers.Find(_ => true).ToList();
+                ViewBag.avarageRatingPoint = BooksControllerHelper.GetAverageRatingPoint(book.RatingPoint, book.RateTime);
+                // Đoạn này để tính số lượt truy cập của sách
+                var booksStatistic = Context.BooksStatistic.Find(_ => true).ToList();
+                var date = DateTime.Now;
+                var builder = Builders<BookStatistic>.Filter;
+                var filter = builder.Eq("BookId", book.Id) & builder.Eq("EachDate", date.Date.AddHours(7));
+                if (Context.BooksStatistic.Find(filter).FirstOrDefault() != null)
+                {
+                    int count = Context.BooksStatistic.Find(filter).FirstOrDefault().Count + 1;
+                    var update = Builders<BookStatistic>.Update.Set(x => x.Count, count);
+                    Context.BooksStatistic.UpdateOneAsync(filter, update);
+                }
+                else
+                {
+                    var bookStatistic = new BookStatistic()
+                    {
+                        BookId = book.Id,
+                        EachDate = date.Date.AddHours(7)
+                    };
+                    Context.BooksStatistic.InsertOneAsync(bookStatistic);
+                }
+                // Hết đoạn tính số lượt truy cập sách
+                // Xử lý sách đã xem và đánh giá gần đây của người dùng hiện tại
+                var userInteractFilter = Builders<ApplicationUser>.Filter.Where(x => x.Id.Equals(User.Identity.GetUserId()));
+                var userInteractUpdate = Builders<ApplicationUser>.Update.Push(x => x.Interacbook, new InteractBookViewModel
+                {
+                    Id = ObjectId.GenerateNewId(),
                     BookId = book.Id,
-                    EachDate = date.Date.AddHours(7)
-                };
-                Context.BooksStatistic.InsertOneAsync(bookStatistic);
+                    InteractTime = DateTime.Now.AddHours(7)
+                });
+                Context.Users.UpdateOneAsync(userInteractFilter, userInteractUpdate);
+                // Hết phần xử lí sách đã xem và đánh giá gần đây của người dùng hiện tại
+                ViewBag.listSameBook = BooksControllerHelper.SuggestBook(id, 4); // Lấy list sách có chung thể loại
+                Random random = new Random((int)(DateTime.Now.Ticks));
+                ViewBag.randomGroup = Context.Groups.Find(_ => true).ToList().OrderBy(x => random.Next()).Take(4).ToList(); // List nhóm ngẫu nhiên
+                ViewBag.listGroupHaveTagIsCurrentBook = GroupsControllerHelper.SuggestGroup(id); // List nhóm có thẻ là sách hiện tại
+                ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
+                ViewBag.allUser = Context.Users.Find(_ => true).ToList();
+                return View(book);
             }
-            // Hết đoạn tính số lượt truy cập sách
-            // Xử lý sách đã xem và đánh giá gần đây của người dùng hiện tại
-            var userInteractFilter = Builders<ApplicationUser>.Filter.Where(x => x.Id.Equals(User.Identity.GetUserId()));
-            var userInteractUpdate = Builders<ApplicationUser>.Update.Push(x => x.Interacbook, new InteractBookViewModel
-            {
-                Id = ObjectId.GenerateNewId(),
-                BookId = book.Id,
-                InteractTime = DateTime.Now.AddHours(7)
-            });
-            Context.Users.UpdateOneAsync(userInteractFilter, userInteractUpdate);
-            // Hết phần xử lí sách đã xem và đánh giá gần đây của người dùng hiện tại
-            ViewBag.listSameBook = BooksControllerHelper.SuggestBook(id, 4); // Lấy list sách có chung thể loại
-            Random random = new Random((int)(DateTime.Now.Ticks));
-            ViewBag.randomGroup = Context.Groups.Find(_ => true).ToList().OrderBy(x => random.Next()).Take(4).ToList(); // List nhóm ngẫu nhiên
-            ViewBag.listGroupHaveTagIsCurrentBook = GroupsControllerHelper.SuggestGroup(id); // List nhóm có thẻ là sách hiện tại
-            ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
-            ViewBag.allUser = Context.Users.Find(_ => true).ToList();
-            return View(book);
         }
 
         //
@@ -231,16 +241,25 @@ namespace BSNCapstone.Controllers
             //DangVH. Create. Start (02/11/2016)
             ViewBag.cloudinary = cloudinary;
             //DangVH. Create. End (02/11/2016)
-            var book = Context.Books.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
-            var selectedPublisherValue = book.Publishers.ToString();
-            var selectedCategoryValue = book.Categories.ToString();
-            var selectedAuthorValue = book.Authors.ToString();
-            ViewBag.publisherId = GetPubsCatsAus(selectedPublisherValue.Split(','), 1);
-            ViewBag.categoryId = GetPubsCatsAus(selectedCategoryValue.Split(','), 2);
-            ViewBag.authorId = GetPubsCatsAus(selectedAuthorValue.Split(','), 3);
-            ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
-            //DangVH. Create. End (14/11/2016)
-            return View(book);
+            var allBook = Context.Books.Find(_ => true).ToList();
+            if (allBook.Where(x => x.Id.Equals(new ObjectId(id))).Any() == false)
+            {
+                ViewBag.errorMessage = "Không có kết quả!";
+                return View("NotFoundError");
+            }
+            else
+            {
+                var book = Context.Books.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+                var selectedPublisherValue = book.Publishers.ToString();
+                var selectedCategoryValue = book.Categories.ToString();
+                var selectedAuthorValue = book.Authors.ToString();
+                ViewBag.publisherId = GetPubsCatsAus(selectedPublisherValue.Split(','), 1);
+                ViewBag.categoryId = GetPubsCatsAus(selectedCategoryValue.Split(','), 2);
+                ViewBag.authorId = GetPubsCatsAus(selectedAuthorValue.Split(','), 3);
+                ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
+                //DangVH. Create. End (14/11/2016)
+                return View(book);
+            }
         }
 
         //

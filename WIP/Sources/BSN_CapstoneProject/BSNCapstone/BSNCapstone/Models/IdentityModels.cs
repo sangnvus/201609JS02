@@ -63,6 +63,8 @@ namespace BSNCapstone.Models
            CreatedTime = DateTime.Now.AddHours(7);
            Interacbook = new List<InteractBookViewModel>();
            Text = "";
+           Avatar = "wehvqsenzprhkwbxeki0";
+           Cover = "yvrjxpo5e4l7blnhopwt";
        }
     }
 

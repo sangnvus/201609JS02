@@ -38,19 +38,53 @@ namespace BSNCapstone.Controllers
             try
             {
                 // Upload image to Cloudinary
-                var uploadResult = ImageUploadHelper.GetUploadResult(pubImage);
-
-                // Save new publisher to MongoDB
-                Publisher publisher = new Publisher()
+                var allPublisher = Context.Publishers.Find(_ => true).ToList();
+                List<string> errorMessage = new List<string>();
+                if (pubName == "" || pubName == null)
                 {
-                    ImagePublicId = uploadResult.PublicId,
-                    Name = pubName,
-                    Address = pubAddress,
-                    PhoneNumber = pubPhoneNo
-                };
-                Context.Publishers.InsertOneAsync(publisher);
+                    var message = "Tên NXB không được để trống";
+                    errorMessage.Add(message);
+                }
+                if (pubAddress == "" || pubAddress == null)
+                {
+                    var message = "Địa chỉ không được để trống";
+                    errorMessage.Add(message);
+                }
+                if (pubImage == null)
+                {
+                    var message = "Ảnh NXB không được để trống";
+                    errorMessage.Add(message);
+                }
+                foreach (var pub in allPublisher)
+                {
+                    if (pub.Name.ToLower().Equals(pubName.ToLower()))
+                    {
+                        var message = "Tên NXB đã tồn tại";
+                        errorMessage.Add(message);
+                    }
+                }
+                if (errorMessage.Count() == 0)
+                {
+                    var uploadResult = ImageUploadHelper.GetUploadResult(pubImage);
 
-                return Json("File Uploaded Successfully!");
+                    // Save new publisher to MongoDB
+                    Publisher publisher = new Publisher()
+                    {
+                        ImagePublicId = uploadResult.PublicId,
+                        Name = pubName,
+                        Address = pubAddress,
+                        PhoneNumber = pubPhoneNo
+                    };
+                    Context.Publishers.InsertOneAsync(publisher);
+
+                    return Json(new {
+                        success = "Thêm nhà xuất bản thành công"
+                    });
+                }
+                else
+                {
+                    return Json(errorMessage, JsonRequestBehavior.AllowGet);
+                }
             }
             catch (Exception ex)
             {
@@ -70,25 +104,55 @@ namespace BSNCapstone.Controllers
         {
             try
             {
-                var filter = Builders<Publisher>.Filter.Eq(x => x.Id, pubId);
-                // Check if user change image or not
-                if (pubEditedImage == null)
+                var allPublisher = Context.Publishers.Find(_ => true).ToList();
+                List<string> errorMessage = new List<string>();
+                if (pubEditedName == "" || pubEditedName == null)
                 {
-                    var update = Builders<Publisher>.Update.
-                    Set(x => x.Name, pubEditedName).Set(x => x.Address, pubEditedAddress).
-                    Set(x => x.PhoneNumber, pubEditedPhoneNo);
-                    Context.Publishers.FindOneAndUpdate(filter, update);
+                    var message = "Tên NXB không được để trống";
+                    errorMessage.Add(message);
+                }
+                if (pubEditedAddress == "" || pubEditedAddress == null)
+                {
+                    var message = "Địa chỉ không được để trống";
+                    errorMessage.Add(message);
+                }
+                foreach (var pub in allPublisher)
+                {
+                    if (pub.Name.ToLower().Equals(pubEditedName.ToLower()) &&
+                        allPublisher.Find(x => x.Name.ToLower().Equals(pubEditedName.ToLower())).Id != pubId)
+                    {
+                        var message = "Tên NXB đã tồn tại";
+                        errorMessage.Add(message);
+                    }
+                }
+                if (errorMessage.Count() == 0)
+                {
+                    var filter = Builders<Publisher>.Filter.Eq(x => x.Id, pubId);
+                    // Check if user change image or not
+                    if (pubEditedImage == null)
+                    {
+                        var update = Builders<Publisher>.Update.
+                        Set(x => x.Name, pubEditedName).Set(x => x.Address, pubEditedAddress).
+                        Set(x => x.PhoneNumber, pubEditedPhoneNo);
+                        Context.Publishers.FindOneAndUpdate(filter, update);
+                    }
+                    else
+                    {
+                        // Upload image to Cloudinary
+                        var uploadResult = ImageUploadHelper.GetUploadResult(pubEditedImage);
+                        var update = Builders<Publisher>.Update.Set(x => x.ImagePublicId, uploadResult.PublicId).
+                        Set(x => x.Name, pubEditedName).Set(x => x.Address, pubEditedAddress).
+                        Set(x => x.PhoneNumber, pubEditedPhoneNo);
+                        Context.Publishers.FindOneAndUpdate(filter, update);
+                    }
+                    return Json(new {
+                        success = "Chỉnh sửa thông tin nhà xuất bản thành công!"
+                    });
                 }
                 else
                 {
-                    // Upload image to Cloudinary
-                    var uploadResult = ImageUploadHelper.GetUploadResult(pubEditedImage);
-                    var update = Builders<Publisher>.Update.Set(x => x.ImagePublicId, uploadResult.PublicId).
-                    Set(x => x.Name, pubEditedName).Set(x => x.Address, pubEditedAddress).
-                    Set(x => x.PhoneNumber, pubEditedPhoneNo);
-                    Context.Publishers.FindOneAndUpdate(filter, update);
+                    return Json(errorMessage, JsonRequestBehavior.AllowGet);
                 }
-                return Json("Chỉnh sửa thông tin nhà xuất bản thành công!");
             }
             catch
             {
