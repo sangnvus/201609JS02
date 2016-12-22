@@ -140,10 +140,16 @@ function viewModel() {
     */
     self.addPost = function () {
         self.error(null);
-        var groupId = $("#btnShare").data('groupid');
-        self.hub.server.addPost({ "Message": self.newMessage(), "GroupId": groupId }).fail(function (err) {
-            self.error(err);
-        });
+        if ($("#txtPostContent").val() == null || $("#txtPostContent").val() == "") {
+            alert("Bạn hãy nhập nội dung bài đăng!");
+        }
+        else
+        {
+            var groupId = $("#btnShare").data('groupid');
+            self.hub.server.addPost({ "Message": self.newMessage(), "GroupId": groupId }).fail(function (err) {
+                self.error(err);
+            });
+        }
     }
 
     /* Desc:

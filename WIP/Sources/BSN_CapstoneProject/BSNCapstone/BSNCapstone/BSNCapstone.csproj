@@ -276,6 +276,7 @@
     <Content Include="Content\DangkySlide-Tgdk.css" />
     <Content Include="Content\datatables.css" />
     <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Layout.css" />
     <Content Include="Content\loader.css" />
     <Content Include="Content\lock-page.css" />

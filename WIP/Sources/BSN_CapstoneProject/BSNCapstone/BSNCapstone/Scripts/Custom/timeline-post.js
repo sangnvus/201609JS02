@@ -139,10 +139,22 @@ function viewModel() {
     */
     self.addPost = function () {
         self.error(null);
-        var bookTag = $("#hiddenBookTag").val();
-        self.hub.server.addPost({ "Message": self.newMessage(), "BookTag": bookTag }).fail(function (err) {
-            self.error(err);
-        });
+        if ($("#txtPostContent").val() == null || $("#txtPostContent").val() == "") {
+            alert("Bạn hãy nhập nội dung bài đăng!");
+        }
+        else {
+            if ($("#hiddenBookTag").val() == null || $("#hiddenBookTag").val() == "") {
+                alert("Bạn cần chọn thẻ sách trước!");
+                $("#txtAutocomplete").val(null);
+            }
+            else {
+                self.hub.server.addPost({ "Message": self.newMessage(), "BookTag": $("#hiddenBookTag").val() }).fail(function (err) {
+                    self.error(err);
+                });
+                $("#txtAutocomplete").val(null);
+                $("#hiddenBookTag").val(null);
+            }
+        }
     }
     /* Desc:
     * concat nối thêm các newPost vào posts (array of objs)

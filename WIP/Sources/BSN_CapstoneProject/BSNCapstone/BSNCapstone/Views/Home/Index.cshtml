@@ -31,7 +31,7 @@
                         <br>
                         <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: 10%;">
                             <ul class="list-group">
-                                <a style="color: #8B3A3A;" href="@Url.Action("Details", "Timeline", new { id = @Model.Id })">@Model.UserName</a>
+                                <a style="color: #8B3A3A; text-align: center" href="@Url.Action("Details", "Timeline", new { id = @Model.Id })">@Model.UserName</a>
                                 <br>
                                 <a style="font-size:13px;" href="@Url.Action("EditProfile", "Timeline", new { id = @Model.Id })">Chỉnh sửa thông tin cá nhân</a>
                             </ul>
@@ -151,8 +151,10 @@
                                     <input class="inputbooktag txt" type="text" id="txtAutocomplete" placeholder="Nhập thẻ sách" 
                                            required>
                                     <input type="hidden" id="hiddenBookTag" />
+                                    <!-- ko if : newMessage != null & newMessage != ""  -->
                                     <input id="btnShare" class="btn btn-default" type="button" value="Đăng"
                                            data-url="/Index/SavePost" data-bind="click: addPost" />
+                                    <!-- /ko -->
                                 </div>
                             </div>
                         </div>
@@ -336,7 +338,7 @@
             @*HaiCM. Create. Start. 19-11-2016*@
             <div class="col-md-3 sidenav">
                 <div style="text-align:center" class="panel-heading" style="padding-right:16%;">
-                    <h5 style="margin-top: 4%;"><strong>XU HƯỚNG HIỆN NAY</strong></h5>
+                    <h5 style="margin-top: 4%;padding-left:26%;"><strong>XU HƯỚNG HIỆN NAY</strong></h5>
                 </div>
                 <!--  Bắt đầu phần trending now -->
                 <div class="row" style="margin-top: 6.5%;">
@@ -401,7 +403,7 @@
                 <!--  Bắt đầu phần tác giả -->
                 <div class="row">
                     <div style="text-align:center" class="panel-heading">
-                        <h5><strong>TÁC GIẢ</strong></h5>
+                        <h5><strong style="padding-left:26%;">TÁC GIẢ</strong></h5>
                     </div>
                     <br />
                     @foreach (var author in randomAuthor)
@@ -537,5 +539,20 @@
                 return false;
             },
         });
+
+        
     })
+    //$("#btnShare").click(function () {
+    //    if ($("#txtPostContent").val() == null || $("#txtPostContent").val() == "") {
+    //        alert("Bạn hãy nhập nội dung bài đăng!");
+    //    }
+    //    else
+    //    {
+    //        if ($("#hiddenBookTag").val() == null || $("#hiddenBookTag").val() == "") {
+    //            alert("Bạn cần chọn thẻ sách trước!");
+    //        }
+    //    }
+    //    $("#txtAutocomplete").val('');
+    //});
+    
 </script>
