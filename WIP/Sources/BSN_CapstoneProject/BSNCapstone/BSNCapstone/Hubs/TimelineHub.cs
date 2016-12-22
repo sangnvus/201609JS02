@@ -35,46 +35,50 @@ namespace BSNCapstone.Hubs
 
             foreach (var item in posts)
             {
-                //mỗi lần loop phải reset listComment để tránh trường hợp khi listPostCmt null -> vẫn lưu listComment cũ -> load cmt sai
-                listComment = new List<object>();
-                //listLike = new List<object>();
-
-                //lấy dữ liệu comment của từng post gán vào listComment
-                listPostCmt = new List<Comment>(item.PostComments);
-                listPostLike = new List<PostLike>(item.PostLikes);
-
-                foreach (var cmt in listPostCmt)
+                if (item.BookTag != null)
                 {
-                    //tạo 1 colection với các biến giống với view để hiển thị comment
-                    var userComment = con.Users.Find(x => x.Id == cmt.CommentedBy).FirstOrDefault();
-                    var comment = new
+                    //mỗi lần loop phải reset listComment để tránh trường hợp khi listPostCmt null -> vẫn lưu listComment cũ -> load cmt sai
+                    listComment = new List<object>();
+                    //listLike = new List<object>();
+
+                    //lấy dữ liệu comment của từng post gán vào listComment
+                    listPostCmt = new List<Comment>(item.PostComments);
+                    listPostLike = new List<PostLike>(item.PostLikes);
+
+                    foreach (var cmt in listPostCmt)
                     {
-                        CommentId = cmt.CommentId,
-                        CommentedBy = userComment.UserName,
-                        CommentedByAvatar = userComment.Avatar,
-                        CommentedDate = cmt.CommentedDate,
-                        Message = cmt.Message,
-                        PostId = cmt.PostId
-                    };
-                    listComment.Add(comment);
-                }
+                        //tạo 1 colection với các biến giống với view để hiển thị comment
+                        var userComment = con.Users.Find(x => x.Id == cmt.CommentedBy).FirstOrDefault();
+                        var comment = new
+                        {
+                            CommentId = cmt.CommentId,
+                            CommentedBy = userComment.UserName,
+                            CommentedByAvatar = userComment.Avatar,
+                            CommentedDate = cmt.CommentedDate,
+                            Message = cmt.Message,
+                            PostId = cmt.PostId
+                        };
+                        listComment.Add(comment);
+                    }
 
-                //tạo 1 colection với các biến giống với view để hiển thị Post và comment
-                var userPost = con.Users.Find(x => x.Id == item.PostedById).FirstOrDefault();
-                var book = con.Books.Find(x => x.Id == item.BookTag).FirstOrDefault();
-                var ret = new
-                {
-                    Message = item.Message,
-                    PostedById = item.PostedById,
-                    PostedByName = userPost.UserName,
-                    PostedByAvatar = userPost.Avatar,
-                    PostedDate = item.PostedDate,
-                    PostId = item.Id,
-                    PostComments = listComment,
-                    NumOfPostLike = listPostLike.Count,
-                    BookTag = book.BookName
-                };
-                listPost.Add(ret);
+                    //tạo 1 colection với các biến giống với view để hiển thị Post và comment
+                    var userPost = con.Users.Find(x => x.Id == item.PostedById).FirstOrDefault();
+                    var book = con.Books.Find(x => x.Id == item.BookTag).FirstOrDefault();
+                    var ret = new
+                    {
+                        Message = item.Message,
+                        PostedById = item.PostedById,
+                        PostedByName = userPost.UserName,
+                        PostedByAvatar = userPost.Avatar,
+                        PostedDate = item.PostedDate,
+                        PostId = item.Id,
+                        PostComments = listComment,
+                        NumOfPostLike = listPostLike.Count,
+                        BookTag = book.BookName
+                    };
+                    listPost.Add(ret);
+                }
+                
             }
 
             // calls loadPosts javascript method at client side.
