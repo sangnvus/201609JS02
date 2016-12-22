@@ -210,8 +210,8 @@
                                             <div class="row">
                                                 <div class="col-md-11">
                                                     <span>
-                                                        <a class="owner-name" data-bind="text : PostedByName"></a>
-                                                        chia sẻ về cuốn sách <a data-bind="text : BookTag"></a>
+                                                        <a class="owner-name" data-bind="text : PostedByName, attr :  {href: 'http://localhost:57185/Timeline/Details/'+PostedById}"></a>
+                                                        chia sẻ về cuốn sách <a data-bind="text : BookTag, attr :  {href: 'http://localhost:57185/Books/Details/'+ BookId}"></a>
                                                     </span>
                                                 <!--Thời gian post bài-->
                                                    <div class="row">
@@ -338,18 +338,15 @@
                                                     <div class="owner-info">
                                                         <div class="row">
                                                             <!--Tên người cmt-->
-                                                            <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>
+                                                            <a class="authorname" data-bind="text: CommentedByName, attr :  {href: 'http://localhost:57185/Timeline/Details/'+CommentedById}"
+                                                               style="padding-left: 4%;"></a>
                                                             <!--Nội dung cmt-->
                                                             <p data-bind="    html: Message" style="word-wrap: break-word; font-size: 15px; margin-left: 5%;"></p>
                                                             <!--Các chức năng tương tác với comment-->
-                                                            <ul class="interaction-list" style="padding-left: 8%;">
-                                                                <li>
-                                                                    <button class="post-interaction-btn" style="color:grey; font-size: 12px">
-                                                                        <i class="glyphicon glyphicon-time"></i>
-                                                                        <span data-bind="text: CommentedDate"></span>
-                                                                    </button>
-                                                                </li>
-                                                            </ul>
+                                                            <div class="col-md-12" style="color:grey; font-size: 12px">
+                                                                <i class="glyphicon glyphicon-time"></i>
+                                                                <span data-bind="text : CommentedDate"></span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -407,7 +404,7 @@
                                         }
                                     }
                                 </span>
-                                <fieldset class="rating" id="@interactBookId" disabled>
+                                <fieldset class="rating" id="@interactBookId"  disabled >
                                     <input type="radio" id="star5" name="hot @interactBook.BookName" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
                                     <input type="radio" id="star4half" name="hot @interactBook.BookName" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
                                     <input type="radio" id="star4" name="hot @interactBook.BookName" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
@@ -420,7 +417,7 @@
                                     <input type="radio" id="starhalf" name="hot @interactBook.BookName" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
                                 </fieldset>
                                 <script>$("#@interactBookId input[value='@interactBook.AvarageRating']").attr('checked', true);</script>
-                                <h5 style="float:left;">@interactBook.RateTime đánh giá</h5>
+                                <br><h5 style="float:left;padding-left:20%;">@interactBook.RateTime đánh giá</h5>
                             </div>
                         </div>
                         interactBookId++;

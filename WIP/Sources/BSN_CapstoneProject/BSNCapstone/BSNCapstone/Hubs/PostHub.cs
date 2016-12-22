@@ -97,8 +97,9 @@ namespace BSNCapstone.Hubs
                         CommentId = cmt.CommentId,
                         // HuyenPT. Update. Start. 06-12-2016
                         //CommentedBy = cmt.CommentedBy,
-                        CommentedBy = userComment.UserName,
+                        CommentedByName = userComment.UserName,
                         // HuyenPT. Update. End. 06-12-2016
+                        CommentedById = cmt.CommentedBy,
                         CommentedByAvatar = userComment.Avatar,
                         CommentedDate = cmt.CommentedDate,
                         Message = cmt.Message,
@@ -128,6 +129,7 @@ namespace BSNCapstone.Hubs
                         PostId = item.Id,
                         PostComments = listComment,
                         NumOfPostLike = listPostLike.Count,
+                        GroupId = item.GroupId,
                         GroupName = group.GroupName
                     };
                     listPost.Add(ret);
@@ -145,6 +147,7 @@ namespace BSNCapstone.Hubs
                         PostId = item.Id,
                         PostComments = listComment,
                         NumOfPostLike = listPostLike.Count,
+                        BookId = item.BookTag,
                         BookTag = book.BookName
                     };
                     listPost.Add(ret);
@@ -193,6 +196,7 @@ namespace BSNCapstone.Hubs
                 PostedById = disPost.PostedById,
                 PostedByAvatar = userPost.Avatar,
                 PostedDate = disPost.PostedDate,
+                BookId = disPost.BookTag,
                 BookTag = book.BookName
             };
             // addPost method is called for caller
@@ -240,9 +244,10 @@ namespace BSNCapstone.Hubs
             var ret = new
             {
                 CommentId = disCmt.CommentId,
+                CommentedById = disCmt.CommentedBy,
                 // HuyenPT. Update. Start. 06-12-2016
                 //CommentedBy = Context.User.Identity.Name,
-                CommentedBy = userComment.UserName,
+                CommentedByName = userComment.UserName,
                 // HuyenPT. Update. End. 06-12-2016
                 CommentedByAvatar = userComment.Avatar,
                 CommentedDate = disCmt.CommentedDate,

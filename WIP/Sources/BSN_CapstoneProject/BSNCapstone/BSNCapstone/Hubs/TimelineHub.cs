@@ -52,7 +52,8 @@ namespace BSNCapstone.Hubs
                         var comment = new
                         {
                             CommentId = cmt.CommentId,
-                            CommentedBy = userComment.UserName,
+                            CommentedById = cmt.CommentedBy,
+                            CommentedByName = userComment.UserName,
                             CommentedByAvatar = userComment.Avatar,
                             CommentedDate = cmt.CommentedDate,
                             Message = cmt.Message,
@@ -74,6 +75,7 @@ namespace BSNCapstone.Hubs
                         PostId = item.Id,
                         PostComments = listComment,
                         NumOfPostLike = listPostLike.Count,
+                        BookId = item.BookTag,
                         BookTag = book.BookName
                     };
                     listPost.Add(ret);
@@ -110,6 +112,7 @@ namespace BSNCapstone.Hubs
                 PostedByAvatar = userPost.Avatar,
                 PostedById = disPost.PostedById,
                 PostedDate = disPost.PostedDate,
+                BookId = disPost.BookTag,
                 BookTag = book.BookName
             };
             Clients.Caller.addPost(ret);
@@ -154,7 +157,8 @@ namespace BSNCapstone.Hubs
             var ret = new
             {
                 CommentId = disCmt.CommentId,
-                CommentedBy = userComment.UserName,
+                CommentedById = disCmt.CommentedBy,
+                CommentedByName = userComment.UserName,
                 CommentedByAvatar = userComment.Avatar,
                 CommentedDate = disCmt.CommentedDate,
                 Message = disCmt.Message,

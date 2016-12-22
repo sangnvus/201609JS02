@@ -103,7 +103,7 @@ function Comment(data) {
     self.CommentId = data.CommentId;
     self.PostId = data.PostId;
     self.Message = ko.observable(data.Message || "");
-    self.CommentedBy = data.CommentedBy || "";
+    self.CommentedById = data.CommentedById || "";
     self.CommentedByAvatar = data.CommentedByAvatar || "";
     self.CommentedByName = data.CommentedByName || "";
     self.CommentedDate = getTimeAgo(data.CommentedDate);

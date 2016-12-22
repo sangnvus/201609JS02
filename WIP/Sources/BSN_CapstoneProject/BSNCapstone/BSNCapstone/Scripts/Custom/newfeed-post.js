@@ -16,7 +16,9 @@ function Post(data, hub) {
     self.PostedByName = data.PostedByName || "";
     self.PostedByAvatar = data.PostedByAvatar || "";
     self.PostedDate = getTimeAgo(data.PostedDate);
+    self.BookId = data.BookId;
     self.BookTag = data.BookTag || "";
+    self.GroupId = data.GroupId;
     self.GroupName = data.GroupName || "";
 
     self.PostComments = ko.observableArray();
@@ -104,7 +106,7 @@ function Comment(data) {
     self.CommentId = data.CommentId;
     self.PostId = data.PostId;
     self.Message = ko.observable(data.Message || "");
-    self.CommentedBy = data.CommentedBy || "";
+    self.CommentedById = data.CommentedById || "";
     self.CommentedByAvatar = data.CommentedByAvatar || "";
     self.CommentedByName = data.CommentedByName || "";
     self.CommentedDate = getTimeAgo(data.CommentedDate);

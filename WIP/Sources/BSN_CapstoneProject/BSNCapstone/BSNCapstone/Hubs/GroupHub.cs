@@ -45,7 +45,8 @@ namespace BSNCapstone.Hubs
                         var comment = new
                         {
                             CommentId = cmt.CommentId,
-                            CommentedBy = userComment.UserName,
+                            CommentedById = cmt.CommentedBy,
+                            CommentedByName = userComment.UserName,
                             CommentedByAvatar = userComment.Avatar,
                             CommentedDate = cmt.CommentedDate,
                             Message = cmt.Message,
@@ -151,7 +152,8 @@ namespace BSNCapstone.Hubs
             var ret = new
             {
                 CommentId = disCmt.CommentId,
-                CommentedBy = userComment.UserName,
+                CommentedById = disCmt.CommentedBy,
+                CommentedByName = userComment.UserName,
                 CommentedByAvatar = userComment.Avatar,
                 CommentedDate = disCmt.CommentedDate,
                 Message = disCmt.Message,

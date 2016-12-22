@@ -179,12 +179,12 @@
                                             <div class="row">
                                                 <div class="col-md-11">
                                                     <span>
-                                                        <a class="owner-name" data-bind="text : PostedByName"></a>
+                                                        <a class="owner-name" data-bind="text : PostedByName, attr :  {href: 'http://localhost:57185/Timeline/Details/'+PostedById}"></a>
                                                         <!-- ko if : GroupName == "" || GroupName == null -->
-                                                        chia sẻ về cuốn sách <a data-bind="text : BookTag"></a>
+                                                        chia sẻ về cuốn sách <a data-bind="text : BookTag, attr :  {href: 'http://localhost:57185/Books/Details/'+BookId}"></a>
                                                         <!-- /ko -->
                                                         <!-- ko if : GroupName!= "" -->
-                                                        đã đăng trong nhóm <a data-bind="text : GroupName"></a>
+                                                        đã đăng trong nhóm <a data-bind="text : GroupName, attr :  {href: 'http://localhost:57185/Groups/'+GroupId + '/MainPage'}"></a>
                                                         <!-- /ko -->
                                                     </span>
                                                     <!--Thời gian post bài-->
@@ -307,20 +307,26 @@
                                                     <div class="owner-avatar">
                                                         <img style="width:40px;height:40px" data-bind="attr: { src:'http://res.cloudinary.com/dsddvwiqz/image/upload/c_fill/' + CommentedByAvatar }" />
                                                     </div>
-
+                                                    
                                                     <div class="owner-info">
                                                         <div class="row">
+                                                           <div class="col-md-11">
+                                                               <span>
+                                                                   <a class="authorname" data-bind="text: CommentedByName, attr :  {href: 'http://localhost:57185/Timeline/Details/'+CommentedById}"
+                                                                      style="padding-left: 4%;"></a>
+                                                                   <!--Nội dung cmt-->
+                                                                   <p style="word-wrap: break-word; font-size: 15px; margin-left: 5%;" data-bind="    html: Message"></p>
 
-                                                            <a class="authorname" data-bind="text: CommentedBy" style="padding-left: 4%;"></a>                                                            <!--Nội dung cmt-->
-                                                            <p style="word-wrap: break-word; font-size: 15px; margin-left: 5%;" data-bind="    html: Message"></p>
-                                                            <ul class="interaction-list" style="padding-left: 5%;">
-                                                                <li>
-                                                                    <button class="post-interaction-btn" style="color:grey; font-size: 12px">
-                                                                        <i class="glyphicon glyphicon-time"></i>
-                                                                        <span data-bind="text: CommentedDate"></span>
-                                                                    </button>
-                                                                </li>
-                                                            </ul>
+                                                               </span>
+                                                              <div class="row">
+                                                                  <div class="col-md-12" style="color:grey; font-size: 12px">
+                                                                      <i class="glyphicon glyphicon-time"></i>
+                                                                      <span data-bind="text : CommentedDate"></span>
+                                                                  </div>
+                                                              </div>
+                                                                                                                     
+                                                           </div>
+                                                           
                                                             
                                                         </div>
                                                     </div>
@@ -542,17 +548,4 @@
 
         
     })
-    //$("#btnShare").click(function () {
-    //    if ($("#txtPostContent").val() == null || $("#txtPostContent").val() == "") {
-    //        alert("Bạn hãy nhập nội dung bài đăng!");
-    //    }
-    //    else
-    //    {
-    //        if ($("#hiddenBookTag").val() == null || $("#hiddenBookTag").val() == "") {
-    //            alert("Bạn cần chọn thẻ sách trước!");
-    //        }
-    //    }
-    //    $("#txtAutocomplete").val('');
-    //});
-    
 </script>
