@@ -47,7 +47,8 @@ namespace BSNCapstone.ControllerHelpers
                 double x = 0;
                 //x = Math.Round((double)(ratingPoint / ratingTime), 1);
                 x = (double)ratingPoint / ratingTime;
-                result = Math.Round(x, 1);
+                //result = Math.Round(x, 1);
+                result = Math.Ceiling(x * 2) / 2;
             }
             return result;
         }
