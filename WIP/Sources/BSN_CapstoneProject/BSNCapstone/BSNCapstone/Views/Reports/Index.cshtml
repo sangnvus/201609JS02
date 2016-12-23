@@ -102,11 +102,11 @@
                                                         var beReportedGroup = allGroup.Find(x => x.Id.Equals(group.ReportedGroupId));
                                                         var creatorId = beReportedGroup.GroupMembers.Find(x => x.RoleInGroup.Equals("creator")).UserId;
                                                     }
-                                                    @allUser.Find(x => x.Id.Equals(creatorId)).UserName;
+                                                    @allUser.Find(x => x.Id.Equals(creatorId)).UserName
                                                 </td>
                                                 <td>@allUser.Find(x => x.Id.Equals(creatorId)).Email</td>
                                                 <td>
-                                                    <button id="LockButton" type="submit" class="btn btn-default" onclick="Lock('@group.ReportedGroupId', '2', '@group.Id')" data-url="@Url.Action("Lock", "Groups")">Xử lí</button>
+                                                    <button id="LockButton" type="submit" class="btn btn-default" onclick="Lock('@group.ReportedGroupId', '3', '@group.Id')" data-url="@Url.Action("Lock", "Groups")">Xử lí</button>
                                                     <button id="RejectButton" type="submit" class="btn btn-default" onclick="Reject('@group.Id')" data-url="@Url.Action("Reject", "Reports")">Từ chối</button>
                                                 </td>
                                             </tr>

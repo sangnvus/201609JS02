@@ -46,42 +46,48 @@ namespace BSNCapstone.Controllers
 
         //
         // GET: /Books/
-        [AllowAnonymous]
-        [Authorize(Roles="Admin")]
         public ActionResult Index(string searchString, string currentFilter, int? page)
         {
-            //DangVH. Create. Start (02/11/2016)
-            ViewBag.currentUser = Context.Users.Find(x => x.Id.Equals(new ObjectId(User.Identity.GetUserId()))).FirstOrDefault();
-            ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
-            //DangVH. Create. End (02/11/2016)
-            ViewBag.allCategories = BooksControllerHelper.ListAllCategory();
-            ViewBag.allPublishers = Context.Publishers.Find(_ => true).ToList();
-            ViewBag.allAuthors = Context.Authors.Find(_ => true).ToList();
-            var books = Context.Books.Find(x => x.Requested.Equals(false)).ToEnumerable();
-            if (searchString != null)
+            if (Context.Users.Find(x => x.Id.Equals(User.Identity.GetUserId())).FirstOrDefault().Roles.Contains("admin"))
             {
-                page = 1;
+                //DangVH. Create. Start (02/11/2016)
+                ViewBag.currentUser = Context.Users.Find(x => x.Id.Equals(new ObjectId(User.Identity.GetUserId()))).FirstOrDefault();
+                ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
+                //DangVH. Create. End (02/11/2016)
+                ViewBag.allCategories = BooksControllerHelper.ListAllCategory();
+                ViewBag.allPublishers = Context.Publishers.Find(_ => true).ToList();
+                ViewBag.allAuthors = Context.Authors.Find(_ => true).ToList();
+                var books = Context.Books.Find(x => x.Requested.Equals(false)).ToEnumerable();
+                if (searchString != null)
+                {
+                    page = 1;
+                }
+                else
+                {
+                    searchString = currentFilter;
+                }
+                ViewBag.currentFilter = searchString;
+                //DangVH. Create. Start (02/11/2016)
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    var authors = Context.Authors.Find(_ => true).ToList().Where(x => x.AuthorName.Contains(searchString)).ToList();
+                    List<string> searchAuthors = new List<string>();
+                    foreach (var author in authors)
+                    {
+                        searchAuthors.Add(author.Id.ToString());
+                    }
+                    books = books.Where(x => x.BookName.Contains(searchString) || x.Authors.Intersect(searchAuthors).Any());
+                }
+                int pageSize = 6;
+                int pageNumber = (page ?? 1);
+                //DangVH. Create. End (02/11/2016)
+                return View(books.ToPagedList(pageNumber, pageSize));
             }
             else
             {
-                searchString = currentFilter;
+                ViewBag.errorMessage = "Bạn không có quyền truy cập vào chức năng này";
+                return View("NotFoundError");
             }
-            ViewBag.currentFilter = searchString;
-            //DangVH. Create. Start (02/11/2016)
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                var authors = Context.Authors.Find(_ => true).ToList().Where(x => x.AuthorName.Contains(searchString)).ToList();
-                List<string> searchAuthors = new List<string>();
-                foreach (var author in authors)
-                {
-                    searchAuthors.Add(author.Id.ToString());
-                }
-                books = books.Where(x => x.BookName.Contains(searchString) || x.Authors.Intersect(searchAuthors).Any());
-            }
-            int pageSize = 6;
-            int pageNumber = (page ?? 1);
-            //DangVH. Create. End (02/11/2016)
-            return View(books.ToPagedList(pageNumber, pageSize));
         }
 
         //
@@ -166,102 +172,116 @@ namespace BSNCapstone.Controllers
 
         //
         // POST: /Books/Create
-        [Authorize(Roles="Admin")]
-        [AllowAnonymous]
         [HttpPost]
         public ActionResult Create(Book book)
         {
-            var listBook = Context.Books.Find(_ => true).ToList();
-            var file = Request.Files[0];
-            if (file.ContentLength == 0)
+            if (Context.Users.Find(x => x.Id.Equals(User.Identity.GetUserId())).FirstOrDefault().Roles.Contains("admin"))
             {
-                ModelState.AddModelError("ImgPublicId", "Ảnh sách bắt buộc");
-            }
-            foreach (var eachBook in listBook)
-            {
-                if (book.BookName != null && eachBook.BookName.ToLower().Equals(book.BookName.ToLower()))
+                var listBook = Context.Books.Find(_ => true).ToList();
+                var file = Request.Files[0];
+                if (file.ContentLength == 0)
                 {
-                    ModelState.AddModelError("BookName", "Tên sách đã tồn tại");
+                    ModelState.AddModelError("ImgPublicId", "Ảnh sách bắt buộc");
                 }
-            } 
-            if (book.Authors.Count == 0)
-            {
-                ModelState.AddModelError("Authors", "Tác giả bắt buộc");
-            }
-            if (book.Categories.Count == 0)
-            {
-                ModelState.AddModelError("Categories", "Thể loại sách bắt buộc");
-            }
-            if (book.Publishers.Count == 0)
-            {
-                ModelState.AddModelError("Publishers", "Nhà xuất bản bắt buộc");
-            }
-            if (ModelState.IsValid)
-            {
-                var uploadResult = ImageUploadHelper.GetUploadResult(file);
-                var addBook = new Book()
+                foreach (var eachBook in listBook)
                 {
-                    BookName = book.BookName,
-                    ReleaseDay = book.ReleaseDay.ToLocalTime(),
-                    Description = book.Description,
-                    ImgPublicId = uploadResult.PublicId,
-                    Requested = false,
-                    Text = CommonHelper.SearchString(book.BookName.ToLower())
-                };
-                foreach (var publisherId in book.Publishers)
+                    if (book.BookName != null && eachBook.BookName.ToLower().Equals(book.BookName.ToLower()))
+                    {
+                        ModelState.AddModelError("BookName", "Tên sách đã tồn tại");
+                    }
+                } 
+                if (book.Authors.Count == 0)
                 {
-                    addBook.Publishers.Add(publisherId);
+                    ModelState.AddModelError("Authors", "Tác giả bắt buộc");
                 }
-                foreach (var categoryId in book.Categories)
+                if (book.Categories.Count == 0)
                 {
-                    addBook.Categories.Add(categoryId);
+                    ModelState.AddModelError("Categories", "Thể loại sách bắt buộc");
                 }
-                foreach (var authorId in book.Authors)
+                if (book.Publishers.Count == 0)
                 {
-                    addBook.Authors.Add(authorId);
+                    ModelState.AddModelError("Publishers", "Nhà xuất bản bắt buộc");
                 }
-                //DangVH. Create. End (14/11/2016)
-                Context.Books.InsertOneAsync(addBook);
-                return RedirectToAction("Index");
-            }
-            //DangVH. Update. Start (14/11/2016)
-            //Book newbook = BooksControllerHelper.GetCheckBoxValues();
-            ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
-            var selectedPublisherValue = book.Publishers.ToString();
-            var selectedCategoryValue = book.Categories.ToString();
-            var selectedAuthorValue = book.Authors.ToString();
-            ViewBag.publisherId = GetPubsCatsAus(selectedPublisherValue.Split(','), 1);
-            ViewBag.categoryId = GetPubsCatsAus(selectedCategoryValue.Split(','), 2);
-            ViewBag.authorId = GetPubsCatsAus(selectedAuthorValue.Split(','), 3);
-            //DangVH. Update. End (14/11/2016)
-            return View(book);
-        }
-
-        //
-        // GET: /Books/Edit/5
-        public ActionResult Edit(string id)
-        {
-            //DangVH. Create. Start (02/11/2016)
-            ViewBag.cloudinary = cloudinary;
-            //DangVH. Create. End (02/11/2016)
-            var allBook = Context.Books.Find(_ => true).ToList();
-            if (allBook.Where(x => x.Id.Equals(new ObjectId(id))).Any() == false)
-            {
-                ViewBag.errorMessage = "Không có kết quả!";
-                return View("NotFoundError");
-            }
-            else
-            {
-                var book = Context.Books.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+                if (ModelState.IsValid)
+                {
+                    var uploadResult = ImageUploadHelper.GetUploadResult(file);
+                    var addBook = new Book()
+                    {
+                        BookName = book.BookName,
+                        ReleaseDay = book.ReleaseDay.ToLocalTime(),
+                        Description = book.Description,
+                        ImgPublicId = uploadResult.PublicId,
+                        Requested = false,
+                        Text = CommonHelper.SearchString(book.BookName.ToLower())
+                    };
+                    foreach (var publisherId in book.Publishers)
+                    {
+                        addBook.Publishers.Add(publisherId);
+                    }
+                    foreach (var categoryId in book.Categories)
+                    {
+                        addBook.Categories.Add(categoryId);
+                    }
+                    foreach (var authorId in book.Authors)
+                    {
+                        addBook.Authors.Add(authorId);
+                    }
+                    //DangVH. Create. End (14/11/2016)
+                    Context.Books.InsertOneAsync(addBook);
+                    return RedirectToAction("Index");
+                }
+                //DangVH. Update. Start (14/11/2016)
+                //Book newbook = BooksControllerHelper.GetCheckBoxValues();
+                ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
                 var selectedPublisherValue = book.Publishers.ToString();
                 var selectedCategoryValue = book.Categories.ToString();
                 var selectedAuthorValue = book.Authors.ToString();
                 ViewBag.publisherId = GetPubsCatsAus(selectedPublisherValue.Split(','), 1);
                 ViewBag.categoryId = GetPubsCatsAus(selectedCategoryValue.Split(','), 2);
                 ViewBag.authorId = GetPubsCatsAus(selectedAuthorValue.Split(','), 3);
-                ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
-                //DangVH. Create. End (14/11/2016)
+                //DangVH. Update. End (14/11/2016)
                 return View(book);
+            }
+            else
+            {
+                ViewBag.errorMessage = "Bạn không có quyền truy cập vào chức năng này";
+                return View("NotFoundError");
+            }
+        }
+
+        //
+        // GET: /Books/Edit/5
+        public ActionResult Edit(string id)
+        {
+            if (Context.Users.Find(x => x.Id.Equals(User.Identity.GetUserId())).FirstOrDefault().Roles.Contains("admin"))
+            {
+                //DangVH. Create. Start (02/11/2016)
+                ViewBag.cloudinary = cloudinary;
+                //DangVH. Create. End (02/11/2016)
+                var allBook = Context.Books.Find(_ => true).ToList();
+                if (allBook.Where(x => x.Id.Equals(id)).Any() == false)
+                {
+                    ViewBag.errorMessage = "Không có kết quả!";
+                    return View("NotFoundError");
+                }
+                else
+                {
+                    var book = Context.Books.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+                    var selectedPublisherValue = book.Publishers.ToString();
+                    var selectedCategoryValue = book.Categories.ToString();
+                    var selectedAuthorValue = book.Authors.ToString();
+                    ViewBag.publisherId = GetPubsCatsAus(selectedPublisherValue.Split(','), 1);
+                    ViewBag.categoryId = GetPubsCatsAus(selectedCategoryValue.Split(','), 2);
+                    ViewBag.authorId = GetPubsCatsAus(selectedAuthorValue.Split(','), 3);
+                    ViewBag.bookNumber = BooksControllerHelper.GetBookNumber();
+                    //DangVH. Create. End (14/11/2016)
+                    return View(book);
+                }
+            }
+            else
+            {
+                ViewBag.errorMessage = "Bạn không có quyền truy cập vào chức năng này";
+                return View("NotFoundError");
             }
         }
 
@@ -396,14 +416,22 @@ namespace BSNCapstone.Controllers
         //GET: /Books/BookRequest
         public ActionResult BookRequest(string searchString)
         {
-            var booksRequested = Context.Books.Find(x => x.Requested.Equals(true)).ToEnumerable();
-            ViewBag.numberOfBook = BooksControllerHelper.GetBookNumber();
-            ViewBag.allCategories = Context.Categories.Find(_ => true).ToList();
-            if (!string.IsNullOrEmpty(searchString))
+            if (Context.Users.Find(x => x.Id.Equals(User.Identity.GetUserId())).FirstOrDefault().Roles.Contains("admin"))
             {
-                booksRequested = booksRequested.Where(x => x.BookName.Contains(searchString) || x.RequestedBookAuthor.Contains(searchString));
+                var booksRequested = Context.Books.Find(x => x.Requested.Equals(true)).ToEnumerable();
+                ViewBag.numberOfBook = BooksControllerHelper.GetBookNumber();
+                ViewBag.allCategories = Context.Categories.Find(_ => true).ToList();
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    booksRequested = booksRequested.Where(x => x.BookName.Contains(searchString) || x.RequestedBookAuthor.Contains(searchString));
+                }
+                return View(booksRequested);
             }
-            return View(booksRequested);
+            else
+            {
+                ViewBag.errorMessage = "Bạn không có quyền truy cập vào chức năng này";
+                return View("NotFoundError");
+            }
         }
 
         [HttpPost]

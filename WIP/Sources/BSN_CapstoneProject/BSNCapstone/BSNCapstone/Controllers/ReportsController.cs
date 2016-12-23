@@ -23,18 +23,26 @@ namespace BSNCapstone.Controllers
         // GET: /Reports/
         public ActionResult Index(int? page)
         {
-            ViewBag.allUser = Context.Users.Find(_ => true).ToList();
-            ViewBag.allGroup = Context.Groups.Find(_ => true).ToList();
-            List<Report> user = Context.Reports.Find(x => x.ReportedUserId != null && x.Status.Equals(true)).ToList();
-            List<Report> group = Context.Reports.Find(x => x.ReportedGroupId != null && x.Status.Equals(true)).ToList();
-            int pageSize = 6;
-            int pageNumber = (page ?? 1);
-            ReportContentViewModel report = new ReportContentViewModel() 
+            if (Context.Users.Find(x => x.Id.Equals(User.Identity.GetUserId())).FirstOrDefault().Roles.Contains("admin"))
             {
-                ListReportUser = user.ToPagedList(pageNumber, pageSize),
-                ListReportGroup = group.ToPagedList(pageNumber, pageSize)
-            };
-            return View(report);
+                ViewBag.allUser = Context.Users.Find(_ => true).ToList();
+                ViewBag.allGroup = Context.Groups.Find(_ => true).ToList();
+                List<Report> user = Context.Reports.Find(x => x.ReportedUserId != null && x.Status.Equals(true)).ToList();
+                List<Report> group = Context.Reports.Find(x => x.ReportedGroupId != null && x.Status.Equals(true)).ToList();
+                int pageSize = 6;
+                int pageNumber = (page ?? 1);
+                ReportContentViewModel report = new ReportContentViewModel() 
+                {
+                    ListReportUser = user.ToPagedList(pageNumber, pageSize),
+                    ListReportGroup = group.ToPagedList(pageNumber, pageSize)
+                };
+                return View(report);
+            }
+            else
+            {
+                ViewBag.errorMessage = "Bạn không có quyền truy cập vào chức năng này";
+                return View("NotFoundError");
+            }
         }
 
         [HttpPost]

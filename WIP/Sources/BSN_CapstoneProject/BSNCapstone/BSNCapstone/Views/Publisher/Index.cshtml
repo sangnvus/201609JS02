@@ -179,7 +179,7 @@
                         @*HuyenPT. Create. End. 02-11-2016*@
                     </tbody>
                 </table>
-                @Html.PagedListPager(Model, page => Url.Action("Index", "Publisher"))
+                @Html.PagedListPager(Model, page => Url.Action("Index", "Publisher", new { page }))
             </div>
         </div>
     </div>

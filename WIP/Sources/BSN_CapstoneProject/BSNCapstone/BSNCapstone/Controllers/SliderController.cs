@@ -14,6 +14,7 @@ using MongoDB.Driver.Builders;
 using BSNCapstone.App_Start;
 using BSNCapstone.ControllerHelpers;
 using PagedList;
+using Microsoft.AspNet.Identity;
 
 namespace BSNCapstone.Controllers
 {
@@ -27,6 +28,8 @@ namespace BSNCapstone.Controllers
         // GET: /Slider/
         public ActionResult Index(int? page)
         {
+            if (Context.Users.Find(x => x.Id.Equals(User.Identity.GetUserId())).FirstOrDefault().Roles.Contains("admin"))
+            {
             //Configuration
             //DangVH. Delete. Start (02/11/2016)
             //Account account = new Account("dsddvwiqz", "677568653855233", "_RCoQNjMqr8Nt7-FAgs5T_guiWM");
@@ -35,11 +38,17 @@ namespace BSNCapstone.Controllers
             //DangVH. Delete. End (02/11/2016)
 
             //List of photos from MongoDB
-            List<Slider> sliders = Context.Sliders.Find(_ => true).ToList();
-            ViewBag.cloudinary = cloudinary;
-            int pageSize = 6;
-            int pageNumber = (page ?? 1);
-            return View(sliders.ToPagedList(pageNumber, pageSize));
+                List<Slider> sliders = Context.Sliders.Find(_ => true).ToList();
+                ViewBag.cloudinary = cloudinary;
+                int pageSize = 6;
+                int pageNumber = (page ?? 1);
+                return View(sliders.ToPagedList(pageNumber, pageSize));
+            }
+            else
+            {
+                ViewBag.errorMessage = "Bạn không có quyền truy cập vào chức năng này";
+                return View("NotFoundError");
+            }
         }
 
         [HttpPost]

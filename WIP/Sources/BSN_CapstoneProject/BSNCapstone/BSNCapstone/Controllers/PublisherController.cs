@@ -14,6 +14,7 @@ using MongoDB.Driver.Builders;
 using BSNCapstone.App_Start;
 using BSNCapstone.ControllerHelpers;
 using PagedList;
+using Microsoft.AspNet.Identity;
 
 namespace BSNCapstone.Controllers
 {
@@ -25,11 +26,19 @@ namespace BSNCapstone.Controllers
         // GET: /Publisher/
         public ActionResult Index(int? page)
         {
-            ViewBag.cloudinary = cloudinary;
-            List<Publisher> publishers = Context.Publishers.Find(_ => true).ToList();
-            int pageSize = 6;
-            int pageNumber = (page ?? 1);
-            return View(publishers.ToPagedList(pageNumber, pageSize));
+            if (Context.Users.Find(x => x.Id.Equals(User.Identity.GetUserId())).FirstOrDefault().Roles.Contains("admin"))
+            {
+                ViewBag.cloudinary = cloudinary;
+                List<Publisher> publishers = Context.Publishers.Find(_ => true).ToList();
+                int pageSize = 6;
+                int pageNumber = (page ?? 1);
+                return View(publishers.ToPagedList(pageNumber, pageSize));
+            }
+            else
+            {
+                ViewBag.errorMessage = "Bạn không có quyền truy cập vào chức năng này";
+                return View("NotFoundError");
+            }
         }
 
         [HttpPost]

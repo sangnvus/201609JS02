@@ -51,25 +51,33 @@ namespace BSNCapstone.Controllers
         // GET: /Groups/
         public ActionResult Index(string searchString, string currentFilter, int? page)
         {
-            ViewBag.groupNumber = GroupsControllerHelper.GetGroupNumber();
-            ViewBag.groupJustCreated = GroupsControllerHelper.GetGroupJustCreatedNumber();
-            var groups = Context.Groups.Find(_ => true).ToEnumerable();
-            if (searchString != null)
+            if (Context.Users.Find(x => x.Id.Equals(User.Identity.GetUserId())).FirstOrDefault().Roles.Contains("admin"))
             {
-                page = 1;
+                ViewBag.groupNumber = GroupsControllerHelper.GetGroupNumber();
+                ViewBag.groupJustCreated = GroupsControllerHelper.GetGroupJustCreatedNumber();
+                var groups = Context.Groups.Find(_ => true).ToEnumerable();
+                if (searchString != null)
+                {
+                    page = 1;
+                }
+                else
+                {
+                    searchString = currentFilter;
+                }
+                ViewBag.currentFilter = searchString;
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    groups = groups.Where(x => x.GroupName.Contains(searchString) || x.Tag.Contains(searchString));
+                }
+                int pageSize = 6;
+                int pageNumber = (page ?? 1);
+                return View(groups.ToPagedList(pageNumber, pageSize));
             }
             else
             {
-                searchString = currentFilter;
+                ViewBag.errorMessage = "Bạn không có quyền truy cập vào chức năng này";
+                return View("NotFoundError");
             }
-            ViewBag.currentFilter = searchString;
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                groups = groups.Where(x => x.GroupName.Contains(searchString) || x.Tag.Contains(searchString));
-            }
-            int pageSize = 6;
-            int pageNumber = (page ?? 1);
-            return View(groups.ToPagedList(pageNumber, pageSize));
         }
 
         //
@@ -118,7 +126,17 @@ namespace BSNCapstone.Controllers
                     else
                     {
                         ViewBag.cloudinary = cloudinary;
-                        ViewBag.currentUser = User.Identity.GetUserId();
+                        var currentUser = User.Identity.GetUserId();
+                        ViewBag.currentUser = currentUser;
+                        var listGroupOfUser = new List<Group>();
+                        foreach (var grp in allGroup)
+                        {
+                            if (grp.GroupMembers.Find(x => x.UserId.Equals(currentUser)) != null)
+                            {
+                                listGroupOfUser.Add(grp);
+                            }
+                        }
+                        ViewBag.listGroupOfUser = listGroupOfUser;
                         ViewBag.allUser = Context.Users.Find(_ => true).ToList();
                         ViewBag.groupReport = GroupReportContent();
                         ViewBag.allAuthor = Context.Authors.Find(_ => true).ToList();
@@ -272,9 +290,19 @@ namespace BSNCapstone.Controllers
                         Tag = group.Tag,
                         GroupType = group.GroupType
                     };
-                    ViewBag.currentUser = User.Identity.GetUserId();
                     ViewBag.groupReport = GroupReportContent();
                     ViewBag.cloudinary = cloudinary;
+                    var currentUser = User.Identity.GetUserId();
+                    ViewBag.currentUser = currentUser;
+                    var listGroupOfUser = new List<Group>();
+                    foreach (var grp in allGroup)
+                    {
+                        if (grp.GroupMembers.Find(x => x.UserId.Equals(currentUser)) != null)
+                        {
+                            listGroupOfUser.Add(grp);
+                        }
+                    }
+                    ViewBag.listGroupOfUser = listGroupOfUser;
                     ViewBag.group = group;
                     var allUser = Context.Users.Find(_ => true).ToList();
                     ViewBag.allUser = allUser;

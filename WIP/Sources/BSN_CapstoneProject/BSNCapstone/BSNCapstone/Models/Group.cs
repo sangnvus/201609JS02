@@ -55,8 +55,8 @@ namespace BSNCapstone.Models
             GroupMembers = new List<GroupMembersViewModel>();
             ListJoinRequest = new List<string>();
             Text = "";
-            AvaImg = "z2hldzqkl09v4lhykccd";
-            CoverImg = "yvrjxpo5e4l7blnhopwt";
+            AvaImg = "avatar_group_default_ezmlg7";
+            CoverImg = "cover_default_xalwid";
         }
     }
 }

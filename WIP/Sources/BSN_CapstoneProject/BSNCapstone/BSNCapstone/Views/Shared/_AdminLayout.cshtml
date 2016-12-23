@@ -20,12 +20,7 @@
     <link rel="stylesheet" href="~/Content/TrangAdmin.css">
     <link rel="stylesheet" href="~/Content/datatables.css">
     <link rel="stylesheet" href="~/Content/pagination.css">
-    @*<link rel="stylesheet" href="~/Content/font-awesome.css">*@
     <link rel="stylesheet" href="~/Content/bootstrap.css">
-    @*<script src="~/Scripts/jquery.dataTables.js"></script>
-    <script src="~/Scripts/datatables-bs3.js"></script>
-    <script src="~/Scripts/advanced-tables-demo.js"></script>
-    <script src="~/Scripts/filter.js"></script>*@
     <script src="~/Scripts/jquery-1.10.2.js"></script>
 </head>
 <body>
@@ -36,18 +31,23 @@
                     <img src="~/Content/Image/logo.png" alt="Bookaholic.com" style="width:160px; height:35px;margin-top:5%" onclick="window.location='@Url.Action("Users", "Account")'">
                 </div>
             </div>
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @style = "margin-top: -29px; float: right;" }))
+            {
+                @Html.AntiForgeryToken()
+                <a href="javascript:document.getElementById('logoutForm').submit()" id="logoutHref" style="color: white; padding: 20px; text-decoration: none; ">Đăng xuất</a>
+            }
         </nav> 
     <div class="col-md-12" style="position: relative; top: 50px;">
         <div class="col-md-2">
             <div class="row">
-                @*<div class="thumbnail">
+                <div class="thumbnail">
                     @cloudinary.Api.UrlImgUp.Format("jpg").Transform(new CloudinaryDotNet.Transformation()
                         .Height(200).Width(200).Crop("fill")).BuildImageTag(user.Avatar,
                             new CloudinaryDotNet.StringDictionary("class=thumbnail inline"))
                     <div class="caption">
                         <h4>@user.UserName.ToUpper()</h4>
                     </div>
-                </div>*@
+                </div>
             </div>
             <div class="btn-group-vertical" role="group" aria-label="group">
                 @*<button type="button" class="btn btn-default" onclick="window.location.href='@Url.Action("Index", "Home")'">Tổng quan</button>*@

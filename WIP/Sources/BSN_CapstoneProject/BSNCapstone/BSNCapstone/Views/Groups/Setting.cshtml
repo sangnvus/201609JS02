@@ -9,6 +9,7 @@
     var cloudinary = (CloudinaryDotNet.Cloudinary)ViewBag.cloudinary;
     var group = (BSNCapstone.Models.Group)ViewBag.group;
     var reportContentList = (List<string>)ViewBag.groupReport;
+    var listGroupOfUser = (List<BSNCapstone.Models.Group>)ViewBag.listGroupOfUser; <!--DANGVH BỔ SUNG-->
 }
 
 <!DOCTYPE html>
@@ -156,28 +157,18 @@
 
                 <div id="nhom" class="text-center" class="panel-heading"><b>NHÓM</b></div>
                 <ul class="list-group">
+                    <!--DANGVH BỔ SUNG-->
+                    @foreach (var grp in listGroupOfUser)
+                    {
                     <li>
-                        <a href="#" data-toggle="tooltip" title="Hội những người yêu thích truyện HarryPotter">
+                        <a href="@Url.Action("MainPage", "Groups", new { id = grp.Id })" data-toggle="tooltip" title="@grp.GroupName">
                             <i class="glyphicon glyphicon-book"></i>
-                            <span>Hội yêu thích truyện Harry Potter</span>
+                            <span>@grp.GroupName</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#" data-toggle="tooltip" title=" Hội hâm mộ Nguyễn Nhật Ánh ">
-                            <i class="glyphicon glyphicon-heart"></i>
-                            <span>Hội yêu thích truyện Harry Potter</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" data-toggle="tooltip" title=" Hội hâm mộ J. K. Rowling ">
-                            <i class="glyphicon glyphicon-heart"></i>
-                            <span>Hội yêu thích truyện Harry Potter</span>
-                        </a>
-                    </li>
+                    }
+                    <!--DANGVH BỔ SUNG-->
                 </ul>
-                <p class="text-right">
-                    <button type="button" class="btn btn-link">Xem thêm</button>
-                </p>
             </div>
             <div class="col-md-10 col-sm-8 col-xs-12 text-left">
                 <div class="container pills">

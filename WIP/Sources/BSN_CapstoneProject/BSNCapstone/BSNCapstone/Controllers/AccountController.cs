@@ -103,28 +103,25 @@ namespace BSNCapstone.Controllers
                 ViewBag.errorMessage = "Hiện tại tài khoản của bạn đang bị khóa";
                 return View("Error");
             }
-            if (user.Roles.FirstOrDefault().Equals("Admin"))
+            // This doen't count login failures towards lockout only two factor authentication
+            // To enable password failures to trigger lockout, change to shouldLockout: true
+            var result = await SignInHelper.PasswordSignIn(model.Login.Email, model.Login.Password, model.Login.RememberMe, shouldLockout: false);
+            if (result == IdentityConfig.SignInStatus.Success && user.Roles.Contains("admin"))
             {
                 return RedirectToAction("Users", "Account");
             }
-            else
+            switch (result)
             {
-                // This doen't count login failures towards lockout only two factor authentication
-                // To enable password failures to trigger lockout, change to shouldLockout: true
-                var result = await SignInHelper.PasswordSignIn(model.Login.Email, model.Login.Password, model.Login.RememberMe, shouldLockout: false);
-                switch (result)
-                {
-                    case IdentityConfig.SignInStatus.Success:
-                        return RedirectToLocal(returnUrl);
-                    case IdentityConfig.SignInStatus.LockedOut:
-                        return View("Lockout");
-                    case IdentityConfig.SignInStatus.RequiresTwoFactorAuthentication:
-                        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl });
-                    case IdentityConfig.SignInStatus.Failure:
-                    default:
-                        ModelState.AddModelError("", "Invalid login attempt.");
-                        return View(model);
-                }
+                case IdentityConfig.SignInStatus.Success:
+                    return RedirectToLocal(returnUrl);
+                case IdentityConfig.SignInStatus.LockedOut:
+                    return View("Lockout");
+                case IdentityConfig.SignInStatus.RequiresTwoFactorAuthentication:
+                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl });
+                case IdentityConfig.SignInStatus.Failure:
+                default:
+                    ModelState.AddModelError("", "Invalid login attempt.");
+                    return View(model);
             }
         }
 
@@ -657,83 +654,101 @@ namespace BSNCapstone.Controllers
             }
         }
         #endregion
-        [AllowAnonymous]
-        [Authorize(Roles="Admin")]
         //GET: /Account/Users
         public ActionResult Users(string searchString, string currentFilter, int? page)
         {
-            var users = Context.Users.Find(x => x.EmailConfirmed.Equals(true)).ToEnumerable();
-            ViewBag.cloudiray = cloudinary;
-            ViewBag.numberUsersJustCreated = users.Where(x => x.CreatedTime.ToShortDateString().Equals(DateTime.Now.ToShortDateString())).Count();
-            if (searchString != null)
+            if (Context.Users.Find(x => x.Id.Equals(User.Identity.GetUserId())).FirstOrDefault().Roles.Contains("admin"))
             {
-                page = 1;
+                var users = Context.Users.Find(x => x.EmailConfirmed.Equals(true)).ToEnumerable();
+                ViewBag.cloudiray = cloudinary;
+                ViewBag.numberUsersJustCreated = users.Where(x => x.CreatedTime.ToShortDateString().Equals(DateTime.Now.ToShortDateString())).Count();
+                if (searchString != null)
+                {
+                    page = 1;
+                }
+                else
+                {
+                    searchString = currentFilter;
+                }
+                ViewBag.currentFilter = searchString;
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    users = users.Where(x => x.UserName.Contains(searchString) || x.Email.Contains(searchString));
+                }
+                int pageSize = 6;
+                int pageNumber = (page ?? 1);
+                return View(users.ToPagedList(pageNumber, pageSize));
             }
             else
             {
-                searchString = currentFilter;
+                ViewBag.errorMessage = "Bạn không có quyền truy cập vào chức năng này";
+                return View("NotFoundError");
             }
-            ViewBag.currentFilter = searchString;
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                users = users.Where(x => x.UserName.Contains(searchString) || x.Email.Contains(searchString));
-            }
-            int pageSize = 6;
-            int pageNumber = (page ?? 1);
-            return View(users.ToPagedList(pageNumber, pageSize));
         }
 
-        [AllowAnonymous]
-        [Authorize(Roles="Admin")]
         //GET: /Account/Authors
         public ActionResult Authors(string searchString, string currentFilter, int? page)
         {
-            var authors = Context.Users.Find(x => x.Roles.Contains("author")).ToEnumerable();
-            ViewBag.numberAuthorsJustCreated = authors.Where(x => x.CreatedTime.ToShortDateString().Equals(DateTime.Now.ToShortDateString())).Count();
-            ViewBag.cloudinary = cloudinary;
-            if (searchString != null)
+            if (Context.Users.Find(x => x.Id.Equals(User.Identity.GetUserId())).FirstOrDefault().Roles.Contains("admin"))
             {
-                page = 1;
+                var authors = Context.Users.Find(x => x.Roles.Contains("author")).ToEnumerable();
+                ViewBag.numberAuthorsJustCreated = authors.Where(x => x.CreatedTime.ToShortDateString().Equals(DateTime.Now.ToShortDateString())).Count();
+                ViewBag.cloudinary = cloudinary;
+                if (searchString != null)
+                {
+                    page = 1;
+                }
+                else
+                {
+                    searchString = currentFilter;
+                }
+                ViewBag.currentFilter = searchString;
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    authors = authors.Where(x => x.UserName.Contains(searchString) || x.Email.Contains(searchString));
+                }
+                int pageSize = 6;
+                int pageNumber = (page ?? 1);
+                return View(authors.ToPagedList(pageNumber, pageSize));
             }
             else
             {
-                searchString = currentFilter;
+                ViewBag.errorMessage = "Bạn không có quyền truy cập vào chức năng này";
+                return View("NotFoundError");
             }
-            ViewBag.currentFilter = searchString;
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                authors = authors.Where(x => x.UserName.Contains(searchString) || x.Email.Contains(searchString));
-            }
-            int pageSize = 6;
-            int pageNumber = (page ?? 1);
-            return View(authors.ToPagedList(pageNumber, pageSize));
         }
 
-        [AllowAnonymous]
-        [Authorize(Roles="Admin")]
         //POST: /Account/AuthorConfirm/id
         [HttpPost]
         public async Task<ActionResult> AuthorConfirm(string id)
         {
-            var update = new BsonDocument("$set", new BsonDocument("AuthorConfirmed", true));
-            var result = await Context.Users.UpdateOneAsync(x => x.Id.Equals(new ObjectId(id)), update);
-            Console.Write(result);
-            var confirmedAuthor = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
-            if (confirmedAuthor.AuthorConfirmed == true)
+            if (Context.Users.Find(x => x.Id.Equals(User.Identity.GetUserId())).FirstOrDefault().Roles.Contains("admin"))
             {
-                var code = await UserManager.GenerateEmailConfirmationTokenAsync(confirmedAuthor.Id);
-                var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = confirmedAuthor.Id, code = code }, protocol: Request.Url.Scheme);
-                await UserManager.SendEmailAsync(confirmedAuthor.Id, "[BookAholic]Xác Nhận Tài Khoản", "Chào mừng bạn đã đến với mạng xã hội sách BookAholic <p> Xin vui lòng click vào link để xác nhận tài khoản của bạn</p>: <a href=\"" + callbackUrl + "\">Xác Nhận tài khoản</a>");
+                var update = new BsonDocument("$set", new BsonDocument("AuthorConfirmed", true));
+                var result = await Context.Users.UpdateOneAsync(x => x.Id.Equals(new ObjectId(id)), update);
+                Console.Write(result);
+                var confirmedAuthor = Context.Users.Find(x => x.Id.Equals(new ObjectId(id))).FirstOrDefault();
+                if (confirmedAuthor.AuthorConfirmed == true)
+                {
+                    var code = await UserManager.GenerateEmailConfirmationTokenAsync(confirmedAuthor.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = confirmedAuthor.Id, code = code }, protocol: Request.Url.Scheme);
+                    await UserManager.SendEmailAsync(confirmedAuthor.Id, "[BookAholic]Xác Nhận Tài Khoản", "Chào mừng bạn đã đến với mạng xã hội sách BookAholic <p> Xin vui lòng click vào link để xác nhận tài khoản của bạn</p>: <a href=\"" + callbackUrl + "\">Xác Nhận tài khoản</a>");
+                }
+                var author = new Author()
+                {
+                    Id = ObjectId.GenerateNewId(),
+                    UserId = id,
+                    AuthorName = confirmedAuthor.UserName,
+                    AuthorImg = confirmedAuthor.Avatar
+                };
+                await Context.Authors.InsertOneAsync(author);
+                return Json("Successed");
             }
-            var author = new Author()
+            else
             {
-                Id = ObjectId.GenerateNewId(),
-                UserId = id,
-                AuthorName = confirmedAuthor.UserName,
-                AuthorImg = confirmedAuthor.Avatar
-            };
-            await Context.Authors.InsertOneAsync(author);
-            return Json("Successed");
+                ViewBag.errorMessage = "Bạn không có quyền truy cập vào chức năng này";
+                return View("NotFoundError");
+            }
         }
     }
 }
